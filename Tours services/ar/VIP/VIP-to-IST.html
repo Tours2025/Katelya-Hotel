@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة السيارات الفاخرة إلى مطار إسطنبول</title>
+    <link rel="stylesheet" href="VIP-to.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="شعار الفندق">
+        </div>
+        <div class="hotel-name">
+            <h1>اسم الفندق</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='VIP-Service.html'">العودة</button>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main dir="rtl">
+        <section id="service-explanation">
+            <h2>خدمة السيارات الفاخرة إلى مطار إسطنبول</h2>
+            <p>
+                نقدم لكم خدمة السيارات الفاخرة من نوع <strong>Mercedes Vito</strong> أو ما يشابهها، لنقل الركاب من الفندق إلى مطار إسطنبول براحة وأناقة. تكلفة الخدمة هي <strong>1750 ليرة تركية</strong>، ويمكنكم الدفع نقدًا بالعملات التالية: 
+                <strong>ليرة تركية (TL)، دولار أمريكي (USD)، أو يورو (EUR)</strong> عند الاستقبال.
+            </p>
+            <p>
+                خدمتنا الخاصة بالسيارات الفاخرة توفر لكم تجربة سفر مريحة وفاخرة مع سائقين محترفين ومعتمدين. سواء كنت مسافرًا للعمل أو السياحة، فإن سياراتنا الفاخرة ستضمن لك رحلة خالية من الإجهاد.
+            </p>
+            <p>
+                إذا كنت تبحث عن خدمة فاخرة ومريحة لرحلتك إلى المطار، فإن خيارنا هو الأفضل لك!
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>احجز الآن</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">التاريخ:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="time">الوقت:</label>
+                        <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                    </div>
+                </div>
+
+                <label for="room">رقم الغرفة:</label>
+                <input type="text" id="room" name="room" required>
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
+                <button type="submit">إرسال</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date and time inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        locale: "ar" // Arabic localization
+                    });
+                    // Time picker
+                    flatpickr("#time", {
+                        enableTime: true, // Enable time picker
+                        noCalendar: true, // Disable date selection
+                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
+                        time_24hr: true, // Use 24-hour format
+                        locale: "ar" // Arabic localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const time = document.getElementById('time').value; // Get the selected time
+                    const room = document.getElementById('room').value;
+                    const notes = document.getElementById('notes').value; // Get the additional notes
+            
+                    // Construct the message
+                    const message = `
+                        New VIP Car Request to IST Airport:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Date: ${date}
+                        Time: ${time}
+                        Room Number: ${room}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <!-- Flatpickr Arabic Localization -->
+            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
+        </section>
+    </main>
+</body>
+</html>

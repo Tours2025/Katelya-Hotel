@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Services</title>
+    <link rel="stylesheet" href="style.css" /> 
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="شعار الفندق">
+        </div>
+        <div class="hotel-name">
+            <h1>اسم الفندق</h1>
+        </div>
+        <nav>
+            <div class="language-switch">
+                <button id="enButton">EN</button>
+                <button id="arButton" class="active">AR</button>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Services Section -->
+        <section id="services">
+            <!-- Taxi Service -->
+            <div class="service-item" onclick="window.location.href='Taxi/Taxi-service.html';">
+                <div class="service-bubble" data-service="taxi"></div>
+                <div class="service-text">
+                    <h2>خدمة سيارات الأجرة</h2>
+                    <p>.احجز سيارة أجرة لراحتك</p>
+                </div>
+            </div>
+
+            <!-- VIP Transfer Service -->
+            <div class="service-item" onclick="window.location.href='VIP/VIP-service.html';">
+                <div class="service-bubble" data-service="transfer"></div>
+                <div class="service-text">
+                    <h2>نقل خاص لكبار الشخصيات</h2>
+                    <p>.استمتع بالسفر الفاخر مع مركباتنا الخاصة</p>
+                </div>
+            </div>
+
+            <div class="service-item disabled">
+                <div class="service-bubble" data-service="tours" onclick="window.location.href='Tours/Tours.html';"></div>
+                <div class="service-text">
+                    <h2>الجولات السياحية</h2>
+                    <p>.استكشف المدينة مع جولاتنا الإرشادية</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            if (language === 'en') {
+                window.location.href = '../en/main.html'; // Redirect to English version
+            } else if (language === 'ar') {
+                window.location.href = '../ar/main.html'; // Redirect to Arabic version
+            }
+        }
+
+        // Add event listeners to language buttons
+        document.getElementById('enButton').addEventListener('click', () => {
+            document.getElementById('enButton').classList.add('active');
+            document.getElementById('arButton').classList.remove('active');
+            redirectToLanguageFolder('en');
+        });
+
+        document.getElementById('arButton').addEventListener('click', () => {
+            document.getElementById('arButton').classList.add('active');
+            document.getElementById('enButton').classList.remove('active');
+            redirectToLanguageFolder('ar');
+        });
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Services</title>
+    <link rel="stylesheet" href="style.css" /> 
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <div class="language-switch">
+                <button id="enButton" class="active">EN</button>
+                <button id="arButton">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="services">
+            <div class="service-item" onclick="window.location.href='Taxi/Taxi-service.html';">
+                <div class="service-bubble" data-service="taxi"></div>
+                <div class="service-text">
+                    <h2>Taxi Service</h2>
+                    <p>Book a taxi for your convenience.</p>
+                </div>
+            </div>
+            <div class="service-item" onclick="window.location.href='VIP/VIP-service.html';">
+                <div class="service-bubble" data-service="transfer"></div>
+                <div class="service-text">
+                    <h2>VIP Private Transfers</h2>
+                    <p>Experience luxury travel with our private vehicles.</p>
+                </div>
+            </div>
+            <!-- Tours Button with Coming Soon Overlay -->
+            <div class="service-item disabled">
+                <div class="service-bubble" data-service="tours"></div>
+                <div class="service-text">
+                    <h2>Tours</h2>
+                    <p>Explore the city with our guided tours.</p>
+                </div>
+                <div class="coming-soon-overlay">
+                    <div class="coming-soon-text">Coming soon...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            if (language === 'en') {
+                window.location.href = '../en/main.html'; // Redirect to English version
+            } else if (language === 'ar') {
+                window.location.href = '../ar/main.html'; // Redirect to Arabic version
+            }
+        }
+
+        // Add event listeners to language buttons
+        document.getElementById('enButton').addEventListener('click', () => {
+            document.getElementById('enButton').classList.add('active');
+            document.getElementById('arButton').classList.remove('active');
+            redirectToLanguageFolder('en');
+        });
+
+        document.getElementById('arButton').addEventListener('click', () => {
+            document.getElementById('arButton').classList.add('active');
+            document.getElementById('enButton').classList.remove('active');
+            redirectToLanguageFolder('ar');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً لك</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Dark gray text for readability */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 20px;
+            direction: rtl; /* Right-to-left text direction */
+        }
+
+        /* Container Styling */
+        .container {
+            width: 600px; /* Fixed width */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 40px;
+            background-color: #fff; /* White background for the card */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            text-align: center; /* Center the text inside the container */
+        }
+        @media (max-width: 640px) {
+    .container {
+        width: 90%; /* Make the container responsive on small screens */
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+}
+
+        /* Heading Styling */
+        h1 {
+            font-size: 2rem; /* Larger font size */
+            color: #28a745; /* Green color for success */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.2rem; /* Slightly larger font size */
+            line-height: 1.6; /* Improve readability */
+            margin-bottom: 30px; /* Space below the paragraph */
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #28a745; /* Green background */
+            color: #fff; /* White text */
+            border: none;
+            padding: 12px 24px; /* Padding for better clickability */
+            font-size: 1rem;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>شكراً لك على الحجز!</h1>
+        <p>سيتم التواصل معك قريبًا لتأكيد الحجز.</p>
+        <button onclick="window.location.href='main.html'">العودة إلى الصفحة الرئيسية</button>
+    </div>
+</body>
+</html>

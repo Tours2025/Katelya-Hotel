@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reliable taxi services to airports and destinations">
+    <title>Taxi Services | Hotel Name</title>
+    <link rel="stylesheet" href="Taxi-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../main.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Services
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <h2 class="service-heading">Taxi Services</h2>
+            <p class="service-description">Experience reliable transportation with our professional taxi services</p>
+        </div>
+        
+        <section id="services">
+            <!-- Istanbul Airport -->
+            <div class="service-item" onclick="window.location.href='Taxi-to-IST.html';">
+                <div class="service-bubble" style="background-image: url('ist-taxi.png');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Istanbul Airport (IST)</h3>
+                    <p class="service-details">Comfortable transportation to/from Istanbul Airport</p>
+                    <div class="service-info">
+                        <span class="service-distance">40 km from city center</span>
+                        <span class="service-time">~45 min travel time</span>
+                    </div>
+                    <button class="book-now-button">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Sabiha Airport -->
+            <div class="service-item" onclick="window.location.href='Taxi-to-SAW.html';">
+                <div class="service-bubble" style="background-image: url('saw-taxi.png');"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Sabiha Gökçen Airport (SAW)</h3>
+                    <p class="service-details">Reliable transportation to/from Sabiha Gökçen Airport</p>
+                    <div class="service-info">
+                        <span class="service-distance">45 km from city center</span>
+                        <span class="service-time">~1 hour travel time</span>
+                    </div>
+                    <button class="book-now-button">Book Now</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="additional-info">
+            <h3>Why Choose Our Taxi Service?</h3>
+            <div class="benefits-container">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏱️</div>
+                    <h4>Punctual Service</h4>
+                    <p>Our drivers are always on time</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Fixed Prices</h4>
+                    <p>No surprises or hidden fees</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚘</div>
+                    <h4>Modern Vehicles</h4>
+                    <p>Clean and comfortable cars</p>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Taxi Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            serviceItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            const benefitItems = document.querySelectorAll('.benefit-item');
+            
+            benefitItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 500 + (index * 150));
+            });
+        });
+    </script>
+</body>
+</html>

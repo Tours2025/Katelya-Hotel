@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our guided tours and excursions">
+    <title>Tours and Excursions | Hotel Name</title>
+    <link rel="stylesheet" href="Tours-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../main.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Services
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2 class="tours-heading">Explore Our Tours</h2>
+        <p class="tours-description">Discover the best experiences with our carefully selected tours</p>
+        
+        <section id="services" class="tours-grid">
+            <div class="tour-card" onclick="navigateTo('Bursa/Bursa-Tour.html');">
+                <div class="service-bubble" data-service="city-tour"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Bursa Day Tour</h3>
+                    <p class="tour-card-description">Explore the historic first capital of the Ottoman Empire</p>
+                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Sapanca/Sapanca-Tour.html');">
+                <div class="service-bubble" data-service="desert-safari"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Sapanca Lake Tour</h3>
+                    <p class="tour-card-description">Visit the beautiful Sapanca Lake and surrounding nature</p>
+                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Prince-Islands/Prince-Islands-Tour.html');">
+                <div class="service-bubble" data-service="historical-tour"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Prince Islands Tour</h3>
+                    <p class="tour-card-description">Escape the city with a ferry ride to the beautiful Prince Islands</p>
+                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Old-City/Old-City-Tour1.html');">
+                <div class="service-bubble" data-service="cultural-experience"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Old City Tour I</h3>
+                    <p class="tour-card-description">Explore the historic peninsula and major landmarks</p>
+                    <p class="tour-card-details"><span class="tour-duration">Half Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Old-City/Old-City-Tour2.html');">
+                <div class="service-bubble" data-service="adventure-tour"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Old City Tour II</h3>
+                    <p class="tour-card-description">Visit the remaining historic sites of Istanbul's old city</p>
+                    <p class="tour-card-details"><span class="tour-duration">Half Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Prince-Islands/Prince-Islands-Tour.html');">
+                <div class="service-bubble" data-service="nature-expedition"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Nature Expedition</h3>
+                    <p class="tour-card-description">Experience the natural beauty of the region</p>
+                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Ephesus/House-Of-Virgin-Mary-Tour.html');">
+                <div class="service-bubble" data-service="food-tour"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Ephesus Tour</h3>
+                    <p class="tour-card-description">Visit the ancient city of Ephesus and House of Virgin Mary</p>
+                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+            
+            <div class="tour-card" onclick="navigateTo('Cappadocia/Cappadocia-Tour.html');">
+                <div class="service-bubble" data-service="photography-tour"></div>
+                <div class="tour-card-content">
+                    <h3 class="tour-card-title">Cappadocia Tour</h3>
+                    <p class="tour-card-description">Experience the magical landscapes of Cappadocia</p>
+                    <p class="tour-card-details"><span class="tour-duration">2 Days</span> • <span class="tour-group-size">Small Group</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Tour Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to navigate to different pages
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+        
+        // Add animation for tour cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const tourCards = document.querySelectorAll('.tour-card');
+            
+            tourCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animation = 'fadeInUp 0.5s forwards';
+                }, index * 100); // Stagger the animations
+            });
+        });
+    </script>
+</body>
+</html>

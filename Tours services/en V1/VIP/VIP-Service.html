@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium VIP transfer services for a luxury travel experience">
+    <title>VIP Private Transfers | Hotel Name</title>
+    <link rel="stylesheet" href="VIP-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../main.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Services
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <h2 class="service-heading">VIP Private Transfers</h2>
+            <p class="service-description">Experience luxury and comfort with our exclusive VIP transfer services</p>
+        </div>
+        
+        <section id="services">
+            <!-- Istanbul Airport -->
+            <div class="service-item" onclick="window.location.href='VIP-to-IST.html';">
+                <div class="service-bubble" style="background-image: url('ist-vip.png');"></div>
+                <div class="service-content">
+                    <div class="service-category">Premium</div>
+                    <h3 class="service-title">Istanbul Airport (IST)</h3>
+                    <p class="service-details">Luxury transportation to/from Istanbul Airport with meet & greet service</p>
+                    <ul class="service-features">
+                        <li>Professional chauffeur</li>
+                        <li>Meet & greet service</li>
+                        <li>Free 60-minute waiting time</li>
+                    </ul>
+                    <div class="price-book-container">
+                        <div class="service-price">Starting from $50</div>
+                        <button class="book-now-button">Book VIP Transfer</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sabiha Airport -->
+            <div class="service-item" onclick="window.location.href='VIP-to-SAW.html';">
+                <div class="service-bubble" style="background-image: url('saw-vip.png');"></div>
+                <div class="service-content">
+                    <div class="service-category">Premium</div>
+                    <h3 class="service-title">Sabiha Gökçen Airport (SAW)</h3>
+                    <p class="service-details">Exclusive transportation to/from Sabiha Gökçen Airport with VIP service</p>
+                    <ul class="service-features">
+                        <li>Professional chauffeur</li>
+                        <li>Meet & greet service</li>
+                        <li>Free 60-minute waiting time</li>
+                    </ul>
+                    <div class="price-book-container">
+                        <div class="service-price">Starting from $55</div>
+                        <button class="book-now-button">Book VIP Transfer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <img src="../hotel-logo.png" alt="Hotel Logo">
+                    <p>Hotel Name</p>
+                </div>
+                <p class="footer-description">Providing luxury transportation and exceptional service for our guests.</p>
+            </div>
+            
+            <div class="footer-links-container">
+                <div class="footer-links-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Taxi Services</a></li>
+                        <li><a href="#">VIP Transfers</a></li>
+                        <li><a href="#">Tours & Excursions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>Email: info@hotelname.com</li>
+                        <li>Phone: +90 XXX XXX XXXX</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate service items
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, index * 300);
+            });
+            
+            // Animate fleet items
+            const fleetItems = document.querySelectorAll('.fleet-item');
+            fleetItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 600 + (index * 200));
+            });
+            
+            // Animate testimonials
+            const testimonialItems = document.querySelectorAll('.testimonial-item');
+            testimonialItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('fade-in');
+                }, 1200 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>

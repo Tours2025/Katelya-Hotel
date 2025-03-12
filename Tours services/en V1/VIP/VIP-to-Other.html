@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Car Service to Any Address in Istanbul</title>
+    <link rel="stylesheet" href="VIP-to.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='VIP-Service.html'">Back</button>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Luxury Car Service to Any Address in Istanbul</h2>
+            <p>
+                We offer luxury car services with vehicles such as the <strong>Mercedes Vito</strong> or similar models, providing comfortable and elegant transportation from the hotel to any address within Istanbul. The cost of the service depends on the destination, and you can pay in cash with the following currencies: 
+                <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon arrival.
+            </p>
+            <p>
+                Our luxury car service ensures a comfortable and stress-free travel experience with professional and certified drivers. Whether you are traveling for business or leisure, our luxury cars will guarantee a smooth and enjoyable journey.
+            </p>
+            <p>
+                If you are looking for a luxurious and comfortable service for your trip to any destination in Istanbul, our option is the best choice for you!
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Book Now</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                    </div>
+                    <div>
+                        <label for="time">Time:</label>
+                        <input type="text" id="time" name="time" placeholder="Select time" required>
+                    </div>
+                </div>
+
+                <label for="room">Room Number:</label>
+                <input type="text" id="room" name="room" required>
+                <label for="address">Destination Address:</label>
+                <input type="text" id="address" name="address" required placeholder="Enter the desired address">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date and time inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        locale: "en" // English localization
+                    });
+                    // Time picker
+                    flatpickr("#time", {
+                        enableTime: true, // Enable time picker
+                        noCalendar: true, // Disable date selection
+                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
+                        time_24hr: true, // Use 24-hour format
+                        locale: "en" // English localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const time = document.getElementById('time').value; // Get the selected time
+                    const room = document.getElementById('room').value;
+                    const address = document.getElementById('address').value; // Get the destination address
+                    const notes = document.getElementById('notes').value; // Get the additional notes
+            
+                    // Construct the message
+                    const message = `
+                        New VIP Car Request to Address in Istanbul:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Date: ${date}
+                        Time: ${time}
+                        Room Number: ${room}
+                        Destination Address: ${address}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

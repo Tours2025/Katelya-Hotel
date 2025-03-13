@@ -1,0 +1,61 @@
+/* Prince Islands Tour specific styles */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../prince-island.png');
+}
+
+/* You can customize specific elements unique to this tour */
+.timeline-content h4 {
+    color: #0066cc;
+}
+
+/* Highlight specific info for the Prince Islands */
+.info-item .info-icon {
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    transform: scale(1.2);
+}
+
+/* Custom styling for the carriage tour highlight */
+.timeline-item:nth-child(4) .timeline-content {
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+/* Emphasize the scenic views at Aya Yorgi */
+.timeline-item:nth-child(5) .timeline-content {
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+/* Customize the timeline markers for the ferry segments */
+.timeline-item:nth-child(2) .timeline-content::before,
+.timeline-item:nth-child(9) .timeline-content::before {
+    background-color: #4a90e2;
+    width: 12px;
+    height: 12px;
+}
+
+/* Add a slight wave animation to emphasize the island nature */
+@keyframes gentle-wave {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.highlight-item:nth-child(2) .highlight-icon {
+    animation: gentle-wave 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Responsive adjustments specific to this tour */
+@media (max-width: 768px) {
+    .tour-description p {
+        font-size: 0.9rem;
+    }
+}

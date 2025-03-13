@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Car Service to Sabiha Gökçen Airport</title>
-    <link rel="stylesheet" href="VIP-to.css" />
+    <meta name="description" content="Book a luxury car service from Hotel Name to Sabiha Gökçen Airport (SAW) with Mercedes Vito or similar vehicles">
+    <title>Luxury Car Service to Sabiha Gökçen Airport | Hotel Name</title>
+    <link rel="stylesheet" href="vip-to-saw.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -18,117 +22,219 @@
             <h1>Hotel Name</h1>
         </div>
         <nav>
-            <button onclick="window.location.href='VIP-Service.html'">Back</button>
+            <button onclick="window.location.href='VIP-Service.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to VIP Services
+            </button>
         </nav>
     </header>
+
     <!-- Main Content -->
     <main>
-        <section id="service-explanation">
-            <h2>Luxury Car Service to Sabiha Gökçen Airport</h2>
-            <p>
-                We offer luxury car services with vehicles such as the <strong>Mercedes Vito</strong> or similar models, providing comfortable and elegant transportation from the hotel to Sabiha Gökçen Airport. The cost of the service is <strong>1750 Turkish Lira</strong>, and you can pay in cash with the following currencies: 
-                <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon arrival.
-            </p>
-            <p>
-                Our luxury car service ensures a comfortable and stress-free travel experience with professional and certified drivers. Whether you are traveling for business or leisure, our luxury cars will guarantee a smooth and enjoyable journey.
-            </p>
-            <p>
-                If you are looking for a luxurious and comfortable service for your trip to Sabiha Gökçen Airport, our option is the best choice for you!
-            </p>
-        </section>
-        <!-- Booking Form Section -->
-        <section id="booking-form">
-            <h3>Book Now</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-                
-                <!-- Date and Time Inputs -->
-                <div class="datetime-container">
-                    <div>
-                        <label for="date">Date:</label>
-                        <input type="text" id="date" name="date" placeholder="Select date" required>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="service-heading">Luxury Car to Sabiha Gökçen Airport (SAW)</h2>
+                <p class="service-description">Premium transportation experience with Mercedes Vito or similar luxury vehicles</p>
+                <div class="service-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">⭐</span>
+                        <span class="highlight-text">Premium Service</span>
                     </div>
-                    <div>
-                        <label for="time">Time:</label>
-                        <input type="text" id="time" name="time" placeholder="Select time" required>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🚘</span>
+                        <span class="highlight-text">Luxury Vehicles</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">💰</span>
+                        <span class="highlight-text">1750 TL fixed price</span>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <label for="room">Room Number:</label>
-                <input type="text" id="room" name="room" required>
-                <label for="notes">Additional Notes:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
-                <button type="submit">Send</button>
-            </form>
-            <script>
-                // Initialize Flatpickr for date and time inputs
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
-                    flatpickr("#date", {
-                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        locale: "en" // English localization
-                    });
-                    // Time picker
-                    flatpickr("#time", {
-                        enableTime: true, // Enable time picker
-                        noCalendar: true, // Disable date selection
-                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
-                        time_24hr: true, // Use 24-hour format
-                        locale: "en" // English localization
-                    });
-                });
+        <div class="content-container">
+            <section id="service-explanation" class="card">
+                <div class="card-header">
+                    <h3>Premium Service Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="service-features">
+                        <div class="feature">
+                            <div class="feature-icon">🚐</div>
+                            <div class="feature-content">
+                                <h4>Mercedes Vito or Similar</h4>
+                                <p>Travel in style with premium luxury vehicles featuring spacious interiors</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">👔</div>
+                            <div class="feature-content">
+                                <h4>Professional Chauffeurs</h4>
+                                <p>Experienced, certified, and well-dressed drivers at your service</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💳</div>
+                            <div class="feature-content">
+                                <h4>Flexible Payment</h4>
+                                <p>Pay in cash with Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-description-text">
+                        <p>
+                            We offer luxury car services with vehicles such as the <strong>Mercedes Vito</strong> or similar models, providing comfortable and elegant transportation from the hotel to Sabiha Gökçen Airport. The cost of the service is <strong>1750 Turkish Lira</strong>, and you can pay in cash with the following currencies: 
+                            <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon arrival.
+                        </p>
+                        <p>
+                            Our luxury car service ensures a comfortable and stress-free travel experience with professional and certified drivers. Whether you are traveling for business or leisure, our luxury cars will guarantee a smooth and enjoyable journey.
+                        </p>
+                        <p>
+                            If you are looking for a luxurious and comfortable service for your trip to Sabiha Gökçen Airport, our option is the best choice for you!
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-                function sendToWhatsApp(event) {
-                    event.preventDefault();
-            
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
-                    const room = document.getElementById('room').value;
-                    const notes = document.getElementById('notes').value; // Get the additional notes
-            
-                    // Construct the message
-                    const message = `
-                        New VIP Car Request to SAW Airport:
-                        Name: ${name}
-                        Phone: ${phone}
-                        Date: ${date}
-                        Time: ${time}
-                        Room Number: ${room}
-                        Additional Notes: ${notes || 'No notes provided'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // Log the message for debugging
-                    console.log('Message:', message);
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
-                    const apiKey = '8055273'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Log the final URL for debugging
-                    console.log('API URL:', url);
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
-                        }
-                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
-                }
-            </script>
-            <!-- Flatpickr JS -->
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        </section>
+            <!-- Booking Form Section -->
+            <section id="booking-form" class="card">
+                <div class="card-header">
+                    <h3>Book Your Luxury Transfer</h3>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+90 XXX XXX XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Pickup Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="text" id="date" name="date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Pickup Time</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">🕒</span>
+                                    <input type="text" id="time" name="time" placeholder="Select time" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room Number <span class="optional-text">(if staying at the hotel)</span></label>
+                            <input type="text" id="room" name="room" placeholder="Your room number (if applicable)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Special requests or information for the driver..."></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="button-icon">✓</span> Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
     </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">VIP Service Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize Flatpickr for date and time inputs
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add animation classes after page load
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            // Date picker
+            flatpickr("#date", {
+                dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                minDate: "today",     // Prevent selecting dates in the past
+                locale: "en"         // English localization
+            });
+            
+            // Time picker
+            flatpickr("#time", {
+                enableTime: true,    // Enable time picker
+                noCalendar: true,    // Disable date selection
+                dateFormat: "H:i",   // Format as 24-hour time (e.g., 14:30)
+                time_24hr: true,     // Use 24-hour format
+                locale: "en",        // English localization
+                minuteIncrement: 15  // 15-minute increments
+            });
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const room = document.getElementById('room').value || 'Not staying at hotel';
+            const notes = document.getElementById('notes').value;
+    
+            // Construct the message
+            const message = `
+                New VIP Car Request to SAW Airport:
+                Name: ${name}
+                Phone: ${phone}
+                Date: ${date}
+                Time: ${time}
+                Room Number: ${room}
+                Additional Notes: ${notes || 'No notes provided'}
+            `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    
+            // CallMeBot API details
+            const phoneNumber = '+905522830176'; // Your WhatsApp number
+            const apiKey = '8055273'; // Your CallMeBot API key
+            const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+    
+            // Open the API link in a new tab
+            const newTab = window.open(url, '_blank');
+    
+            // Close the tab and redirect after 500ms (0.5 seconds)
+            setTimeout(() => {
+                if (newTab) {
+                    newTab.close(); // Close the API tab
+                }
+                
+                // Show success message or redirect
+                window.location.href = "thank-you.html"; // Redirect to the thank-you page
+            }, 500); // Wait 0.5 seconds
+        }
+    </script>
 </body>
 </html>

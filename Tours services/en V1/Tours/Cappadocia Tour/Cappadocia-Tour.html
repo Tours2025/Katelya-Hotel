@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience the magical landscapes of Cappadocia with our guided 2-day tour from Istanbul">
+    <title>Cappadocia Tour | Hotel Name</title>
+    <link rel="stylesheet" href="../Tour-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Cappadocia Tour specific styles */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../cappadocia.png');
+        }
+        
+        /* Highlight hot air balloon in the timeline */
+        .timeline-item:nth-child(3) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Highlight Underground City in the timeline */
+        .timeline-item:nth-child(7) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Add a float animation to the balloon icon */
+        @keyframes float-balloon {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .highlight-item:first-child .highlight-icon {
+            animation: float-balloon 4s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        /* Day separator in itinerary */
+        .day-separator {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+            position: relative;
+        }
+        
+        .day-separator h3 {
+            background-color: #f8f9fa;
+            display: inline-block;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .day-separator:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hotel info box */
+        .hotel-info {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .hotel-info h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .hotel-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Optional activities box */
+        .optional-activities {
+            background-color: #f3f1ff;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #6f42c1;
+        }
+        
+        .optional-activities h4 {
+            margin-top: 0;
+            color: #6f42c1;
+        }
+        
+        .optional-activities ul {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .optional-activities li {
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Tours
+            </button>
+            <div class="language-switch" role="group" aria-label="Language selection">
+                <button id="enButton" class="active" aria-pressed="true">EN</button>
+                <button id="arButton" aria-pressed="false">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="tour-heading">Cappadocia Tour</h2>
+                <p class="tour-tagline">Experience the otherworldly landscapes and rich history of central Turkey</p>
+                <div class="tour-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🎈</span>
+                        <span class="highlight-text">Hot Air Balloons</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✈️</span>
+                        <span class="highlight-text">Flight Included</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🏨</span>
+                        <span class="highlight-text">Cave Hotel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <section class="tour-details card">
+                <div class="card-header">
+                    <h3>Tour Overview</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour-info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-title">Duration</div>
+                            <div class="info-value">2 Days / 1 Night</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-title">Distance</div>
+                            <div class="info-value">~750 km from Istanbul</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✈️</div>
+                            <div class="info-title">Transportation</div>
+                            <div class="info-value">Flight + Bus</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🍽️</div>
+                            <div class="info-title">Meals</div>
+                            <div class="info-value">2 Breakfasts, 2 Lunches, 1 Dinner</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">💳</div>
+                            <div class="info-title">Price</div>
+                            <div class="info-value">295€ per person</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🗣️</div>
+                            <div class="info-title">Languages</div>
+                            <div class="info-value">English, Turkish, Arabic</div>
+                        </div>
+                    </div>
+
+                    <div class="tour-description">
+                        <p>
+                            Cappadocia, with its surreal landscapes, fairy chimneys, and underground cities, offers one of the most unique travel experiences in the world. Our comprehensive two-day tour takes you from Istanbul to this geological wonderland via a comfortable flight, allowing you to maximize your time in this magical region.
+                        </p>
+                        <p>
+                            The highlight of the tour is the optional but highly recommended hot air balloon ride at sunrise, offering breathtaking panoramic views of the otherworldly terrain. You'll also explore ancient underground cities carved by early Christians, visit open-air museums with Byzantine art, and wander through valleys filled with fascinating rock formations shaped by centuries of erosion.
+                        </p>
+                        <p>
+                            Your accommodation is in an authentic cave hotel, providing a truly unique stay experience that complements the region's character. Throughout the tour, our expert guides will share insights into Cappadocia's rich history, geology, and cultural significance, making this not just a visual feast but an educational journey as well.
+                        </p>
+                    </div>
+                    
+                    <div class="optional-activities">
+                        <h4>Optional Activities (Additional Cost)</h4>
+                        <ul>
+                            <li><strong>Hot Air Balloon Ride:</strong> €180 per person (weather permitting)</li>
+                            <li><strong>Turkish Night Show:</strong> €45 per person (includes dinner and drinks)</li>
+                            <li><strong>ATV Sunset Tour:</strong> €35 per person (1 hour)</li>
+                            <li><strong>Horseback Riding:</strong> €40 per person (1 hour)</li>
+                        </ul>
+                        <p>These activities can be booked through your guide upon arrival in Cappadocia.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tour-itinerary card">
+                <div class="card-header">
+                    <h3>Tour Itinerary</h3>
+                </div>
+                <div class="card-body">
+                    <div class="itinerary-timeline">
+                        <div class="day-separator">
+                            <h3>Day 1</h3>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">05:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Pickup</h4>
+                                <p>Early morning pickup from your hotel in Istanbul and transfer to the airport.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">07:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Flight to Cappadocia</h4>
+                                <p>Board your flight to Nevşehir or Kayseri airport (approximately 1.5 hour flight).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">08:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Arrival & North Cappadocia Tour</h4>
+                                <p>Upon arrival, you'll be greeted by your guide and begin exploring the northern region of Cappadocia.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Devrent Valley</h4>
+                                <p>Explore the "Imagination Valley" with its animal-shaped rock formations and lunar landscape.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Pasabag (Monks Valley)</h4>
+                                <p>Visit the remarkable fairy chimneys where hermit monks once lived in carved cells.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Avanos</h4>
+                                <p>Discover the pottery town famous for its red clay from the Kızılırmak River. Watch a pottery demonstration by local artisans.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">01:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Lunch Break</h4>
+                                <p>Enjoy a traditional Turkish lunch at a local restaurant.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">02:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Göreme Open Air Museum</h4>
+                                <p>Explore this UNESCO World Heritage site with its rock-cut churches and magnificent Byzantine frescoes.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Uçhisar Castle</h4>
+                                <p>Visit the highest point in Cappadocia for panoramic views of the surrounding valleys.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">05:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Check-in</h4>
+                                <p>Transfer to your cave hotel for check-in and some free time to relax.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">07:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Dinner</h4>
+                                <p>Enjoy dinner at your hotel restaurant or join an optional Turkish Night Show (additional cost).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hotel-info">
+                            <h4>Accommodation</h4>
+                            <p><strong>Hotel:</strong> Authentic cave hotel in Göreme or nearby town</p>
+                            <p><strong>Includes:</strong> Dinner and breakfast</p>
+                            <p><strong>Amenities:</strong> Wi-Fi, unique cave rooms, terrace with panoramic views</p>
+                        </div>
+                        
+                        <div class="day-separator">
+                            <h3>Day 2</h3>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">05:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hot Air Balloon Ride (Optional)</h4>
+                                <p>Experience the breathtaking sunrise over Cappadocia's valleys from a hot air balloon (additional cost, weather permitting).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">08:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Breakfast</h4>
+                                <p>Return to your hotel for breakfast.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>South Cappadocia Tour</h4>
+                                <p>Check out from your hotel and start exploring the southern region of Cappadocia.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Red Valley</h4>
+                                <p>Hike through this spectacular valley with its red-colored rock formations and hidden cave churches.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Çavuşin Village</h4>
+                                <p>Visit this old Greek village with its cave houses and rock-cut church.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Lunch Break</h4>
+                                <p>Enjoy lunch at a local restaurant.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">02:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Kaymakli Underground City</h4>
+                                <p>Explore this multi-level underground city where thousands of Christians once hid from persecution.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">03:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Pigeon Valley</h4>
+                                <p>Visit this valley named for its numerous pigeon houses carved into the rocks, once used to collect fertilizer for vineyards.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Onyx Workshop</h4>
+                                <p>Visit a local workshop to learn about traditional stone carving and jewelry making.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">05:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Transfer to Airport</h4>
+                                <p>Depart from Cappadocia to Nevşehir or Kayseri Airport.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">08:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Flight to Istanbul</h4>
+                                <p>Board your return flight to Istanbul.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Arrival in Istanbul</h4>
+                                <p>Arrival at Istanbul Airport and transfer back to your hotel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form Section -->
+            <section class="booking-form card">
+                <div class="card-header">
+                    <h3>Book This Tour</h3>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+90 XXX XXX XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Tour Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="text" id="date" name="date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="people">Number of People</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">👥</span>
+                                    <input type="number" id="people" name="people" min="1" max="10" required placeholder="Number of participants">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room Number <span class="optional-text">(if staying at the hotel)</span></label>
+                            <input type="text" id="room" name="room" placeholder="Your room number (if applicable)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Special requests or information..."></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="button-icon">✓</span> Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Tour Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize Flatpickr for date input
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add animation classes after page load
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            // Date picker
+            flatpickr("#date", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                locale: "en"
+            });
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const people = document.getElementById('people').value;
+            const room = document.getElementById('room').value || 'Not staying at hotel';
+            const notes = document.getElementById('notes').value;
+    
+            // Construct the message
+            const message = `
+                New Cappadocia Tour Booking:
+                Name: ${name}
+                Phone: ${phone}
+                Date: ${date}
+                Number of People: ${people}
+                Room Number: ${room}
+                Additional Notes: ${notes || 'No notes provided'}
+            `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    
+            // CallMeBot API details
+            const phoneNumber = '+905522830176'; // Your WhatsApp number
+            const apiKey = '8055273'; // Your CallMeBot API key
+            const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+    
+            // Open the API link in a new tab
+            const newTab = window.open(url, '_blank');
+    
+            // Close the tab and redirect after 500ms (0.5 seconds)
+            setTimeout(() => {
+                if (newTab) {
+                    newTab.close(); // Close the API tab
+                }
+                
+                // Show success message or redirect
+                window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+            }, 500); // Wait 0.5 seconds
+        }
+    </script>
+</body>
+</html>

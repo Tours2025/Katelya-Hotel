@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the beautiful Prince Islands with our guided day tour from Istanbul">
+    <title>Prince Islands Tour | Hotel Name</title>
+    <link rel="stylesheet" href="../Tour-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Tours
+            </button>
+            <div class="language-switch" role="group" aria-label="Language selection">
+                <button id="enButton" class="active" aria-pressed="true">EN</button>
+                <button id="arButton" aria-pressed="false">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="tour-heading">Prince Islands Tour</h2>
+                <p class="tour-tagline">Escape the city and discover the tranquil beauty of Istanbul's island paradise</p>
+                <div class="tour-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">⏱️</span>
+                        <span class="highlight-text">Full Day</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🚢</span>
+                        <span class="highlight-text">Ferry Included</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🏝️</span>
+                        <span class="highlight-text">Island Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <section class="tour-details card">
+                <div class="card-header">
+                    <h3>Tour Overview</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour-info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-title">Duration</div>
+                            <div class="info-value">8-10 hours</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-title">Distance</div>
+                            <div class="info-value">~20 km from Istanbul</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🕙</div>
+                            <div class="info-title">Start Time</div>
+                            <div class="info-value">09:00 AM</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🍽️</div>
+                            <div class="info-title">Meals</div>
+                            <div class="info-value">Lunch included</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">💳</div>
+                            <div class="info-title">Price</div>
+                            <div class="info-value">90€ per person</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🗣️</div>
+                            <div class="info-title">Languages</div>
+                            <div class="info-value">English, Turkish, Arabic</div>
+                        </div>
+                    </div>
+
+                    <div class="tour-description">
+                        <p>
+                            The Prince Islands (Adalar) are a chain of nine small islands in the Sea of Marmara, just off the coast of Istanbul. These car-free sanctuaries offer a peaceful escape from the bustling city with their pristine beaches, historic architecture, and pine forests.
+                        </p>
+                        <p>
+                            Our tour focuses on Büyükada, the largest of the islands, where you'll discover magnificent Ottoman mansions, quiet pine groves, and breathtaking sea views. Travel back in time as you explore the island by horse-drawn carriage or bicycle – no motorized vehicles are allowed, creating a tranquil atmosphere that feels worlds away from Istanbul's energy.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tour-itinerary card">
+                <div class="card-header">
+                    <h3>Tour Itinerary</h3>
+                </div>
+                <div class="card-body">
+                    <div class="itinerary-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Pickup</h4>
+                                <p>Comfortable pickup from your hotel and transfer to Kabataş ferry terminal.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Ferry to Büyükada</h4>
+                                <p>Enjoy a scenic ferry ride across the Sea of Marmara with panoramic views of Istanbul's skyline.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Island Orientation</h4>
+                                <p>Upon arrival, your guide will provide an introduction to the island's history and significance.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Carriage Tour</h4>
+                                <p>Experience the traditional mode of island transportation with a horse-drawn carriage ride through the main highlights.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Visit to Aya Yorgi</h4>
+                                <p>Climb to the historic St. George Monastery (Aya Yorgi) for spectacular panoramic views of the archipelago.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class "timeline-time">01:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Lunch Break</h4>
+                                <p>Enjoy a delicious seafood lunch at a charming local restaurant overlooking the sea.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">02:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Free Time</h4>
+                                <p>Leisure time to explore the island's quaint streets, shops, or relax at one of the beaches.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">03:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Historic Mansions</h4>
+                                <p>Guided walk to see the beautiful Ottoman-era mansions and learn about famous residents of the island.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Return Ferry</h4>
+                                <p>Board the ferry back to Istanbul mainland.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">06:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Drop-off</h4>
+                                <p>Arrive back at your hotel in Istanbul.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form Section -->
+            <section class="booking-form card">
+                <div class="card-header">
+                    <h3>Book This Tour</h3>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+90 XXX XXX XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Tour Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="text" id="date" name="date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="people">Number of People</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">👥</span>
+                                    <input type="number" id="people" name="people" min="1" max="10" required placeholder="Number of participants">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room Number <span class="optional-text">(if staying at the hotel)</span></label>
+                            <input type="text" id="room" name="room" placeholder="Your room number (if applicable)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Special requests or information..."></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="button-icon">✓</span> Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Tour Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize Flatpickr for date input
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add animation classes after page load
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            // Date picker
+            flatpickr("#date", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                locale: "en"
+            });
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const people = document.getElementById('people').value;
+            const room = document.getElementById('room').value || 'Not staying at hotel';
+            const notes = document.getElementById('notes').value;
+    
+            // Construct the message
+            const message = `
+                New Prince Islands Tour Booking:
+                Name: ${name}
+                Phone: ${phone}
+                Date: ${date}
+                Number of People: ${people}
+                Room Number: ${room}
+                Additional Notes: ${notes || 'No notes provided'}
+            `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    
+            // CallMeBot API details
+            const phoneNumber = '+905522830176'; // Your WhatsApp number
+            const apiKey = '8055273'; // Your CallMeBot API key
+            const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+    
+            // Open the API link in a new tab
+            const newTab = window.open(url, '_blank');
+    
+            // Close the tab and redirect after 500ms (0.5 seconds)
+            setTimeout(() => {
+                if (newTab) {
+                    newTab.close(); // Close the API tab
+                }
+                
+                // Show success message or redirect
+                window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+            }, 500); // Wait 0.5 seconds
+        }
+    </script>
+</body>
+</html>

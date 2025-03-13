@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore our guided tours and excursions">
     <title>Tours and Excursions | Hotel Name</title>
-    <link rel="stylesheet" href="tours-style.css">
+    <link rel="stylesheet" href="Tours-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,14 +25,32 @@
             </button>
         </nav>
     </header>
+    <!-- Hero Section (new addition) -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2 class="service-heading">Discover Istanbul & Beyond</h2>
+            <p class="service-description">Explore the history, culture, and natural beauty of Turkey with our expert guides</p>
+            <div class="service-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-icon">🏛️</span>
+                    <span class="highlight-text">Historic Sites</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🌊</span>
+                    <span class="highlight-text">Natural Wonders</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🧳</span>
+                    <span class="highlight-text">Guided Tours</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main>
-        <h2 class="tours-heading">Explore Our Tours</h2>
-        <p class="tours-description">Discover the best experiences with our carefully selected tours</p>
-        
         <section id="services" class="tours-grid">
-            <div class="tour-card" onclick="navigateTo('Bursa/Bursa-Tour.html');">
+            <div class="tour-card" onclick="navigateTo('Bursa Tour/Bursa-Tour.html');">
                 <div class="service-bubble" data-service="city-tour"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Bursa Day Tour</h3>
@@ -41,7 +59,7 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Sapanca/Sapanca-Tour.html');">
+            <div class="tour-card" onclick="navigateTo('Sapanca Tour/Sapanca-Tour.html');">
                 <div class="service-bubble" data-service="desert-safari"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Sapanca Lake Tour</h3>
@@ -50,7 +68,7 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Prince-Islands/Prince-Islands-Tour.html');">
+            <div class="tour-card" onclick="navigateTo('Prince Island/prince-island-tour.html');">
                 <div class="service-bubble" data-service="historical-tour"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Prince Islands Tour</h3>
@@ -59,7 +77,7 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Old-City/Old-City-Tour1.html');">
+            <div class="tour-card" onclick="navigateTo('Old City Tour I/Old-City-Tour1.html');">
                 <div class="service-bubble" data-service="cultural-experience"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Old City Tour I</h3>
@@ -68,7 +86,7 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Old-City/Old-City-Tour2.html');">
+            <div class="tour-card" onclick="navigateTo('Old City Tour II/old-city-tour2.html');">
                 <div class="service-bubble" data-service="adventure-tour"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Old City Tour II</h3>
@@ -77,16 +95,16 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Prince-Islands/Prince-Islands-Tour.html');">
-                <div class="service-bubble" data-service="nature-expedition"></div>
+            <div class="tour-card" onclick="navigateTo('Pamukkale/pamukkale-tour.html');">
+                <div class="service-bubble" data-service="pamukkale-tour"></div>
                 <div class="tour-card-content">
-                    <h3 class="tour-card-title">Nature Expedition</h3>
-                    <p class="tour-card-description">Experience the natural beauty of the region</p>
-                    <p class="tour-card-details"><span class="tour-duration">Full Day</span> • <span class="tour-group-size">Small Group</span></p>
+                    <h3 class="tour-card-title">Pamukkale Tour</h3>
+                    <p class="tour-card-description">Experience the stunning white terraces of Pamukkale</p>
+                    <p class="tour-card-details"><span class="tour-duration">2 Days</span> • <span class="tour-group-size">Small Group</span></p>
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Ephesus/House-Of-Virgin-Mary-Tour.html');">
+            <div class="tour-card" onclick="navigateTo('Ephesus Tour/House-Of-Virgin-Mary-Tour.html');">
                 <div class="service-bubble" data-service="food-tour"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Ephesus Tour</h3>
@@ -95,7 +113,7 @@
                 </div>
             </div>
             
-            <div class="tour-card" onclick="navigateTo('Cappadocia/Cappadocia-Tour.html');">
+            <div class="tour-card" onclick="navigateTo('Cappadocia Tour/Cappadocia-Tour.html');">
                 <div class="service-bubble" data-service="photography-tour"></div>
                 <div class="tour-card-content">
                     <h3 class="tour-card-title">Cappadocia Tour</h3>

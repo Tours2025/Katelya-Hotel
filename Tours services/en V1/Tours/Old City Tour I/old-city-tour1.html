@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Istanbul's historic peninsula with our guided Old City Tour I">
+    <title>Old City Tour I | Hotel Name</title>
+    <link rel="stylesheet" href="../Tour-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Old City Tour I specific styles */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../old-city-tour1.png');
+        }
+        
+        /* Highlight Hagia Sophia in the timeline */
+        .timeline-item:nth-child(2) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Highlight Blue Mosque in the timeline */
+        .timeline-item:nth-child(3) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Add a subtle pulse animation to the mosque icon */
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .highlight-item:nth-child(1) .highlight-icon {
+            animation: subtle-pulse 3s infinite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Tours
+            </button>
+            <div class="language-switch" role="group" aria-label="Language selection">
+                <button id="enButton" class="active" aria-pressed="true">EN</button>
+                <button id="arButton" aria-pressed="false">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="tour-heading">Old City Tour I</h2>
+                <p class="tour-tagline">Discover the historic peninsula and iconic landmarks of Istanbul</p>
+                <div class="tour-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🕌</span>
+                        <span class="highlight-text">Iconic Monuments</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">⏱️</span>
+                        <span class="highlight-text">Half Day</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">👥</span>
+                        <span class="highlight-text">Small Group</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <section class="tour-details card">
+                <div class="card-header">
+                    <h3>Tour Overview</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour-info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-title">Duration</div>
+                            <div class="info-value">4-5 hours</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-title">Location</div>
+                            <div class="info-value">Historic Peninsula</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🕙</div>
+                            <div class="info-title">Start Time</div>
+                            <div class="info-value">09:00 AM</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🚶</div>
+                            <div class="info-title">Walking Level</div>
+                            <div class="info-value">Moderate</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">💳</div>
+                            <div class="info-title">Price</div>
+                            <div class="info-value">80€ per person</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🗣️</div>
+                            <div class="info-title">Languages</div>
+                            <div class="info-value">English, Turkish, Arabic</div>
+                        </div>
+                    </div>
+
+                    <div class="tour-description">
+                        <p>
+                            Step back in time as you explore Istanbul's historic peninsula, the heart of ancient Constantinople. Our Old City Tour I takes you through the most significant landmarks of Istanbul's UNESCO World Heritage area, where empires rose and fell over millennia.
+                        </p>
+                        <p>
+                            Led by our expert guides, you'll discover the architectural marvels of Hagia Sophia, the Blue Mosque, and Topkapi Palace - each telling a unique story of Istanbul's rich history. Walk through the impressive grounds of these remarkable structures as your guide shares fascinating historical insights and cultural context.
+                        </p>
+                        <p>
+                            This half-day tour is perfect for first-time visitors to Istanbul who want to experience the city's most iconic historical sites with knowledgeable guidance. Our small group format ensures a personalized experience and plenty of opportunities to ask questions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tour-itinerary card">
+                <div class="card-header">
+                    <h3>Tour Itinerary</h3>
+                </div>
+                <div class="card-body">
+                    <div class="itinerary-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Pickup</h4>
+                                <p>Pickup from your hotel in the city center or meeting at a central location.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hagia Sophia</h4>
+                                <p>Visit the magnificent Hagia Sophia, once a church, then a mosque, now a museum. Marvel at its enormous dome and stunning Byzantine mosaics.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:45 AM</div>
+                            <div class="timeline-content">
+                                <h4>Blue Mosque (Sultan Ahmed Mosque)</h4>
+                                <p>Explore this stunning 17th-century mosque known for its beautiful blue Iznik tiles and six minarets.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:45 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hippodrome of Constantinople</h4>
+                                <p>Walk through the ancient Hippodrome and see the Obelisk of Theodosius, Serpent Column, and German Fountain.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">12:15 PM</div>
+                            <div class="timeline-content">
+                                <h4>Topkapi Palace</h4>
+                                <p>Visit the primary residence of Ottoman sultans for 400 years, including the Treasury, Imperial Harem, and beautiful courtyards.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">01:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Return Transfer</h4>
+                                <p>Return to your hotel or enjoy recommendations for local dining options in the area.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form Section -->
+            <section class="booking-form card">
+                <div class="card-header">
+                    <h3>Book This Tour</h3>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+90 XXX XXX XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Tour Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="text" id="date" name="date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="people">Number of People</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">👥</span>
+                                    <input type="number" id="people" name="people" min="1" max="10" required placeholder="Number of participants">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room Number <span class="optional-text">(if staying at the hotel)</span></label>
+                            <input type="text" id="room" name="room" placeholder="Your room number (if applicable)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Special requests or information..."></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="button-icon">✓</span> Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Tour Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize Flatpickr for date input
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add animation classes after page load
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            // Date picker
+            flatpickr("#date", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                locale: "en"
+            });
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const people = document.getElementById('people').value;
+            const room = document.getElementById('room').value || 'Not staying at hotel';
+            const notes = document.getElementById('notes').value;
+    
+            // Construct the message
+            const message = `
+                New Old City Tour I Booking:
+                Name: ${name}
+                Phone: ${phone}
+                Date: ${date}
+                Number of People: ${people}
+                Room Number: ${room}
+                Additional Notes: ${notes || 'No notes provided'}
+            `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    
+            // CallMeBot API details
+            const phoneNumber = '+905522830176'; // Your WhatsApp number
+            const apiKey = '8055273'; // Your CallMeBot API key
+            const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+    
+            // Open the API link in a new tab
+            const newTab = window.open(url, '_blank');
+    
+            // Close the tab and redirect after 500ms (0.5 seconds)
+            setTimeout(() => {
+                if (newTab) {
+                    newTab.close(); // Close the API tab
+                }
+                
+                // Show success message or redirect
+                window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+            }, 500); // Wait 0.5 seconds
+        }
+    </script>
+</body>
+</html>

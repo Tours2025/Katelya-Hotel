@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visit the ancient city of Ephesus and House of Virgin Mary with our guided tour from Istanbul">
+    <title>Ephesus & House of Virgin Mary Tour | Hotel Name</title>
+    <link rel="stylesheet" href="../Tour-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Ephesus Tour specific styles */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../house-of-virgin-mary-tour.png');
+        }
+        
+        /* Highlight Ephesus in the timeline */
+        .timeline-item:nth-child(4) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Highlight House of Virgin Mary in the timeline */
+        .timeline-item:nth-child(3) .timeline-content {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+        
+        /* Add a subtle glow animation to the history icon */
+        @keyframes subtle-glow {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .highlight-item:first-child .highlight-icon {
+            animation: subtle-glow 3s infinite;
+        }
+        
+        /* Day separator in itinerary */
+        .day-separator {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+            position: relative;
+        }
+        
+        .day-separator h3 {
+            background-color: #f8f9fa;
+            display: inline-block;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .day-separator:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hotel info box */
+        .hotel-info {
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .hotel-info h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .hotel-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Note box for important information */
+        .tour-note {
+            background-color: #fff8e6;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .tour-note h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+        
+        .tour-note p {
+            margin-bottom: 0.5rem;
+            color: #6c5701;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'" class="back-button">
+                <span class="arrow-icon">←</span> Back to Tours
+            </button>
+            <div class="language-switch" role="group" aria-label="Language selection">
+                <button id="enButton" class="active" aria-pressed="true">EN</button>
+                <button id="arButton" aria-pressed="false">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="tour-heading">Ephesus & House of Virgin Mary Tour</h2>
+                <p class="tour-tagline">Journey through ancient history and sacred sites in a single day</p>
+                <div class="tour-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🏛️</span>
+                        <span class="highlight-text">Ancient Ruins</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✈️</span>
+                        <span class="highlight-text">Flight Included</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✝️</span>
+                        <span class="highlight-text">Sacred Sites</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <section class="tour-details card">
+                <div class="card-header">
+                    <h3>Tour Overview</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour-info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-title">Duration</div>
+                            <div class="info-value">Full Day (12-14 hours)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-title">Distance</div>
+                            <div class="info-value">~550 km from Istanbul</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✈️</div>
+                            <div class="info-title">Transportation</div>
+                            <div class="info-value">Flight + Bus</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🍽️</div>
+                            <div class="info-title">Meals</div>
+                            <div class="info-value">Lunch included</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">💳</div>
+                            <div class="info-title">Price</div>
+                            <div class="info-value">225€ per person</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🗣️</div>
+                            <div class="info-title">Languages</div>
+                            <div class="info-value">English, Turkish, Arabic</div>
+                        </div>
+                    </div>
+
+                    <div class="tour-description">
+                        <p>
+                            Experience two of Turkey's most significant historical and religious sites in one unforgettable day. Our Ephesus and House of Virgin Mary tour takes you from Istanbul to the Aegean coast via a comfortable morning flight to maximize your time at these remarkable destinations.
+                        </p>
+                        <p>
+                            Ephesus was one of the most important cities of the ancient world and today stands as one of the best-preserved Roman cities in the Mediterranean. Walk through its marble streets, admire the facade of the Library of Celsus, and imagine the spectacles once held in its Great Theater.
+                        </p>
+                        <p>
+                            The nearby House of Virgin Mary is believed to be where the mother of Jesus spent her final years. This modest stone house, now a chapel, is a place of pilgrimage for both Christians and Muslims and offers a peaceful atmosphere surrounded by olive groves.
+                        </p>
+                        <p>
+                            Our expert guides will bring these sites to life with fascinating historical and cultural context, making this tour not just a journey through space but also through time. At the end of this enriching day, you'll return to Istanbul with memories to last a lifetime.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tour-itinerary card">
+                <div class="card-header">
+                    <h3>Tour Itinerary</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour-note">
+                        <h4>Important Note</h4>
+                        <p>This tour involves an early morning departure and late evening return to maximize your experience at these distant but magnificent sites. Comfortable walking shoes are essential as there is considerable walking on marble and stone surfaces at Ephesus.</p>
+                    </div>
+                    
+                    <div class="itinerary-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Hotel Pickup</h4>
+                                <p>Early morning pickup from your hotel in Istanbul and transfer to the airport.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">06:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Flight to Izmir</h4>
+                                <p>Board your flight to Izmir (approximately 1 hour flight time).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>House of Virgin Mary</h4>
+                                <p>Visit the sacred site where Mary is believed to have spent her final days. Explore the modest stone house and drink from the healing spring.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Ancient City of Ephesus</h4>
+                                <p>Explore the remarkably preserved ancient city with its Library of Celsus, Great Theater, Temple of Hadrian, and marble streets.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">01:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Lunch Break</h4>
+                                <p>Enjoy a delicious Turkish lunch at a selected local restaurant.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">02:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Temple of Artemis</h4>
+                                <p>Visit the site of the Temple of Artemis, one of the Seven Wonders of the Ancient World.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">03:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Traditional Carpet Workshop</h4>
+                                <p>Visit a traditional Turkish carpet workshop to learn about this ancient art form (includes shopping opportunity).</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:00 PM</div>
+                            <div class="timeline-content">
+                                <h4>Transfer to Airport</h4>
+                                <p>Transfer to Izmir Airport for your return flight.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">06:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Flight to Istanbul</h4>
+                                <p>Board your return flight to Istanbul.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">07:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Arrival in Istanbul</h4>
+                                <p>Arrival at Istanbul Airport and transfer back to your hotel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form Section -->
+            <section class="booking-form card">
+                <div class="card-header">
+                    <h3>Book This Tour</h3>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+90 XXX XXX XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Tour Date</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="text" id="date" name="date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="people">Number of People</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">👥</span>
+                                    <input type="number" id="people" name="people" min="1" max="10" required placeholder="Number of participants">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="room">Room Number <span class="optional-text">(if staying at the hotel)</span></label>
+                            <input type="text" id="room" name="room" placeholder="Your room number (if applicable)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Special requests or information..."></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="button-icon">✓</span> Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Tour Booking Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize Flatpickr for date input
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add animation classes after page load
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
+            
+            // Date picker
+            flatpickr("#date", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                locale: "en"
+            });
+        });
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const people = document.getElementById('people').value;
+            const room = document.getElementById('room').value || 'Not staying at hotel';
+            const notes = document.getElementById('notes').value;
+    
+            // Construct the message
+            const message = `
+                New Ephesus & House of Virgin Mary Tour Booking:
+                Name: ${name}
+                Phone: ${phone}
+                Date: ${date}
+                Number of People: ${people}
+                Room Number: ${room}
+                Additional Notes: ${notes || 'No notes provided'}
+            `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    
+            // CallMeBot API details
+            const phoneNumber = '+905522830176'; // Your WhatsApp number
+            const apiKey = '8055273'; // Your CallMeBot API key
+            const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+    
+            // Open the API link in a new tab
+            const newTab = window.open(url, '_blank');
+    
+            // Close the tab and redirect after 500ms (0.5 seconds)
+            setTimeout(() => {
+                if (newTab) {
+                    newTab.close(); // Close the API tab
+                }
+                
+                // Show success message or redirect
+                window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+            }, 500); // Wait 0.5 seconds
+        }
+    </script>
+</body>
+</html>

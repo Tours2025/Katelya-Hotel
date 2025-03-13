@@ -591,7 +591,45 @@ footer {
         transform: translateY(0);
     }
 }
-/* Sapanca-specific styles */
+
+/* Tour-specific hero section background images */
+
+/* Bursa Tour styles */
+.Bursa-Tour .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Bursa Tour/bursa.png');
+}
+
+/* Sapanca Tour styles */
 .Sapanca-Tour .hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../sapanca.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Sapanca Tour/sapanca.png');
+}
+
+/* Prince Islands Tour styles */
+.Prince-Islands-Tour .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('prince Island/prince-island.png');
+}
+
+/* Old City Tour I styles */
+.Old-City-Tour1 .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Old City Tour I/old-city-tour1.png');
+}
+
+/* Old City Tour II styles */
+.Old-City-Tour2 .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Old City Tour II/old-city-tour2.png');
+}
+
+/* Pamukkale Tour styles */
+.Pamukkale-Tour .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Pamukkale/pamukkale.png');
+}
+
+/* Ephesus Tour styles */
+.Ephesus-Tour .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Ephesus Tour/house-of-virgin-mary-tour.png');
+}
+
+/* Cappadocia Tour styles */
+.Cappadocia-Tour .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Cappadocia Tour/cappadocia.png');
 }

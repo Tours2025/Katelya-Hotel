@@ -3,75 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You</title>
+    <meta name="description" content="Thank you for your booking at Hotel Name">
+    <title>Thank You | Hotel Name</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* General Reset */
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Variables */
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #004499;
+            --secondary-color: #28a745;
+            --secondary-dark: #218838;
+            --dark-bg: #15171c;
+            --light-bg: #f8f9fb;
+            --card-bg: #ffffff;
+            --text-dark: #222222;
+            --text-medium: #555555;
+            --text-light: #888888;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
         /* Body Styling */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9; /* Light gray background */
-            color: #333; /* Dark gray text for readability */
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Full viewport height */
+            background-color: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .hotel-name {
             text-align: center;
-            padding: 20px;
         }
 
-        /* Container Styling */
-        .container {
-            max-width: 600px; /* Limit width for better readability */
-            margin: 0 auto; /* Center the container */
-            padding: 40px;
-            background-color: #fff; /* White background for the card */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        header .hotel-name h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #fff;
+            font-weight: 700;
         }
 
-        /* Heading Styling */
-        h1 {
-            font-size: 2rem; /* Larger font size */
-            color: #28a745; /* Green color for success */
-            margin-bottom: 20px; /* Space below the heading */
+        /* Main Content Styling */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
         }
 
-        /* Paragraph Styling */
-        p {
-            font-size: 1.2rem; /* Slightly larger font size */
-            line-height: 1.6; /* Improve readability */
-            margin-bottom: 30px; /* Space below the paragraph */
+        /* Thank You Card Styling */
+        .thank-you-card {
+            max-width: 650px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
         }
 
-        /* Button Styling */
-        button {
-            background-color: #28a745; /* Green background */
-            color: #fff; /* White text */
-            border: none;
-            padding: 12px 24px; /* Padding for better clickability */
+        .card-header {
+            background-color: var(--primary-color);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header h2 {
+            color: white;
+            font-size: 2rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .shape-1 {
+            top: -20px;
+            left: -20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .shape-2 {
+            bottom: -30px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .success-icon {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .card-body {
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .message {
+            margin-bottom: 2rem;
+        }
+
+        .message h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .message p {
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .next-steps {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .next-steps h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .next-steps ul {
+            list-style-type: none;
+        }
+
+        .next-steps li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-medium);
+        }
+
+        .next-steps li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 500;
             font-size: 1rem;
-            border-radius: 5px; /* Rounded corners */
+            text-decoration: none;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Smooth hover effect */
+            transition: var(--transition);
         }
 
-        button:hover {
-            background-color: #218838; /* Darker green on hover */
+        .primary-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .primary-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(0, 102, 204, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .card-header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.75rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .next-steps {
+                padding: 1rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .message h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Thank You for Your Booking!</h1>
-        <p>We will contact you shortly to confirm your booking.</p>
-        <button onclick="window.location.href='main.html'">Back to Home</button>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="thank-you-card">
+            <div class="card-header">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="success-icon">✓</div>
+                <h2>Thank You for Your Booking!</h2>
+                <p>Your request has been successfully submitted</p>
+            </div>
+            <div class="card-body">
+                <div class="message">
+                    <h3>What Happens Next?</h3>
+                    <p>Our team will process your booking and get back to you shortly via phone or WhatsApp to confirm the details.</p>
+                    <p>Please check your phone for updates in the next 2-4 hours during business hours.</p>
+                </div>
+                
+                <div class="next-steps">
+                    <h4>Next Steps:</h4>
+                    <ul>
+                        <li>A confirmation message will be sent to your phone</li>
+                        <li>Our team will check availability for your requested date</li>
+                        <li>You'll receive details about payment options</li>
+                        <li>We'll provide all information needed for your tour</li>
+                    </ul>
+                </div>
+                
+                <div class="buttons">
+                    <a href="Tours/Tours-service.html" class="button secondary-button">View More Tours</a>
+                    <a href="main.html" class="button primary-button">Back to Services</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -116,46 +116,41 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 298.8px;
-    background-color: #fff; /* Frame background */
-    border: 2px solid #000; /* Frame border */
-    border-radius: 10px; /* Rounded corners for the frame */
-    padding: 10px; /* Padding around the bubble and text */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
 .service-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Hover effect */
 }
 
 .service-bubble {
-    background-color: #fff; /* Bubble background */
-    border: none; /* Remove bubble border since the frame handles it */
-    border-radius: 10px; /* Match the frame's rounded corners */
     width: 100%;
-    height: 297.4px; /* Adjusted height */
-    overflow: hidden; /* Ensures the SVG doesn't overflow the bubble */
-    background-size: cover; /* Ensure the image covers the bubble */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating */
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
 }
+
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('10711556_2082.svg'); /* Use the SVG file */
+    background-image: url('taxi-service.png'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('transfer-background.svg'); /* Use the new SVG file */
+    background-image: url('vip-service.png'); /* Use the new SVG file */
 }
 
-/* Tours Service Background (Placeholder) */
+/* Tours Service Background */
 .service-bubble[data-service="tours"] {
-    background-image: url('o3QmfSdM.png'); /* Placeholder for future SVG */
+    background-image: url('tours-service.png'); /* Use the tours image */
 }
 
 .service-text {

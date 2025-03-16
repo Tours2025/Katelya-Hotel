@@ -57,8 +57,8 @@
                     </div>
                 </div>
 
-                <label for="room">Room Number:</label>
-                <input type="text" id="room" name="room" required>
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
                 <button type="submit">Send</button>
@@ -89,7 +89,7 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const time = document.getElementById('time').value; // Get the selected time
-                    const room = document.getElementById('room').value;
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
                     const notes = document.getElementById('notes').value; // Get the additional notes
             
                     // Construct the message

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapanca & Masukiye Tour Booking</title>
+    <link rel="stylesheet" href="sapanca-tour.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'">Back</button>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Sapanca Lake & Masukiye Tour</h2>
+            <p>
+                Escape the hustle and bustle of the city with our relaxing day trip to Sapanca Lake and Masukiye village. Located just a short drive from Istanbul, this tour offers stunning natural landscapes, fresh air, and authentic Turkish village experiences.
+            </p>
+            <p>
+                <strong>Tour Highlights:</strong>
+            </p>
+            <ul>
+                <li>Enjoy the serene beauty of Sapanca Lake with breathtaking mountain views</li>
+                <li>Visit the charming village of Masukiye nestled at the foot of Mount Kartepe</li>
+                <li>Experience traditional Turkish village life and hospitality</li>
+                <li>Taste delicious local cuisine in a riverside restaurant (lunch included)</li>
+                <li>Explore small waterfalls and hiking trails in the forest</li>
+                <li>Shop for local honey, jams, and handmade crafts</li>
+                <li>Optional boat ride on Sapanca Lake (weather permitting)</li>
+            </ul>
+            <p>
+                <strong>Duration:</strong> Full-day tour (approximately 8-9 hours including travel time)
+            </p>
+            <p>
+                <strong>Departure Time:</strong> 9:00 AM from your hotel
+            </p>
+            <p>
+                <strong>Return Time:</strong> Approximately 6:00 PM to your hotel
+            </p>
+            <p>
+                <strong>Price:</strong> 120 USD per person (minimum 2 persons)
+            </p>
+            <p>
+                <strong>Included:</strong> Hotel pickup and drop-off, air-conditioned vehicle, English-speaking guide, lunch at a local restaurant, and bottled water
+            </p>
+            <p>
+                <strong>Not Included:</strong> Optional boat ride (approximately 15 USD per person), personal expenses, additional food and beverages not specified, and gratuities
+            </p>
+            <p>
+                This tour is perfect for nature lovers and those looking to experience authentic Turkish countryside. Book now for a refreshing escape from the city!
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Book Your Sapanca & Masukiye Tour</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                    </div>
+                    <div>
+                        <label for="participants">Number of Participants:</label>
+                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="boat-ride" name="boat-ride">
+                    <label for="boat-ride" class="checkbox-label">Include optional boat ride (+15 USD per person)</label>
+                </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions..."></textarea>
+                <button type="submit">Book Now</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Tuesdays and Thursdays (assuming tour doesn't run these days)
+                                return (date.getDay() === 2 || date.getDay() === 4);
+                            }
+                        ],
+                        locale: "en" // English localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const includeBoatRide = document.getElementById('boat-ride').checked;
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const tourPricePerPerson = 120; // USD
+                    const boatRidePricePerPerson = 15; // USD
+                    let totalPrice = tourPricePerPerson * participants;
+                    
+                    // Add boat ride price if selected
+                    if (includeBoatRide) {
+                        totalPrice += boatRidePricePerPerson * participants;
+                    }
+            
+                    // Construct the message
+                    const message = `
+                        New Sapanca & Masukiye Tour Booking:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Date: ${date}
+                        Number of Participants: ${participants}
+                        Boat Ride: ${includeBoatRide ? 'Yes (+$' + (boatRidePricePerPerson * participants) + ' USD)' : 'No'}
+                        Total Price: $${totalPrice} USD
+                        Room Number: ${room}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

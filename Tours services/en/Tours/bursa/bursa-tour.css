@@ -1,0 +1,194 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark gray text for readability */
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000; /* Black header */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    position: relative;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+}
+
+header .hotel-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+header .hotel-name h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #fff; /* White hotel name */
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav button {
+    background-color: #fff; /* White buttons */
+    color: #000; /* Black text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #333; /* Dark gray on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Main Content Styling */
+main {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* White background for main content */
+    margin: 20px auto;
+    max-width: 800px; /* Limit width for better readability */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Service Explanation Section */
+#service-explanation {
+    text-align: left; /* Left-aligned text */
+    margin-bottom: 30px; /* Space between explanation and form */
+}
+
+#service-explanation h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 15px; /* Space below the heading */
+    color: #000; /* Black heading */
+}
+
+#service-explanation p {
+    font-size: 16px;
+    margin-bottom: 15px; /* Space between paragraphs */
+    color: #555; /* Slightly lighter text for descriptions */
+    line-height: 1.5; /* Improved readability */
+}
+
+#service-explanation ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+#service-explanation li {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.4;
+}
+
+#service-explanation strong {
+    color: #000;
+}
+
+/* Booking Form Section */
+#booking-form {
+    text-align: left;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+#booking-form h3 {
+    font-size: 20px;
+    margin-bottom: 15px; /* Space below the heading */
+    color: #000; /* Black heading */
+}
+
+#booking-form label {
+    display: block;
+    margin-top: 10px; /* Space above each label */
+    font-size: 16px;
+    color: #333; /* Dark gray labels */
+}
+
+.optional-text {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    font-weight: normal;
+}
+
+#booking-form input[type="text"],
+#booking-form input[type="tel"],
+#booking-form input[type="number"],
+#booking-form textarea {
+    width: 100%; /* Full-width inputs */
+    padding: 10px;
+    margin-top: 5px; /* Space between label and input */
+    margin-bottom: 15px; /* Space below each input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+}
+
+#booking-form button {
+    background-color: #000; /* Black button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#booking-form button:hover {
+    background-color: #333; /* Dark gray on hover */
+}
+
+/* Style for the datetime container */
+.datetime-container {
+    display: flex;
+    justify-content: space-between; /* Space out the inputs */
+    gap: 15px;
+}
+
+/* Style for date and number inputs containers */
+.datetime-container > div {
+    width: 48%; /* Each input group takes up roughly half the width */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .datetime-container {
+        flex-direction: column;
+    }
+    
+    .datetime-container > div {
+        width: 100%;
+    }
+    
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+}   

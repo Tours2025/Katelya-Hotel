@@ -1,23 +1,22 @@
 /* General Reset */
-/* Ensure the background color covers the full page */
 html, body {
-    height: 100%; /* Make sure both html and body take up the full height */
-    margin: 0; /* Remove default browser margins */
-    padding: 0; /* Remove default browser padding */
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Light gray background for the full page */
-    color: #333; /* Dark gray text for readability */
-    display: flex; /* Use flexbox to align content */
-    flex-direction: column; /* Stack header, main, and footer vertically */
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
-    flex: 1; /* Allow the main content to grow and fill available space */
-    padding: 20px; /* Add padding inside the main section */
-    text-align: center; /* Center-align text */
+    flex: 1;
+    padding: 20px;
+    text-align: center;
 }
 
 /* Header Styling */
@@ -25,8 +24,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000; /* Black header */
-    color: #fff; /* White text */
+    background-color: #000;
+    color: #fff;
     padding: 10px 20px;
     position: relative;
 }
@@ -46,7 +45,7 @@ header .hotel-name {
 header .hotel-name h1 {
     font-size: 24px;
     margin: 0;
-    color: #fff; /* White hotel name */
+    color: #fff;
 }
 
 nav {
@@ -55,8 +54,8 @@ nav {
 }
 
 nav button {
-    background-color: #fff; /* White buttons */
-    color: #000; /* Black text */
+    background-color: #fff;
+    color: #000;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -65,15 +64,15 @@ nav button {
 }
 
 nav button:hover {
-    background-color: #333; /* Dark gray on hover */
-    color: #fff; /* White text on hover */
+    background-color: #333;
+    color: #fff;
 }
 
 /* Main Content Styling */
 main {
     padding: 20px;
     text-align: center;
-    background-color: #f9f9f9; /* Light gray background for contrast */
+    background-color: #f9f9f9;
 }
 
 #services {
@@ -84,51 +83,30 @@ main {
     margin-top: 20px;
 }
 
+
+
 .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 298.8px;
-    background-color: #fff; /* Frame background */
-    border: 2px solid #000; /* Frame border */
-    border-radius: 10px; /* Rounded corners for the frame */
-    padding: 10px; /* Padding around the bubble and text */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
 .service-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Hover effect */
 }
 
 .service-bubble {
-    background-color: #fff; /* Bubble background */
-    border: none; /* Remove bubble border since the frame handles it */
-    border-radius: 10px; /* Match the frame's rounded corners */
     width: 100%;
-    height: 290.6px; /* Adjusted height */
-    overflow: hidden; /* Ensures the SVG doesn't overflow the bubble */
-    background-size: cover; /* Ensure the image covers the bubble */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating */
-    position: relative; /* Needed for overlay text */
+    height: 350px;
+    background-size: cover; /* Changed to cover to fill the entire area */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px; /* Apply border-radius directly to the bubble */
+    overflow: hidden; /* Ensure the image is clipped to the border-radius */
 }
-
-
-
-.service-text {
-    margin-top: 10px; /* Space between bubble and text */
-    color: #333; /* Dark gray text for readability */
-    font-size: 14px;
-    line-height: 1.4; /* Improve readability with proper line spacing */
-}
-
-.service-text h2 {
-    font-size: 18px;
-    margin-bottom: 5px; /* Space between title and description */
-}
-
-

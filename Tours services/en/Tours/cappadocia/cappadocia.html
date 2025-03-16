@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cappadocia Tour Booking</title>
+    <link rel="stylesheet" href="cappadocia.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../../hotel-logo.png" alt="Hotel Logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Hotel Name</h1>
+        </div>
+        <nav>
+            <button onclick="window.location.href='../Tours-service.html'">Back</button>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Cappadocia Tour: Fairy Chimneys & Underground Cities</h2>
+            <p>
+                Experience the surreal landscapes and rich history of Cappadocia, one of Turkey's most extraordinary destinations. This unforgettable tour takes you through a dreamlike terrain of fairy chimneys, cave dwellings, and hidden underground cities carved into the unique volcanic rock formations.
+            </p>
+            <p>
+                <strong>Tour Highlights:</strong>
+            </p>
+            <ul>
+                <li><strong>Hot Air Balloon Ride</strong> (Optional) - Witness the breathtaking sunrise over Cappadocia's unique landscape from the sky</li>
+                <li><strong>Göreme Open-Air Museum</strong> - Explore this UNESCO World Heritage site with its rock-cut churches and impressive Byzantine frescoes</li>
+                <li><strong>Devrent Valley</strong> - Also known as "Imagination Valley," famous for rock formations resembling animals and objects</li>
+                <li><strong>Pasabag (Monks Valley)</strong> - See the most striking fairy chimneys with twin and triple rock caps</li>
+                <li><strong>Avanos</strong> - Visit this town known for its pottery and witness a traditional pottery demonstration</li>
+                <li><strong>Underground City</strong> - Discover the ancient underground settlements where early Christians hid from persecution</li>
+                <li><strong>Uchisar Castle</strong> - Climb to this natural rock fortress for panoramic views of the entire region</li>
+                <li><strong>Pigeon Valley</strong> - See the spectacular rock formations and pigeon houses carved into the valley walls</li>
+                <li><strong>Traditional Cave Hotel Stay</strong> - Experience authentic Cappadocian hospitality in a uniquely designed cave hotel</li>
+            </ul>
+            <p>
+                <strong>Tour Options:</strong> 
+            </p>
+            <p>
+                <strong>1. Standard Tour (2 Days, 1 Night):</strong> Includes round-trip flights, all mentioned attractions, cave hotel accommodation, and meals.
+            </p>
+            <p>
+                <strong>2. Extended Tour (3 Days, 2 Nights):</strong> Includes everything in the standard tour plus an additional day to explore the Red Valley, Rose Valley, and Ihlara Canyon.
+            </p>
+            <p>
+                <strong>Duration:</strong>
+            </p>
+            <p>Standard Tour: 2 days, 1 night<br>
+               Extended Tour: 3 days, 2 nights
+            </p>
+            <p>
+                <strong>Departure Time:</strong> Early morning flight from Istanbul (typically 6:00-7:00 AM)
+            </p>
+            <p>
+                <strong>Return Time:</strong>
+            </p>
+            <p>Standard Tour: Evening flight on the second day<br>
+               Extended Tour: Evening flight on the third day
+            </p>
+            <p>
+                <strong>Price:</strong>
+            </p>
+            <p>Standard Tour: 420 USD per person (minimum 2 persons)<br>
+               Extended Tour: 550 USD per person (minimum 2 persons)<br>
+               Hot Air Balloon Add-on: 220 USD per person
+            </p>
+            <p>
+                <strong>Included:</strong> Hotel pickup and drop-off, round-trip domestic flights Istanbul-Cappadocia-Istanbul, air-conditioned vehicle for all transfers and tours, professional English-speaking guide, entrance fees to all mentioned sites, cave hotel accommodation with breakfast, lunch and dinner on tour days, and bottled water.
+            </p>
+            <p>
+                <strong>Not Included:</strong> Hot air balloon ride (unless selected as add-on), personal expenses, additional food and beverages not specified, and gratuities
+            </p>
+            <p>
+                <strong>What to Bring:</strong> Comfortable walking shoes, layered clothing (temperatures can vary), camera, sunscreen, hat, and passport/ID for domestic flights
+            </p>
+            <p>
+                Cappadocia offers some of the most unique and magical landscapes on earth. This tour combines natural wonders, historical sites, and cultural experiences to create memories that will last a lifetime. Book now to reserve your spot for this extraordinary adventure!
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Book Your Cappadocia Tour</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="tour-type">Tour Option:</label>
+                <select id="tour-type" name="tour-type" required>
+                    <option value="standard">Standard Tour (2 Days, 1 Night) - 420 USD/person</option>
+                    <option value="extended">Extended Tour (3 Days, 2 Nights) - 550 USD/person</option>
+                </select>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">Start Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                    </div>
+                    <div>
+                        <label for="participants">Number of Participants:</label>
+                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="balloon-ride" name="balloon-ride">
+                    <label for="balloon-ride" class="checkbox-label">Add hot air balloon ride (additional 220 USD per person)</label>
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">I have dietary restrictions (please specify in notes)</label>
+                </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Any dietary restrictions, special requirements or questions..."></textarea>
+                <button type="submit">Book Now</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Thursdays and Sundays (assuming tour doesn't start on these days)
+                                return (date.getDay() === 0 || date.getDay() === 4);
+                            }
+                        ],
+                        locale: "en" // English localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const tourType = document.getElementById('tour-type').value;
+                    const tourTypeName = tourType === 'standard' ? 'Standard Tour (2 Days, 1 Night)' : 'Extended Tour (3 Days, 2 Nights)';
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const balloonRide = document.getElementById('balloon-ride').checked;
+                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const basePricePerPerson = tourType === 'standard' ? 420 : 550; // USD
+                    const balloonRidePrice = balloonRide ? 220 * participants : 0;
+                    const baseTotal = basePricePerPerson * participants;
+                    const totalPrice = baseTotal + balloonRidePrice;
+            
+                    // Construct the message
+                    const message = `
+                        New Cappadocia Tour Booking:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Tour Option: ${tourTypeName}
+                        Start Date: ${date}
+                        Number of Participants: ${participants}
+                        Hot Air Balloon Ride: ${balloonRide ? 'Yes (+$' + balloonRidePrice + ' USD)' : 'No'}
+                        Dietary Restrictions: ${hasDietaryRestrictions ? 'Yes' : 'No'}
+                        Base Tour Price: $${baseTotal} USD
+                        Total Price: $${totalPrice} USD
+                        Room Number: ${room}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

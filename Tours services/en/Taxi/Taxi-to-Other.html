@@ -23,22 +23,31 @@
     </header>
     <!-- Main Content -->
     <main>
-        <section id="service-explanation">
-            <h2>Taxi Service from the Hotel to Any Destination in Istanbul</h2>
-            <p>
-                We offer a comfortable and safe taxi service from the hotel to any destination within Istanbul. Whether you're heading to the airport, downtown, or any other area, we are here to serve you.
-            </p>
-            <p>
-                The cost of the service depends on the destination, and you can pay in cash with the following currencies: 
-                <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon arrival.
-            </p>
-            <p>
-                Our service may be slightly more expensive compared to services like Uber, but it is safer and ensures a hassle-free experience with drivers. All our drivers are trusted and certified, and we always strive to provide high-quality service to ensure your comfort and safety.
-            </p>
-            <p>
-                If you are looking for a reliable and comfortable taxi service in Istanbul, our option is the best choice for you!
-            </p>
-        </section>
+        <!-- Improved Service Explanation Section -->
+<section id="service-explanation">
+    <h2>Taxi Service to Istanbul Airport</h2>
+    <p>
+        We offer a comfortable and safe taxi service from the hotel to Istanbul Airport.
+    </p>
+    
+    <div class="highlight">
+        <p>Cost: <span class="price">1500 Turkish Lira</span></p>
+        <p>Payment methods: Cash only in 
+            <span class="currency">TL</span>
+            <span class="currency">USD</span>
+            <span class="currency">EUR</span>
+        </p>
+    </div>
+    
+    <p>
+        Our service may be slightly more expensive compared to services like Uber, but it is safer and ensures a hassle-free experience with drivers. We strive to provide high-quality service to ensure your comfort and safety.
+    </p>
+    
+    <p class="cta">
+        If you are looking for a reliable and comfortable service, our option is the best choice for you!
+    </p>
+</section>
+
         <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Book Now</h3>
@@ -61,8 +70,9 @@
                 </div>
 
                 <label for="room">Room Number:</label>
-                <input type="text" id="room" name="room" required>
-                <label for="address">Destination Address:</label>
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+
                 <input type="text" id="address" name="address" required placeholder="Enter the desired address">
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
@@ -87,28 +97,28 @@
                 });
 
                 function sendToWhatsApp(event) {
-                    event.preventDefault();
-            
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
-                    const room = document.getElementById('room').value;
-                    const address = document.getElementById('address').value; // Get the destination address
-                    const notes = document.getElementById('notes').value; // Get the additional notes
-            
-                    // Construct the message
-                    const message = `
-                        New Taxi Request to Address in Istanbul:
-                        Name: ${name}
-                        Phone: ${phone}
-                        Date: ${date}
-                        Time: ${time}
-                        Room Number: ${room}
-                        Destination Address: ${address}
-                        Additional Notes: ${notes || 'No notes provided'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+    event.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value; // Get the selected time
+    const room = document.getElementById('room').value || 'Not staying at hotel';
+    const address = document.getElementById('address').value; // Get the destination address
+    const notes = document.getElementById('notes').value; // Get the additional notes
+
+    // Construct the message
+    const message = `
+        New Taxi Request to Address in Istanbul:
+        Name: ${name}
+        Phone: ${phone}
+        Date: ${date}
+        Time: ${time}
+        Room Number: ${room}
+        Destination Address: ${address}
+        Additional Notes: ${notes || 'No notes provided'}
+    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
                     // Log the message for debugging
                     console.log('Message:', message);

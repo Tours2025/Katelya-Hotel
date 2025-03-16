@@ -236,24 +236,102 @@ main {
 }
 
 
-/* Service Explanation Section */
+/* Service Explanation Section - Improved for VIP services */
 #service-explanation {
-    text-align: left; /* Align text to the right for Arabic */
-    margin-bottom: 30px; /* Space between explanation and form */
+    text-align: left;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 #service-explanation h2 {
-    font-size: 24px;
-    text-align: left; /* Align text to the right for Arabic */
-    margin-bottom: 15px; /* Space below the heading */
-    color: #000; /* Black heading */
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
 }
 
 #service-explanation p {
     font-size: 16px;
-    margin-bottom: 10px; /* Space between paragraphs */
-    color: #555; /* Slightly lighter text for descriptions */
+    margin-bottom: 15px;
+    color: #444;
+    line-height: 1.6;
 }
+
+/* Highlights for important information */
+#service-explanation .highlight {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-left: 4px solid #000;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+#service-explanation .luxury-car {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+#service-explanation .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#service-explanation .currency {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+/* Features section */
+#service-explanation .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+#service-explanation .feature-item {
+    flex-basis: 48%;
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Call to action section */
+#service-explanation .cta {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #service-explanation .feature-item {
+        flex-basis: 100%;
+    }
+}
+
 
 /* Booking Form Section */
 #booking-form {

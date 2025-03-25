@@ -12,13 +12,40 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="../../hotel-logo.png" alt="Hotel Logo">
+            <img src="../hotel-logo.png" alt="شعار الفندق">
         </div>
         <div class="hotel-name">
-            <h1>Hotel Name</h1>
+            <h1>اسم الفندق</h1>
         </div>
         <nav>
-            <button onclick="window.location.href='../Tours-service.html'">Back</button>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
     <!-- Main Content -->
@@ -166,6 +193,109 @@
                         }
                         window.location.href = "../thank-you.html"; // Redirect to the thank-you page
                     }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'old-city-tour-1.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'old-city-tour-1.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
                 }
             </script>
             <!-- Flatpickr JS -->

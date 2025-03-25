@@ -13,7 +13,7 @@ body {
     flex-direction: column;
 }
 
-/* Header Styling */
+/* Header and Navigation Styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -31,9 +31,10 @@ header .logo img {
 
 header .hotel-name {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(50%);
     text-align: center;
+    order: 2;
 }
 
 header .hotel-name h1 {
@@ -44,22 +45,169 @@ header .hotel-name h1 {
 
 nav {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
+    order: 1;
 }
 
-nav button {
+/* Return Button Styling */
+.return-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     background-color: #fff;
     color: #000;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 16px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
-nav button:hover {
-    background-color: #333;
-    color: #fff;
+.return-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+.return-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.return-btn:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Language Dropdown Styling */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.dropdown-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+}
+
+.dropdown-content a.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.lang-flag {
+    font-size: 16px;
+}
+
+.lang-name {
+    flex: 1;
+    text-align: right;
+}
+
+/* Show the dropdown when the open class is added */
+.language-dropdown.open .dropdown-content {
+    display: block;
+}
+
+.language-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Add a subtle arrow pointer to the dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        gap: 10px;
+    }
+    
+    .return-btn, .dropdown-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    header .hotel-name h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+    
+    .return-btn span {
+        display: none; /* Hide text, show only icon on very small screens */
+    }
+    
+    .return-btn {
+        padding: 8px;
+    }
 }
 
 /* Main Content Styling */

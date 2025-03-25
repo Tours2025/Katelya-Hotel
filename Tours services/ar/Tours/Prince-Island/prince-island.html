@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة السيارات الفاخرة إلى مطار إسطنبول</title>
-    <link rel="stylesheet" href="VIP-to.css" />
+    <title>حجز جولة جزر الأمراء</title>
+    <link rel="stylesheet" href="prince-island.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -19,7 +19,7 @@
         </div>
         <nav>
             <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='VIP-Service.html'">
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
@@ -51,21 +51,47 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>خدمة السيارات الفاخرة إلى مطار صبيحة</h2>
+            <h2>جولة جزر الاميرات</h2>
             <p>
-                نقدم خدمة السيارات الفاخرة بمركبات مثل <strong>مرسيدس فيتو</strong> أو موديلات مماثلة، وتوفر نقلًا مريحًا وأنيقًا من الفندق إلى مطار صبيحة. تكلفة الخدمة هي <strong>1750 ليرة تركية</strong>، ويمكنك الدفع نقدًا بالعملات التالية: 
-                <strong>الليرة التركية (TL)، الدولار الأمريكي (USD)، أو اليورو (EUR)</strong> عند الوصول.
+                اهرب من صخب مدينة إسطنبول واستمتع بيوم هادئ في جزر الاميرات الخلابة. تقدم هذه الأرخبيل في بحر مرمرة ملاذاً ساحراً بدون مركبات ذات محركات، وقصور فيكتورية جميلة، وغابات الصنوبر.
             </p>
             <p>
-                تضمن خدمة سياراتنا الفاخرة تجربة سفر مريحة وخالية من التوتر مع سائقين محترفين ومعتمدين. سواء كنت مسافرًا لأغراض العمل أو الترفيه، ستضمن سياراتنا الفاخرة رحلة سلسة وممتعة.
+                <strong>أبرز معالم الجولة:</strong>
+            </p>
+            <ul>
+                <li>رحلة بحرية خلابة عبر مضيق البوسفور وبحر مرمرة</li>
+                <li>زيارة إلى بويوكادا، أكبر جزر الأمراء</li>
+                <li>جولة بعربة تجرها الخيول حول الجزيرة (مشمولة)</li>
+                <li>وقت حر لاستكشاف شوارع الجزيرة التاريخية</li>
+                <li>زيارة إلى كنيسة ودير آيا يورغي التاريخي</li>
+                <li>فرصة للسباحة في شواطئ الجزيرة (موسمية)</li>
+                <li>غداء بحري لذيذ في مطعم محلي (مشمول)</li>
+            </ul>
+            <p>
+                <strong>المدة:</strong> جولة ليوم كامل (حوالي 8 ساعات بما في ذلك وقت السفر)
             </p>
             <p>
-                إذا كنت تبحث عن خدمة فاخرة ومريحة لرحلتك إلى المطار، فإن خيارنا هو الأفضل لك!
+                <strong>وقت المغادرة:</strong> الساعة 9:30 صباحاً من الفندق
+            </p>
+            <p>
+                <strong>وقت العودة:</strong> حوالي الساعة 5:30 مساءً إلى الفندق
+            </p>
+            <p>
+                <strong>السعر:</strong> 95 دولار أمريكي للشخص الواحد (بحد أدنى شخصين)
+            </p>
+            <p>
+                <strong>تشمل:</strong> خدمة التوصيل من وإلى الفندق، تذاكر العبّارة ذهاباً وإياباً، مرشد يتحدث الإنجليزية، جولة بعربة تجرها الخيول، غداء في مطعم محلي، ومياه معبأة
+            </p>
+            <p>
+                <strong>لا تشمل:</strong> النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، رسوم دخول الشاطئ (إن وجدت)، والإكراميات
+            </p>
+            <p>
+                استمتع بجمال جزر الأمراء الهادئة، حيث يبدو الزمن وكأنه توقف. مع عدم السماح بالسيارات، توفر الجزر ملاذاً هادئاً مع أصوات الطيور وعربات الخيول وأمواج البحر اللطيفة فقط.
             </p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز الآن</h3>
+            <h3>احجز جولة جزر الأمراء الخاصة بك</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -79,32 +105,45 @@
                         <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
                     </div>
                     <div>
-                        <label for="time">الوقت:</label>
-                        <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
                     </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="swimming" name="swimming">
+                    <label for="swimming" class="checkbox-label">أنا مهتم بالسباحة (موسمية، مايو-سبتمبر)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
-                <button type="submit">إرسال</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
             </form>
             <script>
-                // Initialize Flatpickr for date and time inputs
+                // Initialize Flatpickr for date inputs
                 document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
+                    // Date picker with Arabic localization
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        locale: "ar" // Arabic localization
-                    });
-                    // Time picker
-                    flatpickr("#time", {
-                        enableTime: true, // Enable time picker
-                        noCalendar: true, // Disable date selection
-                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
-                        time_24hr: true, // Use 24-hour format
-                        locale: "ar" // Arabic localization
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Mondays (assuming tour doesn't run these days)
+                                return (date.getDay() === 1);
+                            }
+                        ],
+                        locale: {
+                            weekdays: {
+                                shorthand: ["أحد", "اثن", "ثلا", "أرب", "خمي", "جمع", "سبت"],
+                                longhand: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+                            },
+                            months: {
+                                shorthand: ["ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"],
+                                longhand: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
+                            }
+                        }
                     });
                 });
 
@@ -115,17 +154,39 @@
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
+                    const participants = document.getElementById('participants').value;
+                    const interestedInSwimming = document.getElementById('swimming').checked;
                     const room = document.getElementById('room').value || 'غير مقيم في الفندق';
-                    const notes = document.getElementById('notes').value; // Get the additional notes
-
-                    // Construct the message
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const pricePerPerson = 95; // USD
+                    const totalPrice = pricePerPerson * participants;
+                    
+                    // Check if selected date is in swimming season (May-September)
+                    const selectedDate = new Date(date);
+                    const month = selectedDate.getMonth() + 1; // getMonth() returns 0-11
+                    const isSwimmingSeason = month >= 5 && month <= 9;
+                    
+                    // Swimming note based on selection and season
+                    let swimmingNote = '';
+                    if (interestedInSwimming) {
+                        swimmingNote = isSwimmingSeason 
+                            ? 'نعم (موسم السباحة)' 
+                            : 'نعم (ملاحظة: خارج موسم السباحة)';
+                    } else {
+                        swimmingNote = 'لا';
+                    }
+            
+                    // Construct the message in Arabic
                     const message = `
-                        طلب جديد لسيارة VIP إلى مطار إسطنبول:
+                        حجز جديد لجولة جزر الأمراء:
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
-                        الوقت: ${time}
+                        عدد المشاركين: ${participants}
+                        مهتم بالسباحة: ${swimmingNote}
+                        السعر الإجمالي: ${totalPrice} دولار أمريكي
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -149,7 +210,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you-ar.html"; // Redirect to the Arabic thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
@@ -241,7 +302,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'prince-island.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -249,7 +310,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'prince-island.html';
                         }
                     }
                     

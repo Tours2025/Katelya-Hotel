@@ -1,28 +1,23 @@
-/* RTL version of Taxi-style.css for Arabic */
 /* General Reset */
-html, body {
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
 }
+
+
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
     color: #333;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
+    direction: rtl;
+    text-align: right;
 }
 
 /* Header and Navigation Styling */
 header {
+    direction: ltr;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -221,40 +216,185 @@ nav {
 /* Main Content Styling */
 main {
     padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
+    text-align: right;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#services {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+/* Service Explanation Section */
+#service-explanation {
+    text-align: right;
+    margin-bottom: 30px;
 }
 
-.service-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 350px;
-    height: 300px;
-    padding: 10px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+#service-explanation h2 {
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 15px;
+    color: #000;
 }
 
-.service-item:hover {
-    transform: scale(1.05);
+#service-explanation p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.5;
+    text-align: right;
 }
 
-.service-bubble {
+#service-explanation ul {
+    margin-right: 20px;
+    margin-left: 0;
+    margin-bottom: 15px;
+    list-style-position: inside;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+#service-explanation li {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.4;
+    text-align: right;
+}
+
+#service-explanation strong {
+    color: #000;
+}
+
+/* Force RTL for all elements */
+#service-explanation *,
+#booking-form * {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: embed;
+}
+
+/* Booking Form Section */
+#booking-form {
+    text-align: right;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+#booking-form h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #000;
+    text-align: right;
+}
+
+#booking-form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: right;
+}
+
+.optional-text {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    font-weight: normal;
+}
+
+#booking-form input[type="text"],
+#booking-form input[type="tel"],
+#booking-form input[type="number"],
+#booking-form textarea {
     width: 100%;
-    height: 350px;
-    background-size: cover; /* Changed to cover to fill the entire area */
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px; /* Apply border-radius directly to the bubble */
-    overflow: hidden; /* Ensure the image is clipped to the border-radius */
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: right;
+    direction: rtl;
+}
+
+#booking-form button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#booking-form button:hover {
+    background-color: #333;
+}
+
+/* Style for the datetime container */
+.datetime-container {
+    display: flex;
+    flex-direction: row; /* Keep as row for RTL */
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Style for date and number inputs containers */
+.datetime-container > div {
+    width: 48%;
+}
+
+/* Add RTL support for bullet points */
+ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+/* Specifically target bullet points */
+#service-explanation ul li::before {
+    content: "•";
+    color: #555;
+    display: inline-block;
+    width: 1em;
+    margin-right: -1em;
+}
+
+/* Fix bullet points by removing default styling and adding our own */
+#service-explanation ul {
+    list-style: none;
+}
+
+/* RTL support for Flatpickr */
+.flatpickr-calendar,
+.flatpickr-months,
+.flatpickr-monthDropdown-months,
+.flatpickr-weekdaycontainer,
+.flatpickr-days,
+.dayContainer {
+    direction: rtl;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .datetime-container {
+        flex-direction: column;
+    }
+    
+    .datetime-container > div {
+        width: 100%;
+    }
+    
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
 }

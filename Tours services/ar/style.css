@@ -55,45 +55,110 @@ header .hotel-name h1 {
     color: #fff; /* White hotel name */
 }
 
-nav {
+/* Language Dropdown Styling */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
     display: flex;
-    gap: 10px;
-}
-
-nav button {
-    background-color: #fff; /* White buttons */
-    color: #000; /* Black text */
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 16px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 100px;
 }
 
-nav button:hover {
-    background-color: #333; /* Dark gray on hover */
-    color: #fff; /* White text on hover */
+.dropdown-btn:hover {
+    background-color: #f5f5f5;
 }
 
-/* Language Switch Button */
-.language-switch {
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
     display: flex;
+    align-items: center;
     gap: 10px;
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
-.language-switch button {
-    background-color: #fff; /* White buttons */
-    color: #000; /* Black text */
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
 }
 
-.language-switch button.active {
-    background-color: #333; /* Highlight active language */
-    color: #fff; /* White text */
+.dropdown-content a.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.lang-flag {
+    font-size: 16px;
+}
+
+.lang-name {
+    flex: 1;
+    text-align: right;
+}
+
+/* Show the dropdown when the open class is added */
+.language-dropdown.open .dropdown-content {
+    display: block;
+}
+
+.language-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Add a subtle arrow pointer to the dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
 }
 
 /* Main Content Styling */
@@ -116,46 +181,41 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 298.8px;
-    background-color: #fff; /* Frame background */
-    border: 2px solid #000; /* Frame border */
-    border-radius: 10px; /* Rounded corners for the frame */
-    padding: 10px; /* Padding around the bubble and text */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
 .service-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Hover effect */
 }
 
 .service-bubble {
-    background-color: #fff; /* Bubble background */
-    border: none; /* Remove bubble border since the frame handles it */
-    border-radius: 10px; /* Match the frame's rounded corners */
     width: 100%;
-    height: 297.4px; /* Adjusted height */
-    overflow: hidden; /* Ensures the SVG doesn't overflow the bubble */
-    background-size: cover; /* Ensure the image covers the bubble */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating */
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
 }
+
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('10711556_2082.svg'); /* Use the SVG file */
+    background-image: url('taxi-service.png'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('transfer-background.svg'); /* Use the new SVG file */
+    background-image: url('vip-service.png'); /* Use the new SVG file */
 }
 
-/* Tours Service Background (Placeholder) */
+/* Tours Service Background */
 .service-bubble[data-service="tours"] {
-    background-image: url('o3QmfSdM.png'); /* Placeholder for future SVG */
+    background-image: url('tours-service.png'); /* Use the tours image */
 }
 
 .service-text {
@@ -170,3 +230,35 @@ main {
     margin-bottom: 5px; /* Space between title and description */
 }
 
+/* Disabled Service Item */
+.service-item.disabled {
+    position: relative; /* Required for overlay positioning */
+    pointer-events: none; /* Disable interaction */
+    opacity: 0.6; /* Make it visually appear disabled */
+}
+
+/* Dark Overlay for Disabled Button */
+.service-item.disabled .coming-soon-overlay {
+    position: absolute; /* Position relative to the parent service item */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire service item */
+    height: 100%; /* Cover the entire service item */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border-radius: 10px; /* Match the rounded corners of the frame */
+    z-index: 1; /* Ensure it's above the service item content */
+}
+
+/* "Coming Soon" Text */
+.service-item.disabled .coming-soon-text {
+    font-size: 18px; /* Adjust font size for the button */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text */
+    text-transform: uppercase; /* Uppercase letters */
+    letter-spacing: 2px; /* Spacing between letters */
+    text-align: center; /* Center-aligned text */
+    opacity: 0.9; /* Slightly transparent text */
+}

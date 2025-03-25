@@ -1,59 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Services</title>
+    <title>خدمات الفندق</title>
     <link rel="stylesheet" href="style.css" /> 
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="../hotel-logo.png" alt="شعار الفندق">
+            <img src="hotel-logo.png" alt="شعار الفندق">
         </div>
         <div class="hotel-name">
             <h1>اسم الفندق</h1>
         </div>
         <nav>
-            <div class="language-switch">
-                <button id="enButton">EN</button>
-                <button id="arButton" class="active">AR</button>
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
+
     <!-- Main Content -->
     <main>
-        
-        <!-- Services Section -->
         <section id="services">
-            <!-- Taxi Service -->
             <div class="service-item" onclick="window.location.href='Taxi/Taxi-Service.html';">
                 <div class="service-bubble" data-service="taxi"></div>
-                <div class="service-text">
-                    <h2>خدمة سيارات الأجرة</h2>
-                    <p>.احجز سيارة أجرة لراحتك</p>
-                </div>
             </div>
-
-            <!-- VIP Transfer Service -->
             <div class="service-item" onclick="window.location.href='VIP/VIP-Service.html';">
                 <div class="service-bubble" data-service="transfer"></div>
-                <div class="service-text">
-                    <h2>نقل خاص لكبار الشخصيات</h2>
-                    <p>.استمتع بالسفر الفاخر مع مركباتنا الخاصة</p>
-                </div>
             </div>
-
+            <div class="service-item" onclick="window.location.href='Tours/Tours-Service.html';">
+                <div class="service-bubble" data-service="tours"></div>
+            </div>
+            <!-- Tours Button with Coming Soon Overlay 
             <div class="service-item disabled">
-                <div class="service-bubble" data-service="tours" onclick="window.location.href='Tours/Tours.html';"></div>
+                <div class="service-bubble" data-service="tours"></div>
                 <div class="service-text">
-                    <h2>الجولات السياحية</h2>
-                    <p>.استكشف المدينة مع جولاتنا الإرشادية</p>
+                    <h2>جولات</h2>
+                    <p>استكشف المدينة مع جولاتنا المصحوبة بمرشدين.</p>
                 </div>
-            </div>
+                <div class="coming-soon-overlay">
+                    <div class="coming-soon-text">قريباً...</div>
+                </div>
+            </div>-->
         </section>
     </main>
+
     <script>
         // Function to handle language switching
         function redirectToLanguageFolder(language) {
@@ -76,8 +85,111 @@
             document.getElementById('enButton').classList.remove('active');
             redirectToLanguageFolder('ar');
         });
-
+    </script>
+    <!-- JavaScript part to be added at the end of the body -->
+    <script>
+        // Language dropdown functionality
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+        const currentLanguage = document.getElementById('current-language');
+        const arOption = document.getElementById('ar-option');
+        const enOption = document.getElementById('en-option');
+        const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
         
+        // Set initial language based on current URL
+        function setInitialLanguage() {
+            // Check if we're in an English folder path
+            if (window.location.pathname.includes('/en/')) {
+                selectLanguage('en', 'English', false); // false means don't redirect
+            } else {
+                selectLanguage('ar', 'العربية', false); // false means don't redirect
+            }
+        }
+        
+        // Call this when the page loads
+        setInitialLanguage();
+        
+        // Toggle dropdown display when clicking the button
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('open');
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageDropdown.classList.remove('open');
+        });
+    
+        // Handle language selection
+        arOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('ar', langText, true, returnText);
+        });
+    
+        enOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('en', langText, true, returnText);
+        });
+    
+        function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+            // Update button text
+            currentLanguage.textContent = displayText;
+            
+            // Update return button text if provided
+            if (returnText && returnButton) {
+                returnButton.textContent = returnText;
+            }
+            
+            // Update active class
+            if (lang === 'ar') {
+                arOption.classList.add('active');
+                enOption.classList.remove('active');
+                
+            } else {
+                enOption.classList.add('active');
+                arOption.classList.remove('active');
+                document.dir = 'ltr'; // Set direction to LTR for English
+            }
+            
+            // Close the dropdown
+            languageDropdown.classList.remove('open');
+            
+            // Redirect to appropriate language version if shouldRedirect is true
+            if (shouldRedirect) {
+                redirectToLanguageFolder(lang);
+            }
+        }
+    
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            // Get current URL path
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (language === 'en') {
+                // If current path has /ar/ replace it with /en/
+                if (currentPath.includes('/ar/')) {
+                    newPath = currentPath.replace('/ar/', '/en/');
+                } else {
+                    // If we're at the root level
+                    newPath = '../en/main.html';
+                }
+            } else if (language === 'ar') {
+                // If current path has /en/ replace it with /ar/
+                if (currentPath.includes('/en/')) {
+                    newPath = currentPath.replace('/en/', '/ar/');
+                } else {
+                    // If we're at the root level
+                    newPath = '../ar/main.html';
+                }
+            }
+            
+            window.location.href = newPath;
+        }
     </script>
 </body>
 </html>

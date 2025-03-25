@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,11 @@
             <h1>اسم الفندق</h1>
         </div>
         <nav>
-            <button onclick="window.location.href='Tours.html'">العودة</button>
+            <button onclick="window.location.href='Tours-service-ar.html'">رجوع</button>
         </nav>
     </header>
     <!-- Main Content -->
-    <main dir="rtl">
+    <main>
         <section id="service-explanation">
             <h2>جولة سياحية إلى بورصة</h2>
             <p>
@@ -46,35 +46,57 @@
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
-                    <label for="date">التاريخ:</label>
-                    <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
-                    
-                    <label for="time">الوقت:</label>
-                    <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                    <div>
+                        <label for="date">التاريخ:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="time">الوقت:</label>
+                        <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                    </div>
                 </div>
 
-                <label for="room">رقم الغرفة:</label>
-                <input type="text" id="room" name="room" required>
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
-                <button type="submit">إرسال</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
             </form>
             <script>
                 // Initialize Flatpickr for date and time inputs
                 document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
+                    // Date picker with Arabic localization
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        locale: "ar" // Arabic localization
+                        minDate: "today", // Can't select past dates
+                        locale: {
+                            weekdays: {
+                                shorthand: ["أحد", "اثن", "ثلا", "أرب", "خمي", "جمع", "سبت"],
+                                longhand: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+                            },
+                            months: {
+                                shorthand: ["ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"],
+                                longhand: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
+                            }
+                        }
                     });
 
-                    // Time picker
+                    // Time picker with Arabic localization
                     flatpickr("#time", {
                         enableTime: true, // Enable time picker
                         noCalendar: true, // Disable date selection
                         dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
                         time_24hr: true, // Use 24-hour format
-                        locale: "ar" // Arabic localization
+                        locale: {
+                            weekdays: {
+                                shorthand: ["أحد", "اثن", "ثلا", "أرب", "خمي", "جمع", "سبت"],
+                                longhand: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+                            },
+                            months: {
+                                shorthand: ["ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"],
+                                longhand: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
+                            }
+                        }
                     });
                 });
 
@@ -85,19 +107,20 @@
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
-                    const room = document.getElementById('room').value;
-                    const notes = document.getElementById('notes').value; // Get the additional notes
+                    const time = document.getElementById('time').value; 
+                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const notes = document.getElementById('notes').value;
             
-                    // Construct the message
+                    // Construct the message in Arabic
                     const message = `
-                        New Tour Request to Bursa:
-                        Name: ${name}
-                        Phone: ${phone}
-                        Date: ${date}
-                        Time: ${time}
-                        Room Number: ${room}
-                        Additional Notes: ${notes || 'No notes provided'}
+                        حجز جديد لجولة بورصة:
+                        الاسم: ${name}
+                        الهاتف: ${phone}
+                        التاريخ: ${date}
+                        الوقت: ${time}
+                        خدمة التوصيل: ${needsPickup ? 'نعم' : 'لا'}
+                        رقم الغرفة: ${room}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
                     // Log the message for debugging
@@ -119,14 +142,12 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you-ar.html"; // Redirect to the Arabic thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <!-- Flatpickr Arabic Localization -->
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة السيارات الفاخرة إلى مطار إسطنبول</title>
-    <link rel="stylesheet" href="VIP-to.css" />
+    <title>حجز جولة بحيرة سابانجا وقرية ماسوكييه</title>
+    <link rel="stylesheet" href="sapanca-tour.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -19,7 +19,7 @@
         </div>
         <nav>
             <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='VIP-Service.html'">
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
@@ -51,21 +51,47 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>خدمة السيارات الفاخرة إلى مطار صبيحة</h2>
+            <h2>جولة بحيرة سابانجا وقرية ماسوكييه</h2>
             <p>
-                نقدم خدمة السيارات الفاخرة بمركبات مثل <strong>مرسيدس فيتو</strong> أو موديلات مماثلة، وتوفر نقلًا مريحًا وأنيقًا من الفندق إلى مطار صبيحة. تكلفة الخدمة هي <strong>1750 ليرة تركية</strong>، ويمكنك الدفع نقدًا بالعملات التالية: 
-                <strong>الليرة التركية (TL)، الدولار الأمريكي (USD)، أو اليورو (EUR)</strong> عند الوصول.
+                اهرب من صخب وضجيج المدينة مع رحلتنا اليومية المريحة إلى بحيرة سابانجا وقرية ماسوكييه. تقع على مسافة قصيرة بالسيارة من إسطنبول، وتقدم هذه الجولة مناظر طبيعية خلابة وهواء نقي وتجارب أصيلة في القرية التركية.
             </p>
             <p>
-                تضمن خدمة سياراتنا الفاخرة تجربة سفر مريحة وخالية من التوتر مع سائقين محترفين ومعتمدين. سواء كنت مسافرًا لأغراض العمل أو الترفيه، ستضمن سياراتنا الفاخرة رحلة سلسة وممتعة.
+                <strong>أبرز معالم الجولة:</strong>
+            </p>
+            <ul>
+                <li>استمتع بجمال بحيرة سابانجا الهادئة مع إطلالات خلابة على الجبال</li>
+                <li>زيارة قرية ماسوكييه الساحرة الواقعة عند سفح جبل كارتيبه</li>
+                <li>تجربة الحياة القروية التركية التقليدية وكرم الضيافة</li>
+                <li>تذوق المأكولات المحلية اللذيذة في مطعم على ضفاف النهر (الغداء مشمول)</li>
+                <li>استكشاف الشلالات الصغيرة ومسارات المشي في الغابة</li>
+                <li>التسوق لشراء العسل المحلي والمربيات والحرف اليدوية</li>
+                <li>جولة اختيارية بالقارب في بحيرة سابانجا (حسب الطقس)</li>
+            </ul>
+            <p>
+                <strong>المدة:</strong> جولة ليوم كامل (حوالي 8-9 ساعات بما في ذلك وقت السفر)
             </p>
             <p>
-                إذا كنت تبحث عن خدمة فاخرة ومريحة لرحلتك إلى المطار، فإن خيارنا هو الأفضل لك!
+                <strong>وقت المغادرة:</strong> الساعة 9:00 صباحاً من الفندق
+            </p>
+            <p>
+                <strong>وقت العودة:</strong> حوالي الساعة 6:00 مساءً إلى الفندق
+            </p>
+            <p>
+                <strong>السعر:</strong> 120 دولار أمريكي للشخص الواحد (بحد أدنى شخصين)
+            </p>
+            <p>
+                <strong>تشمل:</strong> خدمة التوصيل من وإلى الفندق، مركبة مكيفة، مرشد يتحدث الإنجليزية، غداء في مطعم محلي، ومياه معبأة
+            </p>
+            <p>
+                <strong>لا تشمل:</strong> جولة القارب الاختيارية (حوالي 15 دولار أمريكي للشخص)، النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
+            </p>
+            <p>
+                هذه الجولة مثالية لعشاق الطبيعة والباحثين عن تجربة الريف التركي الأصيل. احجز الآن للهروب المنعش من المدينة!
             </p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز الآن</h3>
+            <h3>احجز جولة سابانجا وماسوكييه الخاصة بك</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -79,32 +105,45 @@
                         <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
                     </div>
                     <div>
-                        <label for="time">الوقت:</label>
-                        <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
                     </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="boat-ride" name="boat-ride">
+                    <label for="boat-ride" class="checkbox-label">تضمين جولة القارب الاختيارية (+15 دولار أمريكي للشخص)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
-                <button type="submit">إرسال</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
             </form>
             <script>
-                // Initialize Flatpickr for date and time inputs
+                // Initialize Flatpickr for date inputs
                 document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
+                    // Date picker with Arabic localization
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        locale: "ar" // Arabic localization
-                    });
-                    // Time picker
-                    flatpickr("#time", {
-                        enableTime: true, // Enable time picker
-                        noCalendar: true, // Disable date selection
-                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
-                        time_24hr: true, // Use 24-hour format
-                        locale: "ar" // Arabic localization
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Tuesdays and Thursdays (assuming tour doesn't run these days)
+                                return (date.getDay() === 2 || date.getDay() === 4);
+                            }
+                        ],
+                        locale: {
+                            weekdays: {
+                                shorthand: ["أحد", "اثن", "ثلا", "أرب", "خمي", "جمع", "سبت"],
+                                longhand: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+                            },
+                            months: {
+                                shorthand: ["ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"],
+                                longhand: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
+                            }
+                        }
                     });
                 });
 
@@ -115,17 +154,30 @@
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
+                    const participants = document.getElementById('participants').value;
+                    const includeBoatRide = document.getElementById('boat-ride').checked;
                     const room = document.getElementById('room').value || 'غير مقيم في الفندق';
-                    const notes = document.getElementById('notes').value; // Get the additional notes
-
-                    // Construct the message
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const tourPricePerPerson = 120; // USD
+                    const boatRidePricePerPerson = 15; // USD
+                    let totalPrice = tourPricePerPerson * participants;
+                    
+                    // Add boat ride price if selected
+                    if (includeBoatRide) {
+                        totalPrice += boatRidePricePerPerson * participants;
+                    }
+            
+                    // Construct the message in Arabic
                     const message = `
-                        طلب جديد لسيارة VIP إلى مطار إسطنبول:
+                        حجز جديد لجولة سابانجا وماسوكييه:
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
-                        الوقت: ${time}
+                        عدد المشاركين: ${participants}
+                        جولة القارب: ${includeBoatRide ? 'نعم (+' + (boatRidePricePerPerson * participants) + ' دولار أمريكي)' : 'لا'}
+                        السعر الإجمالي: ${totalPrice} دولار أمريكي
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -149,7 +201,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you-ar.html"; // Redirect to the Arabic thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
@@ -241,7 +293,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'sapanca-tour.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -249,7 +301,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'sapanca-tour.html';
                         }
                     }
                     

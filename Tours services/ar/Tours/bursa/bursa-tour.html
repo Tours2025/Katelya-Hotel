@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة السيارات الفاخرة إلى مطار إسطنبول</title>
-    <link rel="stylesheet" href="VIP-to.css" />
+    <title>حجز جولة بورصا</title>
+    <link rel="stylesheet" href="Bursa-Tour.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Quick fix for RTL styling */
+        body, html {
+            direction: rtl;
+            text-align: right;
+        }
+        #service-explanation, 
+        #service-explanation p, 
+        #service-explanation ul,
+        #service-explanation li,
+        #booking-form,
+        #booking-form label,
+        #booking-form input,
+        #booking-form textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        /* Custom bullet point styling */
+        #service-explanation ul {
+            list-style-position: outside;
+            padding-right: 20px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -19,7 +42,7 @@
         </div>
         <nav>
             <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='VIP-Service.html'">
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
@@ -51,21 +74,46 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>خدمة السيارات الفاخرة إلى مطار صبيحة</h2>
+            <h2>جولة مدينة بورصا</h2>
             <p>
-                نقدم خدمة السيارات الفاخرة بمركبات مثل <strong>مرسيدس فيتو</strong> أو موديلات مماثلة، وتوفر نقلًا مريحًا وأنيقًا من الفندق إلى مطار صبيحة. تكلفة الخدمة هي <strong>1750 ليرة تركية</strong>، ويمكنك الدفع نقدًا بالعملات التالية: 
-                <strong>الليرة التركية (TL)، الدولار الأمريكي (USD)، أو اليورو (EUR)</strong> عند الوصول.
+                اكتشف مدينة بورصا الساحرة، أول عاصمة للإمبراطورية العثمانية، مع جولتنا المريحة والمصحوبة بمرشد من إسطنبول. تشتهر بورصا بمواقعها التاريخية وجمالها الطبيعي ومأكولاتها اللذيذة.
             </p>
             <p>
-                تضمن خدمة سياراتنا الفاخرة تجربة سفر مريحة وخالية من التوتر مع سائقين محترفين ومعتمدين. سواء كنت مسافرًا لأغراض العمل أو الترفيه، ستضمن سياراتنا الفاخرة رحلة سلسة وممتعة.
+                <strong>أبرز معالم الجولة:</strong>
+            </p>
+            <ul>
+                <li>زيارة الجامع الكبير (أولو جامع)، تحفة العمارة العثمانية المبكرة</li>
+                <li>استكشاف المسجد الأخضر والضريح الأخضر، المشهورين ببلاط إزنيك الرائع</li>
+                <li>رحلة بالتلفريك إلى جبل أولوداغ للاستمتاع بإطلالات خلابة</li>
+                <li>التجول في سوق الحرير (كوزا خان) للتسوق وشراء المنتجات المحلية</li>
+                <li>تذوق كباب إسكندر الشهير في بورصا للغداء (وجبة مشمولة)</li>
+                <li>زيارة شجرة البلوط التي يبلغ عمرها 600 عام في قرية إنكايا</li>
+            </ul>
+            <p>
+                <strong>المدة:</strong> جولة ليوم كامل (حوالي 14 ساعة بما في ذلك وقت السفر)
             </p>
             <p>
-                إذا كنت تبحث عن خدمة فاخرة ومريحة لرحلتك إلى المطار، فإن خيارنا هو الأفضل لك!
+                <strong>وقت المغادرة:</strong> الساعة 8:00 صباحاً من فندقك
+            </p>
+            <p>
+                <strong>وقت العودة:</strong> حوالي الساعة 10:00 مساءً إلى فندقك
+            </p>
+            <p>
+                <strong>السعر:</strong> 150 دولار أمريكي للشخص الواحد (حد أدنى شخصين)
+            </p>
+            <p>
+                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، مركبة مكيفة، مرشد يتحدث العربية، الغداء، رسوم الدخول، تذاكر التلفريك، ومياه معبأة
+            </p>
+            <p>
+                <strong>ما هو غير مشمول:</strong> النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
+            </p>
+            <p>
+                تقدم هذه الجولة مزيجاً مثالياً من التاريخ والطبيعة والثقافة. احجز الآن لضمان مكانك واستكشاف جواهر بورصا التاريخية مع مرشدينا المحترفين!
             </p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز الآن</h3>
+            <h3>احجز جولة بورصا الخاصة بك</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -79,31 +127,30 @@
                         <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
                     </div>
                     <div>
-                        <label for="time">الوقت:</label>
-                        <input type="text" id="time" name="time" placeholder="اختر الوقت" required>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
                     </div>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
-                <button type="submit">إرسال</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
             </form>
             <script>
-                // Initialize Flatpickr for date and time inputs
+                // Initialize Flatpickr for date inputs
                 document.addEventListener("DOMContentLoaded", function () {
                     // Date picker
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        locale: "ar" // Arabic localization
-                    });
-                    // Time picker
-                    flatpickr("#time", {
-                        enableTime: true, // Enable time picker
-                        noCalendar: true, // Disable date selection
-                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
-                        time_24hr: true, // Use 24-hour format
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Mondays and Wednesdays (assuming tour doesn't run these days)
+                                return (date.getDay() === 1 || date.getDay() === 3);
+                            }
+                        ],
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -115,18 +162,23 @@
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value; // Get the selected time
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
-                    const notes = document.getElementById('notes').value; // Get the additional notes
-
+                    const participants = document.getElementById('participants').value;
+                    const room = document.getElementById('room').value;
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const pricePerPerson = 150; // USD
+                    const totalPrice = pricePerPerson * participants;
+            
                     // Construct the message
                     const message = `
-                        طلب جديد لسيارة VIP إلى مطار إسطنبول:
+                        حجز جديد لجولة بورصا:
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
-                        الوقت: ${time}
-                        رقم الغرفة: ${room}
+                        عدد المشاركين: ${participants}
+                        السعر الإجمالي: ${totalPrice} دولار أمريكي
+                        رقم الغرفة: ${room || 'غير متوفر'}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
@@ -149,7 +201,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
@@ -241,7 +293,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'bursa-tour.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -249,7 +301,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'VIP-to-SAW.html';
+                            newPath = 'bursa-tour.html';
                         }
                     }
                     
@@ -258,6 +310,7 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

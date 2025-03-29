@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Service</title>
-    <link rel="stylesheet" href="Taxi-style.css" />
+    <title>SIM Card Services</title>
+    <link rel="stylesheet" href="sim-card.css" /> 
 </head>
 <body>
     <!-- Header Section -->
@@ -48,26 +48,115 @@
 
     <!-- Main Content -->
     <main>
-        <section id="services">
-            <!-- Istanbul Airport -->
-            <div class="service-item" onclick="window.location.href='Taxi-to-IST.html';">
-                <div class="service-bubble" style="background-image: url('ist-taxi.png');"></div>
-                <div class="service-text">
-                    <h3>Istanbul Airport</h3>
-                    <p>Taxi service to and from Istanbul International Airport</p>
+        <!-- Hero Section for SIM Cards -->
+        <section id="sim-hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-mobile-alt"></i> SIM Cards</div>
+                <h2>Get a SIM Card with Internet Package for Your Trip</h2>
+                <p>Enjoy high-speed internet during your stay in Turkey with data packages suitable for your needs</p>
+            </div>
+        </section>
+        
+        <section id="sim-packages">
+            <h2>Choose the Right Package for You</h2>
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">7 Days</div>
+                                <div class="data">15 GB</div>
+                                <div class="price">30 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Weekly Package</h3>
+                        <p>Perfect for short visits</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=7Days'">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">15 Days</div>
+                                <div class="data">25 GB</div>
+                                <div class="price">35 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Two-Week Package</h3>
+                        <p>Suitable for medium stays</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=15Days'">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">30 Days</div>
+                                <div class="data">30 GB</div>
+                                <div class="price">40 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Monthly Package</h3>
+                        <p>Ideal for longer stays</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=30Days'">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay premium">
+                            <div class="package-details">
+                                <div class="duration">30 Days</div>
+                                <div class="data">30 GB</div>
+                                <div class="price">45 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Premium Package</h3>
+                        <p>Includes extra services and premium support</p>
+                        <button class="order-btn premium" onclick="window.location.href='sim-order.html?package=Premium'">Order Now</button>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Sabiha Airport -->
-            <div class="service-item" onclick="window.location.href='Taxi-to-SAW.html';">
-                <div class="service-bubble" style="background-image: url('saw-taxi.png');"></div>
-                <div class="service-text">
-                    <h3>Sabiha Gökçen Airport</h3>
-                    <p>Taxi service to and from Sabiha Gökçen Airport</p>
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <h2>How to Get Your SIM Card</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Package</h3>
+                    <p>Select the package that suits your needs and stay duration</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Place Order</h3>
+                    <p>Order before arrival or through hotel reception</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive SIM</h3>
+                    <p>Get your ready-to-use SIM card upon arrival</p>
                 </div>
             </div>
         </section>
     </main>
+
     <script>
         // Language dropdown functionality
         const dropdownBtn = document.querySelector('.dropdown-btn');
@@ -129,6 +218,7 @@
             if (lang === 'ar') {
                 arOption.classList.add('active');
                 enOption.classList.remove('active');
+                document.dir = 'rtl'; // Set direction to RTL for Arabic
             } else {
                 enOption.classList.add('active');
                 arOption.classList.remove('active');
@@ -156,7 +246,7 @@
                     newPath = currentPath.replace('/ar/', '/en/');
                 } else {
                     // If we're at the root level
-                    newPath = '../en/main.html';
+                    newPath = '../en/sim-card.html';
                 }
             } else if (language === 'ar') {
                 // If current path has /en/ replace it with /ar/
@@ -164,7 +254,7 @@
                     newPath = currentPath.replace('/en/', '/ar/');
                 } else {
                     // If we're at the root level
-                    newPath = '../ar/main.html';
+                    newPath = '../ar/sim-card.html';
                 }
             }
             

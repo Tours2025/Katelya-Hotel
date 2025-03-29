@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة النقل الخاصة VIP</title>
-    <link rel="stylesheet" href="VIP-style.css" /> 
+    <title>خدمة بطاقات SIM</title>
+    <link rel="stylesheet" href="sim-card.css" /> 
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="hotel-logo.png" alt="شعار الفندق">
         </div>
         <div class="hotel-name">
-            <h1>اسم الفندق</h1>
+            <h1>فندق كاتيليا</h1>
         </div>
         <nav>
             <!-- Return button with icon -->
@@ -49,22 +48,110 @@
 
     <!-- Main Content -->
     <main>
-        <section id="services">
-            <!-- Istanbul Airport -->
-            <div class="service-item" onclick="window.location.href='VIP-to-IST.html';">
-                <div class="service-bubble" style="background-image: url('ist-vip.png');"></div>
-                <div class="service-text">
-                    <h3>مطار اسطنبول الدولي</h3>
-                    <p>خدمة النقل الخاصة VIP من وإلى مطار اسطنبول</p>
+        <!-- Hero Section for SIM Cards -->
+        <section id="sim-hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-mobile-alt"></i> بطاقات SIM</div>
+                <h2>احصل على بطاقة SIM مع باقة إنترنت لرحلتك</h2>
+                <p>استمتع بالإنترنت عالي السرعة أثناء إقامتك في تركيا مع باقات البيانات المناسبة لاحتياجاتك</p>
+            </div>
+        </section>
+        
+        <section id="sim-packages">
+            <h2>اختر الباقة المناسبة لك</h2>
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">7 أيام</div>
+                                <div class="data">15 جيجابايت</div>
+                                <div class="price">30 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>باقة أسبوع</h3>
+                        <p>مثالية للزيارات القصيرة</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=7Days'">اطلب الآن</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">15 يوم</div>
+                                <div class="data">25 جيجابايت</div>
+                                <div class="price">35 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>باقة أسبوعين</h3>
+                        <p>مناسبة للإقامة المتوسطة</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=15Days'">اطلب الآن</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">30 يوم</div>
+                                <div class="data">30 جيجابايت</div>
+                                <div class="price">40 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>باقة شهر</h3>
+                        <p>مثالية للإقامة الطويلة</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=30Days'">اطلب الآن</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('../sim-card.jpeg');">
+                        <div class="package-overlay premium">
+                            <div class="package-details">
+                                <div class="duration">30 يوم</div>
+                                <div class="data">30 جيجابايت</div>
+                                <div class="price">45 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>باقة بريميوم</h3>
+                        <p>تتضمن خدمات إضافية ودعم فني متميز</p>
+                        <button class="order-btn premium" onclick="window.location.href='sim-order.html?package=Premium'">اطلب الآن</button>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Sabiha Airport -->
-            <div class="service-item" onclick="window.location.href='VIP-to-SAW.html';">
-                <div class="service-bubble" style="background-image: url('saw-vip.png');"></div>
-                <div class="service-text">
-                    <h3>مطار صبيحة كوكجن</h3>
-                    <p>خدمة النقل الخاصة VIP من وإلى مطار صبيحة</p>
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <h2>كيف تحصل على بطاقة SIM؟</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>اختر الباقة</h3>
+                    <p>اختر الباقة المناسبة لاحتياجاتك ومدة إقامتك</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>اطلب الآن</h3>
+                    <p>قم بطلب البطاقة قبل وصولك أو من خلال استقبال الفندق</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>استلم بطاقتك</h3>
+                    <p>استلم بطاقة SIM جاهزة للاستخدام عند وصولك</p>
                 </div>
             </div>
         </section>
@@ -131,6 +218,7 @@
             if (lang === 'ar') {
                 arOption.classList.add('active');
                 enOption.classList.remove('active');
+                document.dir = 'rtl'; // Set direction to RTL for Arabic
             } else {
                 enOption.classList.add('active');
                 arOption.classList.remove('active');
@@ -158,7 +246,7 @@
                     newPath = currentPath.replace('/ar/', '/en/');
                 } else {
                     // If we're at the root level
-                    newPath = 'VIP-Service.html';
+                    newPath = '../en/sim-card.html';
                 }
             } else if (language === 'ar') {
                 // If current path has /en/ replace it with /ar/
@@ -166,7 +254,7 @@
                     newPath = currentPath.replace('/en/', '/ar/');
                 } else {
                     // If we're at the root level
-                    newPath = 'VIP-Service.html';
+                    newPath = '../ar/sim-card.html';
                 }
             }
             

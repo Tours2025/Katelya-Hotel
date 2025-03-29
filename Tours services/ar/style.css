@@ -215,7 +215,17 @@ main {
 
 /* Tours Service Background */
 .service-bubble[data-service="tours"] {
-    background-image: url('tours-service.png'); /* Use the tours image */
+    background-image: url('tours-service.jpeg'); /* Use the tours image */
+}
+
+/* Tours Service Background */
+.service-bubble[data-service="sim-card"] {
+    background-image: url('sim-card.jpeg'); /* Use the tours image */
+}
+
+/* Tours Service Background */
+.service-bubble[data-service="cruise"] {
+    background-image: url('cruise.jpeg'); /* Use the tours image */
 }
 
 .service-text {

@@ -10,12 +10,11 @@
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header dir="ltr">
         <div class="logo">
-            <img src="../hotel-logo.png" alt="شعار الفندق">
         </div>
         <div class="hotel-name">
-            <h1>اسم الفندق</h1>
+            <h1>فندق كاتيليا </h1>
         </div>
         <nav>
             <!-- Return button with icon -->
@@ -219,6 +218,7 @@
             if (lang === 'ar') {
                 arOption.classList.add('active');
                 enOption.classList.remove('active');
+                document.dir = 'rtl'; // Set direction to RTL for Arabic
             } else {
                 enOption.classList.add('active');
                 arOption.classList.remove('active');

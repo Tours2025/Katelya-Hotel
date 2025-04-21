@@ -28,42 +28,90 @@ main {
     margin: 0 auto;
 }
 
-/* Header and Navigation Styling */
+/* Improved Header Styling */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #000;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 20px;
     position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-header .logo img {
-    width: 50px;
-    height: 50px;
-}
-
+/* Enhanced Hotel Name Styling */
 header .hotel-name {
     position: absolute;
-    right: 50%;
-    transform: translateX(50%);
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    order: 2;
+    z-index: 1;
 }
 
 header .hotel-name h1 {
-    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
     margin: 0;
     color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
+header .hotel-name h1:hover {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Ensure the navbar elements maintain their positioning */
 nav {
     display: flex;
     align-items: center;
     gap: 15px;
-    order: 1;
+    position: relative;
+    z-index: 2;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .hotel-name h1 {
+        font-size: 22px;
+        padding: 3px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+    
+    header .hotel-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 5px 0;
+        width: 100%;
+        order: 1;
+    }
+    
+    header .hotel-name h1 {
+        font-size: 20px;
+        padding: 3px 0;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        order: 2;
+        margin-top: 10px;
+    }
+}
+
 
 /* Return Button Styling */
 .return-btn {
@@ -226,15 +274,17 @@ nav {
 }
 
 /* SIM Hero Section - Updated Colors */
+/* SIM Hero Section */
 #sim-hero {
     position: relative;
     border-radius: 15px;
     margin-bottom: 50px;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%); /* Darker blue gradient */
+    background: url('sim-back.jpeg') center/cover no-repeat;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Dark Overlay */
 #sim-hero::before {
     content: '';
     position: absolute;
@@ -242,24 +292,35 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 80%),
-        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 80%);
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
     z-index: 1;
 }
 
+/* Hero Content */
 #sim-hero .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensures content appears above the dark overlay */
     padding: 60px 40px;
-    text-align: right;
+    text-align: center; /* Default alignment */
     color: #fff;
 }
 
+/* Text Alignment for RTL and LTR */
+html[lang="ar"] #sim-hero .hero-content,
+body[dir="rtl"] #sim-hero .hero-content {
+    text-align: right;
+}
+
+html[lang="en"] #sim-hero .hero-content,
+body[dir="ltr"] #sim-hero .hero-content {
+    text-align: left;
+}
+
+/* Hero Badge */
 #sim-hero .hero-badge {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.9);
-    color: #1a237e; /* Dark blue for better contrast */
+    color: #1a237e;
     padding: 8px 15px;
     border-radius: 30px;
     font-weight: bold;
@@ -267,11 +328,20 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#sim-hero .hero-badge i {
-    margin-left: 8px;
-    color: #1a237e;
+/* Icon Adjustment */
+html[lang="ar"] #sim-hero .hero-badge i,
+body[dir="rtl"] #sim-hero .hero-badge i {
+    margin-right: 8px;
+    margin-left: 0;
 }
 
+html[lang="en"] #sim-hero .hero-badge i,
+body[dir="ltr"] #sim-hero .hero-badge i {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+/* Hero Title */
 #sim-hero h2 {
     font-size: 32px;
     margin-bottom: 20px;
@@ -279,16 +349,29 @@ nav {
     padding-bottom: 15px;
 }
 
+/* Adjust underline position */
+html[lang="ar"] #sim-hero h2::after,
+body[dir="rtl"] #sim-hero h2::after {
+    right: 0;
+    left: auto;
+}
+
+html[lang="en"] #sim-hero h2::after,
+body[dir="ltr"] #sim-hero h2::after {
+    left: 0;
+    right: auto;
+}
+
 #sim-hero h2::after {
     content: '';
     position: absolute;
     bottom: 0;
-    right: 0;
     width: 80px;
     height: 3px;
     background-color: #fff;
 }
 
+/* Hero Paragraph */
 #sim-hero p {
     font-size: 18px;
     line-height: 1.7;
@@ -296,6 +379,30 @@ nav {
     max-width: 80%;
     opacity: 0.9;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    #sim-hero .hero-content {
+        padding: 40px 30px;
+    }
+    #sim-hero h2 {
+        font-size: 28px;
+    }
+    #sim-hero p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #sim-hero .hero-content {
+        padding: 30px 20px;
+    }
+    #sim-hero h2 {
+        font-size: 24px;
+    }
+}
+
 
 /* SIM Package Section */
 #sim-packages {
@@ -344,13 +451,14 @@ nav {
     overflow: hidden;
 }
 
+/* Update the package-overlay to make it darker */
 .package-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%); /* Darker gradient overlay */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,13 +466,15 @@ nav {
 }
 
 .package-overlay.premium {
-    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.7) 100%); /* Gold gradient */
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.5) 0%, rgba(0,0,0,0.8) 100%); /* Darker gold gradient */
 }
 
+/* Enhance text visibility by adding text shadow */
 .package-details {
     color: white;
     text-align: center;
     font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Add stronger text shadow */
 }
 
 .package-details .duration {
@@ -379,7 +489,7 @@ nav {
 
 .package-details .price {
     font-size: 32px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* Stronger shadow for price */
 }
 
 .service-text {

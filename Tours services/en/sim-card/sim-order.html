@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order SIM Card Package</title>
+    <link rel="stylesheet" href="sim-order.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='sim-card.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">English</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" class="active" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Order SIM Card Package</h2>
+            <div id="package-details">
+                <!-- Package details will be filled dynamically -->
+            </div>
+            <p>
+                When ordering a SIM card, please note that you'll need to provide your passport information at the time of delivery as required by Turkish telecommunications regulations.
+            </p>
+            <p>
+                Your SIM card will be ready upon your arrival at the hotel. We offer this service to ensure you have internet connectivity from the moment you arrive in Turkey.
+            </p>
+            <p>
+                Payment can be made in <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon delivery.
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Complete Your Order</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Full Name (as in passport):</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="arrival-date">Starting Date:</label>
+                        <input type="text" id="arrival-date" name="arrival-date" placeholder="Select date" required>
+                    </div>
+                </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're already staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+                
+                <label for="package">Package:</label>
+                <select id="package" name="package" required>
+                    <option value="">-- Select a package --</option>
+                    <option value="7 Days - 15GB - 30€">7 Days - 15GB - 30€</option>
+                    <option value="15 Days - 25GB - 35€">15 Days - 25GB - 35€</option>
+                    <option value="30 Days - 30GB - 40€">30 Days - 30GB - 40€</option>
+                    <option value="Premium 30 Days - 30GB - 45€">Premium 30 Days - 30GB - 45€</option>
+                </select>
+                
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes or requirements here..."></textarea>
+                
+                <button type="submit">Place Order</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date input
+document.addEventListener("DOMContentLoaded", function () {
+    // Date picker
+    flatpickr("#arrival-date", {
+        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+        minDate: "today", // Can't select dates before today
+        locale: "en" // English localization
+    });
+    
+    // Get URL parameters to pre-select package
+    const urlParams = new URLSearchParams(window.location.search);
+    const packageParam = urlParams.get('package');
+    
+    if (packageParam) {
+        const packageSelect = document.getElementById('package');
+        
+        // Map URL parameter to package selection
+        let selectedIndex = 0;
+        
+        if (packageParam === '7Days') {
+            selectedIndex = 1; // Index of "7 Days - 15GB - 30€" option
+        } else if (packageParam === '15Days') {
+            selectedIndex = 2; // Index of "15 Days - 25GB - 35€" option
+        } else if (packageParam === '30Days') {
+            selectedIndex = 3; // Index of "30 Days - 30GB - 40€" option
+        } else if (packageParam === 'Premium') {
+            selectedIndex = 4; // Index of "Premium 30 Days - 30GB - 45€" option
+        }
+        
+        if (selectedIndex > 0) {
+            packageSelect.selectedIndex = selectedIndex;
+            
+            // Update package details section with the selected package
+            updatePackageDetails(packageSelect.value);
+        }
+    }
+    
+    // Add change event to update package details
+    document.getElementById('package').addEventListener('change', function() {
+        updatePackageDetails(this.value);
+    });
+});
+                
+                function updatePackageDetails(packageValue) {
+                    if (!packageValue) return;
+                    
+                    const packageDetailsDiv = document.getElementById('package-details');
+                    let packageInfo = '';
+                    
+                    if (packageValue.includes('7 Days')) {
+                        packageInfo = `
+                            <div class="package-info">
+                                <h3>Weekly Package</h3>
+                                <p>You've selected our <strong>7-day package</strong> with <strong>15GB</strong> of high-speed data.</p>
+                                <p>This package is perfect for short visits to Turkey.</p>
+                                <p class="price">Price: <span class="currency">30€</span></p>
+                            </div>
+                        `;
+                    } else if (packageValue.includes('15 Days')) {
+                        packageInfo = `
+                            <div class="package-info">
+                                <h3>Two-Week Package</h3>
+                                <p>You've selected our <strong>15-day package</strong> with <strong>25GB</strong> of high-speed data.</p>
+                                <p>This package is ideal for medium-length stays in Turkey.</p>
+                                <p class="price">Price: <span class="currency">35€</span></p>
+                            </div>
+                        `;
+                    } else if (packageValue.includes('Premium')) {
+                        packageInfo = `
+                            <div class="package-info premium">
+                                <h3>Premium Monthly Package</h3>
+                                <p>You've selected our <strong>Premium 30-day package</strong> with <strong>30GB</strong> of high-speed data.</p>
+                                <p>This premium package includes priority customer support and enhanced service guarantees.</p>
+                                <p class="price">Price: <span class="currency premium-currency">45€</span></p>
+                            </div>
+                        `;
+                    } else if (packageValue.includes('30 Days')) {
+                        packageInfo = `
+                            <div class="package-info">
+                                <h3>Monthly Package</h3>
+                                <p>You've selected our <strong>30-day package</strong> with <strong>30GB</strong> of high-speed data.</p>
+                                <p>This package is perfect for longer stays in Turkey.</p>
+                                <p class="price">Price: <span class="currency">40€</span></p>
+                            </div>
+                        `;
+                    }
+                    
+                    packageDetailsDiv.innerHTML = packageInfo;
+                }
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const arrivalDate = document.getElementById('arrival-date').value;
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const packageType = document.getElementById('package').value;
+                    const notes = document.getElementById('notes').value;
+
+                    // Construct the message
+                    const message = `
+                        New SIM Card Order:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Arrival Date: ${arrivalDate}
+                        Room Number: ${room}
+                        Package: ${packageType}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "sim-card-thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'sim-order.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'sim-order.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

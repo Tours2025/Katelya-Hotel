@@ -1,0 +1,914 @@
+/* General Reset */
+/* Ensure the background color covers the full page */
+html, body {
+    height: 100%; /* Make sure both html and body take up the full height */
+    margin: 0; /* Remove default browser margins */
+    padding: 0; /* Remove default browser padding */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light gray background for the full page */
+    color: #333; /* Dark gray text for readability */
+    display: flex; /* Use flexbox to align content */
+    flex-direction: column; /* Stack header, main, and footer vertically */
+}
+
+main {
+    flex: 1; /* Allow the main content to grow and fill available space */
+    padding: 20px; /* Add padding inside the main section */
+    text-align: center; /* Center-align text */
+}
+
+main {
+    flex: 1; /* Allow the main content to grow and fill available space */
+    padding: 20px; /* Add padding inside the main section */
+    text-align: center; /* Center-align text */
+}
+
+/* Enhanced Navbar & Hotel Name Styling */
+
+/* Improved Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Hotel Name Styling */
+header .hotel-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+header .hotel-name h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+header .hotel-name h1:hover {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Ensure the navbar elements maintain their positioning */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .hotel-name h1 {
+        font-size: 22px;
+        padding: 3px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+    
+    header .hotel-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 5px 0;
+        width: 100%;
+        order: 1;
+    }
+    
+    header .hotel-name h1 {
+        font-size: 20px;
+        padding: 3px 0;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        order: 2;
+        margin-top: 10px;
+    }
+}
+
+/* Return Button Styling */
+.return-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+html[lang="ar"] .return-btn:hover,
+body[dir="rtl"] .return-btn:hover {
+    transform: translateX(3px);
+}
+
+.return-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.return-btn:hover svg {
+    transform: translateX(-2px);
+}
+
+html[lang="ar"] .return-btn:hover svg,
+body[dir="rtl"] .return-btn:hover svg {
+    transform: translateX(2px) scaleX(-1);
+}
+
+html[lang="ar"] .return-btn svg,
+body[dir="rtl"] .return-btn svg {
+    transform: scaleX(-1);
+}
+
+/* Language Dropdown Styling */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.dropdown-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: slideIn 0.25s ease;
+}
+
+html[lang="en"] .dropdown-content,
+body[dir="ltr"] .dropdown-content {
+    left: 0;
+    right: auto;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+}
+
+.dropdown-content a.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.lang-flag {
+    font-size: 16px;
+}
+
+.lang-name {
+    flex: 1;
+}
+
+html[lang="ar"] .lang-name,
+body[dir="rtl"] .lang-name {
+    text-align: right;
+}
+
+html[lang="en"] .lang-name,
+body[dir="ltr"] .lang-name {
+    text-align: left;
+}
+
+/* Show the dropdown when the open class is added */
+.language-dropdown.open .dropdown-content {
+    display: block;
+}
+
+.language-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Add a subtle arrow pointer to the dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
+}
+
+html[lang="ar"] .dropdown-content::before,
+body[dir="rtl"] .dropdown-content::before {
+    right: 20px;
+    left: auto;
+}
+
+html[lang="en"] .dropdown-content::before,
+body[dir="ltr"] .dropdown-content::before {
+    left: 20px;
+    right: auto;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+    nav {
+        gap: 10px;
+    }
+    
+    .return-btn, .dropdown-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    header .hotel-name h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+    
+    .return-btn span {
+        display: none; /* Hide text, show only icon on very small screens */
+    }
+    
+    .return-btn {
+        padding: 8px;
+    }
+}
+
+/* VIP Hero Section Styling */
+#vip-hero {
+    position: relative;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    background: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-back.jpeg') center/cover no-repeat;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#vip-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+#vip-hero .hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content appears above the dark overlay */
+    padding: 60px 40px;
+    text-align: left;
+    color: #fff;
+}
+
+html[lang="ar"] #vip-hero .hero-content,
+body[dir="rtl"] #vip-hero .hero-content {
+    text-align: right;
+}
+
+#vip-hero .hero-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#vip-hero .hero-badge i {
+    margin-right: 8px;
+    color: #000;
+}
+
+html[lang="ar"] #vip-hero .hero-badge i,
+body[dir="rtl"] #vip-hero .hero-badge i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+#vip-hero h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#vip-hero h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #fff;
+}
+
+html[lang="ar"] #vip-hero h2::after,
+body[dir="rtl"] #vip-hero h2::after {
+    left: auto;
+    right: 0;
+}
+
+#vip-hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 80%;
+    opacity: 0.9;
+}
+
+html[lang="ar"] #vip-hero p,
+body[dir="rtl"] #vip-hero p {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+html[lang="en"] #vip-hero p,
+body[dir="ltr"] #vip-hero p {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+#vip-hero .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#vip-hero .feature {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+#vip-hero .feature:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#vip-hero .feature i {
+    margin-right: 8px;
+    color: #fff;
+}
+
+html[lang="ar"] #vip-hero .feature i,
+body[dir="rtl"] #vip-hero .feature i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* Service Introduction Section */
+#service-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#service-intro h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#service-intro p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Services Section Styling */
+#services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.service-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #d4af37; /* Gold color */
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+html[lang="ar"] .service-badge,
+body[dir="rtl"] .service-badge {
+    right: auto;
+    left: 15px;
+}
+
+.service-badge i {
+    margin-right: 5px;
+}
+
+html[lang="ar"] .service-badge i,
+body[dir="rtl"] .service-badge i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.service-content {
+    padding: 25px;
+    color: #333;
+}
+
+.service-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.service-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.service-features li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #444;
+}
+
+.service-features li i {
+    color: #1a237e;
+    margin-right: 8px;
+}
+
+html[lang="ar"] .service-features li i,
+body[dir="rtl"] .service-features li i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.service-price {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.service-price strong {
+    font-size: 20px;
+    color: #1a237e;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1a237e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0d47a1;
+    transform: translateX(5px);
+}
+
+html[lang="ar"] .cta-button:hover,
+body[dir="rtl"] .cta-button:hover {
+    transform: translateX(-5px);
+}
+
+.cta-button i {
+    transition: transform 0.2s ease;
+}
+
+html[lang="ar"] .cta-button i,
+body[dir="rtl"] .cta-button i {
+    transform: rotate(180deg);
+}
+
+.cta-button:hover i {
+    transform: translateX(5px);
+}
+
+html[lang="ar"] .cta-button:hover i,
+body[dir="rtl"] .cta-button:hover i {
+    transform: translateX(-5px) rotate(180deg);
+}
+
+/* How It Works Section */
+#how-it-works {
+    background-color: #f5f5f5;
+    padding: 50px 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.step {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #1a237e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.step h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.step p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Why Choose Us Section */
+#why-choose-us {
+    text-align: center;
+}
+
+#why-choose-us h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.benefit {
+    width: 230px;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.benefit i {
+    font-size: 36px;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.benefit p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Testimonials Section */
+#testimonials {
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: left;
+}
+
+html[lang="ar"] .testimonial,
+body[dir="rtl"] .testimonial {
+    text-align: right;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.author {
+    font-weight: bold;
+    color: #333;
+}
+
+/* FAQ Section */
+#faq {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+#faq h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f9f9f9;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+.faq-question i {
+    color: #777;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    padding: 0 20px 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-question {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    main {
+        padding: 20px 15px;
+    }
+    
+    #vip-hero .hero-content {
+        padding: 40px 30px;
+    }
+    
+    #vip-hero h2 {
+        font-size: 28px;
+    }
+    
+    #vip-hero p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    
+    .service-card {
+        max-width: 450px;
+    }
+    
+    .benefit {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    #vip-hero {
+        background-position: right center; /* Position from right side for mobile */
+    }
+    
+    #vip-hero .hero-content {
+        padding: 30px 20px;
+    }
+    
+    #vip-hero h2 {
+        font-size: 24px;
+    }
+    
+    .service-card {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .process-steps {
+        gap: 30px;
+    }
+    
+    .step {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .benefit {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .testimonial {
+        width: 100%;
+    }
+}

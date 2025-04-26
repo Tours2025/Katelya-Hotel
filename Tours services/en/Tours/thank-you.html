@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your booking at Hotel Name">
+    <title>Thank You | Hotel Name</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Success Icon */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f9f4;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            color: #28a745;
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Next Steps Section */
+        .next-steps {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .next-steps h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .next-steps ul {
+            list-style-type: none;
+        }
+
+        .next-steps li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .next-steps li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 14px 28px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+        }
+
+        .primary-button {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .primary-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .secondary-button {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .secondary-button:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .decoration-1 {
+            width: 100px;
+            height: 100px;
+            background-color: #28a745;
+            top: -30px;
+            left: -30px;
+        }
+
+        .decoration-2 {
+            width: 150px;
+            height: 150px;
+            background-color: #28a745;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .success-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Decorative elements -->
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        
+        <!-- Success icon -->
+        <div class="success-icon">✓</div>
+        
+        <h1>Thank You for Your Booking!</h1>
+        <p>We have received your request and will contact you shortly to confirm all the details.</p>
+        
+        <div class="next-steps">
+            <h2>What happens next?</h2>
+            <ul>
+                <li>Our team will review your booking request</li>
+                <li>We'll contact you within 2-4 hours during business hours</li>
+                <li>We'll confirm your tour date and availability</li>
+                <li>You'll receive payment instructions and final details</li>
+            </ul>
+        </div>
+        
+        <p>If you have any questions, please don't hesitate to contact us.</p>
+        
+        <div class="button-container">
+            <button onclick="window.location.href='Tours-service.html'" class="secondary-button">Browse More Tours</button>
+            <button onclick="window.location.href='../main.html'" class="primary-button">Back to Home</button>
+        </div>
+    </div>
+</body>
+</html>

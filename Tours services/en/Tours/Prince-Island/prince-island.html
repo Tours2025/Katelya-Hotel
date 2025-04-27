@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Islands Tour Booking</title>
+    <title>Princess Islands By Boat - Full Day Tour</title>
     <link rel="stylesheet" href="prince-island.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -50,47 +50,48 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>Prince Islands Tour</h2>
+            <h2>Princess Islands By Boat - Full Day Tour</h2>
             <p>
-                Escape the bustling city of Istanbul and enjoy a peaceful day on the picturesque Prince Islands. This archipelago in the Sea of Marmara offers a charming retreat with no motorized vehicles, beautiful Victorian mansions, and pine forests.
+                Enjoy a full day tour to the beautiful Princess Islands of Istanbul, a perfect escape from the busy city with stunning views and refreshing sea breezes.
             </p>
             <p>
-                <strong>Tour Highlights:</strong>
+                <strong>Tour Experience:</strong>
             </p>
             <ul>
-                <li>Scenic ferry ride through the Bosphorus and Sea of Marmara</li>
-                <li>Visit to Büyükada, the largest of the Prince Islands</li>
-                <li>Horse-drawn carriage tour around the island (included)</li>
-                <li>Free time to explore the island's historic streets</li>
-                <li>Visit to the historic Aya Yorgi Church and Monastery</li>
-                <li>Swimming opportunity at the island's beaches (seasonal)</li>
-                <li>Delicious seafood lunch at a local restaurant (included)</li>
+                <li><strong>Day Start:</strong> Our drivers will come to your hotel to pick you up and take you to our boat.</li>
+                <li><strong>Journey Information:</strong> During the journey, your guide will provide information about continents, monuments and significant landmarks visible along the way. You'll have the chance to take amazing pictures and videos of the sights.</li>
+                <li><strong>Büyük Ada (Big Island):</strong> Upon arrival, your guide will brief you on how to get a bicycle to ride on the island, where the swimming points are, and what can be seen on the island. You'll have 3 hours to explore the beauties of the island, have lunch by the lovely seaside, ride a bicycle in the perfect nature, take an electrical bus, or shop for souvenirs and practice the tradition of bargaining.</li>
+                <li><strong>Heybeliada (Saddlebag Island):</strong> The next destination will be Heybeliada where there is the museum of the 2nd President of Turkey, the mansion that was used as his resting place for summers.</li>
+                <li><strong>Return Journey:</strong> Following exploration and relaxation, it's time to head back to Golden Horn while checking lovely moments that you gathered on the journey. Upon arrival to Golden Horn, drivers will take you back to your hotel.</li>
             </ul>
             <p>
-                <strong>Duration:</strong> Full-day tour (approximately 8 hours including travel time)
+                <strong>Duration:</strong> Full-day tour (Start 09:00 - Finish 18:00)
             </p>
             <p>
-                <strong>Departure Time:</strong> 9:30 AM from your hotel
+                <strong>Price:</strong> 30 Euro per person
             </p>
             <p>
-                <strong>Return Time:</strong> Approximately 5:30 PM to your hotel
+                <strong>Included:</strong>
             </p>
+            <ul>
+                <li>Pick up service</li>
+                <li>Private boat service</li>
+                <li>Büyük Ada stop (3 hours)</li>
+                <li>Heybeli Ada stop (1 hour)</li>
+                <li>Professional speaking tour guide</li>
+                <li>Drop off service</li>
+            </ul>
             <p>
-                <strong>Price:</strong> 95 USD per person (minimum 2 persons)
+                <strong>Important Notes:</strong>
             </p>
-            <p>
-                <strong>Included:</strong> Hotel pickup and drop-off, round-trip ferry tickets, English-speaking guide, horse-drawn carriage tour, lunch at a local restaurant, and bottled water
-            </p>
-            <p>
-                <strong>Not Included:</strong> Personal expenses, additional food and beverages not specified, beach entrance fees (if applicable), and gratuities
-            </p>
-            <p>
-                Experience the tranquil beauty of the Prince Islands, where time seems to stand still. With no cars allowed, the islands offer a peaceful escape with only the sounds of birds, horse carriages, and gentle sea waves.
-            </p>
+            <ul>
+                <li>The tour's schedule and duration might change depending on factors such as weather conditions and ferry schedules.</li>
+                <li>For the same reason, the tour might change to Bosphorus tour.</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>Book Your Prince Islands Tour</h3>
+            <h3>Book Your Princess Islands Tour</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -105,13 +106,13 @@
                     </div>
                     <div>
                         <label for="participants">Number of Participants:</label>
-                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
-                    <input type="checkbox" id="swimming" name="swimming">
-                    <label for="swimming" class="checkbox-label">I'm interested in swimming (seasonal, May-September)</label>
+                    <input type="checkbox" id="bicycle" name="bicycle">
+                    <label for="bicycle" class="checkbox-label">I'm interested in bicycle rental on Büyük Ada</label>
                 </div>
 
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
@@ -127,12 +128,6 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1);
-                            }
-                        ],
                         locale: "en" // English localization
                     });
                 });
@@ -145,38 +140,23 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const interestedInSwimming = document.getElementById('swimming').checked;
+                    const interestedInBicycle = document.getElementById('bicycle').checked;
                     const room = document.getElementById('room').value || 'Not staying at hotel';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
-                    const pricePerPerson = 95; // USD
+                    const pricePerPerson = 30; // Euro
                     const totalPrice = pricePerPerson * participants;
-                    
-                    // Check if selected date is in swimming season (May-September)
-                    const selectedDate = new Date(date);
-                    const month = selectedDate.getMonth() + 1; // getMonth() returns 0-11
-                    const isSwimmingSeason = month >= 5 && month <= 9;
-                    
-                    // Swimming note based on selection and season
-                    let swimmingNote = '';
-                    if (interestedInSwimming) {
-                        swimmingNote = isSwimmingSeason 
-                            ? 'Yes (swimming season)' 
-                            : 'Yes (note: outside of swimming season)';
-                    } else {
-                        swimmingNote = 'No';
-                    }
             
                     // Construct the message
                     const message = `
-                        New Prince Islands Tour Booking:
+                        New Princess Islands Tour Booking:
                         Name: ${name}
                         Phone: ${phone}
                         Date: ${date}
                         Number of Participants: ${participants}
-                        Interested in Swimming: ${swimmingNote}
-                        Total Price: $${totalPrice} USD
+                        Interested in Bicycle Rental: ${interestedInBicycle ? 'Yes' : 'No'}
+                        Total Price: €${totalPrice} Euro
                         Room Number: ${room}
                         Additional Notes: ${notes || 'No notes provided'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -185,7 +165,7 @@
                     console.log('Message:', message);
             
                     // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const phoneNumber = '+905401321212'; // Your WhatsApp number from the PDF
                     const apiKey = '8055273'; // Your CallMeBot API key
                     const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
             

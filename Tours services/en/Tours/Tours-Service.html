@@ -8,6 +8,32 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Added styles for flight icon badges */
+        .flight-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .flight-badge i {
+            font-size: 14px;
+        }
+        
+        html[lang="ar"] .flight-badge {
+            right: auto;
+            left: 10px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -77,7 +103,7 @@
                         <h3>Bursa Tour</h3>
                         <p>Explore the historic city of Bursa with our English-speaking guides.</p>
                         <div class="tour-badge">
-                            <span class="price">40 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Full Day</span>
                         </div>
                     </div>
@@ -103,7 +129,7 @@
                         <h3>Prince Islands</h3>
                         <p>Enjoy a day trip to the famous Prince Islands with expert guides.</p>
                         <div class="tour-badge">
-                            <span class="price">45 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Full Day</span>
                         </div>
                     </div>
@@ -116,7 +142,7 @@
                         <h3>Old City Tour 1</h3>
                         <p>Explore the historic sites in Istanbul's Old City district.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">80 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Half Day</span>
                         </div>
                     </div>
@@ -129,46 +155,49 @@
                         <h3>Old City Tour 2</h3>
                         <p>Continue exploring the amazing historic sites in Istanbul.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">90 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Half Day</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 6: Pamukkale Tour -->
+                <!-- English Tour 6: Pamukkale Tour - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='Pamukkale-Tour/pamukkale.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> Includes Flight</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/pamukkale.jpeg');"></div>
                     <div class="tour-text">
                         <h3>Pamukkale Tour</h3>
                         <p>Visit the stunning white terraces of Pamukkale.</p>
                         <div class="tour-badge">
-                            <span class="price">80 €</span>
+                            <span class="price">contact for price</span>
                             <span class="duration"><i class="far fa-clock"></i> Two Days</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 7: House of Virgin Mary -->
+                <!-- English Tour 7: House of Virgin Mary - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='house-of-virgin-mary-tour/house-of-virgin-mary-tour.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> Includes Flight</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/house-of-virgin-mary-tour.jpeg');"></div>
                     <div class="tour-text">
                         <h3>House of Virgin Mary</h3>
                         <p>Enjoy a spiritual journey to this important religious site.</p>
                         <div class="tour-badge">
-                            <span class="price">70 €</span>
+                            <span class="price">contact for price</span>
                             <span class="duration"><i class="far fa-clock"></i> Full Day</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 8: Cappadocia -->
+                <!-- English Tour 8: Cappadocia - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='cappadocia/cappadocia.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> Includes Flight</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/cappadocia.jpeg');"></div>
                     <div class="tour-text">
                         <h3>Cappadocia Tour</h3>
                         <p>Explore the magical landscapes of Cappadocia with our expert guides.</p>
                         <div class="tour-badge">
-                            <span class="price">90 €</span>
+                            <span class="price">contact for price</span>
                             <span class="duration"><i class="far fa-clock"></i> Two Days</span>
                         </div>
                     </div>
@@ -190,13 +219,13 @@
             <h2><i class="fas fa-map-marked-alt"></i> Arabic-Speaking Tours</h2>
             <div class="tours-grid">
                 <!-- Arabic Tour 1: Bursa -->
-                <div class="tour-item" onclick="window.location.href='bursa/bursa-tour.html';">
+                <div class="tour-item" onclick="window.location.href='bursa-AR/bursa-tour.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/bursa.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>Turkish Bursa</h3>
+                        <h3>Turkish Bursa - Arabic</h3>
                         <p>Enjoy a tour of the historic city of Bursa with an Arabic-speaking guide.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Full Day</span>
                         </div>
                     </div>
@@ -223,6 +252,18 @@
                         <p>Discover the beauty of Şile and Ağva with detailed explanation in Arabic.</p>
                         <div class="tour-badge">
                             <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- English Tour 3: Prince Islands -->
+                <div class="tour-item" onclick="window.location.href='Prince-Island/prince-island.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/prince-island.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Prince Islands - Arabic</h3>
+                        <p>Enjoy a day trip to the famous Prince Islands with expert guides.</p>
+                        <div class="tour-badge">
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> Full Day</span>
                         </div>
                     </div>

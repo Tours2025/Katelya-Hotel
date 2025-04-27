@@ -1,385 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة كابادوكيا</title>
-    <link rel="stylesheet" href="cappadocia.css" />
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-        /* Quick fix for RTL styling */
-        body, html {
-            direction: rtl;
-            text-align: right;
-        }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
-        }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
-        }
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            display: flex;
-            flex-direction: row-reverse;
-        }
-        .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
-            margin-right: 0;
-        }
-        /* Fix select arrow position */
-        #booking-form select {
-            background-position: left 10px center;
-            padding-left: 30px;
-            padding-right: 10px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="../hotel-logo.png" alt="شعار الفندق">
-        </div>
-        <div class="hotel-name">
-            <h1>اسم الفندق</h1>
-        </div>
-        <nav>
-            <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H5"></path>
-                    <path d="M12 19l-7-7 7-7"></path>
-                </svg>
-                <span>رجوع</span>
-            </button>
-            
-            <!-- Language Dropdown -->
-            <div class="language-dropdown">
-                <button class="dropdown-btn">
-                    <span id="current-language">العربية</span>
-                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#" id="ar-option" class="active">
-                        <span class="lang-flag">🇦🇪</span>
-                        <span class="lang-name">العربية</span>
-                    </a>
-                    <a href="#" id="en-option">
-                        <span class="lang-flag">🇬🇧</span>
-                        <span class="lang-name">English</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Main Content -->
-    <main>
-        <section id="service-explanation">
-            <h2>جولة كابادوكيا: المداخن الصخرية والمدن تحت الأرض</h2>
-            <p>
-                استمتع بالمناظر الطبيعية الخلابة والتاريخ العريق لكابادوكيا، واحدة من أكثر الوجهات المميزة في تركيا. ستأخذك هذه الجولة التي لا تُنسى عبر تضاريس تشبه الأحلام من المداخن الصخرية، والمساكن الكهفية، والمدن المخفية تحت الأرض المنحوتة في تكوينات الصخور البركانية الفريدة.
-            </p>
-            <p>
-                <strong>أبرز معالم الجولة:</strong>
-            </p>
-            <ul>
-                <li><strong>رحلة بالمنطاد الهوائي</strong> (اختياري) - شاهد شروق الشمس الخلاب فوق مشهد كابادوكيا الفريد من السماء</li>
-                <li><strong>متحف جوريم المفتوح</strong> - استكشف موقع التراث العالمي لليونسكو هذا مع كنائسه المنحوتة في الصخر ولوحات الفسيفساء البيزنطية المثيرة للإعجاب</li>
-                <li><strong>وادي ديفرنت</strong> - المعروف أيضًا باسم "وادي الخيال"، المشهور بتكوينات صخرية تشبه الحيوانات والأشياء</li>
-                <li><strong>باشاباغ (وادي الرهبان)</strong> - شاهد أكثر المداخن الصخرية إثارة للإعجاب مع أغطية صخرية مزدوجة وثلاثية</li>
-                <li><strong>أفانوس</strong> - قم بزيارة هذه البلدة المعروفة بالفخار وشاهد عرضًا تقليديًا للفخار</li>
-                <li><strong>المدينة تحت الأرض</strong> - اكتشف المستوطنات القديمة تحت الأرض حيث اختبأ المسيحيون الأوائل من الاضطهاد</li>
-                <li><strong>قلعة أوتشيسار</strong> - اصعد إلى هذه القلعة الصخرية الطبيعية لإطلالات بانورامية على المنطقة بأكملها</li>
-                <li><strong>وادي الحمام</strong> - شاهد التكوينات الصخرية المذهلة وبيوت الحمام المنحوتة في جدران الوادي</li>
-                <li><strong>الإقامة في فندق كهف تقليدي</strong> - استمتع بالضيافة الكبادوكية الأصيلة في فندق كهف بتصميم فريد</li>
-            </ul>
-            <p>
-                <strong>خيارات الجولة:</strong> 
-            </p>
-            <p>
-                <strong>1. الجولة القياسية (يومان، ليلة واحدة):</strong> تشمل رحلات الطيران ذهابًا وإيابًا، وجميع المعالم المذكورة، والإقامة في فندق الكهف، والوجبات.
-            </p>
-            <p>
-                <strong>2. الجولة الممتدة (3 أيام، ليلتان):</strong> تشمل كل ما في الجولة القياسية بالإضافة إلى يوم إضافي لاستكشاف الوادي الأحمر، ووادي الورد، ووادي إهلارا.
-            </p>
-            <p>
-                <strong>المدة:</strong>
-            </p>
-            <p>الجولة القياسية: يومان، ليلة واحدة<br>
-               الجولة الممتدة: 3 أيام، ليلتان
-            </p>
-            <p>
-                <strong>وقت المغادرة:</strong> رحلة صباحية مبكرة من إسطنبول (عادة 6:00-7:00 صباحًا)
-            </p>
-            <p>
-                <strong>وقت العودة:</strong>
-            </p>
-            <p>الجولة القياسية: رحلة مسائية في اليوم الثاني<br>
-               الجولة الممتدة: رحلة مسائية في اليوم الثالث
-            </p>
-            <p>
-                <strong>السعر:</strong>
-            </p>
-            <p>الجولة القياسية: 420 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               الجولة الممتدة: 550 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               إضافة رحلة المنطاد الهوائي: 220 دولار أمريكي للشخص الواحد
-            </p>
-            <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، رحلات الطيران المحلية ذهابًا وإيابًا من إسطنبول-كابادوكيا-إسطنبول، مركبة مكيفة لجميع التنقلات والجولات، مرشد محترف يتحدث العربية، رسوم الدخول إلى جميع المواقع المذكورة، الإقامة في فندق كهف مع وجبة الإفطار، الغداء والعشاء في أيام الجولة، والمياه المعبأة.
-            </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> رحلة المنطاد الهوائي (ما لم يتم اختيارها كإضافة)، النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، ملابس متعددة الطبقات (قد تختلف درجات الحرارة)، كاميرا، واقٍ من الشمس، قبعة، وجواز سفر/بطاقة هوية للرحلات الجوية المحلية
-            </p>
-            <p>
-                تقدم كابادوكيا بعضًا من أكثر المناظر الطبيعية فريدة وسحرية على وجه الأرض. تجمع هذه الجولة بين عجائب الطبيعة، والمواقع التاريخية، والتجارب الثقافية لخلق ذكريات ستدوم مدى الحياة. احجز الآن لضمان مكانك في هذه المغامرة الاستثنائية!
-            </p>
-        </section>
-        <!-- Booking Form Section -->
-        <section id="booking-form">
-            <h3>احجز جولة كابادوكيا الخاصة بك</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">الاسم:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="phone">رقم الهاتف:</label>
-                <input type="tel" id="phone" name="phone" required>
-                
-                <label for="tour-type">خيار الجولة:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="standard">الجولة القياسية (يومان، ليلة واحدة) - 420 دولار/شخص</option>
-                    <option value="extended">الجولة الممتدة (3 أيام، ليلتان) - 550 دولار/شخص</option>
-                </select>
-                
-                <!-- Date and Time Inputs -->
-                <div class="datetime-container">
-                    <div>
-                        <label for="date">تاريخ البدء:</label>
-                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
-                    </div>
-                    <div>
-                        <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
-                    </div>
-                </div>
-
-                <div class="checkbox-container">
-                    <label for="balloon-ride" class="checkbox-label">إضافة رحلة منطاد هوائي (إضافة 220 دولار أمريكي للشخص)</label>
-                    <input type="checkbox" id="balloon-ride" name="balloon-ride">
-                </div>
-                
-                <div class="checkbox-container">
-                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                </div>
-
-                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
-                <input type="text" id="room" name="room">
-                <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي قيود غذائية، متطلبات خاصة أو أسئلة..."></textarea>
-                <button type="submit">احجز الآن</button>
-            </form>
-            <script>
-                // Initialize Flatpickr for date inputs
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
-                    flatpickr("#date", {
-                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Thursdays and Sundays (assuming tour doesn't start on these days)
-                                return (date.getDay() === 0 || date.getDay() === 4);
-                            }
-                        ],
-                        locale: "ar" // Arabic localization
-                    });
-                });
-
-                function sendToWhatsApp(event) {
-                    event.preventDefault();
-            
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'standard' ? 'الجولة القياسية (يومان، ليلة واحدة)' : 'الجولة الممتدة (3 أيام، ليلتان)';
-                    const date = document.getElementById('date').value;
-                    const participants = document.getElementById('participants').value;
-                    const balloonRide = document.getElementById('balloon-ride').checked;
-                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
-                    const notes = document.getElementById('notes').value;
-                    
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'standard' ? 420 : 550; // USD
-                    const balloonRidePrice = balloonRide ? 220 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + balloonRidePrice;
-            
-                    // Construct the message
-                    const message = `
-                        حجز جديد لجولة كابادوكيا:
-                        الاسم: ${name}
-                        الهاتف: ${phone}
-                        خيار الجولة: ${tourTypeName}
-                        تاريخ البدء: ${date}
-                        عدد المشاركين: ${participants}
-                        رحلة المنطاد الهوائي: ${balloonRide ? 'نعم (+' + balloonRidePrice + ' دولار أمريكي)' : 'لا'}
-                        قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        سعر الجولة الأساسي: ${baseTotal} دولار أمريكي
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
-                        رقم الغرفة: ${room}
-                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // Log the message for debugging
-                    console.log('Message:', message);
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
-                    const apiKey = '8055273'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Log the final URL for debugging
-                    console.log('API URL:', url);
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
-                        }
-                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
-                }
-            </script>
-            <script>
-                // Language dropdown functionality
-                const dropdownBtn = document.querySelector('.dropdown-btn');
-                const languageDropdown = document.querySelector('.language-dropdown');
-                const currentLanguage = document.getElementById('current-language');
-                const arOption = document.getElementById('ar-option');
-                const enOption = document.getElementById('en-option');
-                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
-                
-                // Set initial language based on current URL
-                function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
-                    } else {
-                        selectLanguage('ar', 'العربية', false); // false means don't redirect
-                    }
-                }
-                
-                // Call this when the page loads
-                setInitialLanguage();
-                
-                // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
-            
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
-            
-                // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
-            
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
-            
-                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-                    // Update button text
-                    currentLanguage.textContent = displayText;
-                    
-                    // Update return button text if provided
-                    if (returnText && returnButton) {
-                        returnButton.textContent = returnText;
-                    }
-                    
-                    // Update active class
-                    if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
-                    } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
-                    }
-                    
-                    // Close the dropdown
-                    languageDropdown.classList.remove('open');
-                    
-                    // Redirect to appropriate language version if shouldRedirect is true
-                    if (shouldRedirect) {
-                        redirectToLanguageFolder(lang);
-                    }
-                }
-            
-                // Function to handle language switching
-                function redirectToLanguageFolder(language) {
-                    // Get current URL path
-                    const currentPath = window.location.pathname;
-                    let newPath;
-                    
-                    if (language === 'en') {
-                        // If current path has /ar/ replace it with /en/
-                        if (currentPath.includes('/ar/')) {
-                            newPath = currentPath.replace('/ar/', '/en/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'cappadocia.html';
-                        }
-                    } else if (language === 'ar') {
-                        // If current path has /en/ replace it with /ar/
-                        if (currentPath.includes('/en/')) {
-                            newPath = currentPath.replace('/en/', '/ar/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'cappadocia.html';
-                        }
-                    }
-                    
-                    window.location.href = newPath;
-                }
-            </script>
-            <!-- Flatpickr JS -->
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
-        </section>
-    </main>
-</body>
-</html>

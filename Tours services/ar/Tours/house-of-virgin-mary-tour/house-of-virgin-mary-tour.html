@@ -1,398 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة بيت العذراء مريم</title>
-    <link rel="stylesheet" href="house-of-virgin-mary-tour.css" />
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-        /* Quick fix for RTL styling */
-        body, html {
-            direction: rtl;
-            text-align: right;
-        }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
-        }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
-        }
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            padding-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
-            margin-right: 0;
-            order: 1;
-        }
-        .checkbox-label {
-            order: 2;
-            flex: 1;
-        }
-        /* Fix select arrow position */
-        #booking-form select {
-            background-position: left 10px center;
-            padding-left: 30px;
-            padding-right: 10px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="../hotel-logo.png" alt="شعار الفندق">
-        </div>
-        <div class="hotel-name">
-            <h1>اسم الفندق</h1>
-        </div>
-        <nav>
-            <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H5"></path>
-                    <path d="M12 19l-7-7 7-7"></path>
-                </svg>
-                <span>رجوع</span>
-            </button>
-            
-            <!-- Language Dropdown -->
-            <div class="language-dropdown">
-                <button class="dropdown-btn">
-                    <span id="current-language">العربية</span>
-                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#" id="ar-option" class="active">
-                        <span class="lang-flag">🇦🇪</span>
-                        <span class="lang-name">العربية</span>
-                    </a>
-                    <a href="#" id="en-option">
-                        <span class="lang-flag">🇬🇧</span>
-                        <span class="lang-name">English</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Main Content -->
-    <main>
-        <section id="service-explanation">
-            <h2>جولة بيت العذراء مريم ومدينة أفسس القديمة</h2>
-            <p>
-                انطلق في رحلة روحية وتاريخية غنية إلى أفسس وبيت العذراء مريم، أحد أكثر مواقع الحج المسيحية تبجيلاً. تأخذك هذه الجولة الشاملة عبر الآثار الرائعة لمدينة أفسس القديمة وإلى المنزل المتواضع حيث يُعتقد أن العذراء مريم قضت سنواتها الأخيرة.
-            </p>
-            <p>
-                <strong>أبرز معالم الجولة:</strong>
-            </p>
-            <ul>
-                <li><strong>بيت العذراء مريم (مريم أنا)</strong> - زيارة هذا الموقع المقدس المعترف به من قبل الفاتيكان حيث يُعتقد أن العذراء مريم عاشت أيامها الأخيرة</li>
-                <li><strong>مدينة أفسس القديمة</strong> - استكشف واحدة من أفضل المدن القديمة المحفوظة في العالم مع معالم بارزة تشمل:
-                    <ul>
-                        <li>مكتبة سيلسوس الرائعة</li>
-                        <li>المسرح الكبير الذي كان يتسع لـ 25,000 متفرج</li>
-                        <li>معبد هادريان</li>
-                        <li>شارع الرخام والأغورا (السوق القديم)</li>
-                        <li>المنازل المدرجة الرومانية (اختياري)</li>
-                    </ul>
-                </li>
-                <li><strong>كنيسة القديس يوحنا</strong> - زيارة الكنيسة المبنية فوق موقع دفن القديس يوحنا الرسول المفترض</li>
-                <li><strong>معبد أرتميس</strong> - مشاهدة بقايا إحدى عجائب العالم القديم السبع</li>
-                <li><strong>غداء تركي تقليدي</strong> - استمتع بالمأكولات المحلية الأصيلة في مطعم تم اختياره بعناية</li>
-                <li><strong>عرض للحرف اليدوية المحلية</strong> - فرصة لمشاهدة نسج السجاد التقليدي أو صناعة الفخار (إذا سمح الوقت)</li>
-            </ul>
-            <p>
-                <strong>خيارات الجولة:</strong> 
-            </p>
-            <p>
-                <strong>1. رحلة ليوم واحد بالطائرة (عودة في نفس اليوم):</strong> تشمل رحلة طيران صباحية من إسطنبول إلى إزمير، جولة ليوم كامل، ورحلة عودة مسائية.
-            </p>
-            <p>
-                <strong>2. جولة مع مبيت (يومان):</strong> تشمل رحلات الطيران، الجولة، الإقامة في كوشاداسي أو سلجوق، ووقت إضافي لاستكشاف المنطقة.
-            </p>
-            <p>
-                <strong>المدة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: حوالي 15 ساعة (بما في ذلك رحلات الطيران)<br>
-               جولة مع مبيت: يومان، ليلة واحدة
-            </p>
-            <p>
-                <strong>وقت المغادرة:</strong> رحلة طيران صباحية مبكرة من إسطنبول (عادة 6:00-7:00 صباحًا)
-            </p>
-            <p>
-                <strong>وقت العودة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: رحلة طيران متأخرة إلى إسطنبول (عادة 8:00-9:00 مساءً)<br>
-               جولة مع مبيت: رحلة طيران مسائية في اليوم الثاني
-            </p>
-            <p>
-                <strong>السعر:</strong>
-            </p>
-            <p>رحلة ليوم واحد: 290 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               جولة مع مبيت: 390 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)
-            </p>
-            <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، رحلات الطيران المحلية ذهابًا وإيابًا من إسطنبول-إزمير-إسطنبول، مركبة مكيفة، مرشد محترف يتحدث العربية، رسوم الدخول إلى جميع المواقع المذكورة (باستثناء المنازل المدرجة الرومانية)، وجبة الغداء، والمياه المعبأة. خيار المبيت يشمل أيضًا الإقامة في الفندق ووجبة الإفطار.
-            </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> دخول المنازل المدرجة الرومانية (حوالي 15 دولار أمريكي)، النفقات الشخصية، الوجبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، ملابس محتشمة (يجب تغطية الكتفين والركبتين عند زيارة بيت العذراء مريم)، واقٍ من الشمس، كاميرا، وجواز سفر/بطاقة هوية للرحلات الجوية المحلية
-            </p>
-            <p>
-                توفر هذه الجولة مزيجًا مثاليًا من الأهمية الروحية والتاريخ القديم، مما يوفر رؤى في المسيحية المبكرة وعظمة الإمبراطورية الرومانية. احجز الآن لضمان مكانك لهذه التجربة التي لا تُنسى!
-            </p>
-        </section>
-        <!-- Booking Form Section -->
-        <section id="booking-form">
-            <h3>احجز جولة بيت العذراء مريم ومدينة أفسس القديمة</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">الاسم:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="phone">رقم الهاتف:</label>
-                <input type="tel" id="phone" name="phone" required>
-                
-                <label for="tour-type">خيار الجولة:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="day-trip">رحلة ليوم واحد (عودة في نفس اليوم) - 290 دولار/شخص</option>
-                    <option value="overnight">جولة مع مبيت (يومان، ليلة واحدة) - 390 دولار/شخص</option>
-                </select>
-                
-                <!-- Date and Time Inputs -->
-                <div class="datetime-container">
-                    <div>
-                        <label for="date">التاريخ:</label>
-                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
-                    </div>
-                    <div>
-                        <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="roman-houses" name="roman-houses">
-                        <label for="roman-houses" class="checkbox-label">أرغب في زيارة المنازل المدرجة الرومانية (إضافة 15 دولار أمريكي للشخص)</label>
-                    </div>
-                    
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                        <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    </div>
-                </div>
-
-                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
-                <input type="text" id="room" name="room">
-                <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي قيود غذائية، متطلبات خاصة أو أسئلة..."></textarea>
-                <button type="submit">احجز الآن</button>
-            </form>
-            <script>
-                // Initialize Flatpickr for date inputs
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
-                    flatpickr("#date", {
-                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1);
-                            }
-                        ],
-                        locale: "ar" // Arabic localization
-                    });
-                });
-
-                function sendToWhatsApp(event) {
-                    event.preventDefault();
-            
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'day-trip' ? 'رحلة ليوم واحد (عودة في نفس اليوم)' : 'جولة مع مبيت (يومان، ليلة واحدة)';
-                    const date = document.getElementById('date').value;
-                    const participants = document.getElementById('participants').value;
-                    const romanHouses = document.getElementById('roman-houses').checked;
-                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
-                    const notes = document.getElementById('notes').value;
-                    
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'day-trip' ? 290 : 390; // USD
-                    const romanHousesPrice = romanHouses ? 15 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + romanHousesPrice;
-            
-                    // Construct the message
-                    const message = `
-                        حجز جديد لجولة بيت العذراء مريم ومدينة أفسس القديمة:
-                        الاسم: ${name}
-                        الهاتف: ${phone}
-                        خيار الجولة: ${tourTypeName}
-                        التاريخ: ${date}
-                        عدد المشاركين: ${participants}
-                        المنازل المدرجة الرومانية: ${romanHouses ? 'نعم (+' + romanHousesPrice + ' دولار أمريكي)' : 'لا'}
-                        قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        سعر الجولة الأساسي: ${baseTotal} دولار أمريكي
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
-                        رقم الغرفة: ${room}
-                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // Log the message for debugging
-                    console.log('Message:', message);
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
-                    const apiKey = '8055273'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Log the final URL for debugging
-                    console.log('API URL:', url);
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
-                        }
-                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
-                }
-            </script>
-            <script>
-                // Language dropdown functionality
-                const dropdownBtn = document.querySelector('.dropdown-btn');
-                const languageDropdown = document.querySelector('.language-dropdown');
-                const currentLanguage = document.getElementById('current-language');
-                const arOption = document.getElementById('ar-option');
-                const enOption = document.getElementById('en-option');
-                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
-                
-                // Set initial language based on current URL
-                function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
-                    } else {
-                        selectLanguage('ar', 'العربية', false); // false means don't redirect
-                    }
-                }
-                
-                // Call this when the page loads
-                setInitialLanguage();
-                
-                // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
-            
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
-            
-                // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
-            
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
-            
-                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-                    // Update button text
-                    currentLanguage.textContent = displayText;
-                    
-                    // Update return button text if provided
-                    if (returnText && returnButton) {
-                        returnButton.textContent = returnText;
-                    }
-                    
-                    // Update active class
-                    if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
-                    } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
-                    }
-                    
-                    // Close the dropdown
-                    languageDropdown.classList.remove('open');
-                    
-                    // Redirect to appropriate language version if shouldRedirect is true
-                    if (shouldRedirect) {
-                        redirectToLanguageFolder(lang);
-                    }
-                }
-            
-                // Function to handle language switching
-                function redirectToLanguageFolder(language) {
-                    // Get current URL path
-                    const currentPath = window.location.pathname;
-                    let newPath;
-                    
-                    if (language === 'en') {
-                        // If current path has /ar/ replace it with /en/
-                        if (currentPath.includes('/ar/')) {
-                            newPath = currentPath.replace('/ar/', '/en/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'house-of-virgin-mary-tour.html';
-                        }
-                    } else if (language === 'ar') {
-                        // If current path has /en/ replace it with /ar/
-                        if (currentPath.includes('/en/')) {
-                            newPath = currentPath.replace('/en/', '/ar/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'house-of-virgin-mary-tour.html';
-                        }
-                    }
-                    
-                    window.location.href = newPath;
-                }
-            </script>
-            <!-- Flatpickr JS -->
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
-        </section>
-    </main>
-</body>
-</html>

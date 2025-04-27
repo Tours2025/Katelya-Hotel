@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات الجولات السياحية | جولات الفندق</title>
+    <title>خدمات جولات سياحية | جولات الفندق</title>
     <link rel="stylesheet" href="tours-style.css" /> 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Added styles for flight icon badges */
+        .flight-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Left for RTL */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .flight-badge i {
+            font-size: 14px;
+            margin-left: 5px; /* Margin left for RTL */
+        }
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -51,44 +77,33 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Updated Hero Section for English Tours -->
+        <!-- Updated Hero Section for Arabic Tours -->
         <section id="arabic-tours-hero">
             <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-globe-africa"></i> جولات باللغة الإنجليزية</div>
+                <div class="hero-badge"><i class="fas fa-globe-africa"></i> جولات بمرشدين عرب</div>
                 <h2>اكتشف جمال تركيا مع مرشدينا الخبراء</h2>
-                <p>نقدم تجربة سياحية استثنائية مصممة خصيصًا لتلبية احتياجاتك وتفضيلاتك. استمتع بجولات مصممة خصيصًا لعرض أفضل ما في تركيا، بقيادة مرشدين محترفين يتحدثون الإنجليزية.</p>
+                <p>نقدم تجربة سياحية استثنائية مصممة خصيصًا لتلبية احتياجاتك وتفضيلاتك. استمتع بجولات مصممة خصيصًا لعرض أفضل ما في تركيا، بقيادة مرشدين محترفين يتحدثون العربية.</p>
                 <div class="features">
-                    <div class="feature"><i class="fas fa-user-tie"></i> مرشدون محترفون</div>
-                    <div class="feature"><i class="fas fa-bus-alt"></i> نقل فاخر</div>
+                    <div class="feature"><i class="fas fa-user-tie"></i> مرشدين محترفين</div>
+                    <div class="feature"><i class="fas fa-bus-alt"></i> وسائل نقل فاخرة</div>
                     <div class="feature"><i class="fas fa-utensils"></i> وجبات مشمولة</div>
                     <div class="feature"><i class="fas fa-ticket-alt"></i> تذاكر المعالم السياحية</div>
                 </div>
             </div>
         </section>
 
-        
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <div class="divider-line"></div>
-            <div class="divider-content">
-                <h2 class="divider-text">جولات باللغة العربية</h2>
-                <p>الجولات مع مرشدين يتحدثون العربية متوفرة أدناه</p>
-            </div>
-        </div>
-
-        <!-- Arabic Tours Section (MOVED TO BOTTOM) -->
+        <!-- Arabic Tours Section (MOVED TO TOP for Arabic version) -->
         <section id="arabic-tours">
-            <h2><i class="fas fa-map-marked-alt"></i> جولات باللغة العربية</h2>
+            <h2><i class="fas fa-map-marked-alt"></i> جولات بمرشدين عرب</h2>
             <div class="tours-grid">
                 <!-- Arabic Tour 1: Bursa -->
-                <div class="tour-item" onclick="window.location.href='bursa/bursa-tour.html';">
+                <div class="tour-item" onclick="window.location.href='bursa-AR/bursa-tour.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/bursa.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>بورصة التركية</h3>
+                        <h3>بورصة التركية - عربي</h3>
                         <p>استمتع بجولة في مدينة بورصة التاريخية مع مرشد يتحدث العربية.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
                         </div>
                     </div>
@@ -98,8 +113,8 @@
                 <div class="tour-item" onclick="window.location.href='sapanca/sapanca-tour.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/sapanca.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>صبنجة ومعشوقية</h3>
-                        <p>اكتشف جمال صبنجة ومعشوقية مع شرح مفصل باللغة العربية.</p>
+                        <h3>سابانجا وماسوكييه</h3>
+                        <p>اكتشف جمال سابانجا وماسوكييه مع شرح مفصل باللغة العربية.</p>
                         <div class="tour-badge">
                             <span class="price">35 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
@@ -108,31 +123,53 @@
                 </div>
 
                 <!-- Arabic Tour 3: Şile-Ağva -->
-                <div class="tour-item" onclick="window.location.href='Şile-Ağva/Şile-Ağva.html';">
+                <div class="tour-item" onclick="window.location.href='Şile-AğvaŞile-Ağva.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/%C5%9Eile-A%C4%9Fva.jpg');"></div>
                     <div class="tour-text">
-                        <h3>شيلا وأغوا</h3>
-                        <p>اكتشف جمال شيلا وأغوا مع شرح مفصل باللغة العربية.</p>
+                        <h3>شيله وأغوا</h3>
+                        <p>اكتشف جمال شيله وأغوا مع شرح مفصل باللغة العربية.</p>
                         <div class="tour-badge">
                             <span class="price">35 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
                         </div>
                     </div>
                 </div>
+                <!-- English Tour 3: Prince Islands -->
+                <div class="tour-item" onclick="window.location.href='Prince-Island-AR/prince-island.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/prince-island.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>جزر الأميرات - عربي</h3>
+                        <p>استمتع برحلة ليوم واحد إلى جزر الأميرات الشهيرة مع مرشدين خبراء.</p>
+                        <div class="tour-badge">
+                            <span class="price">30 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- English Tours Section - Updated Design (MOVED TO TOP) -->
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-content">
+                <h2 class="divider-text">جولات بمرشدين إنجليز</h2>
+                <p>الجولات مع مرشدين يتحدثون الإنجليزية متوفرة أدناه</p>
+            </div>
+        </div>
+
+        <!-- English Tours Section (MOVED TO BOTTOM for Arabic version) -->
         <section id="english-tours">
-            <h2><i class="fas fa-route"></i> جولات باللغة الإنجليزية</h2>
+            <h2><i class="fas fa-route"></i> جولات بمرشدين إنجليز</h2>
             <div class="tours-grid">
                 <!-- English Tour 1: Bursa -->
                 <div class="tour-item" onclick="window.location.href='bursa/bursa-tour.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/bursa.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>جولة بورصة</h3>
+                        <h3>جولة بورصة - انجليزي</h3>
                         <p>استكشف مدينة بورصة التاريخية مع مرشدينا الناطقين بالإنجليزية.</p>
                         <div class="tour-badge">
-                            <span class="price">40 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
                         </div>
                     </div>
@@ -142,8 +179,8 @@
                 <div class="tour-item" onclick="window.location.href='sapanca/sapanca-tour.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/sapanca.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>جولة بحيرة صبنجة</h3>
-                        <p>اكتشف الجمال الطبيعي لبحيرة صبنجة والمناطق المحيطة بها.</p>
+                        <h3>جولة بحيرة سابانجا</h3>
+                        <p>اكتشف الجمال الطبيعي لبحيرة سابانجا والمناطق المحيطة بها.</p>
                         <div class="tour-badge">
                             <span class="price">40 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
@@ -155,10 +192,10 @@
                 <div class="tour-item" onclick="window.location.href='Prince-Island/prince-island.html';">
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/prince-island.jpeg');"></div>
                     <div class="tour-text">
-                        <h3>جزر الأميرات</h3>
-                        <p>استمتع برحلة يومية إلى جزر الأميرات الشهيرة مع مرشدين خبراء.</p>
+                        <h3>جزر الأميرات - انجليزي</h3>
+                        <p>استمتع برحلة ليوم واحد إلى جزر الأميرات الشهيرة مع مرشدين خبراء.</p>
                         <div class="tour-badge">
-                            <span class="price">45 €</span>
+                            <span class="price">30 €</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
                         </div>
                     </div>
@@ -169,9 +206,9 @@
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/old-city-tour1.jpeg');"></div>
                     <div class="tour-text">
                         <h3>جولة المدينة القديمة 1</h3>
-                        <p>استكشف المواقع التاريخية في منطقة المدينة القديمة في إسطنبول.</p>
+                        <p>استكشف المواقع التاريخية في منطقة المدينة القديمة باسطنبول.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">80 €</span>
                             <span class="duration"><i class="far fa-clock"></i> نصف يوم</span>
                         </div>
                     </div>
@@ -182,48 +219,51 @@
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/old-city-tour2.jpeg');"></div>
                     <div class="tour-text">
                         <h3>جولة المدينة القديمة 2</h3>
-                        <p>تابع استكشاف المواقع التاريخية المذهلة في إسطنبول.</p>
+                        <p>استمر في استكشاف المواقع التاريخية المذهلة في اسطنبول.</p>
                         <div class="tour-badge">
-                            <span class="price">35 €</span>
+                            <span class="price">90 €</span>
                             <span class="duration"><i class="far fa-clock"></i> نصف يوم</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 6: Pamukkale Tour -->
+                <!-- English Tour 6: Pamukkale Tour - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='Pamukkale-Tour/pamukkale.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> تشمل الطيران</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/pamukkale.jpeg');"></div>
                     <div class="tour-text">
                         <h3>جولة باموكالي</h3>
-                        <p>قم بزيارة المدرجات البيضاء المذهلة في باموكالي.</p>
+                        <p>زيارة المدرجات البيضاء المذهلة في باموكالي.</p>
                         <div class="tour-badge">
-                            <span class="price">80 €</span>
+                            <span class="price">اتصل لمعرفة السعر</span>
                             <span class="duration"><i class="far fa-clock"></i> يومان</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 7: House of Virgin Mary -->
+                <!-- English Tour 7: House of Virgin Mary - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='house-of-virgin-mary-tour/house-of-virgin-mary-tour.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> تشمل الطيران</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/house-of-virgin-mary-tour.jpeg');"></div>
                     <div class="tour-text">
                         <h3>بيت مريم العذراء</h3>
-                        <p>استمتع برحلة روحية إلى هذا الموقع الديني المهم.</p>
+                        <p>استمتع برحلة روحانية إلى هذا الموقع الديني المهم.</p>
                         <div class="tour-badge">
-                            <span class="price">70 €</span>
+                            <span class="price">اتصل لمعرفة السعر</span>
                             <span class="duration"><i class="far fa-clock"></i> يوم كامل</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- English Tour 8: Cappadocia -->
+                <!-- English Tour 8: Cappadocia - Added Flight Icon -->
                 <div class="tour-item" onclick="window.location.href='cappadocia/cappadocia.html';">
+                    <div class="flight-badge"><i class="fas fa-plane"></i> تشمل الطيران</div>
                     <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/cappadocia.jpeg');"></div>
                     <div class="tour-text">
                         <h3>جولة كابادوكيا</h3>
-                        <p>استكشف المناظر الطبيعية الساحرة في كابادوكيا مع مرشدينا الخبراء.</p>
+                        <p>استكشف المناظر الطبيعية السحرية لكابادوكيا مع مرشدينا الخبراء.</p>
                         <div class="tour-badge">
-                            <span class="price">90 €</span>
+                            <span class="price">اتصل لمعرفة السعر</span>
                             <span class="duration"><i class="far fa-clock"></i> يومان</span>
                         </div>
                     </div>
@@ -244,12 +284,8 @@
         
         // Set initial language based on current URL
         function setInitialLanguage() {
-            // Check if we're in an Arabic folder path
-            if (window.location.pathname.includes('/ar/') || true) { // Default to Arabic
-                selectLanguage('ar', 'العربية', false); // false means don't redirect
-            } else {
-                selectLanguage('en', 'English', false); // false means don't redirect
-            }
+            // Default to Arabic for this file
+            selectLanguage('ar', 'العربية', false); // false means don't redirect
         }
         
         // Call this when the page loads
@@ -330,7 +366,7 @@
                     newPath = currentPath.replace('/en/', '/ar/');
                 } else {
                     // If we're at the root level
-                    newPath = 'Tours-Service-ar.html';
+                    newPath = 'Tours-Service.html';
                 }
             }
             

@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة جزر الأمراء</title>
+    <title>جولة جزر الأميرات بالقارب - جولة ليوم كامل</title>
     <link rel="stylesheet" href="prince-island.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Additional RTL Fixes */
+        body {
+            text-align: right;
+        }
+        
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
+        }
+        
+        /* Fix checkbox alignment */
+        .checkbox-container {
+            flex-direction: row-reverse;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -50,47 +71,48 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة جزر الاميرات</h2>
+            <h2>جولة جزر الأميرات بالقارب - جولة ليوم كامل</h2>
             <p>
-                اهرب من صخب مدينة إسطنبول واستمتع بيوم هادئ في جزر الاميرات الخلابة. تقدم هذه الأرخبيل في بحر مرمرة ملاذاً ساحراً بدون مركبات ذات محركات، وقصور فيكتورية جميلة، وغابات الصنوبر.
+                استمتع بجولة ليوم كامل إلى جزر الأميرات الجميلة في اسطنبول، هروب مثالي من المدينة المزدحمة مع إطلالات خلابة ونسمات البحر المنعشة.
             </p>
             <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>تجربة الجولة:</strong>
             </p>
             <ul>
-                <li>رحلة بحرية خلابة عبر مضيق البوسفور وبحر مرمرة</li>
-                <li>زيارة إلى بويوكادا، أكبر جزر الأمراء</li>
-                <li>جولة بعربة تجرها الخيول حول الجزيرة (مشمولة)</li>
-                <li>وقت حر لاستكشاف شوارع الجزيرة التاريخية</li>
-                <li>زيارة إلى كنيسة ودير آيا يورغي التاريخي</li>
-                <li>فرصة للسباحة في شواطئ الجزيرة (موسمية)</li>
-                <li>غداء بحري لذيذ في مطعم محلي (مشمول)</li>
+                <li><strong>بداية اليوم:</strong> سيأتي سائقونا إلى فندقك لاصطحابك والذهاب بك إلى قاربنا.</li>
+                <li><strong>معلومات الرحلة:</strong> خلال الرحلة، سيقدم المرشد الخاص بك معلومات حول القارات والمعالم والنقاط البارزة المرئية على طول الطريق. ستتاح لك فرصة التقاط صور ومقاطع فيديو رائعة للمناظر.</li>
+                <li><strong>بيوك آدا (الجزيرة الكبيرة):</strong> عند الوصول، سيعطيك المرشد الخاص بك نبذة عن كيفية الحصول على دراجة للركوب في الجزيرة، ومواقع السباحة، وما يمكن رؤيته على الجزيرة. سيكون لديك 3 ساعات لاستكشاف جمال الجزيرة، وتناول الغداء بجانب الشاطئ الجميل، وركوب الدراجة في الطبيعة المثالية، أو ركوب الحافلة الكهربائية، أو التسوق لشراء الهدايا التذكارية وممارسة تقاليد المساومة.</li>
+                <li><strong>هيبلي آدا (جزيرة الحقيبة):</strong> الوجهة التالية ستكون هيبلي آدا حيث يوجد متحف الرئيس الثاني لتركيا، القصر الذي استخدم كمكان للراحة في فصل الصيف.</li>
+                <li><strong>رحلة العودة:</strong> بعد الاستكشاف والاسترخاء، حان الوقت للعودة إلى القرن الذهبي مع التحقق من اللحظات الجميلة التي جمعتها على طول الرحلة. عند الوصول إلى القرن الذهبي، سيأخذك السائقون مرة أخرى إلى فندقك.</li>
             </ul>
             <p>
-                <strong>المدة:</strong> جولة ليوم كامل (حوالي 8 ساعات بما في ذلك وقت السفر)
+                <strong>المدة:</strong> جولة ليوم كامل (البداية الساعة 09:00 - النهاية الساعة 18:00)
             </p>
             <p>
-                <strong>وقت المغادرة:</strong> الساعة 9:30 صباحاً من الفندق
+                <strong>السعر:</strong> 30 يورو للشخص الواحد
             </p>
             <p>
-                <strong>وقت العودة:</strong> حوالي الساعة 5:30 مساءً إلى الفندق
+                <strong>تشمل:</strong>
             </p>
+            <ul>
+                <li>خدمة الاستلام</li>
+                <li>خدمة القارب الخاص</li>
+                <li>التوقف في بيوك آدا (3 ساعات)</li>
+                <li>التوقف في هيبلي آدا (ساعة واحدة)</li>
+                <li>مرشد سياحي متحدث محترف</li>
+                <li>خدمة التوصيل</li>
+            </ul>
             <p>
-                <strong>السعر:</strong> 95 دولار أمريكي للشخص الواحد (بحد أدنى شخصين)
+                <strong>ملاحظات هامة:</strong>
             </p>
-            <p>
-                <strong>تشمل:</strong> خدمة التوصيل من وإلى الفندق، تذاكر العبّارة ذهاباً وإياباً، مرشد يتحدث الإنجليزية، جولة بعربة تجرها الخيول، غداء في مطعم محلي، ومياه معبأة
-            </p>
-            <p>
-                <strong>لا تشمل:</strong> النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، رسوم دخول الشاطئ (إن وجدت)، والإكراميات
-            </p>
-            <p>
-                استمتع بجمال جزر الأمراء الهادئة، حيث يبدو الزمن وكأنه توقف. مع عدم السماح بالسيارات، توفر الجزر ملاذاً هادئاً مع أصوات الطيور وعربات الخيول وأمواج البحر اللطيفة فقط.
-            </p>
+            <ul>
+                <li>قد يتغير جدول الجولة ومدتها اعتمادًا على عوامل مثل الظروف الجوية ومواعيد العبارات.</li>
+                <li>لنفس السبب، قد تتغير الجولة إلى جولة البوسفور.</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة جزر الأمراء الخاصة بك</h3>
+            <h3>احجز جولة جزر الأميرات الخاصة بك</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -105,13 +127,13 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
-                    <input type="checkbox" id="swimming" name="swimming">
-                    <label for="swimming" class="checkbox-label">أنا مهتم بالسباحة (موسمية، مايو-سبتمبر)</label>
+                    <input type="checkbox" id="bicycle" name="bicycle">
+                    <label for="bicycle" class="checkbox-label">أنا مهتم بتأجير الدراجات في بيوك آدا</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
@@ -123,26 +145,11 @@
             <script>
                 // Initialize Flatpickr for date inputs
                 document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker with Arabic localization
+                    // Date picker
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1);
-                            }
-                        ],
-                        locale: {
-                            weekdays: {
-                                shorthand: ["أحد", "اثن", "ثلا", "أرب", "خمي", "جمع", "سبت"],
-                                longhand: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
-                            },
-                            months: {
-                                shorthand: ["ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"],
-                                longhand: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
-                            }
-                        }
+                        locale: "ar" // Arabic localization
                     });
                 });
 
@@ -154,38 +161,23 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const interestedInSwimming = document.getElementById('swimming').checked;
+                    const interestedInBicycle = document.getElementById('bicycle').checked;
                     const room = document.getElementById('room').value || 'غير مقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
-                    const pricePerPerson = 95; // USD
+                    const pricePerPerson = 30; // Euro
                     const totalPrice = pricePerPerson * participants;
-                    
-                    // Check if selected date is in swimming season (May-September)
-                    const selectedDate = new Date(date);
-                    const month = selectedDate.getMonth() + 1; // getMonth() returns 0-11
-                    const isSwimmingSeason = month >= 5 && month <= 9;
-                    
-                    // Swimming note based on selection and season
-                    let swimmingNote = '';
-                    if (interestedInSwimming) {
-                        swimmingNote = isSwimmingSeason 
-                            ? 'نعم (موسم السباحة)' 
-                            : 'نعم (ملاحظة: خارج موسم السباحة)';
-                    } else {
-                        swimmingNote = 'لا';
-                    }
             
-                    // Construct the message in Arabic
+                    // Construct the message
                     const message = `
-                        حجز جديد لجولة جزر الأمراء:
+                        حجز جديد لجولة جزر الأميرات:
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        مهتم بالسباحة: ${swimmingNote}
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
+                        مهتم بتأجير الدراجات: ${interestedInBicycle ? 'نعم' : 'لا'}
+                        السعر الإجمالي: €${totalPrice} يورو
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -194,7 +186,7 @@
                     console.log('Message:', message);
             
                     // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const phoneNumber = '+905401321212'; // Your WhatsApp number from the PDF
                     const apiKey = '8055273'; // Your CallMeBot API key
                     const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
             
@@ -209,7 +201,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "../thank-you-ar.html"; // Redirect to the Arabic thank-you page
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>

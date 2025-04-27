@@ -3,55 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة المدينة القديمة 1 (آسيا وأوروبا - يوم كامل)</title>
+    <title>الجولة 1 - جولة مدينة اسطنبول اليومية (أوروبا وآسيا) الحجز</title>
     <link rel="stylesheet" href="old-city-tour-1.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Quick fix for RTL styling */
-        body, html {
-            direction: rtl;
+        /* Additional RTL Fixes */
+        body {
             text-align: right;
         }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
+        
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
         }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
-        }
+        
         /* Fix checkbox alignment */
         .checkbox-container {
-            padding-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: row-reverse;
         }
+        
         .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
             margin-right: 0;
-            order: 1;
-        }
-        .checkbox-label {
-            order: 2;
-            flex: 1;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -91,52 +71,52 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة المدينة القديمة 1: آسيا وأوروبا - يوم كامل</h2>
+            <h2>جولة 1: جولة مدينة اسطنبول اليومية - أوروبا وآسيا</h2>
             <p>
-                استمتع بأفضل ما في إسطنبول في يوم واحد مع جولتنا الشاملة للمدينة القديمة التي تمتد عبر الجانبين الأوروبي والآسيوي من هذه المدينة الرائعة. تقدم هذه الجولة مقدمة مثالية لتاريخ إسطنبول الغني، وهندستها المعمارية المذهلة، وثقافتها النابضة بالحياة.
+                استمتع بأفضل ما في اسطنبول في يوم واحد مع جولتنا الشاملة بالقارب والحافلة التي تمتد على الجانبين الأوروبي والآسيوي لهذه المدينة الرائعة.
             </p>
             <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>معالم الجولة:</strong>
             </p>
             <ul>
-                <li><strong>آيا صوفيا</strong> - زيارة هذه التحفة المعمارية التي كانت كنيسة ومسجدًا وحاليًا متحفًا</li>
-                <li><strong>المسجد الأزرق (مسجد السلطان أحمد)</strong> - استكشاف أحد أشهر المساجد المعروفة ببلاطها الأزرق</li>
-                <li><strong>ميدان السباق (الهيبودروم)</strong> - المشي عبر ملعب سباق العربات القديم ومشاهدة مسلة ثيودوسيوس</li>
-                <li><strong>السوق الكبير</strong> - التسوق في واحد من أكبر وأقدم الأسواق المغطاة في العالم مع أكثر من 4000 متجر</li>
-                <li><strong>قصر توبكابي</strong> - اكتشاف مقر إقامة سلاطين العثمانيين لما يقرب من 400 عام</li>
-                <li><strong>رحلة البوسفور</strong> - الاستمتاع برحلة بحرية خلابة بين أوروبا وآسيا</li>
-                <li><strong>أوسكودار</strong> - زيارة هذا الحي التاريخي على الجانب الآسيوي مع المساجد الجميلة والأسواق المحلية</li>
-                <li><strong>برج الفتاة</strong> - مشاهدة هذا البرج الشهير الواقع على جزيرة صغيرة عند مدخل البوسفور</li>
-                <li><strong>كاديكوي</strong> - تجربة هذا الحي النابض بالحياة على الجانب الآسيوي المعروف بأسواقه ومشهد الطعام فيه</li>
+                <li><strong>جولة بحرية في مضيق البوسفور</strong> - ابدأ اليوم بالإفطار مع الشاي التركي واستمتع بمناظر خلابة لمضيق البوسفور خلال رحلة بحرية لمدة ساعة ونصف بين القارتين</li>
+                <li><strong>قصر بيلربي</strong> - زيارة القصر الصيفي للإمبراطورية العثمانية، جوهرة الجانب الآسيوي بتماثيله وهندسته المعمارية وحدائقه</li>
+                <li><strong>تل تشامليجا</strong> - المشي على أحد أعلى تلال اسطنبول مع إطلالات على القارتين</li>
+                <li><strong>مسجد تشامليجا</strong> - استكشف أكبر وأحدث مسجد في تركيا بأجوائه الفريدة</li>
+                <li><strong>الغداء</strong> - استمتع بوجبة مثالية تتكون من الحساء وكباب مشوي وسلطة وحلوى</li>
+                <li><strong>بيير لوتي</strong> - زيارة هذا التل في الجانب الأوروبي مع إطلالات على مدخل القرن الذهبي وشبه الجزيرة التاريخية</li>
+                <li><strong>العربة المعلقة</strong> - تجربة ركوب العربة المعلقة مع مناظر خلابة</li>
             </ul>
             <p>
-                <strong>المدة:</strong> جولة ليوم كامل (حوالي 9 ساعات)
+                <strong>المدة:</strong> جولة ليوم كامل (البداية الساعة 09:00 - العودة الساعة 18:30)
             </p>
             <p>
-                <strong>وقت المغادرة:</strong> الساعة 8:30 صباحًا من فندقك
+                <strong>السعر:</strong> 80 يورو للشخص الواحد
             </p>
             <p>
-                <strong>وقت العودة:</strong> حوالي الساعة 5:30 مساءً إلى فندقك
+                <strong>تشمل:</strong> النقل من وإلى الفندق، جولة بحرية في البوسفور (بالقارب)، الإفطار، زيارة قصر بيلربي، تل تشامليجا، مسجد تشامليجا، الغداء، العربة المعلقة، بيير لوتي، المرشد السياحي
             </p>
             <p>
-                <strong>السعر:</strong> 130 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)
+                <strong>ملاحظات هامة:</strong>
             </p>
+            <ul>
+                <li>للحجوزات في اللحظة الأخيرة، يمكن أن يكون وقت بدء الجولة مرناً</li>
+                <li>يجب أن تتم الحجوزات في مكتب استقبال الفندق الخاص بك</li>
+                <li>يرجى إبلاغنا إذا كنت نباتياً</li>
+                <li>في أيام الاثنين، سيتم استبدال قصر بيلربي بمتحف مينياتورك، نافذة العرض لتركيا</li>
+            </ul>
             <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، مركبة مكيفة، مرشد يتحدث العربية، جميع رسوم الدخول، تذاكر عبارة البوسفور، غداء في مطعم تركي تقليدي، ومياه معبأة
+                <strong>سياسة الأطفال:</strong>
             </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، كاميرا، واقي من الشمس، وملابس محتشمة لزيارة المواقع الدينية (غطاء رأس للنساء عند زيارة المساجد)
-            </p>
-            <p>
-                توفر هذه الجولة الشاملة مقدمة مثالية للتراث المتنوع لإسطنبول الذي يمتد عبر قارتين. احجز الآن لتجربة أفضل ما في إسطنبول الأوروبية والآسيوية في يوم واحد لا يُنسى!
-            </p>
+            <ul>
+                <li>0-3 سنوات - مجاناً</li>
+                <li>3-6 سنوات - خصم 30%</li>
+                <li>الأطفال أكبر من 6 سنوات - السعر كامل</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة المدينة القديمة (آسيا وأوروبا - يوم كامل)</h3>
+            <h3>احجز جولتك 1 (جولة مدينة اسطنبول اليومية)</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -151,21 +131,19 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                        <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">أنا نباتي (يرجى التحديد في الملاحظات)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي قيود غذائية، متطلبات خاصة أو أسئلة..."></textarea>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
                 <button type="submit">احجز الآن</button>
             </form>
             <script>
@@ -175,12 +153,6 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Fridays (assuming tour doesn't run these days)
-                                return (date.getDay() === 5);
-                            }
-                        ],
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -193,23 +165,23 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
+                    const isVegetarian = document.getElementById('lunch-preference').checked;
                     const room = document.getElementById('room').value || 'غير مقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
-                    const pricePerPerson = 130; // USD
+                    const pricePerPerson = 80; // Euro
                     const totalPrice = pricePerPerson * participants;
             
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة المدينة القديمة 1 (آسيا وأوروبا - يوم كامل):
+                        حجز جديد للجولة 1 (جولة مدينة اسطنبول اليومية):
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
+                        نباتي: ${isVegetarian ? 'نعم' : 'لا'}
+                        السعر الإجمالي: €${totalPrice} يورو
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -342,7 +314,6 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة بورصة</title>
-    <link rel="stylesheet" href="bursa-tour.css" />
+    <title>جولة جزر الأميرات - جولة ليوم كامل</title>
+    <link rel="stylesheet" href="prince-island.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Additional RTL Fixes */
+        body {
+            text-align: right;
+        }
+        
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
+        }
+        
+        /* Fix checkbox alignment */
+        .checkbox-container {
+            flex-direction: row-reverse;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        /* Style for timeline - FIXED to make text not fall under dots */
+        .timeline {
+            margin: 20px 10px 20px 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 6px; /* Changed from 20px to 6px to move the line further to the right */
+            height: 100%;
+            width: 2px;
+            background: #ddd;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 10px 30px 10px 0; /* Reduced right padding */
+            margin-bottom: 20px;
+            margin-right: 15px; /* Added right margin to shift entire content left */
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 16px;
+            margin-right: 10px; /* Added right margin to move time text left */
+        }
+        
+        .timeline-item div {
+            margin-right: 10px; /* Added right margin to move content text left */
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            right: 0; /* Moved dot to the far right of its container */
+            top: 15px;
+            width: 14px;
+            height: 14px;
+            background: #000;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #fff;
+        }
+        
+        .timeline-item p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -50,59 +125,96 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة بورصة الخضراء - انجليزي</h2>
+            <h2>برنامج رحلة جزيرة الأميرات - يوم واحد</h2>
             <p>
-                استمتع بجمال مدينة بورصة الخلاب، موطن أشهر وجهة لرياضات الشتاء في تركيا وجبل أولوداغ المهيب. تجمع هذه الجولة الشاملة بين عجائب الطبيعة والمواقع التاريخية وتجارب التسوق الأصيلة.
+                استمتع برحلة ليوم كامل إلى جزر الأميرات الجميلة في اسطنبول مع شركة سياحية عربية، هروب مثالي من المدينة المزدحمة مع إطلالات خلابة ونسمات البحر المنعشة.
+            </p>
+            
+            <h3>برنامج الرحلة:</h3>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">8:00 صباحًا – الانطلاق</span>
+                    <div>
+                        <p>الانطلاق من الفندق (ضمن إسطنبول الأوروبية أو السلطان أحمد / تقسيم).</p>
+                        <p>باص مكيف بياخدك للميناء.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">9:00 صباحًا – ركوب العبّارة</span>
+                    <div>
+                        <p>ركوب العبّارة من ميناء كاباتاش أو أمينونو.</p>
+                        <p>رحلة بحرية مدتها حوالي 1 ساعة ونص.</p>
+                        <p>تقديم شاي تركي وكيك أو سيميت على العبّارة.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">10:30 صباحًا – الوصول إلى جزيرة Büyükada</span>
+                    <div>
+                        <p>جولة تعريفية بالجزيرة عن طريق عربة كهربائية أو دراجات (حسب الباقة).</p>
+                        <p>المرور على البيوت القديمة، الطبيعة الخضراء، البحر.</p>
+                        <p>وقت حر للتصوير أو التسوّق.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">12:30 ظهرًا – الغداء</span>
+                    <div>
+                        <p>وجبة غداء في مطعم مطل على البحر.</p>
+                        <p>الوجبة غالبًا بتكون مشاوي مشكلة أو سمك + مقبلات + مشروب.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">2:00 عصرًا – وقت حر</span>
+                    <div>
+                        <p>تقدر تتمشى في الجزيرة، تروح لكافيه، تركب عربة، تزور كنيسة آيا يورغي لو حابب.</p>
+                        <p>في بعض البرامج بيكون فيه وقت سباحة في الصيف (اختياري).</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">4:00 عصرًا – العودة إلى العبّارة</span>
+                    <div>
+                        <p>التجمع عند الميناء وركوب العبّارة للرجوع إلى إسطنبول.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">5:30 مساءً – الوصول إلى إسطنبول</span>
+                    <div>
+                        <p>وصول إلى الميناء، ومن ثم النقل إلى الفندق بالباص.</p>
+                    </div>
+                </li>
+            </ul>
+            
+            <p>
+                <strong>السعر:</strong> 30 يورو للشخص الواحد
             </p>
             <p>
-                <strong>برنامج الجولة:</strong>
+                <strong>تشمل:</strong>
             </p>
             <ul>
-                <li>رحلة بالعبارة عبر خليج إزميت (40 دقيقة)</li>
-                <li>زيارة جبل أولوداغ - وجهة رياضات الشتاء الأكثر تقدمًا وشهرة في تركيا</li>
-                <li>رحلة بالتلفريك إلى قمة الجبل (2543 متر) - تخضع لظروف الطقس</li>
-                <li>زيارة شجرة الدلب الشهيرة التي يزيد عمرها عن 600 عام لالتقاط الصور</li>
-                <li>استكشاف المجمع الاجتماعي الأخضر (المسجد، سوق الحرير، الضريح الأخضر)</li>
-                <li>زيارة البيوت العثمانية</li>
-                <li>تناول الغداء في مطعم جبلي (على ارتفاع 800 متر) يقدم أطباق مشوية مختلطة لذيذة</li>
-                <li>فرص للتسوق في مواقع تصنيع متنوعة:</li>
-                <ul>
-                    <li>مصنع راحة الحلقوم التركية</li>
-                    <li>مصنع العسل</li>
-                    <li>مصنع المربى المحفوظة</li>
-                    <li>سوق الحرير الذي يبلغ عمره 600 عام (الحمام التركي العتيق)</li>
-                </ul>
+                <li>خدمة النقل من وإلى الفندق</li>
+                <li>رحلة بحرية بالعبارة</li>
+                <li>مرشد سياحي متحدث باللغة العربية</li>
+                <li>وجبة غداء</li>
+                <li>شاي تركي وكيك/سيميت على العبارة</li>
             </ul>
             <p>
-                <strong>ما هو المشمول:</strong>
+                <strong>ملاحظات هامة:</strong>
             </p>
             <ul>
-                <li>النقل ذهابًا وإيابًا بحافلات مكيفة</li>
-                <li>تذاكر العبّارة</li>
-                <li>مرشد سياحي يتحدث العربية والإنجليزية</li>
-                <li>وجبة غداء مع مشروب غازي واحد</li>
-                <li>رسوم الدخول كما هو مذكور في البرنامج</li>
-                <li>التلفريك - ملاحظة: قد لا يعمل بسبب ظروف الطقس</li>
+                <li>يجب إحضار معك ملابس مريحة وأحذية مناسبة للمشي</li>
+                <li>في فصل الصيف، يمكنك إحضار ملابس السباحة إذا كنت ترغب في السباحة</li>
+                <li>قد يتغير البرنامج قليلًا حسب الظروف الجوية ومواعيد العبارات</li>
             </ul>
-            <p>
-                <strong>ما هو غير مشمول:</strong>
-            </p>
-            <ul>
-                <li>سفاري ATV</li>
-                <li>أنشطة التزلج</li>
-                <li>المصاريف الشخصية</li>
-                <li>النقل إلى منحدرات التزلج ومعدات التزلج (إذا كنت ترغب في التزلج، يجب عليك أخذ حافلة صغيرة من المطعم إلى منحدرات التزلج، النقل والمعدات غير مشمولة)</li>
-            </ul>
-            <p>
-                <strong>ملاحظة مهمة:</strong> الوكالة غير مسؤولة عن ظروف الطقس التي قد تؤثر على مسار الرحلة.
-            </p>
-            <p>
-                احجز الآن لتجربة جمال وثقافة بورصة الخضراء مع مرشدينا المحترفين!
-            </p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة بورصة الخاصة بك</h3>
+            <h3>احجز جولة جزر الأميرات الخاصة بك</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -117,11 +229,16 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
-                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيمًا في فندقنا)</span></label>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="bicycle" name="bicycle">
+                    <label for="bicycle" class="checkbox-label">أرغب في ركوب الدراجات في الجزيرة</label>
+                </div>
+
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
@@ -134,12 +251,6 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays and Wednesdays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1 || date.getDay() === 3);
-                            }
-                        ],
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -152,21 +263,23 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const room = document.getElementById('room').value;
+                    const interestedInBicycle = document.getElementById('bicycle').checked;
+                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
-                    const pricePerPerson = 150; // USD
+                    const pricePerPerson = 30; // Euro
                     const totalPrice = pricePerPerson * participants;
             
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة بورصة:
+                        حجز جديد لجولة جزر الأميرات:
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        السعر الإجمالي: $${totalPrice} USD
+                        ركوب الدراجات: ${interestedInBicycle ? 'نعم' : 'لا'}
+                        السعر الإجمالي: €${totalPrice} يورو
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -175,7 +288,7 @@
                     console.log('Message:', message);
             
                     // CallMeBot API details
-                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const phoneNumber = '+905401321212'; // Your WhatsApp number from the PDF
                     const apiKey = '8055273'; // Your CallMeBot API key
                     const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
             
@@ -282,7 +395,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'bursa-tour.html';
+                            newPath = 'prince-island.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -290,7 +403,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'bursa-tour.html';
+                            newPath = 'prince-island.html';
                         }
                     }
                     

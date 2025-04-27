@@ -3,55 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة المدينة القديمة 2 (الثقافة والتاريخ - يوم كامل)</title>
+    <title>الجولة 2 - جولة مدينة اسطنبول القديمة والبوسفور الحجز</title>
     <link rel="stylesheet" href="old-city-tour-2.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Quick fix for RTL styling */
-        body, html {
-            direction: rtl;
+        /* Additional RTL Fixes */
+        body {
             text-align: right;
         }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
+        
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
         }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
-        }
+        
         /* Fix checkbox alignment */
         .checkbox-container {
-            padding-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: row-reverse;
         }
+        
         .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
             margin-right: 0;
-            order: 1;
-        }
-        .checkbox-label {
-            order: 2;
-            flex: 1;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -91,51 +71,59 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة المدينة القديمة 2: الثقافة والتاريخ - يوم كامل</h2>
+            <h2>الجولة 2: جولة مدينة اسطنبول القديمة والبوسفور - التاريخ والثقافة</h2>
             <p>
-                انغمس في التراث الثقافي الغني والتاريخ المذهل لإسطنبول مع جولتنا الشاملة للمدينة القديمة 2. تأخذك هذه الجولة المصممة بعناية ليوم كامل عبر أهم المعالم التاريخية والثقافية في مدينة إسطنبول القديمة.
+                انغمس في تراث اسطنبول الغني مع جولتنا الشاملة في مدينة اسطنبول القديمة والبوسفور. هذه الجولة المصممة بعناية تأخذك عبر أهم المعالم التاريخية والثقافية في اسطنبول.
             </p>
             <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>معالم الجولة:</strong>
             </p>
             <ul>
-                <li><strong>آيا صوفيا</strong> - استمتع بمشاهدة هذه التحفة المعمارية التي صمدت لأكثر من 1500 عام</li>
-                <li><strong>قصر توبكابي والحرملك</strong> - استكشف المقر الرئيسي لسلاطين العثمانيين لمدة 400 عام، بما في ذلك قسم الحرملك الغامض</li>
-                <li><strong>الصهريج البازيليكي (صهريج تحت الأرض)</strong> - اكتشف خزان المياه القديم هذا تحت الأرض بأعمدته الرخامية المثيرة للإعجاب</li>
-                <li><strong>سوق التوابل (البازار المصري)</strong> - استمتع بألوان وروائح هذا السوق التاريخي المليء بالتوابل والحلويات التركية والحرف المحلية</li>
-                <li><strong>مسجد السليمانية</strong> - زيارة هذا المسجد الإمبراطوري العثماني، تحفة المعماري الأسطوري سنان</li>
-                <li><strong>كنيسة شورا (متحف كارييه)</strong> - استمتع بمشاهدة بعض من أجمل الفسيفساء واللوحات الجدارية البيزنطية في العالم</li>
-                <li><strong>متحف الخط التركي</strong> - تعرف على فن الخط العربي التقليدي</li>
-                <li><strong>ورشة الفنون التركية التقليدية</strong> - شاهد الحرفيين وهم يمارسون الفنون التقليدية مثل الإبرو (التزيين على الماء) أو رسم السيراميك</li>
+                <li><strong>زيارة متحف آيا صوفيا</strong> - شهادة على الخلود. ادخل إلى هذه التحفة المعمارية التي صمدت لأكثر من ألف عام. استمتع بهندستها المعمارية المذهلة والفسيفساء الدقيقة التي تروي قصص الإمبراطوريات والحضارات الغابرة.</li>
+                <li><strong>المسجد الأزرق</strong> - سيمفونية باللونين الأزرق والأبيض، سنزور المسجد الأزرق الرائع، المعروف أيضًا باسم مسجد السلطان أحمد. أعجب ببلاطه الأزرق المعقد الذي يمنحه اسمه ومآذنه الستة الرشيقة التي تخترق أفق اسطنبول.</li>
+                <li><strong>الهيبودروم</strong> - استكشف هذا السيرك الروماني القديم الذي كان المركز الرياضي والاجتماعي للقسطنطينية، عاصمة الإمبراطورية البيزنطية.</li>
+                <li><strong>جولة البوسفور</strong> - استمتع بساعة و30 دقيقة بين قارتين على متن قارب أثناء تناول الغداء. اختبر جمال اسطنبول من الماء.</li>
+                <li><strong>الغداء على القارب</strong> - استمتع بوجبة تركية تقليدية لذيذة أثناء الاستمتاع بإطلالات رائعة.</li>
+                <li><strong>زيارة الكنيسة الحديدية</strong> - عند النزول في بلاط، ستكون محطتنا الأولى كنيسة القديس ستيفان، الكنيسة الحديدية الوحيدة في تركيا التي تعود للإمبراطورية العثمانية.</li>
+                <li><strong>البيوت والسلالم الملونة</strong> - أثناء المشي في شوارع بلاط، استكشف المنازل النابضة بالحياة والملونة والسلالم الشهيرة التي تجعل هذا الحي فريدًا.</li>
+                <li><strong>حي بلاط</strong> - حي هو وعاء الأديان. أثناء التجول في الشوارع سنشعر كيف تعيش جميع الديانات المختلفة معًا مع بقايا استثنائية من أسوار مدينة القسطنطينية.</li>
             </ul>
             <p>
-                <strong>المدة:</strong> جولة ليوم كامل (حوالي 9 ساعات)
+                <strong>المدة:</strong> جولة ليوم كامل (البداية الساعة 09:00 - العودة الساعة 18:30)
             </p>
             <p>
-                <strong>وقت المغادرة:</strong> الساعة 9:00 صباحًا من فندقك
+                <strong>السعر:</strong> 90 يورو للشخص الواحد
             </p>
             <p>
-                <strong>وقت العودة:</strong> حوالي الساعة 6:00 مساءً إلى فندقك
+                <strong>تشمل:</strong> النقل من وإلى الفندق، زيارة متحف آيا صوفيا، المسجد الأزرق، الهيبودروم، جولة البوسفور، الغداء على القارب، زيارة الكنيسة الحديدية، البيوت والسلالم الملونة، حي بلاط، المرشد السياحي
             </p>
             <p>
-                <strong>السعر:</strong> 140 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)
+                <strong>ملاحظات خاصة:</strong>
             </p>
+            <ul>
+                <li>في أيام الجمعة، المساجد مغلقة حتى الساعة 14:30. لذلك سيبدأ البرنامج بجولة القارب.</li>
+                <li>زيارة المتحف فقط مشمولة لآيا صوفيا (دخول سريع).</li>
+            </ul>
             <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، مركبة مكيفة، مرشد متخصص يتحدث العربية في التاريخ والثقافة، جميع رسوم الدخول، غداء تركي تقليدي، ومياه معبأة
+                <strong>ملاحظات هامة:</strong>
             </p>
+            <ul>
+                <li>للحجوزات في اللحظة الأخيرة، يمكن أن يكون وقت بدء الجولة مرناً</li>
+                <li>يجب أن تتم الحجوزات في مكتب استقبال الفندق الخاص بك</li>
+                <li>يرجى إبلاغنا إذا كنت نباتياً</li>
+            </ul>
             <p>
-                <strong>ما هو غير مشمول:</strong> النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
+                <strong>سياسة الأطفال:</strong>
             </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، كاميرا، واقي من الشمس، وملابس محتشمة لزيارة المواقع الدينية (غطاء رأس للنساء عند زيارة المساجد)
-            </p>
-            <p>
-                هذه الجولة الثقافية والتاريخية المتعمقة مثالية لعشاق التاريخ وأولئك الذين يرغبون في اكتساب فهم أعمق لماضي إسطنبول الغني. مع مرشد متخصص، ستتعلم رؤى مذهلة حول كل موقع أثناء الاستمتاع بجمال هذه الكنوز التاريخية.
-            </p>
+            <ul>
+                <li>0-3 سنوات - مجاناً</li>
+                <li>3-6 سنوات - خصم 30%</li>
+                <li>الأطفال أكبر من 6 سنوات - السعر كامل</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة المدينة القديمة 2 (الثقافة والتاريخ - يوم كامل)</h3>
+            <h3>احجز جولتك 2 (جولة مدينة اسطنبول القديمة والبوسفور)</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -150,26 +138,19 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
-
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="workshop-interest" name="workshop-interest">
-                        <label for="workshop-interest" class="checkbox-label">أنا مهتم بتجربة ورشة الفنون التقليدية</label>
-                    </div>
-                    
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                        <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">أنا نباتي (يرجى التحديد في الملاحظات)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي قيود غذائية، متطلبات خاصة أو أسئلة..."></textarea>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
                 <button type="submit">احجز الآن</button>
             </form>
             <script>
@@ -179,12 +160,6 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Wednesdays (assuming tour doesn't run these days)
-                                return (date.getDay() === 3);
-                            }
-                        ],
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -197,25 +172,23 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const workshopInterest = document.getElementById('workshop-interest').checked;
-                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
+                    const isVegetarian = document.getElementById('lunch-preference').checked;
                     const room = document.getElementById('room').value || 'غير مقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
-                    const pricePerPerson = 140; // USD
+                    const pricePerPerson = 90; // Euro
                     const totalPrice = pricePerPerson * participants;
             
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة المدينة القديمة 2 (الثقافة والتاريخ - يوم كامل):
+                        حجز جديد للجولة 2 (جولة مدينة اسطنبول القديمة والبوسفور):
                         الاسم: ${name}
                         الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        الاهتمام بورشة العمل: ${workshopInterest ? 'نعم' : 'لا'}
-                        قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
+                        نباتي: ${isVegetarian ? 'نعم' : 'لا'}
+                        السعر الإجمالي: €${totalPrice} يورو
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -348,7 +321,6 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

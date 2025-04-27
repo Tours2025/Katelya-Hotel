@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Tour Services | Hotel Tours</title>
+    <link rel="stylesheet" href="tours-style.css" /> 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../main.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">English</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" class="active" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Updated Hero Section for English Tours -->
+        <section id="arabic-tours-hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-globe-africa"></i> English-Speaking Tours</div>
+                <h2>Discover Turkey's Beauty with Our Expert Guides</h2>
+                <p>We offer an exceptional tourism experience tailored to your needs and preferences. Enjoy tours specially designed to showcase the best of Turkey, led by professional English-speaking guides.</p>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-user-tie"></i> Professional Guides</div>
+                    <div class="feature"><i class="fas fa-bus-alt"></i> Luxury Transportation</div>
+                    <div class="feature"><i class="fas fa-utensils"></i> Meals Included</div>
+                    <div class="feature"><i class="fas fa-ticket-alt"></i> Attraction Tickets</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- English Tours Section - Updated Design (MOVED TO TOP) -->
+        <section id="english-tours">
+            <h2><i class="fas fa-route"></i> English-Speaking Tours</h2>
+            <div class="tours-grid">
+                <!-- English Tour 1: Bursa -->
+                <div class="tour-item" onclick="window.location.href='bursa/bursa-tour.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/bursa.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Bursa Tour</h3>
+                        <p>Explore the historic city of Bursa with our English-speaking guides.</p>
+                        <div class="tour-badge">
+                            <span class="price">40 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 2: Sapanca -->
+                <div class="tour-item" onclick="window.location.href='sapanca/sapanca-tour.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/sapanca.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Sapanca Lake Tour</h3>
+                        <p>Discover the natural beauty of Sapanca Lake and its surrounding areas.</p>
+                        <div class="tour-badge">
+                            <span class="price">40 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 3: Prince Islands -->
+                <div class="tour-item" onclick="window.location.href='Prince-Island/prince-island.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/prince-island.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Prince Islands</h3>
+                        <p>Enjoy a day trip to the famous Prince Islands with expert guides.</p>
+                        <div class="tour-badge">
+                            <span class="price">45 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 4: Old City Tour 1 -->
+                <div class="tour-item" onclick="window.location.href='Old-City-Tour-1/old-city-tour-1.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/old-city-tour1.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Old City Tour 1</h3>
+                        <p>Explore the historic sites in Istanbul's Old City district.</p>
+                        <div class="tour-badge">
+                            <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Half Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 5: Old City Tour 2 -->
+                <div class="tour-item" onclick="window.location.href='Old-City-Tour-2/old-city-tour-2.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/old-city-tour2.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Old City Tour 2</h3>
+                        <p>Continue exploring the amazing historic sites in Istanbul.</p>
+                        <div class="tour-badge">
+                            <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Half Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 6: Pamukkale Tour -->
+                <div class="tour-item" onclick="window.location.href='Pamukkale-Tour/pamukkale.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/pamukkale.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Pamukkale Tour</h3>
+                        <p>Visit the stunning white terraces of Pamukkale.</p>
+                        <div class="tour-badge">
+                            <span class="price">80 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Two Days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 7: House of Virgin Mary -->
+                <div class="tour-item" onclick="window.location.href='house-of-virgin-mary-tour/house-of-virgin-mary-tour.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/house-of-virgin-mary-tour.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>House of Virgin Mary</h3>
+                        <p>Enjoy a spiritual journey to this important religious site.</p>
+                        <div class="tour-badge">
+                            <span class="price">70 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Tour 8: Cappadocia -->
+                <div class="tour-item" onclick="window.location.href='cappadocia/cappadocia.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/cappadocia.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Cappadocia Tour</h3>
+                        <p>Explore the magical landscapes of Cappadocia with our expert guides.</p>
+                        <div class="tour-badge">
+                            <span class="price">90 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Two Days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-content">
+                <h2 class="divider-text">Arabic-Speaking Tours</h2>
+                <p>Tours with Arabic-speaking guides are available below</p>
+            </div>
+        </div>
+
+        <!-- Arabic Tours Section (MOVED TO BOTTOM) -->
+        <section id="arabic-tours">
+            <h2><i class="fas fa-map-marked-alt"></i> Arabic-Speaking Tours</h2>
+            <div class="tours-grid">
+                <!-- Arabic Tour 1: Bursa -->
+                <div class="tour-item" onclick="window.location.href='bursa/bursa-tour.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/bursa.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Turkish Bursa</h3>
+                        <p>Enjoy a tour of the historic city of Bursa with an Arabic-speaking guide.</p>
+                        <div class="tour-badge">
+                            <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arabic Tour 2: Sapanca -->
+                <div class="tour-item" onclick="window.location.href='sapanca/sapanca-tour.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/sapanca.jpeg');"></div>
+                    <div class="tour-text">
+                        <h3>Sapanca and Masukiye</h3>
+                        <p>Discover the beauty of Sapanca and Masukiye with detailed explanation in Arabic.</p>
+                        <div class="tour-badge">
+                            <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arabic Tour 3: Şile-Ağva -->
+                <div class="tour-item" onclick="window.location.href='Şile-AğvaŞile-Ağva.html';">
+                    <div class="tour-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/%C5%9Eile-A%C4%9Fva.jpg');"></div>
+                    <div class="tour-text">
+                        <h3>Şile and Ağva</h3>
+                        <p>Discover the beauty of Şile and Ağva with detailed explanation in Arabic.</p>
+                        <div class="tour-badge">
+                            <span class="price">35 €</span>
+                            <span class="duration"><i class="far fa-clock"></i> Full Day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Moved language dropdown script outside of main tag -->
+    <script>
+        // Language dropdown functionality
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+        const currentLanguage = document.getElementById('current-language');
+        const arOption = document.getElementById('ar-option');
+        const enOption = document.getElementById('en-option');
+        const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+        
+        // Set initial language based on current URL
+        function setInitialLanguage() {
+            // Check if we're in an English folder path
+            if (window.location.pathname.includes('/en/') || true) { // Default to English
+                selectLanguage('en', 'English', false); // false means don't redirect
+            } else {
+                selectLanguage('ar', 'العربية', false); // false means don't redirect
+            }
+        }
+        
+        // Call this when the page loads
+        setInitialLanguage();
+        
+        // Toggle dropdown display when clicking the button
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('open');
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageDropdown.classList.remove('open');
+        });
+    
+        // Handle language selection
+        arOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('ar', langText, true, returnText);
+        });
+    
+        enOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('en', langText, true, returnText);
+        });
+    
+        function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+            // Update button text
+            currentLanguage.textContent = displayText;
+            
+            // Update return button text if provided
+            if (returnText && returnButton) {
+                returnButton.textContent = returnText;
+            }
+            
+            // Update active class
+            if (lang === 'ar') {
+                arOption.classList.add('active');
+                enOption.classList.remove('active');
+                document.dir = 'rtl'; // Set direction to RTL for Arabic
+            } else {
+                enOption.classList.add('active');
+                arOption.classList.remove('active');
+                document.dir = 'ltr'; // Set direction to LTR for English
+            }
+            
+            // Close the dropdown
+            languageDropdown.classList.remove('open');
+            
+            // Redirect to appropriate language version if shouldRedirect is true
+            if (shouldRedirect) {
+                redirectToLanguageFolder(lang);
+            }
+        }
+    
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            // Get current URL path
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (language === 'en') {
+                // If current path has /ar/ replace it with /en/
+                if (currentPath.includes('/ar/')) {
+                    newPath = currentPath.replace('/ar/', '/en/');
+                } else {
+                    // If we're at the root level
+                    newPath = 'Tours-Service.html';
+                }
+            } else if (language === 'ar') {
+                // If current path has /en/ replace it with /ar/
+                if (currentPath.includes('/en/')) {
+                    newPath = currentPath.replace('/en/', '/ar/');
+                } else {
+                    // If we're at the root level
+                    newPath = 'Tours-Service.html';
+                }
+            }
+            
+            window.location.href = newPath;
+        }
+    </script>
+
+    <script>
+        // You can add any specific JavaScript for the Tours page here if needed
+    </script>
+</body>
+</html>

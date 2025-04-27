@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جولة البوسفور اليومية | فندق كاتيليا</title>
+    <link rel="stylesheet" href="bosphorus-tour.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Override for navbar to keep it LTR */
+        header, nav {
+            direction: ltr !important;
+        }
+        
+        /* But keep the language dropdown content RTL for Arabic */
+        html[lang="ar"] .dropdown-content a {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>فندق كاتيليا</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../dinner-cruise.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>رجوع</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Tour Image Header -->
+        <div class="tour-image-header">
+            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/bosphorus-tour-header.avif" alt="جولة البوسفور اليومية بالقارب">
+            <div class="tour-title">
+                <h2>جولة البوسفور اليومية بالقارب</h2>
+                <p>جولة 3 ساعات</p>
+            </div>
+        </div>
+
+        <section id="service-explanation">
+            <h2>جولة البوسفور اليومية بالقارب</h2>
+            <p>
+                استمتع بجمال اسطنبول من الماء مع جولات البوسفور لدينا. اختر من بين أربعة خيارات مختلفة لتناسب جدولك الزمني، كل منها يقدم منظوراً فريداً للمعالم الخلابة للمدينة على طول مضيق البوسفور.
+            </p>
+
+            <div class="tour-options">
+                <div class="option-card blue">
+                    <div class="price-tag">
+                        <span>25</span>
+                        <span>يورو</span>
+                    </div>
+                    <h3>جولة الصباح مع الإفطار</h3>
+                    <div class="time-details">
+                        <div class="departure">
+                            <span>وقت المغادرة:</span>
+                            <strong>10:00</strong>
+                        </div>
+                        <div class="return">
+                            <span>وقت العودة:</span>
+                            <strong>13:00</strong>
+                        </div>
+                    </div>
+                    <div class="includes">
+                        <h4>تشمل</h4>
+                        <ul>
+                            <li><i class="fas fa-shuttle-van"></i> النقل</li>
+                            <li><i class="fas fa-ship"></i> جولة بالقارب</li>
+                            <li><i class="fas fa-coffee"></i> وجبة إفطار</li>
+                            <li><i class="fas fa-user-tie"></i> مرشد باللغتين الإنجليزية والروسية</li>
+                            <li><i class="fas fa-shopping-bag"></i> توقف لمدة ساعة في آسيا للتسوق</li>
+                        </ul>
+                    </div>
+                    <div class="landmarks">
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/dolmabahce-palace.jpg" alt="قصر دولمابهتشة">
+                            <span class="landmark-name">قصر دولمابهتشة</span>
+                        </div>
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/ciragan-palace.jpg" alt="قصر شيراغان">
+                            <span class="landmark-name">قصر شيراغان</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="selectTour('جولة الصباح مع الإفطار', 25)">احجز الآن</button>
+                </div>
+
+                <div class="option-card red">
+                    <div class="price-tag">
+                        <span>35</span>
+                        <span>يورو</span>
+                    </div>
+                    <h3>جولة بعد الظهر مع الغداء</h3>
+                    <div class="time-details">
+                        <div class="departure">
+                            <span>وقت المغادرة:</span>
+                            <strong>13:15</strong>
+                        </div>
+                        <div class="return">
+                            <span>وقت العودة:</span>
+                            <strong>16:00</strong>
+                        </div>
+                    </div>
+                    <div class="includes">
+                        <h4>تشمل</h4>
+                        <ul>
+                            <li><i class="fas fa-shuttle-van"></i> النقل</li>
+                            <li><i class="fas fa-ship"></i> جولة بالقارب</li>
+                            <li><i class="fas fa-utensils"></i> وجبة غداء</li>
+                            <li><i class="fas fa-user-tie"></i> مرشد باللغتين الإنجليزية والروسية</li>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <h4>قائمة الطعام</h4>
+                        <ul>
+                            <li>شوربة</li>
+                            <li>لحم مشوي</li>
+                            <li>سلطة</li>
+                            <li>أرز</li>
+                            <li>حلويات</li>
+                        </ul>
+                        <p class="note">* المشروبات غير مشمولة</p>
+                    </div>
+                    <div class="landmarks">
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/ortakoy-mosque.jpg" alt="مسجد أورتاكوي">
+                            <span class="landmark-name">مسجد أورتاكوي</span>
+                        </div>
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/rumeli-castle.jpg" alt="قلعة روملي">
+                            <span class="landmark-name">قلعة روملي</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="selectTour('جولة بعد الظهر مع الغداء', 35)">احجز الآن</button>
+                </div>
+
+                <div class="option-card orange">
+                    <div class="price-tag">
+                        <span>20</span>
+                        <span>يورو</span>
+                    </div>
+                    <h3>جولة الغروب مع البسكويت والشاي</h3>
+                    <div class="time-details">
+                        <div class="departure">
+                            <span>وقت المغادرة:</span>
+                            <strong>16:15</strong>
+                        </div>
+                        <div class="return">
+                            <span>وقت العودة:</span>
+                            <strong>19:00</strong>
+                        </div>
+                    </div>
+                    <div class="includes">
+                        <h4>تشمل</h4>
+                        <ul>
+                            <li><i class="fas fa-shuttle-van"></i> النقل</li>
+                            <li><i class="fas fa-ship"></i> جولة بالقارب</li>
+                            <li><i class="fas fa-cookie"></i> بسكويت وشاي</li>
+                            <li><i class="fas fa-user-tie"></i> مرشد باللغتين الإنجليزية والروسية</li>
+                            <li><i class="fas fa-shopping-bag"></i> توقف لمدة 45 دقيقة في آسيا للتسوق</li>
+                        </ul>
+                    </div>
+                    <div class="landmarks">
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/beylerbeyi-palace.jpg" alt="قصر بيلربي">
+                            <span class="landmark-name">قصر بيلربي</span>
+                        </div>
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/maidens-tower.jpg" alt="برج الفتاة">
+                            <span class="landmark-name">برج الفتاة</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="selectTour('جولة الغروب مع البسكويت والشاي', 20)">احجز الآن</button>
+                </div>
+                
+                <!-- Night Bosphorus Tour - NEW ADDITION -->
+                <div class="option-card" style="background-color: #f0e6ff; border-top: 5px solid #9c27b0;">
+                    <div class="price-tag" style="color: #9c27b0;">
+                        <span>25</span>
+                        <span>يورو</span>
+                    </div>
+                    <h3 style="color: #9c27b0;">جولة البوسفور الليلية</h3>
+                    <div class="time-details">
+                        <div class="departure">
+                            <span>متاح:</span>
+                            <strong>أبريل-سبتمبر</strong>
+                        </div>
+                        <div class="return">
+                            <span>المدة:</span>
+                            <strong>ساعتان</strong>
+                        </div>
+                    </div>
+                    <div class="includes">
+                        <h4 style="color: #9c27b0;">تشمل</h4>
+                        <ul>
+                            <li><i class="fas fa-shuttle-van" style="color: #9c27b0;"></i> النقل</li>
+                            <li><i class="fas fa-cookie" style="color: #9c27b0;"></i> بسكويت وشاي</li>
+                            <li><i class="fas fa-user-tie" style="color: #9c27b0;"></i> مرشد باللغتين الإنجليزية والروسية</li>
+                            <li><i class="fas fa-ship" style="color: #9c27b0;"></i> جولة بالقارب</li>
+                            <li><i class="fas fa-moon" style="color: #9c27b0;"></i> جولة البوسفور الليلية لمدة ساعتين</li>
+                        </ul>
+                    </div>
+                    <div class="landmarks">
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/night%20life.png" alt="الحياة الليلية">
+                            <span class="landmark-name">إطلالة ليلية على المسجد</span>
+                        </div>
+                        <div class="landmark">
+                            <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/Ortakoy%20Mosque%20at%20night.png" alt="مسجد أورتاكوي ليلاً">
+                            <span class="landmark-name">الجسر المضاء</span>
+                        </div>
+                    </div>
+                    <button class="book-button" style="background-color: #9c27b0;" onclick="selectTour('جولة البوسفور الليلية', 25)">احجز الآن</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Booking Form Section -->
+        <section id="booking-form" style="display: none;">
+            <h3>احجز جولة البوسفور الخاصة بك</h3>
+            <div id="selected-tour-info" class="selected-tour-info">
+                <div class="tour-type">
+                    <span>الجولة المختارة:</span>
+                    <strong id="tour-name">جولة الصباح مع الإفطار</strong>
+                </div>
+                <div class="tour-price">
+                    <span>السعر للشخص الواحد:</span>
+                    <strong id="tour-price">25 €</strong>
+                </div>
+            </div>
+            
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <input type="hidden" id="tourType" name="tourType" value="">
+                <input type="hidden" id="tourPrice" name="tourPrice" value="">
+                
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">التاريخ:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                    </div>
+                </div>
+
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت تقيم في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <div class="button-container">
+                    <button type="button" onclick="goBackToOptions()" class="back-button">
+                        <i class="fas fa-arrow-right"></i> العودة إلى خيارات الجولة
+                    </button>
+                    <button type="submit" class="submit-button">احجز الآن</button>
+                </div>
+            </form>
+            
+            <script>
+                // Function to select a tour and show booking form
+                function selectTour(tourName, price) {
+                    // Set the selected tour details
+                    document.getElementById('tour-name').textContent = tourName;
+                    document.getElementById('tour-price').textContent = price + ' €';
+                    document.getElementById('tourType').value = tourName;
+                    document.getElementById('tourPrice').value = price;
+                    
+                    // Hide service explanation and show booking form
+                    document.getElementById('service-explanation').style.display = 'none';
+                    document.getElementById('booking-form').style.display = 'block';
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                    // Special handling for Night Bosphorus Tour
+                    if (tourName === 'جولة البوسفور الليلية') {
+                        // Only allow dates between April 1 and September 30, 2025
+                        const dateInput = document.getElementById('date');
+                        const flatpickrInstance = dateInput._flatpickr;
+                        
+                        if (flatpickrInstance) {
+                            // Update the date picker configuration for night tour
+                            flatpickrInstance.set('minDate', '2025-04-01');
+                            flatpickrInstance.set('maxDate', '2025-09-30');
+                            
+                            // Clear any previously selected date
+                            flatpickrInstance.clear();
+                        }
+                    } else {
+                        // For other tours, reset to default date settings
+                        const dateInput = document.getElementById('date');
+                        const flatpickrInstance = dateInput._flatpickr;
+                        
+                        if (flatpickrInstance) {
+                            // Reset date picker to allow any future date
+                            flatpickrInstance.set('minDate', 'today');
+                            flatpickrInstance.set('maxDate', '');
+                            
+                            // Clear any previously selected date
+                            flatpickrInstance.clear();
+                        }
+                    }
+                }
+                
+                // Function to go back to tour options
+                function goBackToOptions() {
+                    document.getElementById('service-explanation').style.display = 'block';
+                    document.getElementById('booking-form').style.display = 'none';
+                    window.scrollTo(0, 0);
+                }
+                
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker with more advanced options
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        locale: "ar", // Arabic localization
+                        disableMobile: "true", // Better experience on mobile
+                        // Store the flatpickr instance on the element for later access
+                        onReady: function(selectedDates, dateStr, instance) {
+                            instance.element._flatpickr = instance;
+                        }
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const tourType = document.getElementById('tourType').value;
+                    const tourPrice = document.getElementById('tourPrice').value;
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const room = document.getElementById('room').value;
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const totalPrice = tourPrice * participants;
+            
+                    // Construct the message
+                    const message = `
+                        حجز جديد لجولة البوسفور:
+                        نوع الجولة: ${tourType}
+                        الاسم: ${name}
+                        رقم الهاتف: ${phone}
+                        التاريخ: ${date}
+                        عدد المشاركين: ${participants}
+                        السعر الإجمالي: ${totalPrice} €
+                        رقم الغرفة: ${room || 'غير مقدم'}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../dinner-cruise-thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // For Arabic page, set Arabic as active
+                    selectLanguage('ar', 'العربية', false);
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
+                        document.documentElement.lang = 'ar'; // Set lang attribute
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                        document.documentElement.lang = 'en'; // Set lang attribute
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If we're at the root level or in ar folder
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            newPath = '../bosphorus-tour/bosphorus-tour.html';
+                        }
+                    } else if (language === 'ar') {
+                        // For Arabic, stay on current page
+                        return;
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ephesus & Virgin Mary's House Tour</title>
-    <link rel="stylesheet" href="house-of-virgin-mary-tour.css" />
+    <title>Private Tour Guide Booking</title>
+    <link rel="stylesheet" href="tour-guide.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -18,7 +21,7 @@
         </div>
         <nav>
             <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+            <button class="return-btn" onclick="window.location.href='../main.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
@@ -29,17 +32,17 @@
             <!-- Language Dropdown -->
             <div class="language-dropdown">
                 <button class="dropdown-btn">
-                    <span id="current-language">العربية</span>
+                    <span id="current-language">English</span>
                     <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#" id="ar-option" class="active">
+                    <a href="#" id="ar-option" data-return-text="رجوع" data-lang-text="العربية">
                         <span class="lang-flag">🇦🇪</span>
                         <span class="lang-name">العربية</span>
                     </a>
-                    <a href="#" id="en-option">
+                    <a href="#" id="en-option" class="active" data-return-text="Back" data-lang-text="English">
                         <span class="lang-flag">🇬🇧</span>
                         <span class="lang-name">English</span>
                     </a>
@@ -47,86 +50,169 @@
             </div>
         </nav>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Private Tour Guide Service</h1>
+            <p>Explore Istanbul with a professional, multilingual guide</p>
+        </div>
+    </section>
+    
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>Ephesus & Virgin Mary's House Tour</h2>
+            <h2>Professional Tour Guide Service</h2>
+            
             <p>
-                Experience this historical and spiritual journey to Ephesus and the House of Virgin Mary with our guided tour.
+                Enhance your Istanbul experience with our professional private tour guide service. Our guides are certified professionals with extensive knowledge of Istanbul's history, culture, and hidden gems.
             </p>
-            <p>
-                <strong>Tour Itinerary:</strong>
-            </p>
-            <ul>
-                <li>Pick up from your hotel</li>
-                <li>Drive to the airport</li>
-                <li>On arrival, meet at the airport and drive to Selcuk</li>
-                <li>Visit Isabey Mosque</li>
-                <li>Explore Ephesus Ancient City:
-                    <ul>
-                        <li>Theatre</li>
-                        <li>Library</li>
-                        <li>Gymnasium</li>
-                    </ul>
-                </li>
-                <li>Lunch</li>
-                <li>Visit House of Virgin Mary</li>
-                <li>See Temple of Artemis</li>
-            </ul>
-            <p>
-                <strong>Tour Includes:</strong>
-            </p>
-            <ul>
-                <li>All transportation</li>
-                <li>Lunch</li>
-                <li>English speaking guide</li>
-            </ul>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-language fa-2x"></i>
+                    </div>
+                    <h3>Multilingual Guides</h3>
+                    <p>Our guides are fluent in multiple languages including English, Arabic, German, Spanish, Italian, French, and Turkish.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                    <h3>Flexible Duration</h3>
+                    <p>Book your guide for 6-9 hours to explore the city at your own pace.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </div>
+                    <h3>Customized Itinerary</h3>
+                    <p>Create a personalized itinerary based on your interests or let our guides recommend the best places to visit.</p>
+                </div>
+            </div>
+            
+            <div class="guide-benefits">
+                <h3>Why Book a Private Guide?</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Skip the lines at major attractions with a certified guide</li>
+                    <li><i class="fas fa-check-circle"></i> Discover hidden gems and local secrets not found in guidebooks</li>
+                    <li><i class="fas fa-check-circle"></i> Learn fascinating historical and cultural insights about the sites you visit</li>
+                    <li><i class="fas fa-check-circle"></i> Enjoy a personalized experience tailored to your interests and pace</li>
+                    <li><i class="fas fa-check-circle"></i> Get recommendations for the best local restaurants, shops, and experiences</li>
+                    <li><i class="fas fa-check-circle"></i> Navigate the city confidently with a knowledgeable local</li>
+                </ul>
+            </div>
+            
+            <div class="language-options">
+                <h3>Available Languages</h3>
+                <div class="language-flags">
+                    <div class="language-flag">
+                        <span>🇬🇧</span>
+                        <p>English</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇦🇪</span>
+                        <p>Arabic</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇩🇪</span>
+                        <p>German</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇪🇸</span>
+                        <p>Spanish</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇮🇹</span>
+                        <p>Italian</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇫🇷</span>
+                        <p>French</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇹🇷</span>
+                        <p>Turkish</p>
+                    </div>
+                </div>
+            </div>
         </section>
+        
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>Book Your Ephesus & Virgin Mary's House Tour</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">Name:</label>
+            <h3>Book Your Private Tour Guide</h3>
+            <form id="guideBookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
+                
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
                 
-                <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
-                        <label for="date">Date:</label>
-                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                        <label for="tour-date">Tour Date:</label>
+                        <input type="text" id="tour-date" name="tour-date" placeholder="Select date" required>
                     </div>
                     <div>
-                        <label for="participants">Number of Participants:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="1" required>
+                        <label for="duration">Duration:</label>
+                        <select id="duration" name="duration" required>
+                            <option value="6 hours">6 hours</option>
+                            <option value="7 hours">7 hours</option>
+                            <option value="8 hours">8 hours</option>
+                            <option value="9 hours">9 hours</option>
+                        </select>
                     </div>
                 </div>
                 
-                <div class="checkbox-container">
-                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                    <label for="lunch-preference" class="checkbox-label">I have dietary restrictions (please specify in notes)</label>
+                <div class="datetime-container">
+                    <div>
+                        <label for="participants">Number of Participants:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                    </div>
+                    <div>
+                        <label for="guide-language">Preferred Guide Language:</label>
+                        <select id="guide-language" name="guide-language" required>
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="German">German</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Italian">Italian</option>
+                            <option value="French">French</option>
+                            <option value="Turkish">Turkish</option>
+                        </select>
+                    </div>
                 </div>
-
+                
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
+                
+                <label for="special-interests">Special Interests: <span class="optional-text">(Optional)</span></label>
+                <select id="special-interests" name="special-interests">
+                    <option value="">-- Select your main interest --</option>
+                    <option value="Historical Sites">Historical Sites</option>
+                    <option value="Cultural Experiences">Cultural Experiences</option>
+                    <option value="Food and Culinary">Food and Culinary</option>
+                    <option value="Shopping and Markets">Shopping and Markets</option>
+                    <option value="Religious Sites">Religious Sites</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Architecture">Architecture</option>
+                </select>
+                
                 <label for="notes">Additional Notes:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="Any dietary restrictions, special requirements or questions..."></textarea>
-                <button type="submit">Book Now</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any specific places you want to visit, special requirements, or questions..."></textarea>
+                
+                <button type="submit">Request Tour Guide</button>
             </form>
             <script>
-                // Initialize Flatpickr for date inputs
+                // Initialize Flatpickr for date input
                 document.addEventListener("DOMContentLoaded", function () {
                     // Date picker
-                    flatpickr("#date", {
+                    flatpickr("#tour-date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1);
-                            }
-                        ],
+                        minDate: "today", // Can't select dates before today
                         locale: "en" // English localization
                     });
                 });
@@ -137,21 +223,25 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const date = document.getElementById('date').value;
+                    const tourDate = document.getElementById('tour-date').value;
+                    const duration = document.getElementById('duration').value;
                     const participants = document.getElementById('participants').value;
-                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
+                    const guideLanguage = document.getElementById('guide-language').value;
                     const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const specialInterests = document.getElementById('special-interests').value || 'None specified';
                     const notes = document.getElementById('notes').value;
-                    
+
                     // Construct the message
                     const message = `
-                        New Ephesus & Virgin Mary's House Tour Booking:
+                        New Tour Guide Request:
                         Name: ${name}
                         Phone: ${phone}
-                        Date: ${date}
+                        Tour Date: ${tourDate}
+                        Duration: ${duration}
                         Number of Participants: ${participants}
-                        Dietary Restrictions: ${hasDietaryRestrictions ? 'Yes' : 'No'}
+                        Preferred Guide Language: ${guideLanguage}
                         Room Number: ${room}
+                        Special Interests: ${specialInterests}
                         Additional Notes: ${notes || 'No notes provided'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
@@ -174,7 +264,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
@@ -239,6 +329,7 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
@@ -266,7 +357,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = '../en/house-of-virgin-mary-tour.html';
+                            newPath = '../en/tour-guide.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -274,7 +365,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'house-of-virgin-mary-tour.html';
+                            newPath = 'tour-guide.html';
                         }
                     }
                     

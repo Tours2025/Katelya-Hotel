@@ -1,36 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جولة جزر الأميرات - جولة ليوم كامل</title>
+    <title>Prince Islands Tour - Full Day Tour</title>
     <link rel="stylesheet" href="prince-island.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Additional RTL Fixes */
+        /* Reset styles for LTR */
         body {
-            text-align: right;
-        }
-        
-        /* Keep navbar LTR as requested */
-        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            text-align: left;
             direction: ltr;
         }
         
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            flex-direction: row-reverse;
-        }
-        
-        .checkbox-container input[type="checkbox"] {
-            margin-right: 0;
-            margin-left: 10px;
-        }
-        
-        /* Style for timeline - FIXED to make text not fall under dots */
+        /* Timeline style fixes for LTR */
         .timeline {
-            margin: 20px 10px 20px 0;
+            margin: 20px 0 20px 10px;
             padding: 0;
             list-style: none;
             position: relative;
@@ -40,7 +26,7 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 6px; /* Changed from 20px to 6px to move the line further to the right */
+            left: 6px; /* Line on the left side */
             height: 100%;
             width: 2px;
             background: #ddd;
@@ -48,9 +34,9 @@
         
         .timeline-item {
             position: relative;
-            padding: 10px 30px 10px 0; /* Reduced right padding */
+            padding: 10px 0 10px 30px; /* Padding on the left */
             margin-bottom: 20px;
-            margin-right: 15px; /* Added right margin to shift entire content left */
+            margin-left: 15px; /* Left margin */
         }
         
         .timeline-time {
@@ -59,16 +45,16 @@
             margin-bottom: 8px;
             display: block;
             font-size: 16px;
-            margin-right: 10px; /* Added right margin to move time text left */
+            margin-left: 10px; /* Margin on the left */
         }
         
         .timeline-item div {
-            margin-right: 10px; /* Added right margin to move content text left */
+            margin-left: 10px; /* Margin on the left */
         }
         
         .timeline-icon {
             position: absolute;
-            right: 0; /* Moved dot to the far right of its container */
+            left: 0; /* Dot on the left */
             top: 15px;
             width: 14px;
             height: 14px;
@@ -77,9 +63,14 @@
             box-shadow: 0 0 0 4px #fff;
         }
         
-        .timeline-item p {
-            margin-bottom: 8px;
-            line-height: 1.5;
+        /* Fix checkbox alignment for LTR */
+        .checkbox-container {
+            flex-direction: row;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-left: 0;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -89,7 +80,7 @@
         <div class="logo">
         </div>
         <div class="hotel-name">
-            <h1>فندق كاتيليا</h1>
+            <h1>Katelya Hotel</h1>
         </div>
         <nav>
             <!-- Return button with icon -->
@@ -98,23 +89,23 @@
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
                 </svg>
-                <span>رجوع</span>
+                <span>Back</span>
             </button>
             
             <!-- Language Dropdown -->
             <div class="language-dropdown">
                 <button class="dropdown-btn">
-                    <span id="current-language">العربية</span>
+                    <span id="current-language">English</span>
                     <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#" id="ar-option" class="active">
+                    <a href="#" id="ar-option">
                         <span class="lang-flag">🇦🇪</span>
                         <span class="lang-name">العربية</span>
                     </a>
-                    <a href="#" id="en-option">
+                    <a href="#" id="en-option" class="active">
                         <span class="lang-flag">🇬🇧</span>
                         <span class="lang-name">English</span>
                     </a>
@@ -125,124 +116,124 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>برنامج رحلة جزيرة الأميرات - يوم واحد</h2>
+            <h2>Prince Islands Tour Program - One Day</h2>
             <p>
-                استمتع برحلة ليوم كامل إلى جزر الأميرات الجميلة في اسطنبول مع شركة سياحية عربية، هروب مثالي من المدينة المزدحمة مع إطلالات خلابة ونسمات البحر المنعشة.
+                Enjoy a full-day tour to the beautiful Prince Islands in Istanbul with an Arabic-speaking tour company. A perfect escape from the busy city with stunning views and refreshing sea breezes.
             </p>
             
-            <h3>برنامج الرحلة:</h3>
+            <h3>Tour Program:</h3>
             <ul class="timeline">
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">8:00 صباحًا – الانطلاق</span>
+                    <span class="timeline-time">8:00 AM – Departure</span>
                     <div>
-                        <p>الانطلاق من الفندق (ضمن إسطنبول الأوروبية أو السلطان أحمد / تقسيم).</p>
-                        <p>باص مكيف بياخدك للميناء.</p>
+                        <p>Departure from the hotel (within European Istanbul or Sultanahmet/Taksim area).</p>
+                        <p>Air-conditioned bus takes you to the port.</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">9:00 صباحًا – ركوب العبّارة</span>
+                    <span class="timeline-time">9:00 AM – Ferry Boarding</span>
                     <div>
-                        <p>ركوب العبّارة من ميناء كاباتاش أو أمينونو.</p>
-                        <p>رحلة بحرية مدتها حوالي 1 ساعة ونص.</p>
-                        <p>تقديم شاي تركي وكيك أو سيميت على العبّارة.</p>
+                        <p>Board the ferry from Kabataş or Eminönü port.</p>
+                        <p>Sea journey lasting approximately 1.5 hours.</p>
+                        <p>Turkish tea and cake or simit served on the ferry.</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">10:30 صباحًا – الوصول إلى جزيرة Büyükada</span>
+                    <span class="timeline-time">10:30 AM – Arrival at Büyükada Island</span>
                     <div>
-                        <p>جولة تعريفية بالجزيرة عن طريق عربة كهربائية أو دراجات (حسب الباقة).</p>
-                        <p>المرور على البيوت القديمة، الطبيعة الخضراء، البحر.</p>
-                        <p>وقت حر للتصوير أو التسوّق.</p>
+                        <p>Introductory tour of the island by electric car or bicycles (depending on the package).</p>
+                        <p>Visit the old houses, green landscapes, and sea views.</p>
+                        <p>Free time for photography or shopping.</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">12:30 ظهرًا – الغداء</span>
+                    <span class="timeline-time">12:30 PM – Lunch</span>
                     <div>
-                        <p>وجبة غداء في مطعم مطل على البحر.</p>
-                        <p>الوجبة غالبًا بتكون مشاوي مشكلة أو سمك + مقبلات + مشروب.</p>
+                        <p>Lunch at a restaurant overlooking the sea.</p>
+                        <p>Meal typically includes mixed grill or fish + appetizers + drink.</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">2:00 عصرًا – وقت حر</span>
+                    <span class="timeline-time">2:00 PM – Free Time</span>
                     <div>
-                        <p>تقدر تتمشى في الجزيرة، تروح لكافيه، تركب عربة، تزور كنيسة آيا يورغي لو حابب.</p>
-                        <p>في بعض البرامج بيكون فيه وقت سباحة في الصيف (اختياري).</p>
+                        <p>You can walk around the island, visit a café, ride a carriage, or visit Aya Yorgi Church if you wish.</p>
+                        <p>Some programs include swimming time in summer (optional).</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">4:00 عصرًا – العودة إلى العبّارة</span>
+                    <span class="timeline-time">4:00 PM – Return to Ferry</span>
                     <div>
-                        <p>التجمع عند الميناء وركوب العبّارة للرجوع إلى إسطنبول.</p>
+                        <p>Gather at the port and board the ferry to return to Istanbul.</p>
                     </div>
                 </li>
                 <li class="timeline-item">
                     <span class="timeline-icon"></span>
-                    <span class="timeline-time">5:30 مساءً – الوصول إلى إسطنبول</span>
+                    <span class="timeline-time">5:30 PM – Arrival in Istanbul</span>
                     <div>
-                        <p>وصول إلى الميناء، ومن ثم النقل إلى الفندق بالباص.</p>
+                        <p>Arrival at the port, then transfer to the hotel by bus.</p>
                     </div>
                 </li>
             </ul>
             
             <p>
-                <strong>السعر:</strong> 30 يورو للشخص الواحد
+                <strong>Price:</strong> €30 per person
             </p>
             <p>
-                <strong>تشمل:</strong>
+                <strong>Includes:</strong>
             </p>
             <ul>
-                <li>خدمة النقل من وإلى الفندق</li>
-                <li>رحلة بحرية بالعبارة</li>
-                <li>مرشد سياحي متحدث باللغة العربية</li>
-                <li>وجبة غداء</li>
-                <li>شاي تركي وكيك/سيميت على العبارة</li>
+                <li>Transportation from and to the hotel</li>
+                <li>Ferry journey</li>
+                <li>Arabic-speaking tour guide</li>
+                <li>Lunch</li>
+                <li>Turkish tea and cake/simit on the ferry</li>
             </ul>
             <p>
-                <strong>ملاحظات هامة:</strong>
+                <strong>Important Notes:</strong>
             </p>
             <ul>
-                <li>يجب إحضار معك ملابس مريحة وأحذية مناسبة للمشي</li>
-                <li>في فصل الصيف، يمكنك إحضار ملابس السباحة إذا كنت ترغب في السباحة</li>
-                <li>قد يتغير البرنامج قليلًا حسب الظروف الجوية ومواعيد العبارات</li>
+                <li>Bring comfortable clothes and walking-appropriate shoes</li>
+                <li>In summer, you can bring swimwear if you wish to swim</li>
+                <li>The program may change slightly depending on weather conditions and ferry schedules</li>
             </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة جزر الأميرات الخاصة بك</h3>
+            <h3>Book Your Prince Islands Tour</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">الاسم:</label>
+                <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-                <label for="phone">رقم الهاتف:</label>
+                <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
-                        <label for="date">التاريخ:</label>
-                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
                     </div>
                     <div>
-                        <label for="participants">عدد المشاركين:</label>
+                        <label for="participants">Number of Participants:</label>
                         <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="bicycle" name="bicycle">
-                    <label for="bicycle" class="checkbox-label">أرغب في ركوب الدراجات في الجزيرة</label>
+                    <label for="bicycle" class="checkbox-label">I would like to ride bicycles on the island</label>
                 </div>
 
-                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
-                <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
-                <button type="submit">احجز الآن</button>
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions..."></textarea>
+                <button type="submit">Book Now</button>
             </form>
             <script>
                 // Initialize Flatpickr for date inputs
@@ -251,7 +242,7 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        locale: "ar" // Arabic localization
+                        locale: "en" // English localization
                     });
                 });
 
@@ -264,7 +255,7 @@
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
                     const interestedInBicycle = document.getElementById('bicycle').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
                     const notes = document.getElementById('notes').value;
                     
                     // Calculate total price
@@ -273,15 +264,15 @@
             
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة جزر الأميرات:
-                        الاسم: ${name}
-                        الهاتف: ${phone}
-                        التاريخ: ${date}
-                        عدد المشاركين: ${participants}
-                        ركوب الدراجات: ${interestedInBicycle ? 'نعم' : 'لا'}
-                        السعر الإجمالي: €${totalPrice} يورو
-                        رقم الغرفة: ${room}
-                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                        New Prince Islands Tour Booking:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Date: ${date}
+                        Number of Participants: ${participants}
+                        Bicycle riding: ${interestedInBicycle ? 'Yes' : 'No'}
+                        Total Price: €${totalPrice} Euro
+                        Room Number: ${room}
+                        Additional Notes: ${notes || 'No notes provided'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
                     // Log the message for debugging
@@ -343,15 +334,15 @@
                 // Handle language selection
                 arOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
+                    const langText = 'العربية';
+                    const returnText = 'رجوع';
                     selectLanguage('ar', langText, true, returnText);
                 });
             
                 enOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
+                    const langText = 'English';
+                    const returnText = 'Back';
                     selectLanguage('en', langText, true, returnText);
                 });
             
@@ -371,7 +362,6 @@
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
                     }
                     
                     // Close the dropdown
@@ -403,7 +393,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'prince-island.html';
+                            newPath = 'prince-island-ar.html';
                         }
                     }
                     

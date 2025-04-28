@@ -50,69 +50,33 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>Pamukkale Tour (Cotton Castle & Ancient Hierapolis)</h2>
+            <h2>Pamukkale Tour</h2>
             <p>
-                Experience the breathtaking natural wonder of Pamukkale, known as the "Cotton Castle," and explore the ancient city of Hierapolis on this spectacular day tour from Istanbul. This UNESCO World Heritage site features stunning white terraces formed by calcium-rich mineral waters and the remarkably preserved ruins of a Greco-Roman spa city.
-            </p>
-            <p>
-                <strong>Tour Highlights:</strong>
+                <strong>Tour Itinerary:</strong>
             </p>
             <ul>
-                <li><strong>Pamukkale Terraces</strong> - Walk barefoot on the brilliant white calcium terraces cascading down the hillside</li>
-                <li><strong>Cleopatra's Ancient Pool</strong> - Opportunity to swim in the mineral-rich waters where Cleopatra herself once bathed (optional activity)</li>
-                <li><strong>Ancient Hierapolis</strong> - Explore the well-preserved ruins of this ancient spa city including:
-                    <ul>
-                        <li>The magnificent Roman Theater</li>
-                        <li>Apollo Temple</li>
-                        <li>Necropolis (ancient cemetery)</li>
-                        <li>Frontinus Street and City Gates</li>
-                    </ul>
-                </li>
-                <li><strong>Hierapolis Archaeology Museum</strong> - View artifacts and exhibits from the region's rich history</li>
-                <li><strong>Local Cuisine</strong> - Enjoy authentic Turkish lunch at a carefully selected local restaurant</li>
+                <li>Pick up from your hotel and drive to the airport</li>
+                <li>Our staff will meet you at Denizli Airport and take you to Pamukkale</li>
+                <li>Drive to Pamukkale, Kusadasi-Pamukkale duration is 3.5 hours</li>
+                <li>Our tour bus is a modern air-conditioned private bus</li>
+                <li>On arrival (approximately at 12:00) you will have open buffet lunch</li>
+                <li>After lunch the guided tour of Pamukkale will start</li>
             </ul>
+            
             <p>
-                <strong>Tour Options:</strong> 
+                <strong>Visiting:</strong>
             </p>
-            <p>
-                <strong>1. Day Trip by Flight (Same Day Return):</strong> Includes morning flight from Istanbul to Denizli, full-day tour, and evening return flight.
-            </p>
-            <p>
-                <strong>2. Overnight Tour (2 Days):</strong> Includes flights, tour, accommodation at a thermal spa hotel, and free time to enjoy the thermal waters in the evening.
-            </p>
-            <p>
-                <strong>Duration:</strong>
-            </p>
-            <p>Day Trip: Approximately 16 hours (including flights)<br>
-               Overnight Tour: 2 days, 1 night
-            </p>
-            <p>
-                <strong>Departure Time:</strong> Early morning flight from Istanbul (typically 6:00-7:00 AM)
-            </p>
-            <p>
-                <strong>Return Time:</strong>
-            </p>
-            <p>Day Trip: Late evening flight to Istanbul (typically 8:00-9:00 PM)<br>
-               Overnight Tour: Evening flight on the second day
-            </p>
-            <p>
-                <strong>Price:</strong>
-            </p>
-            <p>Day Trip: 280 USD per person (minimum 2 persons)<br>
-               Overnight Tour: 380 USD per person (minimum 2 persons)
-            </p>
-            <p>
-                <strong>Included:</strong> Hotel pickup and drop-off, round-trip domestic flights Istanbul-Denizli-Istanbul, air-conditioned vehicle, English-speaking guide, entrance fees to Pamukkale and Hierapolis, lunch, and bottled water. Overnight option also includes hotel accommodation and breakfast.
-            </p>
-            <p>
-                <strong>Not Included:</strong> Entrance to Cleopatra's Pool (approximately 15 USD), personal expenses, additional meals not specified, and gratuities
-            </p>
-            <p>
-                <strong>What to Bring:</strong> Comfortable walking shoes, swimwear and towel (if planning to swim), sun protection, camera, and passport/ID for domestic flights
-            </p>
-            <p>
-                This unforgettable tour showcases one of Turkey's most unique natural wonders combined with fascinating ancient history. Book now to secure your spot for this popular destination!
-            </p>
+            <ul>
+                <li>The ancient city of Hierapolis</li>
+                <li>Necropolis</li>
+                <li>Theatre</li>
+                <li>Roman Bath</li>
+                <li>Agora</li>
+                <li>Travertines</li>
+                <li>Pamukkale Natural Lake and Park</li>
+            </ul>
+            
+            <p>The tour will be finished at 4:00 pm, and then drive back to Kusadasi-Selcuk.</p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
@@ -123,12 +87,6 @@
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
                 
-                <label for="tour-type">Tour Option:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="day-trip">Day Trip (Same Day Return) - 280 USD/person</option>
-                    <option value="overnight">Overnight Tour (2 Days, 1 Night) - 380 USD/person</option>
-                </select>
-                
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
@@ -137,13 +95,8 @@
                     </div>
                     <div>
                         <label for="participants">Number of Participants:</label>
-                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
-                </div>
-
-                <div class="checkbox-container">
-                    <input type="checkbox" id="cleopatra-pool" name="cleopatra-pool">
-                    <label for="cleopatra-pool" class="checkbox-label">I'm interested in visiting Cleopatra's Pool (additional 15 USD per person)</label>
                 </div>
                 
                 <div class="checkbox-container">
@@ -180,33 +133,20 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'day-trip' ? 'Day Trip (Same Day Return)' : 'Overnight Tour (2 Days, 1 Night)';
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const cleopatraPool = document.getElementById('cleopatra-pool').checked;
                     const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
                     const room = document.getElementById('room').value || 'Not staying at hotel';
                     const notes = document.getElementById('notes').value;
                     
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'day-trip' ? 280 : 380; // USD
-                    const cleopatraPoolPrice = cleopatraPool ? 15 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + cleopatraPoolPrice;
-            
                     // Construct the message
                     const message = `
                         New Pamukkale Tour Booking:
                         Name: ${name}
                         Phone: ${phone}
-                        Tour Option: ${tourTypeName}
                         Date: ${date}
                         Number of Participants: ${participants}
-                        Cleopatra's Pool: ${cleopatraPool ? 'Yes (+$' + cleopatraPoolPrice + ' USD)' : 'No'}
                         Dietary Restrictions: ${hasDietaryRestrictions ? 'Yes' : 'No'}
-                        Base Tour Price: $${baseTotal} USD
-                        Total Price: $${totalPrice} USD
                         Room Number: ${room}
                         Additional Notes: ${notes || 'No notes provided'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -322,7 +262,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'pamukkale.html';
+                            newPath = '../en/pamukkale.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/

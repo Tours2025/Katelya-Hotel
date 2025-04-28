@@ -52,28 +52,29 @@
         <section id="service-explanation">
             <h2>Sapanca & Maşukiye Tour - English</h2>
             <p>
-                Maşukiye: the region is famous with incredible nature and river.
+                🗺️ Sapanca & Maşukiye Tour Program
             </p>
             <p>
-                Maşukiye name comes from love (comes from Arabic language) one of the most preferred places for honeymoon and the nature lover besides there are activities can be done.
+                ⏰ Duration: One day from 9:00 AM to approximately 9:00 PM
             </p>
             <p>
-                Mahmudiye is the place which are going to be visited for lunch close by the waterfalls with its incredible nature.
+                📍 Places Included:
+            </p>
+            <ol>
+                <li>Bird and Plant Garden</li>
+                <li>Sapanca Lake</li>
+                <li>Maşukiye Waterfalls</li>
+                <li>Naturkoy Resort</li>
+                <li>Turkish Delight Factory and Natural Honey Exhibition</li>
+            </ol>
+            <p>
+                <strong>Optional Activities:</strong> ATV riding, Zipline, and Cable Car
             </p>
             <p>
-                <strong>Shopping:</strong> We visit manufacturing of Turkish delight, organic house.
+                <strong>Includes:</strong> Transportation to and from the hotel, Arabic and Turkish speaking tour guide, BBQ lunch with salads and drinks.
             </p>
             <p>
-                Kartepe (snowhill) is going to be visited only during the winter season.
-            </p>
-            <p>
-                Activities such as Atv's zipline does not belong to agency.
-            </p>
-            <p>
-                The responsibility for the services such as atv, zipline does not belong to agency.
-            </p>
-            <p>
-                <strong>EXTRA:</strong> Atv - Darica Zoo - Glass Terrace
+                <strong>Does Not Include:</strong> Optional activities such as ATV riding and cable car.
             </p>
         </section>
         <!-- Booking Form Section -->
@@ -93,13 +94,13 @@
                     </div>
                     <div>
                         <label for="participants">Number of Participants:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="2" value="2" required>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="extra-activities" name="extra-activities">
-                    <label for="extra-activities" class="checkbox-label">I'm interested in extra activities (ATV, Darıca Zoo, Glass Terrace)</label>
+                    <label for="extra-activities" class="checkbox-label">I'm interested in optional activities (ATV riding, Zipline, Cable Car)</label>
                 </div>
 
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
@@ -144,7 +145,7 @@
                         Phone: ${phone}
                         Date: ${date}
                         Number of Participants: ${participants}
-                        Interested in Extra Activities (ATV, Darıca Zoo, Glass Terrace): ${extraActivities ? 'Yes' : 'No'}
+                        Interested in Optional Activities (ATV riding, Zipline, Cable Car): ${extraActivities ? 'Yes' : 'No'}
                         Room Number: ${room}
                         Additional Notes: ${notes || 'No notes provided'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding

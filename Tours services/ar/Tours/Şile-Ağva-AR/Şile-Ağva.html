@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة سابانجا وماشوكية</title>
-    <link rel="stylesheet" href="sapanca-tour.css" />
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>حجز جولة شيلا واغوا</title>
+    <link rel="stylesheet" href="Şile-Ağva.css" />
+    <!-- RTL specific styles -->
     <style>
-        /* RTL specific adjustments */
         body {
             direction: rtl;
             text-align: right;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        /* Reset return button for RTL */
         .return-btn svg {
             transform: scaleX(-1);
         }
@@ -23,27 +23,22 @@
         }
         
         .return-btn:hover svg {
-            transform: translateX(2px) scaleX(-1);
+            transform: scaleX(-1) translateX(-2px);
         }
         
-        .dropdown-btn {
-            text-align: right;
-        }
-        
-        .lang-name {
-            text-align: left;
+        /* Adjust dropdown for RTL */
+        .dropdown-content {
+            right: auto;
+            left: 0;
         }
         
         .dropdown-content::before {
             right: auto;
             left: 20px;
         }
-        
-        #service-explanation ul {
-            margin-right: 20px;
-            margin-left: 0;
-        }
     </style>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -60,7 +55,7 @@
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
                 </svg>
-                <span>رجوع</span>
+                <span>العودة</span>
             </button>
             
             <!-- Language Dropdown -->
@@ -87,35 +82,15 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة سابانجا وماشوكية - بالانجليزية</h2>
+            <h2>رحلة شيلا واغوا</h2>
             <p>
-                ماشوكية: المنطقة مشهورة بطبيعتها الخلابة والنهر.
-            </p>
-            <p>
-                اسم ماشوكية مشتق من كلمة الحب (وهي كلمة من أصل عربي) وتعد من أكثر الأماكن المفضلة لقضاء شهر العسل ومحبي الطبيعة، بالإضافة إلى وجود أنشطة يمكن القيام بها.
-            </p>
-            <p>
-                محمودية هي المكان الذي سيتم زيارته لتناول الغداء بالقرب من الشلالات ذات الطبيعة الخلابة.
-            </p>
-            <p>
-                <strong>التسوق:</strong> نزور مصنع راحة الحلقوم التركية والمنتجات العضوية.
-            </p>
-            <p>
-                كارتيبي (التل الثلجي) سيتم زيارته فقط خلال موسم الشتاء.
-            </p>
-            <p>
-                أنشطة مثل قيادة دراجات ATV والتزلج على الحبال لا تتبع للوكالة.
-            </p>
-            <p>
-                المسؤولية عن خدمات مثل ATV والتزلج على الحبال لا تتبع للوكالة.
-            </p>
-            <p>
-                <strong>إضافات:</strong> قيادة دراجات ATV - حديقة حيوان داريجا - الشرفة الزجاجية
+                يتم بهذه الرحلة زيارة (حديقة الحيوانات - شيلا - البحيرة المخفية - نهر اغوا - ساحل البحر الاسود - المنارة التاريخية) 
+                <strong>#السعر يشمل الغداء و المواصلات من والى الفندق والمرشد السياحي المرافق</strong>
             </p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة سابانجا وماشوكية</h3>
+            <h3>حجز جولة شيلا واغوا</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
@@ -126,17 +101,12 @@
                 <div class="datetime-container">
                     <div>
                         <label for="date">التاريخ:</label>
-                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                        <input type="text" id="date" name="date" placeholder="اختيار التاريخ" required>
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
-                </div>
-
-                <div class="checkbox-container">
-                    <input type="checkbox" id="extra-activities" name="extra-activities">
-                    <label for="extra-activities" class="checkbox-label">أنا مهتم بالأنشطة الإضافية (ATV، حديقة حيوان داريجا، الشرفة الزجاجية)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
@@ -152,12 +122,6 @@
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Tuesdays and Thursdays (assuming tour doesn't run these days)
-                                return (date.getDay() === 2 || date.getDay() === 4);
-                            }
-                        ],
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -170,19 +134,22 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const extraActivities = document.getElementById('extra-activities').checked;
-                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
+                    const room = document.getElementById('room').value;
                     const notes = document.getElementById('notes').value;
                     
+                    // Calculate total price
+                    const pricePerPerson = 2500; // TL
+                    const totalPrice = pricePerPerson * participants;
+            
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة سابانجا وماشوكية:
+                        حجز جديد لجولة شيلا واغوا:
                         الاسم: ${name}
                         رقم الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        مهتم بالأنشطة الإضافية (قيادة دراجات ATV، حديقة حيوان داريجا، الشرفة الزجاجية): ${extraActivities ? 'نعم' : 'لا'}
-                        رقم الغرفة: ${room}
+                        السعر الإجمالي: ${totalPrice} ليرة تركية
+                        رقم الغرفة: ${room || 'غير محدد'}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
@@ -218,27 +185,6 @@
                 const enOption = document.getElementById('en-option');
                 const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
                 
-                // Set initial language based on current URL
-                function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
-                        arOption.setAttribute('data-lang-text', 'العربية');
-                        arOption.setAttribute('data-return-text', 'رجوع');
-                        enOption.setAttribute('data-lang-text', 'English');
-                        enOption.setAttribute('data-return-text', 'Back');
-                    } else {
-                        selectLanguage('ar', 'العربية', false); // false means don't redirect
-                        arOption.setAttribute('data-lang-text', 'العربية');
-                        arOption.setAttribute('data-return-text', 'رجوع');
-                        enOption.setAttribute('data-lang-text', 'English');
-                        enOption.setAttribute('data-return-text', 'Back');
-                    }
-                }
-                
-                // Call this when the page loads
-                setInitialLanguage();
-                
                 // Toggle dropdown display when clicking the button
                 dropdownBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -253,15 +199,15 @@
                 // Handle language selection
                 arOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
+                    const langText = 'العربية';
+                    const returnText = 'العودة';
                     selectLanguage('ar', langText, true, returnText);
                 });
             
                 enOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
+                    const langText = 'English';
+                    const returnText = 'Back';
                     selectLanguage('en', langText, true, returnText);
                 });
             
@@ -278,11 +224,9 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
-                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
                     }
                     
                     // Close the dropdown
@@ -306,7 +250,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = '../en/sapanca-tour.html';
+                            newPath = 'tour-to-Şile-Ağva.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -314,16 +258,15 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'sapanca-tour.html';
+                            newPath = 'tour-to-Şile-Ağva-ar.html';
                         }
                     }
                     
                     window.location.href = newPath;
                 }
             </script>
-            <!-- Flatpickr JS and Arabic locale -->
+            <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

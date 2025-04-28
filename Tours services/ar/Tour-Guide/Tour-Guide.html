@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة بورصة</title>
-    <link rel="stylesheet" href="bursa-tour.css" />
+    <title>حجز مرشد سياحي خاص</title>
+    <link rel="stylesheet" href="tour-guide.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header dir="ltr">
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -18,7 +21,7 @@
         </div>
         <nav>
             <!-- Return button with icon -->
-            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+            <button class="return-btn" onclick="window.location.href='../main.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
                     <path d="M12 19l-7-7 7-7"></path>
@@ -35,11 +38,11 @@
                     </svg>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#" id="ar-option" class="active">
+                    <a href="#" id="ar-option" class="active" data-return-text="رجوع" data-lang-text="العربية">
                         <span class="lang-flag">🇦🇪</span>
                         <span class="lang-name">العربية</span>
                     </a>
-                    <a href="#" id="en-option">
+                    <a href="#" id="en-option" data-return-text="Back" data-lang-text="English">
                         <span class="lang-flag">🇬🇧</span>
                         <span class="lang-name">English</span>
                     </a>
@@ -47,99 +50,169 @@
             </div>
         </nav>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>خدمة المرشد السياحي الخاص</h1>
+            <p>استكشف اسطنبول مع مرشد محترف متعدد اللغات</p>
+        </div>
+    </section>
+    
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة بورصة الخضراء - انجليزي</h2>
+            <h2>خدمة المرشد السياحي المحترف</h2>
+            
             <p>
-                استمتع بجمال مدينة بورصة الخلاب، موطن أشهر وجهة لرياضات الشتاء في تركيا وجبل أولوداغ المهيب. تجمع هذه الجولة الشاملة بين عجائب الطبيعة والمواقع التاريخية وتجارب التسوق الأصيلة.
+                عزز تجربتك في اسطنبول مع خدمة المرشد السياحي الخاص. مرشدونا هم محترفون معتمدون ذوو معرفة واسعة بتاريخ اسطنبول وثقافتها وكنوزها الخفية.
             </p>
-            <p>
-                <strong>برنامج الجولة:</strong>
-            </p>
-            <ul>
-                <li>رحلة بالعبارة عبر خليج إزميت (40 دقيقة)</li>
-                <li>زيارة جبل أولوداغ - وجهة رياضات الشتاء الأكثر تقدمًا وشهرة في تركيا</li>
-                <li>رحلة بالتلفريك إلى قمة الجبل (2543 متر) - تخضع لظروف الطقس</li>
-                <li>زيارة شجرة الدلب الشهيرة التي يزيد عمرها عن 600 عام لالتقاط الصور</li>
-                <li>استكشاف المجمع الاجتماعي الأخضر (المسجد، سوق الحرير، الضريح الأخضر)</li>
-                <li>زيارة البيوت العثمانية</li>
-                <li>تناول الغداء في مطعم جبلي (على ارتفاع 800 متر) يقدم أطباق مشوية مختلطة لذيذة</li>
-                <li>فرص للتسوق في مواقع تصنيع متنوعة:</li>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-language fa-2x"></i>
+                    </div>
+                    <h3>مرشدون متعددو اللغات</h3>
+                    <p>مرشدونا يتحدثون عدة لغات بطلاقة بما في ذلك الإنجليزية والعربية والألمانية والإسبانية والإيطالية والفرنسية والتركية.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                    <h3>مدة مرنة</h3>
+                    <p>احجز مرشدك لمدة 6-9 ساعات لاستكشاف المدينة على وتيرتك الخاصة.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </div>
+                    <h3>مسار مخصص</h3>
+                    <p>أنشئ مسارًا مخصصًا بناءً على اهتماماتك أو دع مرشدينا يوصون بأفضل الأماكن للزيارة.</p>
+                </div>
+            </div>
+            
+            <div class="guide-benefits">
+                <h3>لماذا تحجز مرشدًا خاصًا؟</h3>
                 <ul>
-                    <li>مصنع راحة الحلقوم التركية</li>
-                    <li>مصنع العسل</li>
-                    <li>مصنع المربى المحفوظة</li>
-                    <li>سوق الحرير الذي يبلغ عمره 600 عام (الحمام التركي العتيق)</li>
+                    <li><i class="fas fa-check-circle"></i> تجاوز الطوابير في المعالم السياحية الرئيسية مع مرشد معتمد</li>
+                    <li><i class="fas fa-check-circle"></i> اكتشف الكنوز الخفية والأسرار المحلية التي لا توجد في كتب الإرشاد السياحي</li>
+                    <li><i class="fas fa-check-circle"></i> تعرف على رؤى تاريخية وثقافية مثيرة للاهتمام حول المواقع التي تزورها</li>
+                    <li><i class="fas fa-check-circle"></i> استمتع بتجربة مخصصة مصممة وفقًا لاهتماماتك ووتيرتك</li>
+                    <li><i class="fas fa-check-circle"></i> احصل على توصيات لأفضل المطاعم المحلية والمتاجر والتجارب</li>
+                    <li><i class="fas fa-check-circle"></i> تنقل في المدينة بثقة مع شخص محلي عارف</li>
                 </ul>
-            </ul>
-            <p>
-                <strong>ما هو المشمول:</strong>
-            </p>
-            <ul>
-                <li>النقل ذهابًا وإيابًا بحافلات مكيفة</li>
-                <li>تذاكر العبّارة</li>
-                <li>مرشد سياحي يتحدث العربية والإنجليزية</li>
-                <li>وجبة غداء مع مشروب غازي واحد</li>
-                <li>رسوم الدخول كما هو مذكور في البرنامج</li>
-                <li>التلفريك - ملاحظة: قد لا يعمل بسبب ظروف الطقس</li>
-            </ul>
-            <p>
-                <strong>ما هو غير مشمول:</strong>
-            </p>
-            <ul>
-                <li>سفاري ATV</li>
-                <li>أنشطة التزلج</li>
-                <li>المصاريف الشخصية</li>
-                <li>النقل إلى منحدرات التزلج ومعدات التزلج (إذا كنت ترغب في التزلج، يجب عليك أخذ حافلة صغيرة من المطعم إلى منحدرات التزلج، النقل والمعدات غير مشمولة)</li>
-            </ul>
-            <p>
-                <strong>ملاحظة مهمة:</strong> الوكالة غير مسؤولة عن ظروف الطقس التي قد تؤثر على مسار الرحلة.
-            </p>
-            <p>
-                احجز الآن لتجربة جمال وثقافة بورصة الخضراء مع مرشدينا المحترفين!
-            </p>
+            </div>
+            
+            <div class="language-options">
+                <h3>اللغات المتاحة</h3>
+                <div class="language-flags">
+                    <div class="language-flag">
+                        <span>🇬🇧</span>
+                        <p>الإنجليزية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇦🇪</span>
+                        <p>العربية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇩🇪</span>
+                        <p>الألمانية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇪🇸</span>
+                        <p>الإسبانية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇮🇹</span>
+                        <p>الإيطالية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇫🇷</span>
+                        <p>الفرنسية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇹🇷</span>
+                        <p>التركية</p>
+                    </div>
+                </div>
+            </div>
         </section>
+        
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة بورصة الخاصة بك</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
-                <label for="name">الاسم:</label>
+            <h3>احجز مرشدك السياحي الخاص</h3>
+            <form id="guideBookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم الكامل:</label>
                 <input type="text" id="name" name="name" required>
+                
                 <label for="phone">رقم الهاتف:</label>
                 <input type="tel" id="phone" name="phone" required>
                 
-                <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
-                        <label for="date">التاريخ:</label>
-                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                        <label for="tour-date">تاريخ الجولة:</label>
+                        <input type="text" id="tour-date" name="tour-date" placeholder="اختر التاريخ" required>
                     </div>
                     <div>
-                        <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="2" value="2" required>
+                        <label for="duration">المدة:</label>
+                        <select id="duration" name="duration" required>
+                            <option value="6 hours">6 ساعات</option>
+                            <option value="7 hours">7 ساعات</option>
+                            <option value="8 hours">8 ساعات</option>
+                            <option value="9 hours">9 ساعات</option>
+                        </select>
                     </div>
                 </div>
-
+                
+                <div class="datetime-container">
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                    </div>
+                    <div>
+                        <label for="guide-language">اللغة المفضلة للمرشد:</label>
+                        <select id="guide-language" name="guide-language" required>
+                            <option value="Arabic">العربية</option>
+                            <option value="English">الإنجليزية</option>
+                            <option value="German">الألمانية</option>
+                            <option value="Spanish">الإسبانية</option>
+                            <option value="Italian">الإيطالية</option>
+                            <option value="French">الفرنسية</option>
+                            <option value="Turkish">التركية</option>
+                        </select>
+                    </div>
+                </div>
+                
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيمًا في فندقنا)</span></label>
                 <input type="text" id="room" name="room">
+                
+                <label for="special-interests">اهتمامات خاصة: <span class="optional-text">(اختياري)</span></label>
+                <select id="special-interests" name="special-interests">
+                    <option value="">-- اختر اهتمامك الرئيسي --</option>
+                    <option value="Historical Sites">المواقع التاريخية</option>
+                    <option value="Cultural Experiences">التجارب الثقافية</option>
+                    <option value="Food and Culinary">الطعام وفنون الطهي</option>
+                    <option value="Shopping and Markets">التسوق والأسواق</option>
+                    <option value="Religious Sites">المواقع الدينية</option>
+                    <option value="Photography">التصوير الفوتوغرافي</option>
+                    <option value="Architecture">العمارة</option>
+                </select>
+                
                 <label for="notes">ملاحظات إضافية:</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
-                <button type="submit">احجز الآن</button>
+                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي أماكن محددة ترغب في زيارتها، أو متطلبات خاصة، أو أسئلة..."></textarea>
+                
+                <button type="submit">طلب مرشد سياحي</button>
             </form>
             <script>
-                // Initialize Flatpickr for date inputs
+                // Initialize Flatpickr for date input
                 document.addEventListener("DOMContentLoaded", function () {
                     // Date picker
-                    flatpickr("#date", {
+                    flatpickr("#tour-date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select past dates
-                        disable: [
-                            function(date) {
-                                // Disable Mondays and Wednesdays (assuming tour doesn't run these days)
-                                return (date.getDay() === 1 || date.getDay() === 3);
-                            }
-                        ],
+                        minDate: "today", // Can't select dates before today
                         locale: "ar" // Arabic localization
                     });
                 });
@@ -150,24 +223,25 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const date = document.getElementById('date').value;
+                    const tourDate = document.getElementById('tour-date').value;
+                    const duration = document.getElementById('duration').value;
                     const participants = document.getElementById('participants').value;
-                    const room = document.getElementById('room').value;
+                    const guideLanguage = document.getElementById('guide-language').value;
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
+                    const specialInterests = document.getElementById('special-interests').value || 'لم يتم تحديد اهتمامات';
                     const notes = document.getElementById('notes').value;
-                    
-                    // Calculate total price
-                    const pricePerPerson = 150; // USD
-                    const totalPrice = pricePerPerson * participants;
-            
+
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة بورصة:
+                        طلب مرشد سياحي جديد:
                         الاسم: ${name}
-                        الهاتف: ${phone}
-                        التاريخ: ${date}
+                        رقم الهاتف: ${phone}
+                        تاريخ الجولة: ${tourDate}
+                        المدة: ${duration}
                         عدد المشاركين: ${participants}
-                        السعر الإجمالي: $${totalPrice} USD
+                        اللغة المفضلة للمرشد: ${guideLanguage}
                         رقم الغرفة: ${room}
+                        اهتمامات خاصة: ${specialInterests}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
             
@@ -190,7 +264,7 @@
                         if (newTab) {
                             newTab.close(); // Close the API tab
                         }
-                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
                     }, 500); // Wait 0.5 seconds
                 }
             </script>
@@ -255,6 +329,7 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
@@ -282,7 +357,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'bursa-tour.html';
+                            newPath = '../en/tour-guide.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -290,7 +365,7 @@
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
                             // If we're at the root level
-                            newPath = 'bursa-tour.html';
+                            newPath = 'tour-guide.html';
                         }
                     }
                     

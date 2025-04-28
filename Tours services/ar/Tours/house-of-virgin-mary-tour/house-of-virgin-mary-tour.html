@@ -3,61 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز جولة بيت العذراء مريم</title>
+    <title>جولة أفسس وبيت السيدة مريم</title>
     <link rel="stylesheet" href="house-of-virgin-mary-tour.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Quick fix for RTL styling */
-        body, html {
+        /* RTL-specific adjustments */
+        body {
             direction: rtl;
             text-align: right;
         }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
+        
+        .return-btn svg {
+            transform: scaleX(-1);
         }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
+        
+        .return-btn:hover {
+            transform: translateX(3px);
         }
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            padding-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        
+        .dropdown-content {
+            left: 0;
+            right: auto;
         }
-        .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
-            margin-right: 0;
-            order: 1;
+        
+        .dropdown-content::before {
+            left: 20px;
+            right: auto;
         }
-        .checkbox-label {
-            order: 2;
-            flex: 1;
-        }
-        /* Fix select arrow position */
+        
         #booking-form select {
             background-position: left 10px center;
             padding-left: 30px;
             padding-right: 10px;
         }
+        
+        .lang-name {
+            text-align: left;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-left: 10px;
+            margin-right: 0;
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -97,86 +90,46 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة بيت العذراء مريم ومدينة أفسس القديمة</h2>
+            <h2>جولة أفسس وبيت السيدة مريم - انجليزي</h2>
             <p>
-                انطلق في رحلة روحية وتاريخية غنية إلى أفسس وبيت العذراء مريم، أحد أكثر مواقع الحج المسيحية تبجيلاً. تأخذك هذه الجولة الشاملة عبر الآثار الرائعة لمدينة أفسس القديمة وإلى المنزل المتواضع حيث يُعتقد أن العذراء مريم قضت سنواتها الأخيرة.
+                استمتع برحلة تاريخية وروحانية إلى أفسس وبيت السيدة مريم مع جولتنا المصحوبة بمرشد.
             </p>
             <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>برنامج الجولة:</strong>
             </p>
             <ul>
-                <li><strong>بيت العذراء مريم (مريم أنا)</strong> - زيارة هذا الموقع المقدس المعترف به من قبل الفاتيكان حيث يُعتقد أن العذراء مريم عاشت أيامها الأخيرة</li>
-                <li><strong>مدينة أفسس القديمة</strong> - استكشف واحدة من أفضل المدن القديمة المحفوظة في العالم مع معالم بارزة تشمل:
+                <li>اصطحابك من فندقك</li>
+                <li>التوجه إلى المطار</li>
+                <li>عند الوصول، مقابلة في المطار والذهاب إلى سلجوق</li>
+                <li>زيارة جامع عيسى بك</li>
+                <li>استكشاف مدينة أفسس القديمة:
                     <ul>
-                        <li>مكتبة سيلسوس الرائعة</li>
-                        <li>المسرح الكبير الذي كان يتسع لـ 25,000 متفرج</li>
-                        <li>معبد هادريان</li>
-                        <li>شارع الرخام والأغورا (السوق القديم)</li>
-                        <li>المنازل المدرجة الرومانية (اختياري)</li>
+                        <li>المسرح</li>
+                        <li>المكتبة</li>
+                        <li>صالة الألعاب الرياضية</li>
                     </ul>
                 </li>
-                <li><strong>كنيسة القديس يوحنا</strong> - زيارة الكنيسة المبنية فوق موقع دفن القديس يوحنا الرسول المفترض</li>
-                <li><strong>معبد أرتميس</strong> - مشاهدة بقايا إحدى عجائب العالم القديم السبع</li>
-                <li><strong>غداء تركي تقليدي</strong> - استمتع بالمأكولات المحلية الأصيلة في مطعم تم اختياره بعناية</li>
-                <li><strong>عرض للحرف اليدوية المحلية</strong> - فرصة لمشاهدة نسج السجاد التقليدي أو صناعة الفخار (إذا سمح الوقت)</li>
+                <li>تناول الغداء</li>
+                <li>زيارة بيت السيدة مريم</li>
+                <li>مشاهدة معبد أرتميس</li>
             </ul>
             <p>
-                <strong>خيارات الجولة:</strong> 
+                <strong>تشمل الجولة:</strong>
             </p>
-            <p>
-                <strong>1. رحلة ليوم واحد بالطائرة (عودة في نفس اليوم):</strong> تشمل رحلة طيران صباحية من إسطنبول إلى إزمير، جولة ليوم كامل، ورحلة عودة مسائية.
-            </p>
-            <p>
-                <strong>2. جولة مع مبيت (يومان):</strong> تشمل رحلات الطيران، الجولة، الإقامة في كوشاداسي أو سلجوق، ووقت إضافي لاستكشاف المنطقة.
-            </p>
-            <p>
-                <strong>المدة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: حوالي 15 ساعة (بما في ذلك رحلات الطيران)<br>
-               جولة مع مبيت: يومان، ليلة واحدة
-            </p>
-            <p>
-                <strong>وقت المغادرة:</strong> رحلة طيران صباحية مبكرة من إسطنبول (عادة 6:00-7:00 صباحًا)
-            </p>
-            <p>
-                <strong>وقت العودة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: رحلة طيران متأخرة إلى إسطنبول (عادة 8:00-9:00 مساءً)<br>
-               جولة مع مبيت: رحلة طيران مسائية في اليوم الثاني
-            </p>
-            <p>
-                <strong>السعر:</strong>
-            </p>
-            <p>رحلة ليوم واحد: 290 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               جولة مع مبيت: 390 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)
-            </p>
-            <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، رحلات الطيران المحلية ذهابًا وإيابًا من إسطنبول-إزمير-إسطنبول، مركبة مكيفة، مرشد محترف يتحدث العربية، رسوم الدخول إلى جميع المواقع المذكورة (باستثناء المنازل المدرجة الرومانية)، وجبة الغداء، والمياه المعبأة. خيار المبيت يشمل أيضًا الإقامة في الفندق ووجبة الإفطار.
-            </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> دخول المنازل المدرجة الرومانية (حوالي 15 دولار أمريكي)، النفقات الشخصية، الوجبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، ملابس محتشمة (يجب تغطية الكتفين والركبتين عند زيارة بيت العذراء مريم)، واقٍ من الشمس، كاميرا، وجواز سفر/بطاقة هوية للرحلات الجوية المحلية
-            </p>
-            <p>
-                توفر هذه الجولة مزيجًا مثاليًا من الأهمية الروحية والتاريخ القديم، مما يوفر رؤى في المسيحية المبكرة وعظمة الإمبراطورية الرومانية. احجز الآن لضمان مكانك لهذه التجربة التي لا تُنسى!
-            </p>
+            <ul>
+                <li>جميع وسائل النقل</li>
+                <li>وجبة الغداء</li>
+                <li>مرشد يتحدث اللغة الإنجليزية</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة بيت العذراء مريم ومدينة أفسس القديمة</h3>
+            <h3>احجز جولة أفسس وبيت السيدة مريم</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="phone">رقم الهاتف:</label>
                 <input type="tel" id="phone" name="phone" required>
-                
-                <label for="tour-type">خيار الجولة:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="day-trip">رحلة ليوم واحد (عودة في نفس اليوم) - 290 دولار/شخص</option>
-                    <option value="overnight">جولة مع مبيت (يومان، ليلة واحدة) - 390 دولار/شخص</option>
-                </select>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
@@ -186,20 +139,13 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
-
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="roman-houses" name="roman-houses">
-                        <label for="roman-houses" class="checkbox-label">أرغب في زيارة المنازل المدرجة الرومانية (إضافة 15 دولار أمريكي للشخص)</label>
-                    </div>
-                    
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                        <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
@@ -231,33 +177,20 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'day-trip' ? 'رحلة ليوم واحد (عودة في نفس اليوم)' : 'جولة مع مبيت (يومان، ليلة واحدة)';
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const romanHouses = document.getElementById('roman-houses').checked;
                     const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'day-trip' ? 290 : 390; // USD
-                    const romanHousesPrice = romanHouses ? 15 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + romanHousesPrice;
-            
                     // Construct the message
                     const message = `
-                        حجز جديد لجولة بيت العذراء مريم ومدينة أفسس القديمة:
+                        حجز جديد لجولة أفسس وبيت السيدة مريم:
                         الاسم: ${name}
-                        الهاتف: ${phone}
-                        خيار الجولة: ${tourTypeName}
+                        رقم الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        المنازل المدرجة الرومانية: ${romanHouses ? 'نعم (+' + romanHousesPrice + ' دولار أمريكي)' : 'لا'}
                         قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        سعر الجولة الأساسي: ${baseTotal} دولار أمريكي
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -321,16 +254,12 @@
                 // Handle language selection
                 arOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
+                    selectLanguage('ar', 'العربية', true, 'رجوع');
                 });
             
                 enOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
+                    selectLanguage('en', 'English', true, 'Back');
                 });
             
                 function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
@@ -346,6 +275,7 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
@@ -373,7 +303,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'house-of-virgin-mary-tour.html';
+                            newPath = '../en/house-of-virgin-mary-tour.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -390,7 +320,6 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

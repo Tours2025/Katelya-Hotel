@@ -8,49 +8,44 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Quick fix for RTL styling */
-        body, html {
+        /* RTL-specific adjustments */
+        body {
             direction: rtl;
             text-align: right;
         }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
+        
+        .return-btn svg {
+            transform: scaleX(-1);
         }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
+        
+        .return-btn:hover {
+            transform: translateX(3px);
         }
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            display: flex;
-            flex-direction: row-reverse;
+        
+        .dropdown-content {
+            left: 0;
+            right: auto;
         }
-        .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
-            margin-right: 0;
+        
+        .dropdown-content::before {
+            left: 20px;
+            right: auto;
         }
-        /* Fix select arrow position */
+        
         #booking-form select {
             background-position: left 10px center;
             padding-left: 30px;
             padding-right: 10px;
         }
+        
+        .lang-name {
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -90,82 +85,56 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة كابادوكيا: المداخن الصخرية والمدن تحت الأرض</h2>
+            <h2>جولة كابادوكيا - انجليزي</h2>
             <p>
-                استمتع بالمناظر الطبيعية الخلابة والتاريخ العريق لكابادوكيا، واحدة من أكثر الوجهات المميزة في تركيا. ستأخذك هذه الجولة التي لا تُنسى عبر تضاريس تشبه الأحلام من المداخن الصخرية، والمساكن الكهفية، والمدن المخفية تحت الأرض المنحوتة في تكوينات الصخور البركانية الفريدة.
-            </p>
-            <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>اليوم الأول - رحلة إلى كابادوكيا وجولة شمال كابادوكيا</strong>
             </p>
             <ul>
-                <li><strong>رحلة بالمنطاد الهوائي</strong> (اختياري) - شاهد شروق الشمس الخلاب فوق مشهد كابادوكيا الفريد من السماء</li>
-                <li><strong>متحف جوريم المفتوح</strong> - استكشف موقع التراث العالمي لليونسكو هذا مع كنائسه المنحوتة في الصخر ولوحات الفسيفساء البيزنطية المثيرة للإعجاب</li>
-                <li><strong>وادي ديفرنت</strong> - المعروف أيضًا باسم "وادي الخيال"، المشهور بتكوينات صخرية تشبه الحيوانات والأشياء</li>
-                <li><strong>باشاباغ (وادي الرهبان)</strong> - شاهد أكثر المداخن الصخرية إثارة للإعجاب مع أغطية صخرية مزدوجة وثلاثية</li>
-                <li><strong>أفانوس</strong> - قم بزيارة هذه البلدة المعروفة بالفخار وشاهد عرضًا تقليديًا للفخار</li>
-                <li><strong>المدينة تحت الأرض</strong> - اكتشف المستوطنات القديمة تحت الأرض حيث اختبأ المسيحيون الأوائل من الاضطهاد</li>
-                <li><strong>قلعة أوتشيسار</strong> - اصعد إلى هذه القلعة الصخرية الطبيعية لإطلالات بانورامية على المنطقة بأكملها</li>
-                <li><strong>وادي الحمام</strong> - شاهد التكوينات الصخرية المذهلة وبيوت الحمام المنحوتة في جدران الوادي</li>
-                <li><strong>الإقامة في فندق كهف تقليدي</strong> - استمتع بالضيافة الكبادوكية الأصيلة في فندق كهف بتصميم فريد</li>
+                <li>اصطحابكم من الفندق الساعة 4 صباحاً والانتقال إلى مطار اسطنبول</li>
+                <li>الطيران إلى كابادوكيا</li>
+                <li>الوصول والاستقبال في المطار</li>
+                <li>الانتقال إلى غوريم والانضمام إلى جولة اليوم الأول</li>
+                <li>تتضمن الجولة زيارة:
+                    <ul>
+                        <li>وادي الحب</li>
+                        <li>وادي المداخن الخيالية (باسباغ)</li>
+                        <li>المتحف المفتوح</li>
+                        <li>وادي الخيال (ديفرنت)</li>
+                        <li>أوتشيسار</li>
+                        <li>ورشة الفخار/السجاد</li>
+                    </ul>
+                </li>
+                <li>في نهاية الجولة، العودة إلى الفندق</li>
             </ul>
             <p>
-                <strong>خيارات الجولة:</strong> 
+                <strong>اليوم الثاني - جولة جنوب كابادوكيا والعودة إلى اسطنبول</strong>
             </p>
-            <p>
-                <strong>1. الجولة القياسية (يومان، ليلة واحدة):</strong> تشمل رحلات الطيران ذهابًا وإيابًا، وجميع المعالم المذكورة، والإقامة في فندق الكهف، والوجبات.
-            </p>
-            <p>
-                <strong>2. الجولة الممتدة (3 أيام، ليلتان):</strong> تشمل كل ما في الجولة القياسية بالإضافة إلى يوم إضافي لاستكشاف الوادي الأحمر، ووادي الورد، ووادي إهلارا.
-            </p>
-            <p>
-                <strong>المدة:</strong>
-            </p>
-            <p>الجولة القياسية: يومان، ليلة واحدة<br>
-               الجولة الممتدة: 3 أيام، ليلتان
-            </p>
-            <p>
-                <strong>وقت المغادرة:</strong> رحلة صباحية مبكرة من إسطنبول (عادة 6:00-7:00 صباحًا)
-            </p>
-            <p>
-                <strong>وقت العودة:</strong>
-            </p>
-            <p>الجولة القياسية: رحلة مسائية في اليوم الثاني<br>
-               الجولة الممتدة: رحلة مسائية في اليوم الثالث
-            </p>
-            <p>
-                <strong>السعر:</strong>
-            </p>
-            <p>الجولة القياسية: 420 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               الجولة الممتدة: 550 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               إضافة رحلة المنطاد الهوائي: 220 دولار أمريكي للشخص الواحد
-            </p>
-            <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، رحلات الطيران المحلية ذهابًا وإيابًا من إسطنبول-كابادوكيا-إسطنبول، مركبة مكيفة لجميع التنقلات والجولات، مرشد محترف يتحدث العربية، رسوم الدخول إلى جميع المواقع المذكورة، الإقامة في فندق كهف مع وجبة الإفطار، الغداء والعشاء في أيام الجولة، والمياه المعبأة.
-            </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> رحلة المنطاد الهوائي (ما لم يتم اختيارها كإضافة)، النفقات الشخصية، الطعام والمشروبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، ملابس متعددة الطبقات (قد تختلف درجات الحرارة)، كاميرا، واقٍ من الشمس، قبعة، وجواز سفر/بطاقة هوية للرحلات الجوية المحلية
-            </p>
-            <p>
-                تقدم كابادوكيا بعضًا من أكثر المناظر الطبيعية فريدة وسحرية على وجه الأرض. تجمع هذه الجولة بين عجائب الطبيعة، والمواقع التاريخية، والتجارب الثقافية لخلق ذكريات ستدوم مدى الحياة. احجز الآن لضمان مكانك في هذه المغامرة الاستثنائية!
-            </p>
+            <ul>
+                <li>رحلة منطاد الهواء الساخن مع شروق الشمس (سوف نعلمكم بموعد الاصطحاب للمنطاد في اليوم السابق)</li>
+                <li>بعد الإفطار، تشمل الجولة زيارة:
+                    <ul>
+                        <li>منظر كابادوكيا البانورامي</li>
+                        <li>المدينة تحت الأرض</li>
+                        <li>قلعة أورتاهيسار</li>
+                        <li>المشي في الوادي</li>
+                        <li>دير الصخرة</li>
+                        <li>منظر وادي الحمام البانورامي</li>
+                        <li>ورشة الأحجار الكريمة</li>
+                    </ul>
+                </li>
+                <li>في نهاية الجولة، الانتقال إلى المطار والعودة إلى اسطنبول</li>
+                <li>الوصول والاستقبال في المطار</li>
+                <li>النقل إلى الفندق</li>
+            </ul>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة كابادوكيا الخاصة بك</h3>
+            <h3>احجز جولة كابادوكيا الآن</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="phone">رقم الهاتف:</label>
                 <input type="tel" id="phone" name="phone" required>
-                
-                <label for="tour-type">خيار الجولة:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="standard">الجولة القياسية (يومان، ليلة واحدة) - 420 دولار/شخص</option>
-                    <option value="extended">الجولة الممتدة (3 أيام، ليلتان) - 550 دولار/شخص</option>
-                </select>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
@@ -175,18 +144,18 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
-                    <label for="balloon-ride" class="checkbox-label">إضافة رحلة منطاد هوائي (إضافة 220 دولار أمريكي للشخص)</label>
-                    <input type="checkbox" id="balloon-ride" name="balloon-ride">
+                    <input type="checkbox" id="balloon-ride" name="balloon-ride" checked>
+                    <label for="balloon-ride" class="checkbox-label">رحلة المنطاد مشمولة</label>
                 </div>
                 
                 <div class="checkbox-container">
-                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
                     <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
@@ -218,33 +187,20 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'standard' ? 'الجولة القياسية (يومان، ليلة واحدة)' : 'الجولة الممتدة (3 أيام، ليلتان)';
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const balloonRide = document.getElementById('balloon-ride').checked;
                     const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'standard' ? 420 : 550; // USD
-                    const balloonRidePrice = balloonRide ? 220 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + balloonRidePrice;
-            
                     // Construct the message
                     const message = `
                         حجز جديد لجولة كابادوكيا:
                         الاسم: ${name}
-                        الهاتف: ${phone}
-                        خيار الجولة: ${tourTypeName}
+                        رقم الهاتف: ${phone}
                         تاريخ البدء: ${date}
                         عدد المشاركين: ${participants}
-                        رحلة المنطاد الهوائي: ${balloonRide ? 'نعم (+' + balloonRidePrice + ' دولار أمريكي)' : 'لا'}
                         قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        سعر الجولة الأساسي: ${baseTotal} دولار أمريكي
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -308,16 +264,12 @@
                 // Handle language selection
                 arOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
+                    selectLanguage('ar', 'العربية', true, 'رجوع');
                 });
             
                 enOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
+                    selectLanguage('en', 'English', true, 'Back');
                 });
             
                 function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
@@ -333,6 +285,7 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
@@ -360,7 +313,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'cappadocia.html';
+                            newPath = '../en/cappadocia.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -377,7 +330,6 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

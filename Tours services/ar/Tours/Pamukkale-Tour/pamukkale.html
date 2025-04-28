@@ -8,56 +8,49 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Quick fix for RTL styling */
-        body, html {
+        /* RTL-specific adjustments */
+        body {
             direction: rtl;
             text-align: right;
         }
-        #service-explanation, 
-        #service-explanation p, 
-        #service-explanation ul,
-        #service-explanation li,
-        #booking-form,
-        #booking-form label,
-        #booking-form input,
-        #booking-form select,
-        #booking-form textarea {
-            direction: rtl;
-            text-align: right;
+        
+        .return-btn svg {
+            transform: scaleX(-1);
         }
-        /* Custom bullet point styling */
-        #service-explanation ul {
-            list-style-position: outside;
-            padding-right: 20px;
-            padding-left: 0;
+        
+        .return-btn:hover {
+            transform: translateX(3px);
         }
-        /* Fix checkbox alignment */
-        .checkbox-container {
-            padding-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        
+        .dropdown-content {
+            left: 0;
+            right: auto;
         }
-        .checkbox-container input[type="checkbox"] {
-            margin-left: 10px;
-            margin-right: 0;
-            order: 1;
+        
+        .dropdown-content::before {
+            left: 20px;
+            right: auto;
         }
-        .checkbox-label {
-            order: 2;
-            flex: 1;
-        }
-        /* Fix select arrow position */
+        
         #booking-form select {
             background-position: left 10px center;
             padding-left: 30px;
             padding-right: 10px;
         }
+        
+        .lang-name {
+            text-align: left;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-left: 10px;
+            margin-right: 0;
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header dir="ltr">
+    <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
@@ -97,84 +90,42 @@
     <!-- Main Content -->
     <main>
         <section id="service-explanation">
-            <h2>جولة باموكالي (قلعة القطن ومدينة هيرابوليس القديمة)</h2>
+            <h2>جولة باموكالي - انجليزي</h2>
             <p>
-                استمتع بالعجائب الطبيعية المذهلة في باموكالي، المعروفة باسم "قلعة القطن"، واستكشف مدينة هيرابوليس القديمة في هذه الجولة الرائعة لمدة يوم من إسطنبول. يتميز موقع التراث العالمي لليونسكو هذا بالمدرجات البيضاء المذهلة التي تشكلت بواسطة المياه المعدنية الغنية بالكالسيوم والآثار المحفوظة بشكل رائع لمدينة المنتجع اليونانية الرومانية.
-            </p>
-            <p>
-                <strong>أبرز معالم الجولة:</strong>
+                <strong>برنامج الجولة:</strong>
             </p>
             <ul>
-                <li><strong>مدرجات باموكالي</strong> - المشي حافي القدمين على مدرجات الكالسيوم البيضاء اللامعة المتدفقة أسفل التل</li>
-                <li><strong>بركة كليوباترا القديمة</strong> - فرصة للسباحة في المياه الغنية بالمعادن حيث استحمت كليوباترا نفسها (نشاط اختياري)</li>
-                <li><strong>مدينة هيرابوليس القديمة</strong> - استكشاف الآثار المحفوظة جيدًا لهذه المدينة العلاجية القديمة بما في ذلك:
-                    <ul>
-                        <li>المسرح الروماني الرائع</li>
-                        <li>معبد أبولو</li>
-                        <li>المقبرة القديمة</li>
-                        <li>شارع فرونتينوس وبوابات المدينة</li>
-                    </ul>
-                </li>
-                <li><strong>متحف هيرابوليس للآثار</strong> - مشاهدة القطع الأثرية والمعروضات من التاريخ الغني للمنطقة</li>
-                <li><strong>المأكولات المحلية</strong> - الاستمتاع بوجبة غداء تركية أصيلة في مطعم محلي تم اختياره بعناية</li>
+                <li>اصطحابك من الفندق والتوجه إلى المطار</li>
+                <li>سيلتقي بك فريقنا في مطار دنيزلي ويأخذك إلى باموكالي</li>
+                <li>الانتقال إلى باموكالي، مدة الرحلة من كوشاداسي إلى باموكالي هي 3.5 ساعات</li>
+                <li>حافلة الجولة الخاصة بنا هي حافلة حديثة ومكيفة</li>
+                <li>عند الوصول (تقريبًا الساعة 12:00) ستتناول غداء مفتوح (بوفيه)</li>
+                <li>بعد الغداء ستبدأ الجولة المصحوبة بمرشد في باموكالي</li>
             </ul>
+            
             <p>
-                <strong>خيارات الجولة:</strong> 
+                <strong>الأماكن التي ستزورها:</strong>
             </p>
-            <p>
-                <strong>1. رحلة ليوم واحد بالطائرة (عودة في نفس اليوم):</strong> تشمل رحلة طيران صباحية من إسطنبول إلى دنيزلي، جولة ليوم كامل، ورحلة عودة مسائية.
-            </p>
-            <p>
-                <strong>2. جولة مع مبيت (يومان):</strong> تشمل رحلات الطيران، الجولة، الإقامة في فندق منتجع حراري، ووقت حر للاستمتاع بالمياه الحرارية في المساء.
-            </p>
-            <p>
-                <strong>المدة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: حوالي 16 ساعة (بما في ذلك رحلات الطيران)<br>
-               جولة مع مبيت: يومان، ليلة واحدة
-            </p>
-            <p>
-                <strong>وقت المغادرة:</strong> رحلة طيران صباحية مبكرة من إسطنبول (عادة 6:00-7:00 صباحًا)
-            </p>
-            <p>
-                <strong>وقت العودة:</strong>
-            </p>
-            <p>رحلة ليوم واحد: رحلة طيران متأخرة إلى إسطنبول (عادة 8:00-9:00 مساءً)<br>
-               جولة مع مبيت: رحلة طيران مسائية في اليوم الثاني
-            </p>
-            <p>
-                <strong>السعر:</strong>
-            </p>
-            <p>رحلة ليوم واحد: 280 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)<br>
-               جولة مع مبيت: 380 دولار أمريكي للشخص الواحد (الحد الأدنى شخصان)
-            </p>
-            <p>
-                <strong>ما هو مشمول:</strong> خدمة الاستلام والتوصيل من وإلى الفندق، رحلات الطيران المحلية ذهابًا وإيابًا من إسطنبول-دنيزلي-إسطنبول، مركبة مكيفة، مرشد يتحدث العربية، رسوم الدخول إلى باموكالي وهيرابوليس، وجبة الغداء، والمياه المعبأة. خيار المبيت يشمل أيضًا الإقامة في الفندق ووجبة الإفطار.
-            </p>
-            <p>
-                <strong>ما هو غير مشمول:</strong> دخول بركة كليوباترا (حوالي 15 دولار أمريكي)، النفقات الشخصية، الوجبات الإضافية غير المحددة، والإكراميات
-            </p>
-            <p>
-                <strong>ما يجب إحضاره:</strong> أحذية مريحة للمشي، ملابس سباحة ومنشفة (إذا كنت تخطط للسباحة)، واقٍ من الشمس، كاميرا، وجواز سفر/بطاقة هوية للرحلات الجوية المحلية
-            </p>
-            <p>
-                تعرض هذه الجولة التي لا تُنسى واحدة من أكثر عجائب الطبيعة فريدة من نوعها في تركيا مع تاريخ قديم مثير للاهتمام. احجز الآن لضمان مكانك لهذه الوجهة الشهيرة!
-            </p>
+            <ul>
+                <li>مدينة هيرابوليس القديمة</li>
+                <li>المقبرة الأثرية (نيكروبوليس)</li>
+                <li>المسرح</li>
+                <li>الحمام الروماني</li>
+                <li>الساحة العامة (أغورا)</li>
+                <li>المدرجات البيضاء (الترافرتين)</li>
+                <li>بحيرة باموكالي الطبيعية والحديقة</li>
+            </ul>
+            
+            <p>ستنتهي الجولة في الساعة 4:00 مساءً، ثم العودة إلى كوشاداسي-سلجوق.</p>
         </section>
         <!-- Booking Form Section -->
         <section id="booking-form">
-            <h3>احجز جولة باموكالي</h3>
+            <h3>احجز جولة باموكالي الآن</h3>
             <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
                 <label for="name">الاسم:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="phone">رقم الهاتف:</label>
                 <input type="tel" id="phone" name="phone" required>
-                
-                <label for="tour-type">خيار الجولة:</label>
-                <select id="tour-type" name="tour-type" required>
-                    <option value="day-trip">رحلة ليوم واحد (عودة في نفس اليوم) - 280 دولار/شخص</option>
-                    <option value="overnight">جولة مع مبيت (يومان، ليلة واحدة) - 380 دولار/شخص</option>
-                </select>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
@@ -184,20 +135,13 @@
                     </div>
                     <div>
                         <label for="participants">عدد المشاركين:</label>
-                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
                     </div>
                 </div>
-
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="cleopatra-pool" name="cleopatra-pool">
-                        <label for="cleopatra-pool" class="checkbox-label">أرغب في زيارة بركة كليوباترا (إضافة 15 دولار أمريكي للشخص)</label>
-                    </div>
-                    
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                        <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
-                    </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
                 </div>
 
                 <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
@@ -229,33 +173,20 @@
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
-                    const tourType = document.getElementById('tour-type').value;
-                    const tourTypeName = tourType === 'day-trip' ? 'رحلة ليوم واحد (عودة في نفس اليوم)' : 'جولة مع مبيت (يومان، ليلة واحدة)';
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const cleopatraPool = document.getElementById('cleopatra-pool').checked;
                     const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
-                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
                     const notes = document.getElementById('notes').value;
                     
-                    // Calculate total price
-                    const basePricePerPerson = tourType === 'day-trip' ? 280 : 380; // USD
-                    const cleopatraPoolPrice = cleopatraPool ? 15 * participants : 0;
-                    const baseTotal = basePricePerPerson * participants;
-                    const totalPrice = baseTotal + cleopatraPoolPrice;
-            
                     // Construct the message
                     const message = `
                         حجز جديد لجولة باموكالي:
                         الاسم: ${name}
-                        الهاتف: ${phone}
-                        خيار الجولة: ${tourTypeName}
+                        رقم الهاتف: ${phone}
                         التاريخ: ${date}
                         عدد المشاركين: ${participants}
-                        بركة كليوباترا: ${cleopatraPool ? 'نعم (+' + cleopatraPoolPrice + ' دولار أمريكي)' : 'لا'}
                         قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
-                        سعر الجولة الأساسي: ${baseTotal} دولار أمريكي
-                        السعر الإجمالي: ${totalPrice} دولار أمريكي
                         رقم الغرفة: ${room}
                         ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
                     `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
@@ -319,16 +250,12 @@
                 // Handle language selection
                 arOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
+                    selectLanguage('ar', 'العربية', true, 'رجوع');
                 });
             
                 enOption.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
+                    selectLanguage('en', 'English', true, 'Back');
                 });
             
                 function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
@@ -344,6 +271,7 @@
                     if (lang === 'ar') {
                         arOption.classList.add('active');
                         enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
                     } else {
                         enOption.classList.add('active');
                         arOption.classList.remove('active');
@@ -371,7 +299,7 @@
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
                             // If we're at the root level
-                            newPath = 'pamukkale.html';
+                            newPath = '../en/pamukkale.html';
                         }
                     } else if (language === 'ar') {
                         // If current path has /en/ replace it with /ar/
@@ -388,7 +316,6 @@
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
         </section>
     </main>
 </body>

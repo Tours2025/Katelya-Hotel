@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katelya Hotel | Premium Services & Accommodations in Turkiey</title>    <link rel="stylesheet" href="style.css" /> 
+    <meta name="description" content="Katelya Hotel offers premium services including taxi transfers, VIP services, guided tours, SIM cards, dinner cruises, and expert tour guides. Enjoy luxury accommodation in Istanbul with multilingual support.">
+    <link rel="icon" href="https://www.streamadqfm.store/KatelyaIMG/tourguide.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.streamadqfm.store/KatelyaIMG/tourguide.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7x1z5l4b5e5c5e5c5e5c5e5c5e5c5e5c5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7x1z5l4b5e5c5e5c5e5c5e5c5e5c5e5c5" crossorigin="anonymous">
+    <meta name="keywords" content="Katelya Hotel, Istanbul hotel, hotel services, taxi service, VIP transfer, guided tours, SIM card, dinner cruise">
+    <meta name="author" content="Katelya Hotel Team">
+
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>  
+        <nav>            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="services">
+            <div class="service-item" onclick="window.location.href='Taxi/Taxi-Service.html';">
+                <div class="service-bubble" data-service="taxi"></div>
+            </div>
+            <div class="service-item" onclick="window.location.href='VIP/VIP-Service.html';">
+                <div class="service-bubble" data-service="transfer"></div>
+            </div>
+            <div class="service-item" onclick="window.location.href='Tours/Tours-Service.html';">
+                <div class="service-bubble" data-service="tours"></div>
+            </div>
+
+            <div class="service-item" onclick="window.location.href='sim-card/sim-card.html';">
+                <div class="service-bubble" data-service="sim-card"></div>
+            </div>
+
+            <div class="service-item" onclick="window.location.href='dinner-cruise/dinner-cruise.html';">
+                <div class="service-bubble" data-service="cruise"></div>
+            </div>
+
+            <div class="service-item" onclick="window.location.href='Tour-Guide/Tour-Guide.html';">
+                <div class="service-bubble" data-service="Tour-Guide"></div>
+            </div>
+            
+        </section>
+    </main>
+
+    <script>
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            if (language === 'en') {
+                window.location.href = '../en/main.html'; // Redirect to English version
+            } else if (language === 'ar') {
+                window.location.href = '../ar/main.html'; // Redirect to Arabic version
+            }
+        }
+
+        // Add event listeners to language buttons
+        document.getElementById('enButton').addEventListener('click', () => {
+            document.getElementById('enButton').classList.add('active');
+            document.getElementById('arButton').classList.remove('active');
+            redirectToLanguageFolder('en');
+        });
+
+        document.getElementById('arButton').addEventListener('click', () => {
+            document.getElementById('arButton').classList.add('active');
+            document.getElementById('enButton').classList.remove('active');
+            redirectToLanguageFolder('ar');
+        });
+    </script>
+    <script>
+        // Language dropdown functionality
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+        const currentLanguage = document.getElementById('current-language');
+        const arOption = document.getElementById('ar-option');
+        const enOption = document.getElementById('en-option');
+        const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+        
+        // Set initial language based on current URL
+        function setInitialLanguage() {
+            // Check if we're in an English folder path
+            if (window.location.pathname.includes('/en/')) {
+                selectLanguage('en', 'English', false); // false means don't redirect
+            } else {
+                selectLanguage('ar', 'العربية', false); // false means don't redirect
+            }
+        }
+        
+        // Call this when the page loads
+        setInitialLanguage();
+        
+        // Toggle dropdown display when clicking the button
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('open');
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageDropdown.classList.remove('open');
+        });
+    
+        // Handle language selection
+        arOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('ar', langText, true, returnText);
+        });
+    
+        enOption.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langText = this.getAttribute('data-lang-text');
+            const returnText = this.getAttribute('data-return-text');
+            selectLanguage('en', langText, true, returnText);
+        });
+    
+        function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+            // Update button text
+            currentLanguage.textContent = displayText;
+            
+            // Update return button text if provided
+            if (returnText && returnButton) {
+                returnButton.textContent = returnText;
+            }
+            
+            // Update active class
+            if (lang === 'ar') {
+                arOption.classList.add('active');
+                enOption.classList.remove('active');
+            } else {
+                enOption.classList.add('active');
+                arOption.classList.remove('active');
+                document.dir = 'ltr'; // Set direction to LTR for English
+            }
+            
+            // Close the dropdown
+            languageDropdown.classList.remove('open');
+            
+            // Redirect to appropriate language version if shouldRedirect is true
+            if (shouldRedirect) {
+                redirectToLanguageFolder(lang);
+            }
+        }
+    
+        // Function to handle language switching
+        function redirectToLanguageFolder(language) {
+            // Get current URL path
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (language === 'en') {
+                // If current path has /ar/ replace it with /en/
+                if (currentPath.includes('/ar/')) {
+                    newPath = currentPath.replace('/ar/', '/en/');
+                } else {
+                    // If we're at the root level
+                    newPath = '../en/main.html';
+                }
+            } else if (language === 'ar') {
+                // If current path has /en/ replace it with /ar/
+                if (currentPath.includes('/en/')) {
+                    newPath = currentPath.replace('/en/', '/ar/');
+                } else {
+                    // If we're at the root level
+                    newPath = '../ar/main.html';
+                }
+            }
+            
+            window.location.href = newPath;
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Hotel",
+          "name": "Katelya Hotel",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "Turkey"
+          },
+          "url": "https://www.katelyahotel.com/",
+          "telephone": "+90XXXXXXXXXX",
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Taxi Service"
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "VIP Transfer"
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Tours"
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "SIM Card Service"
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Dinner Cruise"
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Tour Guide"
+            }
+          ]
+        }
+        </script>
+</body>
+</html>

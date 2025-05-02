@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour 1 - Istanbul City Tour Daily (Europe and Asia) Booking</title>
+    <link rel="stylesheet" href="old-city-tour-1.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Tour 1: Istanbul City Tour Daily - Europe And Asia</h2>
+            <p>
+                Experience the best of Istanbul in one day with our comprehensive Boat & Bus Tour that spans both the European and Asian sides of this magnificent city.
+            </p>
+            <p>
+                <strong>Tour Highlights:</strong>
+            </p>
+            <ul>
+                <li><strong>Bosphorus Tour (by Boat)</strong> - Starting the day with breakfast alongside Turkish tea, enjoy amazing views of the Bosphorus Strait during a 1.5 hour cruise between two continents</li>
+                <li><strong>Beylerbeyi Palace Visit</strong> - Visit the Summer Palace of Ottoman Empire, the pearl of Asian Side with its statues, architecture and gardens</li>
+                <li><strong>Çamlıca Hill</strong> - Walk on one of the highest hills of Istanbul with views of both continents</li>
+                <li><strong>Çamlıca Mosque</strong> - Explore the largest and latest mosque of Turkey with its unique atmosphere</li>
+                <li><strong>Lunch</strong> - Enjoy a perfect combination of soup, grilled mix kebap, salad and dessert</li>
+                <li><strong>Pierre Loti</strong> - Visit this hill on the European side with views of the Golden Horn inlet and historical peninsula</li>
+                <li><strong>Cable Car</strong> - Experience the cable car ride with spectacular views</li>
+            </ul>
+            <p>
+                <strong>Duration:</strong> Full-day tour (Start 09:00 - Return 18:30)
+            </p>
+            <p>
+                <strong>Price:</strong> 80 Euro per person
+            </p>
+            <p>
+                <strong>Included:</strong> Hotel transfer, Bosphorus tour (by boat), breakfast, Beylerbeyi Palace visit, Çamlıca Hill, Çamlıca Mosque, lunch, cable car, Pierre Loti, guide
+            </p>
+            <p>
+                <strong>Important Notes:</strong>
+            </p>
+            <ul>
+                <li>For last minute bookings, tour starting time can be flexible</li>
+                <li>Reservations should be done at your hotel reception</li>
+                <li>Please inform us if you are vegetarian</li>
+                <li>On Mondays, Beylerbeyi Palace will be replaced with Miniaturk museum, the display window of Turkey</li>
+            </ul>
+            <p>
+                <strong>Child Policy:</strong>
+            </p>
+            <ul>
+                <li>0-3 years - free of charge</li>
+                <li>3-6 years - 30% discount</li>
+                <li>Children older than 6 are full charge</li>
+            </ul>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Book Your Tour 1 (Istanbul City Tour Daily)</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                    </div>
+                    <div>
+                        <label for="participants">Number of Participants:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">I am vegetarian (please specify in notes)</label>
+                </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions..."></textarea>
+                <button type="submit">Book Now</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        locale: "en" // English localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const isVegetarian = document.getElementById('lunch-preference').checked;
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const pricePerPerson = 80; // Euro
+                    const totalPrice = pricePerPerson * participants;
+            
+                    // Construct the message
+                    const message = `
+                        New Tour 1 (Istanbul City Tour Daily) Booking:
+                        Name: ${name}
+                        Phone: ${phone}
+                        Date: ${date}
+                        Number of Participants: ${participants}
+                        Vegetarian: ${isVegetarian ? 'Yes' : 'No'}
+                        Total Price: €${totalPrice} Euro
+                        Room Number: ${room}
+                        Additional Notes: ${notes || 'No notes provided'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'old-city-tour-1.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'old-city-tour-1.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

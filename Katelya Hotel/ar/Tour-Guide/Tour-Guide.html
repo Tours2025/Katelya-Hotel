@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز مرشد سياحي خاص</title>
+    <link rel="stylesheet" href="tour-guide.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header dir="ltr">
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>فندق كاتيليا</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../main.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>رجوع</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>خدمة المرشد السياحي الخاص</h1>
+            <p>استكشف اسطنبول مع مرشد محترف متعدد اللغات</p>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>خدمة المرشد السياحي المحترف</h2>
+            
+            <p>
+                عزز تجربتك في اسطنبول مع خدمة المرشد السياحي الخاص. مرشدونا هم محترفون معتمدون ذوو معرفة واسعة بتاريخ اسطنبول وثقافتها وكنوزها الخفية.
+            </p>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-language fa-2x"></i>
+                    </div>
+                    <h3>مرشدون متعددو اللغات</h3>
+                    <p>مرشدونا يتحدثون عدة لغات بطلاقة بما في ذلك الإنجليزية والعربية والألمانية والإسبانية والإيطالية والفرنسية والتركية.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                    <h3>مدة مرنة</h3>
+                    <p>احجز مرشدك لمدة 6-9 ساعات لاستكشاف المدينة على وتيرتك الخاصة.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </div>
+                    <h3>مسار مخصص</h3>
+                    <p>أنشئ مسارًا مخصصًا بناءً على اهتماماتك أو دع مرشدينا يوصون بأفضل الأماكن للزيارة.</p>
+                </div>
+            </div>
+            
+            <div class="guide-benefits">
+                <h3>لماذا تحجز مرشدًا خاصًا؟</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> تجاوز الطوابير في المعالم السياحية الرئيسية مع مرشد معتمد</li>
+                    <li><i class="fas fa-check-circle"></i> اكتشف الكنوز الخفية والأسرار المحلية التي لا توجد في كتب الإرشاد السياحي</li>
+                    <li><i class="fas fa-check-circle"></i> تعرف على رؤى تاريخية وثقافية مثيرة للاهتمام حول المواقع التي تزورها</li>
+                    <li><i class="fas fa-check-circle"></i> استمتع بتجربة مخصصة مصممة وفقًا لاهتماماتك ووتيرتك</li>
+                    <li><i class="fas fa-check-circle"></i> احصل على توصيات لأفضل المطاعم المحلية والمتاجر والتجارب</li>
+                    <li><i class="fas fa-check-circle"></i> تنقل في المدينة بثقة مع شخص محلي عارف</li>
+                </ul>
+            </div>
+            
+            <div class="language-options">
+                <h3>اللغات المتاحة</h3>
+                <div class="language-flags">
+                    <div class="language-flag">
+                        <span>🇬🇧</span>
+                        <p>الإنجليزية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇦🇪</span>
+                        <p>العربية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇩🇪</span>
+                        <p>الألمانية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇪🇸</span>
+                        <p>الإسبانية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇮🇹</span>
+                        <p>الإيطالية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇫🇷</span>
+                        <p>الفرنسية</p>
+                    </div>
+                    <div class="language-flag">
+                        <span>🇹🇷</span>
+                        <p>التركية</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>احجز مرشدك السياحي الخاص</h3>
+            <form id="guideBookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <div class="datetime-container">
+                    <div>
+                        <label for="tour-date">تاريخ الجولة:</label>
+                        <input type="text" id="tour-date" name="tour-date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="duration">المدة:</label>
+                        <select id="duration" name="duration" required>
+                            <option value="6 hours">6 ساعات</option>
+                            <option value="7 hours">7 ساعات</option>
+                            <option value="8 hours">8 ساعات</option>
+                            <option value="9 hours">9 ساعات</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="datetime-container">
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                    </div>
+                    <div>
+                        <label for="guide-language">اللغة المفضلة للمرشد:</label>
+                        <select id="guide-language" name="guide-language" required>
+                            <option value="Arabic">العربية</option>
+                            <option value="English">الإنجليزية</option>
+                            <option value="German">الألمانية</option>
+                            <option value="Spanish">الإسبانية</option>
+                            <option value="Italian">الإيطالية</option>
+                            <option value="French">الفرنسية</option>
+                            <option value="Turkish">التركية</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيمًا في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
+                
+                <label for="special-interests">اهتمامات خاصة: <span class="optional-text">(اختياري)</span></label>
+                <select id="special-interests" name="special-interests">
+                    <option value="">-- اختر اهتمامك الرئيسي --</option>
+                    <option value="Historical Sites">المواقع التاريخية</option>
+                    <option value="Cultural Experiences">التجارب الثقافية</option>
+                    <option value="Food and Culinary">الطعام وفنون الطهي</option>
+                    <option value="Shopping and Markets">التسوق والأسواق</option>
+                    <option value="Religious Sites">المواقع الدينية</option>
+                    <option value="Photography">التصوير الفوتوغرافي</option>
+                    <option value="Architecture">العمارة</option>
+                </select>
+                
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أدخل أي أماكن محددة ترغب في زيارتها، أو متطلبات خاصة، أو أسئلة..."></textarea>
+                
+                <button type="submit">طلب مرشد سياحي</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date input
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#tour-date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select dates before today
+                        locale: "ar" // Arabic localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const tourDate = document.getElementById('tour-date').value;
+                    const duration = document.getElementById('duration').value;
+                    const participants = document.getElementById('participants').value;
+                    const guideLanguage = document.getElementById('guide-language').value;
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
+                    const specialInterests = document.getElementById('special-interests').value || 'لم يتم تحديد اهتمامات';
+                    const notes = document.getElementById('notes').value;
+
+                    // Construct the message
+                    const message = `
+                        طلب مرشد سياحي جديد:
+                        الاسم: ${name}
+                        رقم الهاتف: ${phone}
+                        تاريخ الجولة: ${tourDate}
+                        المدة: ${duration}
+                        عدد المشاركين: ${participants}
+                        اللغة المفضلة للمرشد: ${guideLanguage}
+                        رقم الغرفة: ${room}
+                        اهتمامات خاصة: ${specialInterests}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = '../en/tour-guide.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'tour-guide.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

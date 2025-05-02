@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز جولة كابادوكيا</title>
+    <link rel="stylesheet" href="cappadocia.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* RTL-specific adjustments */
+        body {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .return-btn svg {
+            transform: scaleX(-1);
+        }
+        
+        .return-btn:hover {
+            transform: translateX(3px);
+        }
+        
+        .dropdown-content {
+            left: 0;
+            right: auto;
+        }
+        
+        .dropdown-content::before {
+            left: 20px;
+            right: auto;
+        }
+        
+        #booking-form select {
+            background-position: left 10px center;
+            padding-left: 30px;
+            padding-right: 10px;
+        }
+        
+        .lang-name {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>فندق كاتيليا</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>رجوع</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>جولة كابادوكيا - انجليزي</h2>
+            <p>
+                <strong>اليوم الأول - رحلة إلى كابادوكيا وجولة شمال كابادوكيا</strong>
+            </p>
+            <ul>
+                <li>اصطحابكم من الفندق الساعة 4 صباحاً والانتقال إلى مطار اسطنبول</li>
+                <li>الطيران إلى كابادوكيا</li>
+                <li>الوصول والاستقبال في المطار</li>
+                <li>الانتقال إلى غوريم والانضمام إلى جولة اليوم الأول</li>
+                <li>تتضمن الجولة زيارة:
+                    <ul>
+                        <li>وادي الحب</li>
+                        <li>وادي المداخن الخيالية (باسباغ)</li>
+                        <li>المتحف المفتوح</li>
+                        <li>وادي الخيال (ديفرنت)</li>
+                        <li>أوتشيسار</li>
+                        <li>ورشة الفخار/السجاد</li>
+                    </ul>
+                </li>
+                <li>في نهاية الجولة، العودة إلى الفندق</li>
+            </ul>
+            <p>
+                <strong>اليوم الثاني - جولة جنوب كابادوكيا والعودة إلى اسطنبول</strong>
+            </p>
+            <ul>
+                <li>رحلة منطاد الهواء الساخن مع شروق الشمس (سوف نعلمكم بموعد الاصطحاب للمنطاد في اليوم السابق)</li>
+                <li>بعد الإفطار، تشمل الجولة زيارة:
+                    <ul>
+                        <li>منظر كابادوكيا البانورامي</li>
+                        <li>المدينة تحت الأرض</li>
+                        <li>قلعة أورتاهيسار</li>
+                        <li>المشي في الوادي</li>
+                        <li>دير الصخرة</li>
+                        <li>منظر وادي الحمام البانورامي</li>
+                        <li>ورشة الأحجار الكريمة</li>
+                    </ul>
+                </li>
+                <li>في نهاية الجولة، الانتقال إلى المطار والعودة إلى اسطنبول</li>
+                <li>الوصول والاستقبال في المطار</li>
+                <li>النقل إلى الفندق</li>
+            </ul>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>احجز جولة كابادوكيا الآن</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">تاريخ البدء:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="balloon-ride" name="balloon-ride" checked>
+                    <label for="balloon-ride" class="checkbox-label">رحلة المنطاد مشمولة</label>
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
+                    <label for="lunch-preference" class="checkbox-label">لدي قيود غذائية (يرجى التحديد في الملاحظات)</label>
+                </div>
+
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي قيود غذائية، متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Thursdays and Sundays (assuming tour doesn't start on these days)
+                                return (date.getDay() === 0 || date.getDay() === 4);
+                            }
+                        ],
+                        locale: "ar" // Arabic localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const hasDietaryRestrictions = document.getElementById('lunch-preference').checked;
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Construct the message
+                    const message = `
+                        حجز جديد لجولة كابادوكيا:
+                        الاسم: ${name}
+                        رقم الهاتف: ${phone}
+                        تاريخ البدء: ${date}
+                        عدد المشاركين: ${participants}
+                        قيود غذائية: ${hasDietaryRestrictions ? 'نعم' : 'لا'}
+                        رقم الغرفة: ${room}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    selectLanguage('ar', 'العربية', true, 'رجوع');
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    selectLanguage('en', 'English', true, 'Back');
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = '../en/cappadocia.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'cappadocia.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

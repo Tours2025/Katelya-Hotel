@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز جولة سابانجا وماشوكية</title>
+    <link rel="stylesheet" href="sapanca-tour.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* RTL specific adjustments */
+        body {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .return-btn svg {
+            transform: scaleX(-1);
+        }
+        
+        .return-btn:hover {
+            transform: translateX(3px);
+        }
+        
+        .return-btn:hover svg {
+            transform: translateX(2px) scaleX(-1);
+        }
+        
+        .dropdown-btn {
+            text-align: right;
+        }
+        
+        .lang-name {
+            text-align: left;
+        }
+        
+        .dropdown-content::before {
+            right: auto;
+            left: 20px;
+        }
+        
+        #service-explanation ul {
+            margin-right: 20px;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>فندق كاتليا</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>رجوع</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>جولة سابانجا وماشوكية - بالعربي</h2>
+            <p>
+                🗺️ برنامج رحله صبنجا ومعشوقيه 
+            </p>
+            <p>
+                ⏰ مدة الرحلة: يوم واحد من الساعة 9:00 صباحًا حتى 9:00 مساءً تقريبًا
+            </p>
+            <p>
+                📍 الأماكن المشمولة:
+            </p>
+            <ol>
+                <li>حديقة الطيور والنباتات</li>
+                <li>بحيرة صبنجة</li>
+                <li>شلالات معشوقية</li>
+                <li>منتجع ناتوركوي</li>
+                <li>مصنع راحة الحلقوم ومعرض العسل الطبيعي</li>
+            </ol>
+            <p>
+                <strong>نشاطات اختيارية:</strong> ركوب الدراجات الرباعية (ATV) التزحلق على الحبل (Zipline) ، والتلفريك
+            </p>
+            <p>
+                <strong>يشمل:</strong> المواصلات من وإلى الفندق مرشد سياحي يتحدث العربية والتركية، وجبة غداء مشاوى مع السلطات والمشروبات.
+            </p>
+            <p>
+                <strong>لا يشمل:</strong> الأنشطة الاختيارية مثل ركوب الدراجات والتلفريك.
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>احجز جولة سابانجا وماشوكية</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">التاريخ:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="2" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="extra-activities" name="extra-activities">
+                    <label for="extra-activities" class="checkbox-label">أنا مهتم بالأنشطة الإضافية (ركوب الدراجات الرباعية (ATV)، التزحلق على الحبل، التلفريك)</label>
+                </div>
+
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        disable: [
+                            function(date) {
+                                // Disable Tuesdays and Thursdays (assuming tour doesn't run these days)
+                                return (date.getDay() === 2 || date.getDay() === 4);
+                            }
+                        ],
+                        locale: "ar" // Arabic localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const extraActivities = document.getElementById('extra-activities').checked;
+                    const room = document.getElementById('room').value || 'لا يقيم في الفندق';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Construct the message
+                    const message = `
+                        حجز جديد لجولة سابانجا وماشوكية:
+                        الاسم: ${name}
+                        رقم الهاتف: ${phone}
+                        التاريخ: ${date}
+                        عدد المشاركين: ${participants}
+                        مهتم بالأنشطة الإضافية (قيادة دراجات ATV، حديقة حيوان داريجا، الشرفة الزجاجية): ${extraActivities ? 'نعم' : 'لا'}
+                        رقم الغرفة: ${room}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905522830176'; // Your WhatsApp number
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                        arOption.setAttribute('data-lang-text', 'العربية');
+                        arOption.setAttribute('data-return-text', 'رجوع');
+                        enOption.setAttribute('data-lang-text', 'English');
+                        enOption.setAttribute('data-return-text', 'Back');
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                        arOption.setAttribute('data-lang-text', 'العربية');
+                        arOption.setAttribute('data-return-text', 'رجوع');
+                        enOption.setAttribute('data-lang-text', 'English');
+                        enOption.setAttribute('data-return-text', 'Back');
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                        document.dir = 'rtl'; // Set direction to RTL for Arabic
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = '../en/sapanca-tour.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'sapanca-tour.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS and Arabic locale -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ar.js"></script>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جولة جزر الأميرات - جولة ليوم كامل</title>
+    <link rel="stylesheet" href="prince-island.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Additional RTL Fixes */
+        body {
+            text-align: right;
+        }
+        
+        /* Keep navbar LTR as requested */
+        header, nav, .return-btn, .dropdown-btn, .dropdown-content {
+            direction: ltr;
+        }
+        
+        /* Fix checkbox alignment */
+        .checkbox-container {
+            flex-direction: row-reverse;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        /* Style for timeline - FIXED to make text not fall under dots */
+        .timeline {
+            margin: 20px 10px 20px 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 6px; /* Changed from 20px to 6px to move the line further to the right */
+            height: 100%;
+            width: 2px;
+            background: #ddd;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 10px 30px 10px 0; /* Reduced right padding */
+            margin-bottom: 20px;
+            margin-right: 15px; /* Added right margin to shift entire content left */
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 16px;
+            margin-right: 10px; /* Added right margin to move time text left */
+        }
+        
+        .timeline-item div {
+            margin-right: 10px; /* Added right margin to move content text left */
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            right: 0; /* Moved dot to the far right of its container */
+            top: 15px;
+            width: 14px;
+            height: 14px;
+            background: #000;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #fff;
+        }
+        
+        .timeline-item p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>فندق كاتيليا</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../Tours-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>رجوع</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>برنامج رحلة جزيرة الأميرات - يوم واحد</h2>
+            <p>
+                استمتع برحلة ليوم كامل إلى جزر الأميرات الجميلة في اسطنبول مع شركة سياحية عربية، هروب مثالي من المدينة المزدحمة مع إطلالات خلابة ونسمات البحر المنعشة.
+            </p>
+            
+            <h3>برنامج الرحلة:</h3>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">8:00 صباحًا – الانطلاق</span>
+                    <div>
+                        <p>الانطلاق من الفندق (ضمن إسطنبول الأوروبية أو السلطان أحمد / تقسيم).</p>
+                        <p>باص مكيف بياخدك للميناء.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">9:00 صباحًا – ركوب العبّارة</span>
+                    <div>
+                        <p>ركوب العبّارة من ميناء كاباتاش أو أمينونو.</p>
+                        <p>رحلة بحرية مدتها حوالي 1 ساعة ونص.</p>
+                        <p>تقديم شاي تركي وكيك أو سيميت على العبّارة.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">10:30 صباحًا – الوصول إلى جزيرة Büyükada</span>
+                    <div>
+                        <p>جولة تعريفية بالجزيرة عن طريق عربة كهربائية أو دراجات (حسب الباقة).</p>
+                        <p>المرور على البيوت القديمة، الطبيعة الخضراء، البحر.</p>
+                        <p>وقت حر للتصوير أو التسوّق.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">12:30 ظهرًا – الغداء</span>
+                    <div>
+                        <p>وجبة غداء في مطعم مطل على البحر.</p>
+                        <p>الوجبة غالبًا بتكون مشاوي مشكلة أو سمك + مقبلات + مشروب.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">2:00 عصرًا – وقت حر</span>
+                    <div>
+                        <p>تقدر تتمشى في الجزيرة، تروح لكافيه، تركب عربة، تزور كنيسة آيا يورغي لو حابب.</p>
+                        <p>في بعض البرامج بيكون فيه وقت سباحة في الصيف (اختياري).</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">4:00 عصرًا – العودة إلى العبّارة</span>
+                    <div>
+                        <p>التجمع عند الميناء وركوب العبّارة للرجوع إلى إسطنبول.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-icon"></span>
+                    <span class="timeline-time">5:30 مساءً – الوصول إلى إسطنبول</span>
+                    <div>
+                        <p>وصول إلى الميناء، ومن ثم النقل إلى الفندق بالباص.</p>
+                    </div>
+                </li>
+            </ul>
+            
+            <p>
+                <strong>السعر:</strong> 30 يورو للشخص الواحد
+            </p>
+            <p>
+                <strong>تشمل:</strong>
+            </p>
+            <ul>
+                <li>خدمة النقل من وإلى الفندق</li>
+                <li>رحلة بحرية بالعبارة</li>
+                <li>مرشد سياحي متحدث باللغة العربية</li>
+                <li>وجبة غداء</li>
+                <li>شاي تركي وكيك/سيميت على العبارة</li>
+            </ul>
+            <p>
+                <strong>ملاحظات هامة:</strong>
+            </p>
+            <ul>
+                <li>يجب إحضار معك ملابس مريحة وأحذية مناسبة للمشي</li>
+                <li>في فصل الصيف، يمكنك إحضار ملابس السباحة إذا كنت ترغب في السباحة</li>
+                <li>قد يتغير البرنامج قليلًا حسب الظروف الجوية ومواعيد العبارات</li>
+            </ul>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>احجز جولة جزر الأميرات الخاصة بك</h3>
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">التاريخ:</label>
+                        <input type="text" id="date" name="date" placeholder="اختر التاريخ" required>
+                    </div>
+                    <div>
+                        <label for="participants">عدد المشاركين:</label>
+                        <input type="number" id="participants" name="participants" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="bicycle" name="bicycle">
+                    <label for="bicycle" class="checkbox-label">أرغب في ركوب الدراجات في الجزيرة</label>
+                </div>
+
+                <label for="room">رقم الغرفة: <span class="optional-text">(اختياري - فقط إذا كنت مقيماً في فندقنا)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">ملاحظات إضافية:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="أي متطلبات خاصة أو أسئلة..."></textarea>
+                <button type="submit">احجز الآن</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select past dates
+                        locale: "ar" // Arabic localization
+                    });
+                });
+
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const participants = document.getElementById('participants').value;
+                    const interestedInBicycle = document.getElementById('bicycle').checked;
+                    const room = document.getElementById('room').value || 'غير مقيم في الفندق';
+                    const notes = document.getElementById('notes').value;
+                    
+                    // Calculate total price
+                    const pricePerPerson = 30; // Euro
+                    const totalPrice = pricePerPerson * participants;
+            
+                    // Construct the message
+                    const message = `
+                        حجز جديد لجولة جزر الأميرات:
+                        الاسم: ${name}
+                        الهاتف: ${phone}
+                        التاريخ: ${date}
+                        عدد المشاركين: ${participants}
+                        ركوب الدراجات: ${interestedInBicycle ? 'نعم' : 'لا'}
+                        السعر الإجمالي: €${totalPrice} يورو
+                        رقم الغرفة: ${room}
+                        ملاحظات إضافية: ${notes || 'لا توجد ملاحظات'}
+                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
+            
+                    // Log the message for debugging
+                    console.log('Message:', message);
+            
+                    // CallMeBot API details
+                    const phoneNumber = '+905401321212'; // Your WhatsApp number from the PDF
+                    const apiKey = '8055273'; // Your CallMeBot API key
+                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+            
+                    // Log the final URL for debugging
+                    console.log('API URL:', url);
+            
+                    // Open the API link in a new tab
+                    const newTab = window.open(url, '_blank');
+            
+                    // Close the tab and redirect after 500ms (0.5 seconds)
+                    setTimeout(() => {
+                        if (newTab) {
+                            newTab.close(); // Close the API tab
+                        }
+                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
+                    }, 500); // Wait 0.5 seconds
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'prince-island.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'prince-island.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

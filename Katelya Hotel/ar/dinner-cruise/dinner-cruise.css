@@ -327,7 +327,7 @@ main {
     overflow: hidden;
     background: url('https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/dinner-cruise-bg.png') 0% 70% / 100% no-repeat;    
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    height: 400px;
+    height: 500px;
 }
 
 #dinner-cruise-hero::before {

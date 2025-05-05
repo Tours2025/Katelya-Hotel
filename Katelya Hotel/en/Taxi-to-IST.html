@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Service to Istanbul Airport</title>
+    <link rel="stylesheet" href="Taxi-to.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='Taxi-Service.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+            
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="dropdown-btn">
+                    <span id="current-language">العربية</span>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="ar-option" class="active" data-return-text="رجوع" data-lang-text="العربية">
+                        <span class="lang-flag">🇦🇪</span>
+                        <span class="lang-name">العربية</span>
+                    </a>
+                    <a href="#" id="en-option" data-return-text="Back" data-lang-text="English">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section id="service-explanation">
+            <h2>Taxi Service to Istanbul Airport</h2>
+            <p>
+                We offer a comfortable and safe taxi service from the hotel to Istanbul Airport. You can pay in cash with the following currencies: 
+                <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon arrival.
+            </p>
+            <p>
+                Our service may be slightly more expensive compared to services like Uber, but it is safer and ensures a hassle-free experience with drivers. We strive to provide high-quality service to ensure your comfort and safety.
+            </p>
+            <p>
+                If you are looking for a reliable and comfortable service, our option is the best choice for you!
+            </p>
+        </section>
+        <!-- Booking Form Section -->
+        <section id="booking-form">
+            <h3>Book Now</h3>
+            <form id="bookingForm" onsubmit="sendToTelegram(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <!-- Date and Time Inputs -->
+                <div class="datetime-container">
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" placeholder="Select date" required>
+                    </div>
+                    <div>
+                        <label for="time">Time:</label>
+                        <input type="text" id="time" name="time" placeholder="Select time" required>
+                    </div>
+                </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <script>
+                // Initialize Flatpickr for date and time inputs
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select dates before today
+                        locale: "en" // English localization
+                    });
+                    // Time picker
+                    flatpickr("#time", {
+                        enableTime: true, // Enable time picker
+                        noCalendar: true, // Disable date selection
+                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
+                        time_24hr: true, // Use 24-hour format
+                        locale: "en" // English localization
+                    });
+                });
+
+                function sendToTelegram(event) {
+                    event.preventDefault();
+            
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const time = document.getElementById('time').value; 
+                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const notes = document.getElementById('notes').value || 'No notes provided';
+
+                    // Show loading or processing message
+                    const submitButton = document.querySelector('button[type="submit"]');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
+
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        tourDate: date,
+                        tourTime: time,
+                        room: room,
+                        notes: notes,
+                        serviceType: "Taxi to Istanbul Airport"  // Adding service type for clarity
+                    };
+
+                    // Send data to your Telegram bot server
+                    // Use your local server URL for testing
+                    fetch('http://172.17.0.191:5000/send-reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Send";
+                        submitButton.disabled = false;
+
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "../thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
+                        }
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Send";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'Taxi-to-SAW.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'Taxi-to-SAW.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </section>
+    </main>
+</body>
+</html>

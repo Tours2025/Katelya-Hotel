@@ -1,0 +1,448 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark gray text for readability */
+}
+
+/* Keep the navbar as is - NO CHANGES TO NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Hotel Name Styling */
+header .hotel-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+header .hotel-name h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+header .hotel-name h1:hover {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Ensure the navbar elements maintain their positioning */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+    margin-left: auto; /* Push to the right */
+}
+
+/* Return Button Styling */
+.return-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+.return-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.return-btn:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Language Dropdown Styling */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.dropdown-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+}
+
+.dropdown-content a.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.lang-flag {
+    font-size: 16px;
+}
+
+.lang-name {
+    flex: 1;
+    text-align: right;
+}
+
+/* Show the dropdown when the open class is added */
+.language-dropdown.open .dropdown-content {
+    display: block;
+}
+
+.language-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Add a subtle arrow pointer to the dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
+}
+
+/* Main Content Styling - UPDATED FOR LTR */
+main {
+    padding: 20px;
+    background-color: #fff; /* White background for main content */
+    margin: 20px auto;
+    max-width: 800px; /* Limit width for better readability */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    direction: ltr; /* Ensure LTR direction */
+}
+
+/* Service Explanation Section - UPDATED FOR LTR */
+#service-explanation {
+    text-align: left; /* Align text to the left for LTR */
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#service-explanation h2 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+#service-explanation p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Highlights for important information - UPDATED FOR LTR */
+#service-explanation .highlight {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-left: 4px solid #000; /* Left border for LTR */
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0; /* Border radius for LTR */
+}
+
+#service-explanation .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#service-explanation .currency {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 5px; /* Right margin for LTR */
+}
+
+/* Call to action section */
+#service-explanation .cta {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+/* Booking Form Section - UPDATED FOR LTR */
+#booking-form {
+    text-align: left; /* Align text to the left for LTR */
+    margin-top: 30px;
+}
+
+#booking-form h3 {
+    font-size: 20px;
+    margin-bottom: 15px; /* Space below the heading */
+    color: #000; /* Black heading */
+}
+
+#booking-form label {
+    display: block;
+    margin-top: 10px; /* Space above each label */
+    font-size: 16px;
+    color: #333; /* Dark gray labels */
+}
+
+#booking-form input[type="text"],
+#booking-form input[type="tel"],
+#booking-form input[type="date"],
+#booking-form input[type="time"] {
+    width: 100%; /* Full-width inputs */
+    padding: 10px;
+    margin-top: 5px; /* Space between label and input */
+    margin-bottom: 15px; /* Space below each input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+    text-align: left; /* Text alignment for LTR */
+}
+
+#booking-form button {
+    background-color: #000; /* Black button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#booking-form button:hover {
+    background-color: #333; /* Dark gray on hover */
+}
+
+/* Style for the datetime container */
+.datetime-container {
+    display: flex;
+    justify-content: space-between; /* Space out the inputs */
+    gap: 20px; /* Add gap between date and time */
+    margin-bottom: 10px; /* Space below the container */
+}
+
+/* Style for date and time inputs */
+.datetime-container input[type="text"] {
+    width: 100%; /* Full width within their respective containers */
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Match the font size of other inputs */
+    text-align: left; /* Text alignment for LTR */
+}
+
+/* Ensure each input group has proper spacing */
+.datetime-container > div {
+    width: 48%; /* Each input group takes up half the width */
+}
+
+/* Textarea styling - UPDATED FOR LTR */
+textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Match the font size of other inputs */
+    resize: vertical; /* Allow resizing vertically only */
+    margin-bottom: 10px; /* Space below the textarea */
+    text-align: left; /* Text alignment for LTR */
+    direction: ltr; /* Ensure LTR direction */
+}
+
+/* Add this to style the optional room number text */
+.optional-text {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    font-weight: normal;
+}
+
+/* Flatpickr calendar styling for LTR */
+.flatpickr-calendar {
+    direction: ltr;
+}
+
+.flatpickr-days {
+    direction: ltr;
+}
+
+.flatpickr-day {
+    direction: ltr;
+}
+
+.flatpickr-months {
+    direction: ltr;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .hotel-name h1 {
+        font-size: 22px;
+        padding: 3px 10px;
+    }
+    
+    nav {
+        gap: 10px;
+    }
+    
+    .return-btn, .dropdown-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+
+    header .hotel-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 5px 0;
+        width: 100%;
+        order: 1;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-end;
+        order: 2;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .return-btn span {
+        display: none; /* Hide text, show only icon on very small screens */
+    }
+    
+    .return-btn {
+        padding: 8px;
+    }
+    
+    .datetime-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .datetime-container > div {
+        width: 100%;
+    }
+}
+
+input.error, textarea.error {
+    border: 2px solid #ff3860 !important;
+    background-color: #ffefef;
+}
+
+.error-message {
+    color: #ff3860;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
+}

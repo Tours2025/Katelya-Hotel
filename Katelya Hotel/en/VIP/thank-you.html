@@ -3,75 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You</title>
+    <title>Thank You - Katelya Hotel</title>
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* Body Styling */
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9; /* Light gray background */
-            color: #333; /* Dark gray text for readability */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 20px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Full viewport height */
-            text-align: center;
-            padding: 20px;
         }
-
-        /* Container Styling */
+        
+        .hotel-name h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
         .container {
-            max-width: 600px; /* Limit width for better readability */
-            margin: 0 auto; /* Center the container */
-            padding: 40px;
-            background-color: #fff; /* White background for the card */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
-        /* Heading Styling */
-        h1 {
-            font-size: 2rem; /* Larger font size */
-            color: #28a745; /* Green color for success */
-            margin-bottom: 20px; /* Space below the heading */
+        
+        .taxi-icon {
+            font-size: 60px;
+            margin: 10px 0 20px;
         }
-
-        /* Paragraph Styling */
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
         p {
-            font-size: 1.2rem; /* Slightly larger font size */
-            line-height: 1.6; /* Improve readability */
-            margin-bottom: 30px; /* Space below the paragraph */
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
         }
-
-        /* Button Styling */
-        button {
-            background-color: #28a745; /* Green background */
-            color: #fff; /* White text */
-            border: none;
-            padding: 12px 24px; /* Padding for better clickability */
-            font-size: 1rem;
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer;
-            transition: background-color 0.3s ease; /* Smooth hover effect */
+        
+        .home-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
         }
-
-        button:hover {
-            background-color: #218838; /* Darker green on hover */
+        
+        .home-button:hover {
+            background-color: #333;
+        }
+        
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            p {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
     <div class="container">
-        <h1>Thank You for Your Booking!</h1>
-        <p>We will contact you shortly to confirm your booking.</p>
-        <button onclick="window.location.href='../main.html'">Back to Home</button>
+        <div class="taxi-icon">🚕</div>
+        <h2>Thank You for Your Booking</h2>
+        <p>Your transportation request has been successfully submitted.</p>
+        <p>We will contact you shortly to confirm the details.</p>
+        <a href="../main.html" class="home-button">Return to Home</a>
     </div>
 </body>
 </html>

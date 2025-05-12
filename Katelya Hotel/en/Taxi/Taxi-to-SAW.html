@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="Taxi-to.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Form validation styles */
+        input.error, textarea.error {
+            border: 2px solid #ff3860 !important;
+            background-color: #ffefef;
+        }
+        
+        .error-message {
+            color: #ff3860;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        /* Style for the button when disabled */
+        button[type="submit"]:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -65,37 +86,44 @@
         <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Book Now</h3>
-            <form id="bookingForm" onsubmit="sendToTelegram(event)">
+            <form id="bookingForm" onsubmit="return validateAndSubmit(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <div class="error-message" id="name-error">Name is required</div>
+                
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phone-error">Phone number is required</div>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="date">Date:</label>
                         <input type="text" id="date" name="date" placeholder="Select date" required>
+                        <div class="error-message" id="date-error">Date is required</div>
                     </div>
                     <div>
                         <label for="time">Time:</label>
                         <input type="text" id="time" name="time" placeholder="Select time" required>
+                        <div class="error-message" id="time-error">Time is required</div>
                     </div>
                 </div>
 
-                <label for="room">Room Number: <span class="optional-text">(Optional - only if you are staying at our hotel)</span></label>
-                <input type="text" id="room" name="room">
+                <label for="room">Room Number:</label>
+                <input type="text" id="room" name="room" required>
+                <div class="error-message" id="room-error">Room number is required</div>
 
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitBtn">Submit</button>
             </form>
             <script>
                 // Initialize Flatpickr for date and time inputs
-                document.addEventListener("DOMContentLoaded", function () {
+                document.addEventListener("DOMContentLoaded", function() {
                     // Date picker
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Prevent selecting past dates
                     });
                     // Time picker
                     flatpickr("#time", {
@@ -104,67 +132,127 @@
                         dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
                         time_24hr: true, // Use 24-hour format
                     });
+                    
+                    // Add input validation event listeners
+                    document.getElementById('name').addEventListener('input', function() {
+                        validateField('name');
+                    });
+                    
+                    document.getElementById('phone').addEventListener('input', function() {
+                        validateField('phone');
+                    });
+                    
+                    document.getElementById('date').addEventListener('change', function() {
+                        validateField('date');
+                    });
+                    
+                    document.getElementById('time').addEventListener('change', function() {
+                        validateField('time');
+                    });
+                    
+                    document.getElementById('room').addEventListener('input', function() {
+                        validateField('room');
+                    });
                 });
+                
+                // Function to validate a single field
+                function validateField(fieldName) {
+                    const field = document.getElementById(fieldName);
+                    const errorMessage = document.getElementById(fieldName + '-error');
+                    
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                        errorMessage.style.display = 'block';
+                        return false;
+                    } else {
+                        field.classList.remove('error');
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+                
+                // Function to validate the entire form
+                function validateForm() {
+                    const requiredFields = ['name', 'phone', 'date', 'time', 'room'];
+                    let isValid = true;
+                    
+                    for (const field of requiredFields) {
+                        const isFieldValid = validateField(field);
+                        if (!isFieldValid) {
+                            isValid = false;
+                        }
+                    }
+                    
+                    return isValid;
+                }
+                
+                // Function to validate and submit the form
+                function validateAndSubmit(event) {
+                    event.preventDefault();
+                    
+                    if (!validateForm()) {
+                        // Form is invalid, prevent submission
+                        return false;
+                    }
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const time = document.getElementById('time').value; 
+                    const room = document.getElementById('room').value;
+                    const notes = document.getElementById('notes').value || 'No notes provided';
 
-                function sendToTelegram(event) {
-    event.preventDefault();
+                    // Show loading or processing message
+                    const submitButton = document.querySelector('button[type="submit"]');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
 
-    // Get form values
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value; 
-    const room = document.getElementById('room').value || 'Not staying at hotel';
-    const notes = document.getElementById('notes').value || 'No notes provided';
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        tourDate: date,
+                        tourTime: time,
+                        room: room,
+                        notes: notes,
+                        serviceType: "Taxi to SAW Airport"  // Adding service type for clarity
+                    };
 
-    // Show loading or processing message
-    const submitButton = document.querySelector('button[type="submit"]');
-    submitButton.textContent = "Sending...";
-    submitButton.disabled = true;
+                    // Send data to your Telegram bot server on PythonAnywhere
+                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Submit";
+                        submitButton.disabled = false;
 
-    // Prepare data to send to your Telegram bot API
-    const formData = {
-        name: name,
-        phone: phone,
-        tourDate: date,
-        tourTime: time,
-        room: room,
-        notes: notes,
-        serviceType: "Taxi to SAW Airport"  // Adding service type for clarity
-    };
-
-    // Send data to your Telegram bot server on PythonAnywhere
-    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Reset button
-        submitButton.textContent = "Send";
-        submitButton.disabled = false;
-
-        if (data.success) {
-            // Redirect to thank you page on success
-            window.location.href = "thank-you.html";
-        } else {
-            // Show error if the request failed
-            alert('There was an error submitting your request. Please try again.');
-            console.error('Error:', data.error);
-        }
-    })
-    .catch(error => {
-        // Reset button and show error
-        submitButton.textContent = "Send";
-        submitButton.disabled = false;
-        
-        console.error('Error:', error);
-        alert('There was an error submitting your request. Please try again.');
-    });
-}
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
+                        }
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Submit";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                    
+                    return false;
+                }
             </script>
             <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

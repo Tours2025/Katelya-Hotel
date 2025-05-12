@@ -1,4 +1,3 @@
-/* RTL version of Taxi-to.css for Arabic */
 /* General Reset */
 * {
     margin: 0;
@@ -10,22 +9,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff; /* White background */
     color: #333; /* Dark gray text for readability */
-    
-}
-.main-section {
-    direction: ltr;
-    text-align: left;
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.6;
-    font-size: 1rem;
 }
 
-
-/* Enhanced Navbar & Hotel Name Styling */
-
-/* Improved Header Styling */
+/* Keep the navbar as is - NO CHANGES TO NAVBAR */
 header {
     display: flex;
     justify-content: space-between;
@@ -74,50 +60,6 @@ nav {
     z-index: 2;
     margin-left: auto; /* Push to the right */
 }
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header .hotel-name h1 {
-        font-size: 22px;
-        padding: 3px 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-wrap: wrap;
-        padding: 10px 15px;
-    }
-
-    header .hotel-name {
-        position: relative;
-        left: auto;
-        transform: none;
-        margin: 5px 0;
-        width: 100%;
-        order: 1;
-        text-align: center;
-    }
-
-    nav {
-        width: 100%;
-        justify-content: flex-end;
-        order: 2;
-        margin-top: 10px;
-        flex-wrap: wrap;
-    }
-
-    .return-btn span {
-        display: none;
-    }
-
-    .return-btn,
-    .dropdown-btn {
-        padding: 8px;
-    }
-}
-
 
 /* Return Button Styling */
 .return-btn {
@@ -249,68 +191,20 @@ nav {
     box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    nav {
-        gap: 10px;
-    }
-    
-    .return-btn, .dropdown-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-    
-    header .hotel-name h1 {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 10px 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    header .hotel-name {
-        position: static;
-        transform: none;
-        margin: 10px 0;
-        width: 100%;
-        text-align: center;
-        order: 1;
-    }
-    
-    nav {
-        width: 100%;
-        justify-content: space-between;
-        order: 2;
-        margin-top: 10px;
-    }
-    
-    .return-btn span {
-        display: none; /* Hide text, show only icon on very small screens */
-    }
-    
-    .return-btn {
-        padding: 8px;
-    }
-}
-
-/* Main Content Styling */
+/* Main Content Styling - UPDATED FOR LTR */
 main {
     padding: 20px;
-    text-align: center;
     background-color: #fff; /* White background for main content */
     margin: 20px auto;
     max-width: 800px; /* Limit width for better readability */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    direction: ltr; /* Ensure LTR direction */
 }
 
-/* Service Explanation Section - Improved */
+/* Service Explanation Section - UPDATED FOR LTR */
 #service-explanation {
-    text-align: right; /* Align text to the right for Arabic */
+    text-align: left; /* Align text to the left for LTR */
     margin-bottom: 40px;
     padding: 25px;
     background-color: #f9f9f9;
@@ -334,13 +228,13 @@ main {
     line-height: 1.6;
 }
 
-/* Highlights for important information */
+/* Highlights for important information - UPDATED FOR LTR */
 #service-explanation .highlight {
     background-color: #f0f0f0;
     padding: 15px;
-    border-right: 4px solid #000; /* Changed from left to right border for RTL */
+    border-left: 4px solid #000; /* Left border for LTR */
     margin: 15px 0;
-    border-radius: 8px 0 0 8px; /* Changed border radius for RTL */
+    border-radius: 0 8px 8px 0; /* Border radius for LTR */
 }
 
 #service-explanation .price {
@@ -358,7 +252,7 @@ main {
     color: #fff;
     display: inline-block;
     border-radius: 5px;
-    margin-left: 5px; /* Changed from margin-right to margin-left for RTL */
+    margin-right: 5px; /* Right margin for LTR */
 }
 
 /* Call to action section */
@@ -372,9 +266,9 @@ main {
     border-radius: 8px;
 }
 
-/* Booking Form Section */
+/* Booking Form Section - UPDATED FOR LTR */
 #booking-form {
-    text-align: right; /* Align text to the right for Arabic */
+    text-align: left; /* Align text to the left for LTR */
     margin-top: 30px;
 }
 
@@ -402,7 +296,7 @@ main {
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
     font-size: 16px;
-    text-align: right; /* Text alignment for RTL */
+    text-align: left; /* Text alignment for LTR */
 }
 
 #booking-form button {
@@ -424,7 +318,7 @@ main {
 .datetime-container {
     display: flex;
     justify-content: space-between; /* Space out the inputs */
-    align-items: center; /* Align inputs vertically */
+    gap: 20px; /* Add gap between date and time */
     margin-bottom: 10px; /* Space below the container */
 }
 
@@ -435,13 +329,7 @@ main {
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
     font-size: 1rem; /* Match the font size of other inputs */
-    text-align: right; /* Text alignment for RTL */
-}
-
-/* Label styling */
-.datetime-container label {
-    margin-left: 10px; /* Changed from right to left margin for RTL */
-    font-weight: bold; /* Bold text for labels */
+    text-align: left; /* Text alignment for LTR */
 }
 
 /* Ensure each input group has proper spacing */
@@ -449,7 +337,7 @@ main {
     width: 48%; /* Each input group takes up half the width */
 }
 
-/* Textarea styling */
+/* Textarea styling - UPDATED FOR LTR */
 textarea {
     width: 100%; /* Full width */
     padding: 10px; /* Add padding for better spacing */
@@ -458,11 +346,11 @@ textarea {
     font-size: 1rem; /* Match the font size of other inputs */
     resize: vertical; /* Allow resizing vertically only */
     margin-bottom: 10px; /* Space below the textarea */
-    text-align: right; /* Text alignment for RTL */
-    direction: rtl;
+    text-align: left; /* Text alignment for LTR */
+    direction: ltr; /* Ensure LTR direction */
 }
 
-/* Add this to Taxi-to.css to style the optional room number text */
+/* Add this to style the optional room number text */
 .optional-text {
     font-size: 14px;
     font-style: italic;
@@ -470,51 +358,91 @@ textarea {
     font-weight: normal;
 }
 
-/* Flatpickr RTL support */
-.flatpickr-calendar.arrowTop:before,
-.flatpickr-calendar.arrowTop:after {
-    right: 22px;
-    left: auto;
-}
-
-.flatpickr-calendar.arrowBottom:before,
-.flatpickr-calendar.arrowBottom:after {
-    right: 22px;
-    left: auto;
-}
-
-.flatpickr-current-month {
-    right: 12.5%;
-    left: auto;
-}
-
-.flatpickr-months .flatpickr-prev-month,
-.flatpickr-months .flatpickr-next-month {
-    padding: 10px 17px;
-}
-
-.flatpickr-months .flatpickr-prev-month {
-    left: 0;
-    right: auto;
-}
-
-.flatpickr-months .flatpickr-next-month {
-    right: auto;
-    left: 0;
-}
-
+/* Flatpickr calendar styling for LTR */
 .flatpickr-calendar {
-    direction: rtl;
+    direction: ltr;
 }
 
 .flatpickr-days {
-    direction: rtl;
+    direction: ltr;
 }
 
 .flatpickr-day {
-    direction: rtl;
+    direction: ltr;
 }
 
 .flatpickr-months {
-    direction: rtl;
+    direction: ltr;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .hotel-name h1 {
+        font-size: 22px;
+        padding: 3px 10px;
+    }
+    
+    nav {
+        gap: 10px;
+    }
+    
+    .return-btn, .dropdown-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+
+    header .hotel-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 5px 0;
+        width: 100%;
+        order: 1;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-end;
+        order: 2;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .return-btn span {
+        display: none; /* Hide text, show only icon on very small screens */
+    }
+    
+    .return-btn {
+        padding: 8px;
+    }
+    
+    .datetime-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .datetime-container > div {
+        width: 100%;
+    }
+}
+
+input.error, textarea.error {
+    border: 2px solid #ff3860 !important;
+    background-color: #ffefef;
+}
+
+.error-message {
+    color: #ff3860;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
 }

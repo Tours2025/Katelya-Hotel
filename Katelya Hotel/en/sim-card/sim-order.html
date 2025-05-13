@@ -10,6 +10,27 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Form validation styles */
+        input.error, textarea.error, select.error {
+            border: 2px solid #ff3860 !important;
+            background-color: #ffefef;
+        }
+        
+        .error-message {
+            color: #ff3860;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        /* Style for the button when disabled */
+        button[type="submit"]:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -70,18 +91,21 @@
         <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Complete Your Order</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+            <form id="bookingForm" onsubmit="return sendToTelegram(event)">
                 <label for="name">Full Name (as in passport):</label>
                 <input type="text" id="name" name="name" required>
+                <div class="error-message" id="name-error">Full name is required</div>
                 
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phone-error">Phone number is required</div>
                 
                 <!-- Date Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="arrival-date">Starting Date:</label>
                         <input type="text" id="arrival-date" name="arrival-date" placeholder="Select date" required>
+                        <div class="error-message" id="arrival-date-error">Starting date is required</div>
                     </div>
                 </div>
 
@@ -96,11 +120,12 @@
                     <option value="30 Days - 30GB - 40€">30 Days - 30GB - 40€</option>
                     <option value="Premium 30 Days - 30GB - 45€">Premium 30 Days - 30GB - 45€</option>
                 </select>
+                <div class="error-message" id="package-error">Package selection is required</div>
                 
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes or requirements here..."></textarea>
                 
-                <button type="submit">Place Order</button>
+                <button type="submit" id="submitBtn">Place Order</button>
             </form>
             <script>
                 // Initialize Flatpickr for date input
@@ -109,7 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#arrival-date", {
         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
         minDate: "today", // Can't select dates before today
-        locale: "en" // English localization
+        locale: "en", // English localization
+        onChange: function() {
+            validateField('arrival-date');
+        }
     });
     
     // Get URL parameters to pre-select package
@@ -143,6 +171,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add change event to update package details
     document.getElementById('package').addEventListener('change', function() {
         updatePackageDetails(this.value);
+        validateField('package');
+    });
+    
+    // Add input validation event listeners
+    document.getElementById('name').addEventListener('input', function() {
+        validateField('name');
+    });
+    
+    document.getElementById('phone').addEventListener('input', function() {
+        validateField('phone');
     });
 });
                 
@@ -192,50 +230,103 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     packageDetailsDiv.innerHTML = packageInfo;
                 }
+                
+                // Function to validate a single field
+                function validateField(fieldName) {
+                    const field = document.getElementById(fieldName);
+                    const errorMessage = document.getElementById(fieldName + '-error');
+                    
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                        errorMessage.style.display = 'block';
+                        return false;
+                    } else {
+                        field.classList.remove('error');
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+                
+                // Function to validate the entire form
+                function validateForm() {
+                    const requiredFields = ['name', 'phone', 'arrival-date', 'package'];
+                    let isValid = true;
+                    
+                    for (const field of requiredFields) {
+                        if (!validateField(field)) {
+                            isValid = false;
+                        }
+                    }
+                    
+                    return isValid;
+                }
 
-                function sendToWhatsApp(event) {
+                // Function to send data to Telegram Bot
+                function sendToTelegram(event) {
                     event.preventDefault();
-            
+                    
+                    // Validate the form before submission
+                    if (!validateForm()) {
+                        return false;
+                    }
+
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const arrivalDate = document.getElementById('arrival-date').value;
-                    const room = document.getElementById('room').value || 'Not staying at hotel';
+                    const room = document.getElementById('room').value || 'Not provided';
                     const packageType = document.getElementById('package').value;
-                    const notes = document.getElementById('notes').value;
+                    const notes = document.getElementById('notes').value || 'No notes provided';
+                    
+                    // Show loading or processing message
+                    const submitButton = document.querySelector('button[type="submit"]');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
 
-                    // Construct the message
-                    const message = `
-                        New SIM Card Order:
-                        Name: ${name}
-                        Phone: ${phone}
-                        Arrival Date: ${arrivalDate}
-                        Room Number: ${room}
-                        Package: ${packageType}
-                        Additional Notes: ${notes || 'No notes provided'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // Log the message for debugging
-                    console.log('Message:', message);
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905451070176'; // Your WhatsApp number
-                    const apiKey = '7577666'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Log the final URL for debugging
-                    console.log('API URL:', url);
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        arrivalDate: arrivalDate,
+                        room: room,
+                        packageType: packageType,
+                        notes: notes,
+                        serviceType: "SIM Card Order"
+                    };
+
+                    // Send data to your Telegram bot server
+                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Place Order";
+                        submitButton.disabled = false;
+
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
                         }
-                        window.location.href = "../thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Place Order";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                    
+                    return false;
                 }
             </script>
             <script>

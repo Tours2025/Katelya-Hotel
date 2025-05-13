@@ -7,68 +7,33 @@
     <link rel="stylesheet" href="VIP-to.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Favicon fix -->
-    <link rel="icon" href="data:,">
     <style>
-        /* Styling for the Other Country option */
-        .country-item.other-option {
-            border-top: 1px solid #eee;
-            margin-top: 10px;
-            padding-top: 15px;
+        /* Form validation styles */
+        input.error, textarea.error {
+            border: 2px solid #ff3860 !important;
+            background-color: #ffefef;
         }
-
-        .country-other-inputs {
-            display: none; /* Hidden by default */
-            margin-top: 10px;
-            border-top: 1px dashed #eee;
-            padding-top: 10px;
-        }
-
-        .country-other-inputs.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .country-other-inputs input {
-            width: 100%;
-            padding: 8px 10px;
-            margin-bottom: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        
+        .error-message {
+            color: #ff3860;
             font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
         }
-
-        .country-other-inputs input:focus {
-            outline: none;
-            border-color: #999;
+        
+        /* Style for the button when disabled */
+        button[type="submit"]:disabled {
+            background-color: #999;
+            cursor: not-allowed;
         }
-
-        .country-other-inputs button {
-            width: 100%;
-            padding: 8px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        
+        /* Optional field styling */
+        .optional-text {
             font-size: 14px;
-        }
-
-        .country-other-inputs button:hover {
-            background-color: #333;
-        }
-
-        /* Custom flag option */
-        .custom-flag {
-            padding: 3px 8px;
-            background-color: #f0f0f0;
-            border-radius: 3px;
-            font-weight: bold;
-            font-size: 12px;
-            min-width: 24px;
-            text-align: center;
-            line-height: 1;
-            color: #333;
+            font-style: italic;
+            color: #777;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -129,723 +94,287 @@
         <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Book Now</h3>
-            <form id="bookingForm">
-                <!-- Name Field with Inline Validation -->
-                <div class="input-container" id="nameContainer">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <div class="error-message">Please fill out this field.</div>
-                </div>
+            <form id="bookingForm" onsubmit="sendToTelegram(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message" id="name-error">Name is required</div>
                 
-                <!-- Phone Number with Inline Validation -->
-                <label for="phoneNumber">Phone Number:</label>
-                <div class="custom-phone-input">
-                    <div class="country-code-selector" id="countrySelector">
-                        <div class="flag-and-code">
-                            <img src="https://flagcdn.com/w40/tr.png" alt="Turkey" class="country-flag" id="selectedFlag">
-                            <span class="country-code" id="selectedCode">+90</span>
-                        </div>
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
-                    <input type="tel" id="phoneNumber" name="phone" class="phone-number-input" placeholder="5XX XXX XX XX" required>
-                    
-                    <!-- Country Dropdown -->
-                    <div class="country-dropdown" id="countryDropdown">
-                        <div class="country-search">
-                            <input type="text" id="countrySearch" placeholder="Search for country...">
-                        </div>
-                        <ul class="country-list" id="countryList">
-                            <!-- Countries will be added here by JavaScript -->
-                        </ul>
-                        <!-- Other country option container (added with JS) -->
-                    </div>
-                </div>
-                <div class="error-message" id="phoneError">Please fill out this field.</div>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phone-error">Phone number is required</div>
                 
-                <!-- Date and Time Inputs with Inline Validation -->
+                <!-- Date and Time Inputs -->
                 <div class="datetime-container">
-                    <div class="input-container" id="dateContainer">
+                    <div>
                         <label for="date">Date:</label>
                         <input type="text" id="date" name="date" placeholder="Select date" required>
-                        <div class="error-message">Please select a date.</div>
+                        <div class="error-message" id="date-error">Date is required</div>
                     </div>
-                    <div class="input-container" id="timeContainer">
+                    <div>
                         <label for="time">Time:</label>
                         <input type="text" id="time" name="time" placeholder="Select time" required>
-                        <div class="error-message">Please select a time.</div>
+                        <div class="error-message" id="time-error">Time is required</div>
                     </div>
                 </div>
+
+                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <input type="text" id="room" name="room">
                 
-                <!-- Flight Number with Inline Validation -->
-                <div class="input-container" id="flightContainer">
-                    <label for="flight">Flight Number:</label>
-                    <input type="text" id="flight" name="flight" required>
-                    <div class="error-message">Please fill out this field.</div>
-                </div>
+                <!-- Added Flight Number field for VIP service -->
+                <label for="flight">Flight Number:</label>
+                <input type="text" id="flight" name="flight" required>
+                <div class="error-message" id="flight-error">Flight number is required</div>
                 
-                <!-- Notes Field -->
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
                 
                 <button type="submit">Send</button>
             </form>
+            
+            <script>
+                // Initialize Flatpickr for date and time inputs
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Date picker
+                    flatpickr("#date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Prevent selecting past dates
+                        locale: "en", // English localization
+                        onChange: function() {
+                            validateField('date');
+                        }
+                    });
+                    
+                    // Time picker
+                    flatpickr("#time", {
+                        enableTime: true, // Enable time picker
+                        noCalendar: true, // Disable date selection
+                        dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
+                        time_24hr: true, // Use 24-hour format
+                        locale: "en", // English localization
+                        onChange: function() {
+                            validateField('time');
+                        }
+                    });
+                    
+                    // Add input validation event listeners
+                    document.getElementById('name').addEventListener('input', function() {
+                        validateField('name');
+                    });
+                    
+                    document.getElementById('phone').addEventListener('input', function() {
+                        validateField('phone');
+                    });
+                    
+                    document.getElementById('flight').addEventListener('input', function() {
+                        validateField('flight');
+                    });
+                });
+                
+                // Function to validate a single field
+                function validateField(fieldName) {
+                    const field = document.getElementById(fieldName);
+                    const errorMessage = document.getElementById(fieldName + '-error');
+                    
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                        errorMessage.style.display = 'block';
+                        return false;
+                    } else {
+                        field.classList.remove('error');
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+                
+                // Function to validate the entire form
+                function validateForm() {
+                    const requiredFields = ['name', 'phone', 'date', 'time', 'flight'];
+                    let isValid = true;
+                    
+                    for (const field of requiredFields) {
+                        if (!validateField(field)) {
+                            isValid = false;
+                        }
+                    }
+                    
+                    return isValid;
+                }
+                
+                // Form submission function with the correct serviceType for the taxi message format
+                function sendToTelegram(event) {
+                    event.preventDefault();
+                    
+                    // Validate the form before submission
+                    if (!validateForm()) {
+                        return false;
+                    }
+
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const date = document.getElementById('date').value;
+                    const time = document.getElementById('time').value; 
+                    const room = document.getElementById('room').value || 'Not provided';
+                    const flight = document.getElementById('flight').value;
+                    const notes = document.getElementById('notes').value || 'No notes provided';
+
+                    // Show loading or processing message
+                    const submitButton = document.querySelector('button[type="submit"]');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
+
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        date: date,
+                        time: time,
+                        room: room,
+                        flight: flight,
+                        notes: notes,
+                        // Updated service type to trigger the Airport Transfer format
+                        serviceType: "Airport Transfer to IST"
+                    };
+
+                    // Send data to your Telegram bot server
+                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Send";
+                        submitButton.disabled = false;
+
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
+                        }
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Send";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                }
+            </script>
+            <script>
+                // Language dropdown functionality
+                const dropdownBtn = document.querySelector('.dropdown-btn');
+                const languageDropdown = document.querySelector('.language-dropdown');
+                const currentLanguage = document.getElementById('current-language');
+                const arOption = document.getElementById('ar-option');
+                const enOption = document.getElementById('en-option');
+                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                
+                // Set initial language based on current URL
+                function setInitialLanguage() {
+                    // Check if we're in an English folder path
+                    if (window.location.pathname.includes('/en/')) {
+                        selectLanguage('en', 'English', false); // false means don't redirect
+                    } else {
+                        selectLanguage('ar', 'العربية', false); // false means don't redirect
+                    }
+                }
+                
+                // Call this when the page loads
+                setInitialLanguage();
+                
+                // Toggle dropdown display when clicking the button
+                dropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('open');
+                });
+            
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    languageDropdown.classList.remove('open');
+                });
+            
+                // Handle language selection
+                arOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('ar', langText, true, returnText);
+                });
+            
+                enOption.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langText = this.getAttribute('data-lang-text');
+                    const returnText = this.getAttribute('data-return-text');
+                    selectLanguage('en', langText, true, returnText);
+                });
+            
+                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
+                    // Update button text
+                    currentLanguage.textContent = displayText;
+                    
+                    // Update return button text if provided
+                    if (returnText && returnButton) {
+                        returnButton.textContent = returnText;
+                    }
+                    
+                    // Update active class
+                    if (lang === 'ar') {
+                        arOption.classList.add('active');
+                        enOption.classList.remove('active');
+                    } else {
+                        enOption.classList.add('active');
+                        arOption.classList.remove('active');
+                        document.dir = 'ltr'; // Set direction to LTR for English
+                    }
+                    
+                    // Close the dropdown
+                    languageDropdown.classList.remove('open');
+                    
+                    // Redirect to appropriate language version if shouldRedirect is true
+                    if (shouldRedirect) {
+                        redirectToLanguageFolder(lang);
+                    }
+                }
+            
+                // Function to handle language switching
+                function redirectToLanguageFolder(language) {
+                    // Get current URL path
+                    const currentPath = window.location.pathname;
+                    let newPath;
+                    
+                    if (language === 'en') {
+                        // If current path has /ar/ replace it with /en/
+                        if (currentPath.includes('/ar/')) {
+                            newPath = currentPath.replace('/ar/', '/en/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'VIP-to-IST.html';
+                        }
+                    } else if (language === 'ar') {
+                        // If current path has /en/ replace it with /ar/
+                        if (currentPath.includes('/en/')) {
+                            newPath = currentPath.replace('/en/', '/ar/');
+                        } else {
+                            // If we're at the root level
+                            newPath = 'VIP-to-IST.html';
+                        }
+                    }
+                    
+                    window.location.href = newPath;
+                }
+            </script>
+            <!-- Flatpickr JS -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>
-
-    <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
-    <!-- Main Scripts -->
-    <script>
-        // Initialize everything when document is ready
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize Date picker
-            const datePicker = flatpickr("#date", {
-                dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                locale: "en", // English localization
-                minDate: "today", // Prevent selecting dates in the past
-                allowInput: false, // Prevent manual input
-                disableMobile: true, // Use the same picker on mobile
-                onChange: function(selectedDates, dateStr) {
-                    // Update the validation status when date is selected
-                    if (dateStr) {
-                        hideInlineError('date');
-                    }
-                }
-            });
-            
-            // Time picker configuration
-            const timePicker = flatpickr("#time", {
-                enableTime: true, // Enable time picker
-                noCalendar: true, // Disable date selection
-                dateFormat: "H:i", // Format as 24-hour time (e.g., 14:30)
-                time_24hr: true, // Use 24-hour format
-                locale: "en", // English localization
-                allowInput: false, // Prevent manual input
-                disableMobile: true, // Use the same picker on mobile
-                onChange: function(selectedDates, timeStr) {
-                    // Update the validation status when time is selected
-                    if (timeStr) {
-                        hideInlineError('time');
-                    }
-                }
-            });
-            
-            // Initialize custom country code selector
-            initCountryCodeSelector();
-            
-            // Set initial language based on URL
-            setInitialLanguage();
-            
-            // Add input event listeners to clear errors when user types
-            const requiredFields = ['name', 'phoneNumber', 'flight'];
-            
-            requiredFields.forEach(field => {
-                const input = document.getElementById(field);
-                input.addEventListener('input', function() {
-                    if (this.value.trim()) {
-                        hideInlineError(field);
-                    }
-                });
-            });
-            
-            // Add validation to the form submission
-            document.getElementById('bookingForm').addEventListener('submit', function(e) {
-                // Prevent default form submission
-                e.preventDefault();
-                
-                // Validate the form
-                if (!validateForm()) {
-                    return false; // Stop if validation fails
-                }
-                
-                // If validation passes, call the sendToTelegram function
-                sendToTelegram(e);
-            });
-        });
-        
-        // Function to show inline validation errors
-        function showInlineError(inputId) {
-            // Get the container
-            let container;
-            
-            if (inputId === 'phoneNumber') {
-                // Special case for phone which has a different structure
-                document.getElementById('phoneError').style.display = 'block';
-                document.getElementById(inputId).style.borderColor = '#ff5555';
-                document.getElementById(inputId).style.backgroundColor = 'rgba(255, 0, 0, 0.03)';
-                return;
-            } else {
-                container = document.getElementById(inputId + 'Container');
-            }
-            
-            if (container) {
-                container.classList.add('has-error');
-            }
-        }
-
-        // Function to hide inline validation errors
-        function hideInlineError(inputId) {
-            // Get the container
-            let container;
-            
-            if (inputId === 'phoneNumber') {
-                // Special case for phone which has a different structure
-                document.getElementById('phoneError').style.display = 'none';
-                document.getElementById(inputId).style.borderColor = '';
-                document.getElementById(inputId).style.backgroundColor = '';
-                return;
-            } else {
-                container = document.getElementById(inputId + 'Container');
-            }
-            
-            if (container) {
-                container.classList.remove('has-error');
-            }
-        }
-
-        // Validate all required fields
-        function validateForm() {
-            let isValid = true;
-            const requiredFields = ['name', 'phoneNumber', 'date', 'time', 'flight'];
-            
-            requiredFields.forEach(field => {
-                const input = document.getElementById(field);
-                if (!input.value.trim()) {
-                    showInlineError(field);
-                    isValid = false;
-                } else {
-                    hideInlineError(field);
-                }
-            });
-            
-            return isValid;
-        }
-        
-        // Country code selector functionality
-        function initCountryCodeSelector() {
-            // Define popular countries to show at the top
-            const countries = [
-                { code: 'tr', name: 'Turkey', dialCode: '+90' },
-                { code: 'sa', name: 'Saudi Arabia', dialCode: '+966' },
-                { code: 'ae', name: 'United Arab Emirates', dialCode: '+971' },
-                { code: 'us', name: 'United States', dialCode: '+1' },
-                { code: 'gb', name: 'United Kingdom', dialCode: '+44' },
-                { code: 'ru', name: 'Russia', dialCode: '+7' },
-                { code: 'de', name: 'Germany', dialCode: '+49' },
-                { code: 'fr', name: 'France', dialCode: '+33' },
-                { code: 'es', name: 'Spain', dialCode: '+34' },
-                { code: 'it', name: 'Italy', dialCode: '+39' },
-                { code: 'cn', name: 'China', dialCode: '+86' },
-                { code: 'in', name: 'India', dialCode: '+91' },
-                { code: 'jp', name: 'Japan', dialCode: '+81' },
-                { code: 'kr', name: 'South Korea', dialCode: '+82' },
-                { code: 'au', name: 'Australia', dialCode: '+61' },
-                { code: 'br', name: 'Brazil', dialCode: '+55' },
-                { code: 'ca', name: 'Canada', dialCode: '+1' },
-                { code: 'mx', name: 'Mexico', dialCode: '+52' },
-                { code: 'za', name: 'South Africa', dialCode: '+27' },
-                { code: 'eg', name: 'Egypt', dialCode: '+20' },
-                { code: 'qa', name: 'Qatar', dialCode: '+974' },
-                { code: 'kw', name: 'Kuwait', dialCode: '+965' },
-                { code: 'bh', name: 'Bahrain', dialCode: '+973' },
-                { code: 'om', name: 'Oman', dialCode: '+968' },
-                { code: 'pk', name: 'Pakistan', dialCode: '+92' },
-                { code: 'af', name: 'Afghanistan', dialCode: '+93' },
-                { code: 'iq', name: 'Iraq', dialCode: '+964' },
-                { code: 'ir', name: 'Iran', dialCode: '+98' },
-                { code: 'jo', name: 'Jordan', dialCode: '+962' },
-                { code: 'lb', name: 'Lebanon', dialCode: '+961' },
-                { code: 'ps', name: 'Palestine', dialCode: '+970' },
-                { code: 'sy', name: 'Syria', dialCode: '+963' },
-                { code: 'ye', name: 'Yemen', dialCode: '+967' }
-            ];
-            
-            // Define priority countries
-            const priorityCountryCodes = ['tr', 'sa', 'ae', 'us', 'gb'];
-            const priorityCountries = [];
-            const otherCountries = [];
-            
-            // Sort countries into priority and other
-            countries.forEach(country => {
-                if (priorityCountryCodes.includes(country.code)) {
-                    priorityCountries.push(country);
-                } else {
-                    otherCountries.push(country);
-                }
-            });
-            
-            // Sort priority countries according to specified order
-            priorityCountries.sort((a, b) => {
-                return priorityCountryCodes.indexOf(a.code) - priorityCountryCodes.indexOf(b.code);
-            });
-            
-            // Sort other countries alphabetically
-            otherCountries.sort((a, b) => a.name.localeCompare(b.name));
-            
-            // Get DOM elements
-            const countrySelector = document.getElementById('countrySelector');
-            const countryDropdown = document.getElementById('countryDropdown');
-            const countryList = document.getElementById('countryList');
-            const countrySearch = document.getElementById('countrySearch');
-            const selectedFlag = document.getElementById('selectedFlag');
-            const selectedCode = document.getElementById('selectedCode');
-            
-            // Clear the country list first
-            countryList.innerHTML = '';
-            
-            // Add priority countries to the list
-            priorityCountries.forEach(country => {
-                const listItem = document.createElement('li');
-                listItem.className = 'country-item';
-                if (country.code === 'tr') {
-                    listItem.classList.add('active');
-                }
-                
-                listItem.innerHTML = `
-                    <img src="https://flagcdn.com/w40/${country.code}.png" alt="${country.name}" class="country-item-flag">
-                    <span class="country-item-name">${country.name}</span>
-                    <span class="country-item-code">${country.dialCode}</span>
-                `;
-                
-                listItem.addEventListener('click', () => {
-                    // Update selected country
-                    selectedFlag.src = `https://flagcdn.com/w40/${country.code}.png`;
-                    selectedFlag.alt = country.name;
-                    selectedCode.textContent = country.dialCode;
-                    
-                    // Update active class
-                    document.querySelectorAll('.country-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    listItem.classList.add('active');
-                    
-                    // Close dropdown
-                    countryDropdown.classList.remove('open');
-                    
-                    // Store selected country data
-                    countrySelector.dataset.code = country.code;
-                    countrySelector.dataset.dialCode = country.dialCode;
-                    
-                    // Hide the "Other" country inputs if visible
-                    const otherInputs = document.querySelector('.country-other-inputs');
-                    if (otherInputs) {
-                        otherInputs.classList.remove('active');
-                    }
-                });
-                
-                countryList.appendChild(listItem);
-            });
-            
-            // Add a divider between priority and other countries
-            const divider = document.createElement('li');
-            divider.className = 'priority-divider';
-            countryList.appendChild(divider);
-            
-            // Add other countries to the list
-            otherCountries.forEach(country => {
-                const listItem = document.createElement('li');
-                listItem.className = 'country-item';
-                
-                listItem.innerHTML = `
-                    <img src="https://flagcdn.com/w40/${country.code}.png" alt="${country.name}" class="country-item-flag">
-                    <span class="country-item-name">${country.name}</span>
-                    <span class="country-item-code">${country.dialCode}</span>
-                `;
-                
-                listItem.addEventListener('click', () => {
-                    // Update selected country
-                    selectedFlag.src = `https://flagcdn.com/w40/${country.code}.png`;
-                    selectedFlag.alt = country.name;
-                    selectedCode.textContent = country.dialCode;
-                    
-                    // Update active class
-                    document.querySelectorAll('.country-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    listItem.classList.add('active');
-                    
-                    // Close dropdown
-                    countryDropdown.classList.remove('open');
-                    
-                    // Store selected country data
-                    countrySelector.dataset.code = country.code;
-                    countrySelector.dataset.dialCode = country.dialCode;
-                    
-                    // Hide the "Other" country inputs if visible
-                    const otherInputs = document.querySelector('.country-other-inputs');
-                    if (otherInputs) {
-                        otherInputs.classList.remove('active');
-                    }
-                });
-                
-                countryList.appendChild(listItem);
-            });
-            
-            // Add "Other" option at the bottom
-            const otherItem = document.createElement('li');
-            otherItem.className = 'country-item other-option';
-            otherItem.innerHTML = `
-                <div class="custom-flag">?</div>
-                <span class="country-item-name">Other Country</span>
-                <span class="country-item-code">+???</span>
-            `;
-            
-            // Create the input fields for custom country
-            const otherInputs = document.createElement('div');
-            otherInputs.className = 'country-other-inputs';
-            otherInputs.innerHTML = `
-                <input type="text" id="otherCountryName" placeholder="Enter country name">
-                <input type="text" id="otherCountryCode" placeholder="Enter dial code (e.g. +123)">
-                <button type="button" id="saveOtherCountry">Save</button>
-            `;
-            
-            // Add to the dropdown
-            countryList.appendChild(otherItem);
-            countryList.appendChild(otherInputs);
-            
-            // Add event listener for "Other" option
-            otherItem.addEventListener('click', () => {
-                // Update active class
-                document.querySelectorAll('.country-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                otherItem.classList.add('active');
-                
-                // Show the input fields
-                otherInputs.classList.add('active');
-                
-                // Focus on the first input
-                document.getElementById('otherCountryName').focus();
-            });
-            
-            // Add event listener for the save button
-            document.getElementById('saveOtherCountry').addEventListener('click', () => {
-                const countryName = document.getElementById('otherCountryName').value.trim();
-                let dialCode = document.getElementById('otherCountryCode').value.trim();
-                
-                // Validate inputs
-                if (!countryName) {
-                    alert('Please enter a country name');
-                    document.getElementById('otherCountryName').focus();
-                    return;
-                }
-                
-                if (!dialCode) {
-                    alert('Please enter a dial code');
-                    document.getElementById('otherCountryCode').focus();
-                    return;
-                }
-                
-                // Ensure dial code starts with +
-                if (!dialCode.startsWith('+')) {
-                    dialCode = '+' + dialCode;
-                }
-                
-                // Update selected country
-                selectedFlag.src = ''; // Clear the flag
-                selectedFlag.alt = countryName;
-                selectedFlag.style.display = 'none'; // Hide the img
-                
-                // Create a custom flag display
-                const customFlag = document.createElement('span');
-                customFlag.className = 'custom-flag';
-                customFlag.textContent = countryName.substring(0, 2).toUpperCase();
-                
-                // Replace the flag with custom element
-                const flagAndCode = document.querySelector('.flag-and-code');
-                flagAndCode.innerHTML = '';
-                flagAndCode.appendChild(customFlag);
-                
-                const codeSpan = document.createElement('span');
-                codeSpan.className = 'country-code';
-                codeSpan.id = 'selectedCode';
-                codeSpan.textContent = dialCode;
-                flagAndCode.appendChild(codeSpan);
-                
-                // Store selected country data
-                countrySelector.dataset.code = 'other';
-                countrySelector.dataset.dialCode = dialCode;
-                
-                // Close dropdown
-                countryDropdown.classList.remove('open');
-                otherInputs.classList.remove('active');
-            });
-            
-            // Toggle dropdown when clicking the selector
-            countrySelector.addEventListener('click', (e) => {
-                e.stopPropagation();
-                countryDropdown.classList.toggle('open');
-                
-                if (countryDropdown.classList.contains('open')) {
-                    countrySearch.focus();
-                    
-                    // Scroll to the active country
-                    const activeCountry = countryList.querySelector('.active');
-                    if (activeCountry) {
-                        activeCountry.scrollIntoView({ block: 'center' });
-                    }
-                }
-            });
-            
-            // Search functionality
-            countrySearch.addEventListener('input', () => {
-                const searchValue = countrySearch.value.toLowerCase();
-                let anyVisible = false;
-                
-                // Check if we should show the divider
-                const shouldShowDivider = searchValue.length === 0;
-                divider.style.display = shouldShowDivider ? 'block' : 'none';
-                
-                // Always show the "Other" option
-                otherItem.style.display = '';
-                
-                document.querySelectorAll('.country-item:not(.priority-divider):not(.other-option)').forEach(item => {
-                    const countryName = item.querySelector('.country-item-name').textContent.toLowerCase();
-                    const dialCode = item.querySelector('.country-item-code').textContent.toLowerCase();
-                    
-                    if (countryName.includes(searchValue) || dialCode.includes(searchValue)) {
-                        item.style.display = '';
-                        anyVisible = true;
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                // Show message if no results except "Other"
-                if (!anyVisible && searchValue.length > 0) {
-                    if (!document.getElementById('no-results')) {
-                        const noResults = document.createElement('li');
-                        noResults.id = 'no-results';
-                        noResults.style.padding = '15px';
-                        noResults.style.textAlign = 'center';
-                        noResults.style.color = '#999';
-                        noResults.textContent = 'No countries found. Use "Other Country" option.';
-                        // Insert before the "Other" option
-                        countryList.insertBefore(noResults, otherItem);
-                    }
-                } else {
-                    const noResults = document.getElementById('no-results');
-                    if (noResults) {
-                        noResults.remove();
-                    }
-                }
-            });
-            
-            // Prevent dropdown from closing when clicking on search
-            countrySearch.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-            
-            // Prevent dropdown from closing when clicking on "Other" inputs
-            otherInputs.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', () => {
-                countryDropdown.classList.remove('open');
-            });
-            
-            // Format phone number as user types (optional)
-            const phoneInput = document.getElementById('phoneNumber');
-            phoneInput.addEventListener('input', function() {
-                // Basic formatting for readability - you can customize this
-                let value = this.value.replace(/\D/g, ''); // Remove non-digits
-                if (value.length > 3 && value.length <= 6) {
-                    value = value.replace(/^(\d{3})(\d{1,3})$/, '$1 $2');
-                } else if (value.length > 6) {
-                    value = value.replace(/^(\d{3})(\d{3})(\d{1,4})$/, '$1 $2 $3');
-                }
-                this.value = value;
-                
-                // Clear error on input if value is not empty
-                if (this.value.trim()) {
-                    hideInlineError('phoneNumber');
-                }
-            });
-            
-            // Set initial selected country to Turkey
-            countrySelector.dataset.code = 'tr';
-            countrySelector.dataset.dialCode = '+90';
-        }
-        
-        // Language dropdown functionality
-        const dropdownBtn = document.querySelector('.dropdown-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-        const currentLanguage = document.getElementById('current-language');
-        const arOption = document.getElementById('ar-option');
-        const enOption = document.getElementById('en-option');
-        const returnButton = document.querySelector('.return-btn span');
-        
-        // Set initial language based on current URL
-        function setInitialLanguage() {
-            // Check if we're in an English folder path
-            if (window.location.pathname.includes('/en/')) {
-                selectLanguage('en', 'English', false); // false means don't redirect
-            } else {
-                selectLanguage('ar', 'العربية', false); // false means don't redirect
-            }
-        }
-        
-        // Toggle dropdown display when clicking the button
-        dropdownBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            languageDropdown.classList.toggle('open');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function() {
-            languageDropdown.classList.remove('open');
-        });
-
-        // Handle language selection
-        arOption.addEventListener('click', function(e) {
-            e.preventDefault();
-            const langText = this.getAttribute('data-lang-text');
-            const returnText = this.getAttribute('data-return-text');
-            selectLanguage('ar', langText, true, returnText);
-        });
-
-        enOption.addEventListener('click', function(e) {
-            e.preventDefault();
-            const langText = this.getAttribute('data-lang-text');
-            const returnText = this.getAttribute('data-return-text');
-            selectLanguage('en', langText, true, returnText);
-        });
-
-        function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-            // Update button text
-            currentLanguage.textContent = displayText;
-            
-            // Update return button text if provided
-            if (returnText && returnButton) {
-                returnButton.textContent = returnText;
-            }
-            
-            // Update active class
-            if (lang === 'ar') {
-                arOption.classList.add('active');
-                enOption.classList.remove('active');
-            } else {
-                enOption.classList.add('active');
-                arOption.classList.remove('active');
-                document.dir = 'ltr'; // Set direction to LTR for English
-            }
-            
-            // Close the dropdown
-            languageDropdown.classList.remove('open');
-            
-            // Redirect to appropriate language version if shouldRedirect is true
-            if (shouldRedirect) {
-                redirectToLanguageFolder(lang);
-            }
-        }
-
-        // Function to handle language switching
-        function redirectToLanguageFolder(language) {
-            // Get current URL path
-            const currentPath = window.location.pathname;
-            let newPath;
-            
-            if (language === 'en') {
-                // If current path has /ar/ replace it with /en/
-                if (currentPath.includes('/ar/')) {
-                    newPath = currentPath.replace('/ar/', '/en/');
-                } else {
-                    // If we're at the root level
-                    newPath = 'VIP-to-IST.html';
-                }
-            } else if (language === 'ar') {
-                // If current path has /en/ replace it with /ar/
-                if (currentPath.includes('/en/')) {
-                    newPath = currentPath.replace('/en/', '/ar/');
-                } else {
-                    // If we're at the root level
-                    newPath = 'VIP-to-IST.html';
-                }
-            }
-            
-            window.location.href = newPath;
-        }
-        
-        // Form submission function
-        function sendToTelegram(event) {
-            // Use the validation function to check all fields
-            if (!validateForm()) {
-                return false; // Stop if validation fails
-            }
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            // Get the full phone number with country code
-            const countryCode = document.getElementById('selectedCode').textContent;
-            const phoneNumber = document.getElementById('phoneNumber').value;
-            
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const flight = document.getElementById('flight').value;
-            const notes = document.getElementById('notes').value || 'No notes provided';
-
-            // Create full phone number
-            const fullPhone = countryCode + phoneNumber.replace(/\s+/g, '');
-            
-            // Show loading or processing message
-            const submitButton = document.querySelector('button[type="submit"]');
-            submitButton.textContent = "Sending...";
-            submitButton.disabled = true;
-
-            // Prepare data to send to your Telegram bot API
-            const formData = {
-                name: name,
-                phone: fullPhone,
-                tourDate: date,
-                // Try different field names for time to match what your server expects
-                tourTime: time,
-                time: time,
-                duration: time, // Adding this in case your server is looking for this field name
-                flight: flight,
-                notes: notes,
-                serviceType: "VIP Car to IST Airport"
-            };
-
-            // Add debug logs to check what's being sent
-            console.log("Sending form data:", formData);
-
-            // Send data to your Telegram bot server on PythonAnywhere
-            fetch('https://toursgate.pythonanywhere.com/send-reservation', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Reset button
-                submitButton.textContent = "Send";
-                submitButton.disabled = false;
-
-                if (data.success) {
-                    // Redirect to thank you page on success
-                    window.location.href = "thank-you.html";
-                } else {
-                    // Show error if the request failed
-                    alert('There was an error submitting your request. Please try again.');
-                    console.error('Error:', data.error);
-                }
-            })
-            .catch(error => {
-                // Reset button and show error
-                submitButton.textContent = "Send";
-                submitButton.disabled = false;
-                
-                console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again.');
-            });
-        }
-    </script>
 </body>
 </html>

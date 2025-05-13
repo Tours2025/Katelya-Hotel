@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="old-city-tour-1.css" />
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Form validation styles */
+        input.error, textarea.error {
+            border: 2px solid #ff3860 !important;
+            background-color: #ffefef;
+        }
+        
+        .error-message {
+            color: #ff3860;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        /* Style for the button when disabled */
+        button[type="submit"]:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -96,96 +117,172 @@
         <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Book Your Tour 1 (Istanbul City Tour Daily)</h3>
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+            <form id="bookingForm" onsubmit="return sendToTelegram(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <div class="error-message" id="name-error">Name is required</div>
+                
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phone-error">Phone number is required</div>
                 
-                <!-- Date and Time Inputs -->
+                <!-- Date and Participants Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="date">Date:</label>
                         <input type="text" id="date" name="date" placeholder="Select date" required>
+                        <div class="error-message" id="date-error">Date is required</div>
                     </div>
                     <div>
                         <label for="participants">Number of Participants:</label>
                         <input type="number" id="participants" name="participants" min="1" value="1" required>
+                        <div class="error-message" id="participants-error">Number of participants is required</div>
                     </div>
                 </div>
 
                 <div class="checkbox-container">
-                    <input type="checkbox" id="lunch-preference" name="lunch-preference">
-                    <label for="lunch-preference" class="checkbox-label">I am vegetarian (please specify in notes)</label>
+                    <input type="checkbox" id="dietary-restrictions" name="dietary-restrictions">
+                    <label for="dietary-restrictions" class="checkbox-label">I have dietary restrictions (please specify in notes)</label>
                 </div>
 
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
+                
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions..."></textarea>
-                <button type="submit">Book Now</button>
+                
+                <button type="submit" id="submitBtn">Book Now</button>
             </form>
+            
             <script>
                 // Initialize Flatpickr for date inputs
-                document.addEventListener("DOMContentLoaded", function () {
+                document.addEventListener("DOMContentLoaded", function() {
                     // Date picker
                     flatpickr("#date", {
                         dateFormat: "Y-m-d", // Format as YYYY-MM-DD
                         minDate: "today", // Can't select past dates
-                        locale: "en" // English localization
+                        locale: "en", // English localization
+                        onChange: function() {
+                            validateField('date');
+                        }
+                    });
+                    
+                    // Add input validation event listeners
+                    document.getElementById('name').addEventListener('input', function() {
+                        validateField('name');
+                    });
+                    
+                    document.getElementById('phone').addEventListener('input', function() {
+                        validateField('phone');
+                    });
+                    
+                    document.getElementById('participants').addEventListener('input', function() {
+                        validateField('participants');
                     });
                 });
+                
+                // Function to validate a single field
+                function validateField(fieldName) {
+                    const field = document.getElementById(fieldName);
+                    const errorMessage = document.getElementById(fieldName + '-error');
+                    
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                        errorMessage.style.display = 'block';
+                        return false;
+                    } else {
+                        field.classList.remove('error');
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+                
+                // Function to validate the entire form
+                function validateForm() {
+                    const requiredFields = ['name', 'phone', 'date', 'participants'];
+                    let isValid = true;
+                    
+                    for (const field of requiredFields) {
+                        if (!validateField(field)) {
+                            isValid = false;
+                        }
+                    }
+                    
+                    return isValid;
+                }
 
-                function sendToWhatsApp(event) {
+                // Function to send data to Telegram Bot
+                function sendToTelegram(event) {
                     event.preventDefault();
-            
+                    
+                    // Validate the form before submission
+                    if (!validateForm()) {
+                        return false;
+                    }
+
                     // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const isVegetarian = document.getElementById('lunch-preference').checked;
+                    const hasDietaryRestrictions = document.getElementById('dietary-restrictions').checked;
                     const room = document.getElementById('room').value || 'Not staying at hotel';
-                    const notes = document.getElementById('notes').value;
+                    const notes = document.getElementById('notes').value || 'No notes provided';
                     
                     // Calculate total price
                     const pricePerPerson = 80; // Euro
                     const totalPrice = pricePerPerson * participants;
-            
-                    // Construct the message
-                    const message = `
-                        New Tour 1 (Istanbul City Tour Daily) Booking:
-                        Name: ${name}
-                        Phone: ${phone}
-                        Date: ${date}
-                        Number of Participants: ${participants}
-                        Vegetarian: ${isVegetarian ? 'Yes' : 'No'}
-                        Total Price: €${totalPrice} Euro
-                        Room Number: ${room}
-                        Additional Notes: ${notes || 'No notes provided'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // Log the message for debugging
-                    console.log('Message:', message);
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905451070176'; // Your WhatsApp number
-                    const apiKey = '7577666'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Log the final URL for debugging
-                    console.log('API URL:', url);
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
+                    
+                    // Show loading or processing message
+                    const submitButton = document.querySelector('button[type="submit"]');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
+
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        date: date,
+                        participants: participants,
+                        dietaryRestrictions: hasDietaryRestrictions ? "Yes" : "No",
+                        room: room,
+                        notes: notes + (hasDietaryRestrictions ? " (Has dietary restrictions)" : ""),
+                        serviceType: "Tour 1: Istanbul City Tour Daily"
+                    };
+
+                    // Send data to your Telegram bot server
+                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Book Now";
+                        submitButton.disabled = false;
+
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "../thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
                         }
-                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Book Now";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                    
+                    return false;
                 }
             </script>
             <script>

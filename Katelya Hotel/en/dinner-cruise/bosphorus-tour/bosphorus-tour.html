@@ -10,6 +10,64 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Form validation styles */
+        input.error, textarea.error {
+            border: 2px solid #ff3860 !important;
+            background-color: #ffefef;
+        }
+        
+        .error-message {
+            color: #ff3860;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        /* Style for the button when disabled */
+        button[type="submit"]:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+        
+        /* Button styles */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .back-button {
+            background-color: #f1f1f1;
+            color: #333;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: #ddd;
+        }
+        
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -253,36 +311,43 @@
                 </div>
             </div>
             
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+            <form id="bookingForm" onsubmit="return sendToTelegram(event)">
                 <input type="hidden" id="tourType" name="tourType" value="">
                 <input type="hidden" id="tourPrice" name="tourPrice" value="">
                 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <div class="error-message" id="name-error">Name is required</div>
+                
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phone-error">Phone number is required</div>
                 
                 <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="date">Date:</label>
                         <input type="text" id="date" name="date" placeholder="Select date" required>
+                        <div class="error-message" id="date-error">Date is required</div>
                     </div>
                     <div>
                         <label for="participants">Number of Participants:</label>
                         <input type="number" id="participants" name="participants" min="1" value="2" required>
+                        <div class="error-message" id="participants-error">Number of participants is required</div>
                     </div>
                 </div>
 
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
+                
                 <label for="notes">Additional Notes:</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions..."></textarea>
+                
                 <div class="button-container">
                     <button type="button" onclick="goBackToOptions()" class="back-button">
                         <i class="fas fa-arrow-left"></i> Back to Tour Options
                     </button>
-                    <button type="submit" class="submit-button">Book Now</button>
+                    <button type="submit" id="submitBtn" class="submit-button">Book Now</button>
                 </div>
             </form>
             
@@ -352,11 +417,64 @@
                             instance.element._flatpickr = instance;
                         }
                     });
+                    
+                    // Add input validation event listeners
+                    document.getElementById('name').addEventListener('input', function() {
+                        validateField('name');
+                    });
+                    
+                    document.getElementById('phone').addEventListener('input', function() {
+                        validateField('phone');
+                    });
+                    
+                    document.getElementById('date').addEventListener('change', function() {
+                        validateField('date');
+                    });
+                    
+                    document.getElementById('participants').addEventListener('input', function() {
+                        validateField('participants');
+                    });
                 });
+                
+                // Function to validate a single field
+                function validateField(fieldName) {
+                    const field = document.getElementById(fieldName);
+                    const errorMessage = document.getElementById(fieldName + '-error');
+                    
+                    if (field.hasAttribute('required') && !field.value.trim()) {
+                        field.classList.add('error');
+                        errorMessage.style.display = 'block';
+                        return false;
+                    } else {
+                        field.classList.remove('error');
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+                
+                // Function to validate the entire form
+                function validateForm() {
+                    const requiredFields = ['name', 'phone', 'date', 'participants'];
+                    let isValid = true;
+                    
+                    for (const field of requiredFields) {
+                        if (!validateField(field)) {
+                            isValid = false;
+                        }
+                    }
+                    
+                    return isValid;
+                }
 
-                function sendToWhatsApp(event) {
+                // Function to send data to Telegram Bot
+                function sendToTelegram(event) {
                     event.preventDefault();
-            
+                    
+                    // Validate the form before submission
+                    if (!validateForm()) {
+                        return false;
+                    }
+
                     // Get form values
                     const tourType = document.getElementById('tourType').value;
                     const tourPrice = document.getElementById('tourPrice').value;
@@ -364,40 +482,62 @@
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
-                    const room = document.getElementById('room').value;
-                    const notes = document.getElementById('notes').value;
+                    const room = document.getElementById('room').value || 'Not provided';
+                    const notes = document.getElementById('notes').value || 'No notes provided';
                     
-                    // Calculate total price
-                    const totalPrice = tourPrice * participants;
-            
-                    // Construct the message
-                    const message = `
-                        New Bosphorus Tour Booking:
-                        Tour Type: ${tourType}
-                        Name: ${name}
-                        Phone: ${phone}
-                        Date: ${date}
-                        Number of Participants: ${participants}
-                        Total Price: ${totalPrice} €
-                        Room Number: ${room || 'Not provided'}
-                        Additional Notes: ${notes || 'No notes provided'}
-                    `.trim().replace(/\n/g, '%0A'); // Replace newlines with %0A for URL encoding
-            
-                    // CallMeBot API details
-                    const phoneNumber = '+905451070176'; // Your WhatsApp number
-                    const apiKey = '7577666'; // Your CallMeBot API key
-                    const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-            
-                    // Open the API link in a new tab
-                    const newTab = window.open(url, '_blank');
-            
-                    // Close the tab and redirect after 500ms (0.5 seconds)
-                    setTimeout(() => {
-                        if (newTab) {
-                            newTab.close(); // Close the API tab
+                    // Show loading or processing message
+                    const submitButton = document.getElementById('submitBtn');
+                    submitButton.textContent = "Sending...";
+                    submitButton.disabled = true;
+
+                    // Prepare data to send to your Telegram bot API
+                    const formData = {
+                        name: name,
+                        phone: phone,
+                        date: date,
+                        participants: participants,
+                        room: room,
+                        notes: notes,
+                        tourType: tourType,
+                        tourPrice: tourPrice,
+                        serviceType: "Bosphorus Tour"
+                    };
+
+                    // Send data to your Telegram bot server
+                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                        method: 'POST',
+                        mode: 'cors', // Explicitly request CORS
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitButton.textContent = "Book Now";
+                        submitButton.disabled = false;
+
+                        if (data.success) {
+                            // Redirect to thank you page on success
+                            window.location.href = "../thank-you.html";
+                        } else {
+                            // Show error if the request failed
+                            alert('There was an error submitting your request. Please try again.');
+                            console.error('Error:', data.error);
                         }
-                        window.location.href = "../../thank-you.html"; // Redirect to the thank-you page
-                    }, 500); // Wait 0.5 seconds
+                    })
+                    .catch(error => {
+                        // Reset button and show error
+                        submitButton.textContent = "Book Now";
+                        submitButton.disabled = false;
+                        
+                        console.error('Error:', error);
+                        alert('There was an error submitting your request. Please try again.');
+                    });
+                    
+                    return false;
                 }
             </script>
             <script>

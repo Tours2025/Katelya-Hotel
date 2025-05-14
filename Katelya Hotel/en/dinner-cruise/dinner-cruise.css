@@ -305,37 +305,58 @@ main {
     margin: 0 auto;
 }
 
-/* Hero Section Styling */
+/* Hero Section Styling - UPDATED FOR FULL IMAGE DISPLAY */
 #dinner-cruise-hero {
     position: relative;
     border-radius: 15px;
     margin-bottom: 50px;
     overflow: hidden;
-    background: url('https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/dinner-cruise-bg.png') 0% 70% / 100% no-repeat;;    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    height: 500px;
+    padding: 0;
+    background-color: #000; /* Dark background for any uncovered areas */
+    height: auto;
+    min-height: 500px;
 }
 
+/* This removes the previous background image and adds a new approach */
 #dinner-cruise-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    width: 100%;
+    height: 100%;
+    background: url('https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/dinner-cruise-bg.png') no-repeat;
+    background-size: cover; /* Or keep 100% auto if that worked better for your image aspect ratio on desktop */
+    background-position: bottom center; /* Align the bottom of the image with the center */
+    opacity: 0.7;
     z-index: 1;
+}
+
+/* Add a separate gradient overlay */
+#dinner-cruise-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+                               rgba(0,0,0,0.2) 0%, 
+                               rgba(0,0,0,0.6) 50%, 
+                               rgba(0,0,0,0.8) 100%);
+    z-index: 2;
 }
 
 #dinner-cruise-hero .hero-content {
     position: relative;
-    z-index: 2; /* Ensures content appears above the dark overlay */
-    padding: 60px 40px;
-    text-align: left;
+    z-index: 3; /* Above both the image and the gradient */
+    padding: 40px;
     color: #fff;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; /* Position content at the bottom */
+    text-align: left;
 }
 
 html[lang="ar"] #dinner-cruise-hero .hero-content {
@@ -738,31 +759,75 @@ html[lang="ar"] .benefit-content {
     }
 }
 
+/* Mobile-specific improvements */
 @media (max-width: 768px) {
     #dinner-cruise-hero {
-        background-position: center;
+        min-height: 580px; /* Adjust as needed for your image proportions */
+    }
+    
+    #dinner-cruise-hero::before {
+        background-size: cover;
+        background-position: center top; /* Or just center */
     }
     
     #dinner-cruise-hero .hero-content {
         padding: 30px 20px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    html[lang="ar"] #dinner-cruise-hero .hero-content,
+    html[lang="en"] #dinner-cruise-hero .hero-content {
+        text-align: center;
     }
     
     #dinner-cruise-hero h2 {
-        font-size: 24px;
+        font-size: 26px;
+        text-align: center;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+    
+    #dinner-cruise-hero h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+    }
+    
+    html[lang="ar"] #dinner-cruise-hero h2::after {
+        right: 50%;
+        left: auto;
+        transform: translateX(50%);
     }
     
     #dinner-cruise-hero p {
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 100%;
+        margin: 0 auto 25px;
+        text-align: center;
     }
     
+    #dinner-cruise-hero .hero-badge {
+        margin: 0 auto 15px;
+    }
+    
+    /* Improved feature buttons for mobile */
     #dinner-cruise-hero .features {
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
+        width: 100%;
+        margin-top: 20px;
     }
     
-    html[lang="ar"] #dinner-cruise-hero .features {
-        align-items: flex-end;
+    #dinner-cruise-hero .feature {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .cruise-item {
@@ -796,5 +861,24 @@ html[lang="ar"] .benefit-content {
     
     html[lang="ar"] .benefit-content {
         text-align: center;
+    }
+}
+
+/* Even smaller screens */
+@media (max-width: 480px) {
+    #dinner-cruise-hero {
+        min-height: 530px; /* Adjust as needed */
+    }
+    
+    #dinner-cruise-hero .hero-content {
+        padding: 25px 15px;
+    }
+    
+    #dinner-cruise-hero h2 {
+        font-size: 24px;
+    }
+    
+    #dinner-cruise-hero p {
+        font-size: 15px;
     }
 }

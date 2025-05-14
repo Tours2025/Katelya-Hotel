@@ -1,0 +1,182 @@
+{
+  "en": {
+    "header": {
+      "hotelName": "Katelya Hotel",
+      "backButton": "Back"
+    },
+    "hero": {
+      "title": "Private Tour Guide Service",
+      "subtitle": "Explore Istanbul with a professional, multilingual guide"
+    },
+    "serviceExplanation": {
+      "title": "Professional Tour Guide Service",
+      "description": "Enhance your Istanbul experience with our professional private tour guide service. Our guides are certified professionals with extensive knowledge of Istanbul's history, culture, and hidden gems.",
+      "features": {
+        "multilingual": {
+          "title": "Multilingual Guides",
+          "description": "Our guides are fluent in multiple languages including English, Arabic, German, Spanish, Italian, French, and Turkish."
+        },
+        "flexible": {
+          "title": "Flexible Duration",
+          "description": "Book your guide for 6-9 hours to explore the city at your own pace."
+        },
+        "customized": {
+          "title": "Customized Itinerary",
+          "description": "Create a personalized itinerary based on your interests or let our guides recommend the best places to visit."
+        }
+      },
+      "benefitsTitle": "Why Book a Private Guide?",
+      "benefits": [
+        "Skip the lines at major attractions with a certified guide",
+        "Discover hidden gems and local secrets not found in guidebooks",
+        "Learn fascinating historical and cultural insights about the sites you visit",
+        "Enjoy a personalized experience tailored to your interests and pace",
+        "Get recommendations for the best local restaurants, shops, and experiences",
+        "Navigate the city confidently with a knowledgeable local"
+      ],
+      "languagesTitle": "Available Languages",
+      "languages": {
+        "English": "English",
+        "Arabic": "Arabic",
+        "German": "German",
+        "Spanish": "Spanish",
+        "Italian": "Italian",
+        "French": "French",
+        "Turkish": "Turkish"
+      }
+    },
+    "bookingForm": {
+      "title": "Book Your Private Tour Guide",
+      "labels": {
+        "name": "Full Name:",
+        "phone": "Phone Number:",
+        "tourDate": "Tour Date:",
+        "duration": "Duration:",
+        "participants": "Number of Participants:",
+        "guideLanguage": "Preferred Guide Language:",
+        "room": "Room Number:",
+        "specialInterests": "Special Interests:",
+        "notes": "Additional Notes:"
+      },
+      "optionalText": "(Optional)",
+      "specialInterestsOptions": {
+        "default": "-- Select your main interest --",
+        "Historical Sites": "Historical Sites",
+        "Cultural Experiences": "Cultural Experiences",
+        "Food and Culinary": "Food and Culinary",
+        "Shopping and Markets": "Shopping and Markets",
+        "Religious Sites": "Religious Sites",
+        "Photography": "Photography",
+        "Architecture": "Architecture"
+      },
+      "durationOptions": {
+        "6 hours": "6 hours",
+        "7 hours": "7 hours",
+        "8 hours": "8 hours",
+        "9 hours": "9 hours"
+      },
+      "submitButton": "Request Tour Guide",
+      "placeholders": {
+        "tourDate": "Select date",
+        "notes": "Enter any specific places you want to visit, special requirements, or questions..."
+      },
+      "errorMessages": {
+        "required": "This field is required"
+      }
+    },
+    "messages": {
+      "success": "Your request has been sent successfully!",
+      "error": "An error occurred while sending your request. Please try again."
+    }
+  },
+  "ar": {
+    "header": {
+      "hotelName": "فندق كاتليا",
+      "backButton": "رجوع"
+    },
+    "hero": {
+      "title": "خدمة مرشد سياحي خاص",
+      "subtitle": "استكشف اسطنبول مع مرشد محترف متعدد اللغات"
+    },
+    "serviceExplanation": {
+      "title": "خدمة مرشد سياحي محترف",
+      "description": "عزز تجربتك في اسطنبول مع خدمة المرشد السياحي الخاص لدينا. مرشدونا هم محترفون معتمدون لديهم معرفة واسعة بتاريخ اسطنبول وثقافتها والكنوز المخفية.",
+      "features": {
+        "multilingual": {
+          "title": "مرشدون متعددو اللغات",
+          "description": "مرشدونا يتقنون عدة لغات بما في ذلك الإنجليزية والعربية والألمانية والإسبانية والإيطالية والفرنسية والتركية."
+        },
+        "flexible": {
+          "title": "مدة مرنة",
+          "description": "احجز مرشدك لمدة 6-9 ساعات لاستكشاف المدينة بوتيرتك الخاصة."
+        },
+        "customized": {
+          "title": "برنامج مخصص",
+          "description": "قم بإنشاء برنامج مخصص بناءً على اهتماماتك أو دع مرشدينا يوصون بأفضل الأماكن للزيارة."
+        }
+      },
+      "benefitsTitle": "لماذا تحجز مرشدًا خاصًا؟",
+      "benefits": [
+        "تجاوز الطوابير في المعالم الرئيسية مع مرشد معتمد",
+        "اكتشف الكنوز المخفية والأسرار المحلية غير الموجودة في الكتب السياحية",
+        "تعرف على رؤى تاريخية وثقافية رائعة عن الأماكن التي تزورها",
+        "استمتع بتجربة شخصية مصممة خصيصًا لاهتماماتك وتيرتك",
+        "احصل على توصيات لأفضل المطاعم والمحلات والتجارب المحلية",
+        "تنقل في المدينة بثقة مع أحد السكان المحليين المطلعين"
+      ],
+      "languagesTitle": "اللغات المتاحة",
+      "languages": {
+        "English": "الإنجليزية",
+        "Arabic": "العربية",
+        "German": "الألمانية",
+        "Spanish": "الإسبانية",
+        "Italian": "الإيطالية",
+        "French": "الفرنسية",
+        "Turkish": "التركية"
+      }
+    },
+    "bookingForm": {
+      "title": "احجز مرشدك السياحي الخاص",
+      "labels": {
+        "name": "الاسم الكامل:",
+        "phone": "رقم الهاتف:",
+        "tourDate": "تاريخ الجولة:",
+        "duration": "المدة:",
+        "participants": "عدد المشاركين:",
+        "guideLanguage": "لغة المرشد المفضلة:",
+        "room": "رقم الغرفة:",
+        "specialInterests": "الاهتمامات الخاصة:",
+        "notes": "ملاحظات إضافية:"
+      },
+      "optionalText": "(اختياري)",
+      "specialInterestsOptions": {
+        "default": "-- اختر اهتمامك الرئيسي --",
+        "Historical Sites": "المواقع التاريخية",
+        "Cultural Experiences": "التجارب الثقافية",
+        "Food and Culinary": "الطعام والطهي",
+        "Shopping and Markets": "التسوق والأسواق",
+        "Religious Sites": "المواقع الدينية",
+        "Photography": "التصوير الفوتوغرافي",
+        "Architecture": "الهندسة المعمارية"
+      },
+      "durationOptions": {
+        "6 hours": "6 ساعات",
+        "7 hours": "7 ساعات",
+        "8 hours": "8 ساعات",
+        "9 hours": "9 ساعات"
+      },
+      "submitButton": "طلب مرشد سياحي",
+      "placeholders": {
+        "tourDate": "اختر تاريخًا",
+        "notes": "أدخل أي أماكن محددة تريد زيارتها، متطلبات خاصة، أو أسئلة..."
+      },
+      "errorMessages": {
+        "required": "هذا الحقل مطلوب"
+      }
+    },
+    "messages": {
+      "success": "تم إرسال طلبك بنجاح!",
+      "error": "حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى."
+    }
+  }
+}

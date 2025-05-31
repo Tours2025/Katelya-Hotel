@@ -337,12 +337,12 @@ main {
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Taxi/taxi-service.png'); /* Use the SVG file */
+    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Taxi/taxi-service.jpg'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
+    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.jpg'); /* Use the new SVG file */
 }
 
 /* Tours Service Background */

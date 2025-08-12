@@ -337,12 +337,12 @@ main {
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Taxi/taxi-service.jpg'); /* Use the SVG file */
+    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Taxi/taxi-service.jpeg'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.jpg'); /* Use the new SVG file */
+    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
 }
 
 /* Tours Service Background */
@@ -363,6 +363,11 @@ main {
 /* Tours Service Background */
 .service-bubble[data-service="Tour-Guide"] {
     background-image: url('https://www.streamadqfm.store/KatelyaIMG/Tour-Guide/tour-guide-txt.jpeg'); /* Use the tours image */
+}
+
+/* Tours Service Background */
+.service-bubble[data-service="Turkish-Bath-&-SPA"] {
+    background-image: url('https://www.streamadqfm.store/Turkish-Bath-%26-SPA/Turkish-Bath-%26-SPA.jpeg'); /* Use the tours image */
 }
 
 .service-text {

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish Bath & SPA Services</title>
+    <link rel="stylesheet" href="Turkish-Bath-&-SPA.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+        </div>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+        <nav>
+            <!-- Return button with icon -->
+            <button class="return-btn" onclick="window.location.href='../main.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                <span>Back</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section for Turkish Bath & SPA -->
+        <section id="spa-hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-spa"></i> Turkish Bath & SPA</div>
+                <h2>Experience Traditional Turkish Wellness</h2>
+                <p>Indulge in authentic Turkish bath rituals and luxury spa treatments designed to rejuvenate your body and soul</p>
+            </div>
+        </section>
+        
+        <!-- SPA Packages Section -->
+        <section id="spa-packages">
+            <h2>Traditional Turkish Bath Packages</h2>
+            <div class="packages-grid">
+                <!-- Package 1 - Traditional Turkish Hamam -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&h=300&fit=crop');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">60 Minutes</div>
+                                <div class="description">Traditional Hamam</div>
+                                <div class="price">55 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Traditional Turkish Hamam Package</h3>
+                        <p>30 minutes traditional body scrub with kese mitt, followed by foam massage with lavender soap on warm marble stone. Includes clay face mask and access to sauna, steam room, and relaxation lounge. <strong>Free hotel transfer included.</strong></p>
+                        <button class="order-btn" onclick="window.location.href='spa-order.html?package=Traditional'">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 - Sea Salt or Coffee Hamam -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=500&h=300&fit=crop');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">75 Minutes</div>
+                                <div class="description">Sea Salt/Coffee Hamam</div>
+                                <div class="price">65 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Sea Salt or Coffee Hamam Package</h3>
+                        <p>15 minutes traditional body scrub with kese mitt, 30 minutes deep peeling using sea salt or coffee finish with full body foam massage. Includes clay face mask and all spa facilities. <strong>Free hotel transfer included.</strong></p>
+                        <button class="order-btn" onclick="window.location.href='spa-order.html?package=SeaSalt'">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 - Sultan Hamam and Massage -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&h=300&fit=crop');">
+                        <div class="package-overlay premium">
+                            <div class="package-details">
+                                <div class="duration">90 Minutes</div>
+                                <div class="description">Sultan Package</div>
+                                <div class="price">75 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Sultan Hamam and Massage Package</h3>
+                        <p>Complete luxury experience: 30 minutes traditional hamam with kese mitt, full body foam massage, 30 minutes anti-stress massage with organic oils, and clay face mask. Full access to all facilities. <strong>Free hotel transfer included.</strong></p>
+                        <button class="order-btn premium" onclick="window.location.href='spa-order.html?package=Sultan'">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 - Self Service Turkish Hamam -->
+                <div class="service-item">
+                    <div class="service-bubble" style="background-image: url('https://i.pinimg.com/1200x/64/50/6f/64506f95fd6c28e5fff61139df3fa8a2.jpg');">
+                        <div class="package-overlay">
+                            <div class="package-details">
+                                <div class="duration">3 Hours</div>
+                                <div class="description">Self Service</div>
+                                <div class="price">45 €</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Self Service Turkish Hamam</h3>
+                        <p>Experience the authentic Turkish bath at your own pace. Includes access to heated marble platform, sauna, steam room, and relaxation lounge with clay face mask provided. <strong>Free hotel transfer included.</strong></p></br></br>
+                        <button class="order-btn" onclick="window.location.href='spa-order.html?package=SelfService'">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Massage Services Section -->
+        <section id="massage-services">
+            <h2>Professional Massage Therapies</h2>
+            <div class="massage-grid">
+                <div class="massage-item">
+                    <span class="massage-name">Back Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Foot Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Bali Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Aromatherapy Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Anti-stress Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Deep Tissue Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Swedish Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">35€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Hot Stone Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">110€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Four Hands Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">110€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Shiatsu Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">110€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Thai Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">110€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="massage-item">
+                    <span class="massage-name">Sport Massage</span>
+                    <div class="massage-prices">
+                        <div class="price-option">
+                            <div class="duration">30 min</div>
+                            <div class="price">65€</div>
+                        </div>
+                        <div class="price-option">
+                            <div class="duration">60 min</div>
+                            <div class="price">110€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <h2>How to Book Your SPA Experience</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Service</h3>
+                    <p>Select from our traditional Turkish bath packages or individual massage therapies</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Book Appointment</h3>
+                    <p>Reserve your preferred time slot and let us prepare everything for your arrival</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Relax & Enjoy</h3>
+                    <p>Arrive and surrender to our professional therapists for an authentic wellness experience</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add smooth scroll behavior and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to service items when they come into view
+            const serviceItems = document.querySelectorAll('.service-item');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            serviceItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

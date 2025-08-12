@@ -1,0 +1,560 @@
+/* RTL version of Turkish Bath & SPA CSS for Arabic */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 30px 20px;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Improved Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Hotel Name Styling */
+header .hotel-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+header .hotel-name h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+header .hotel-name h1:hover {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Ensure the navbar elements maintain their positioning */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Return Button Styling */
+.return-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+.return-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.return-btn:hover svg {
+    transform: translateX(-2px);
+}
+
+/* SPA Hero Section */
+#spa-hero {
+    position: relative;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    min-height: 300px;
+}
+
+/* Dark Overlay */
+#spa-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+/* Hero Content */
+#spa-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 40px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Text Alignment for RTL and LTR */
+html[lang="ar"] #spa-hero .hero-content,
+body[dir="rtl"] #spa-hero .hero-content {
+    text-align: right;
+}
+
+html[lang="en"] #spa-hero .hero-content,
+body[dir="ltr"] #spa-hero .hero-content {
+    text-align: left;
+}
+
+/* Hero Badge */
+#spa-hero .hero-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #d4af37;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Title */
+#spa-hero h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#spa-hero h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #fff;
+}
+
+/* Adjust underline position */
+html[lang="ar"] #spa-hero h2::after,
+body[dir="rtl"] #spa-hero h2::after {
+    right: 0;
+    left: auto;
+}
+
+html[lang="en"] #spa-hero h2::after,
+body[dir="ltr"] #spa-hero h2::after {
+    left: 0;
+    right: auto;
+}
+
+/* Hero Paragraph */
+#spa-hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 80%;
+    opacity: 0.9;
+}
+
+/* SPA Packages Section */
+#spa-packages {
+    margin-bottom: 60px;
+}
+
+#spa-packages h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.packages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Service Item Styling */
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-bubble {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.package-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.package-overlay.premium {
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.5) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.package-details {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.package-details .duration {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.package-details .description {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.package-details .price {
+    font-size: 32px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.service-text {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.service-text h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-text p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.order-btn {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.order-btn:hover {
+    background-color: #f0c14b;
+    transform: scale(1.05);
+}
+
+.order-btn.premium {
+    background-color: #b8860b;
+}
+
+.order-btn.premium:hover {
+    background-color: #d4af37;
+}
+
+/* Massage Services Section */
+#massage-services {
+    margin-bottom: 60px;
+    padding: 40px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
+#massage-services h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+}
+
+.massage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.massage-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.massage-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.massage-name {
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+}
+
+.massage-prices {
+    display: flex;
+    gap: 20px;
+}
+
+.price-option {
+    text-align: center;
+}
+
+.duration {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.price {
+    font-weight: bold;
+    color: #d4af37;
+    font-size: 16px;
+}
+
+/* How It Works Section */
+#how-it-works {
+    margin-bottom: 60px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.step {
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #d4af37;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.step p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    main {
+        padding: 20px 15px;
+    }
+    
+    #spa-hero .hero-content {
+        padding: 40px 30px;
+    }
+    
+    #spa-hero h2 {
+        font-size: 28px;
+    }
+    
+    #spa-hero p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    
+    .service-item {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+    
+    header .hotel-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 5px 0;
+        width: 100%;
+        order: 1;
+    }
+    
+    header .hotel-name h1 {
+        font-size: 20px;
+        padding: 3px 0;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        order: 2;
+        margin-top: 10px;
+        gap: 10px;
+    }
+    
+    .return-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    #spa-hero .hero-content {
+        padding: 30px 20px;
+    }
+    
+    #spa-hero h2 {
+        font-size: 24px;
+    }
+    
+    .service-item {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .massage-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .return-btn span {
+        display: none;
+    }
+    
+    .return-btn {
+        padding: 8px;
+    }
+    
+    .massage-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .massage-prices {
+        justify-content: center;
+    }
+}

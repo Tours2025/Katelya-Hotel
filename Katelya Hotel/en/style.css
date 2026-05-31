@@ -342,7 +342,7 @@ main {
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
+    background-image: url('KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
 }
 
 /* Tours Service Background */

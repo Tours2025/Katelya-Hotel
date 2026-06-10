@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Everyday Bosphorus Tour | Katelya Hotel</title>
     <link rel="stylesheet" href="bosphorus-tour.css" />
-    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
@@ -67,18 +65,67 @@
         .submit-button:hover {
             background-color: #45a049;
         }
+
+        /* Language Dropdown Core Styles */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .language-dropdown.open {
+            display: block;
+        }
+        .language-dropdown a {
+            color: #333;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+        .language-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        .language-dropdown a.active {
+            font-weight: bold;
+            background-color: #e9e9e9;
+        }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
             <h1>Katelya Hotel</h1>
         </div>
-        <nav>
-            <!-- Return button with icon -->
+        <nav class="nav-container">
             <button class="return-btn" onclick="window.location.href='../dinner-cruise.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -87,13 +134,21 @@
                 <span>Back</span>
             </button>
             
-             
+            <div class="language-selector">
+                <button class="dropdown-btn">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-language">English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="language-dropdown">
+                    <a href="#" id="en-option" data-lang-text="English" data-return-text="Back" class="active">English</a>
+                    <a href="#" id="ar-option" data-lang-text="العربية" data-return-text="رجوع">العربية</a>
+                </div>
+            </div>
         </nav>
     </header>
     
-    <!-- Main Content -->
     <main>
-        <!-- Tour Image Header -->
         <div class="tour-image-header">
             <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/bosphorus-tour-header.avif" alt="Everyday Bosphorus Tour by Boat">
             <div class="tour-title">
@@ -237,7 +292,6 @@
                     <button class="book-button" onclick="selectTour('Sunset Tour with Cookies & Tea', 20)">Book Now</button>
                 </div>
                 
-                <!-- Night Bosphorus Tour - NEW ADDITION -->
                 <div class="option-card" style="background-color: #f0e6ff; border-top: 5px solid #9c27b0;">
                     <div class="price-tag" style="color: #9c27b0;">
                         <span>25</span>
@@ -279,7 +333,6 @@
             </div>
         </section>
         
-        <!-- Booking Form Section -->
         <section id="booking-form" style="display: none;">
             <h3>Book Your Bosphorus Tour</h3>
             <div id="selected-tour-info" class="selected-tour-info">
@@ -305,7 +358,6 @@
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
                 
-                <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="date">Date:</label>
@@ -485,8 +537,11 @@
                         serviceType: "Bosphorus Tour"
                     };
 
-                    // Send data to your Telegram bot server
-                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                    // !!! UPDATED TO YOUR CLOUDFLARE WORKER !!!
+                    const workerUrl = 'https://katelya-hotel.aladhefealquraan.workers.dev/send-reservation';
+
+                    // Send data to your Cloudflare Worker
+                    fetch(workerUrl, {
                         method: 'POST',
                         mode: 'cors', // Explicitly request CORS
                         headers: {
@@ -545,34 +600,42 @@
                 setInitialLanguage();
                 
                 // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
-            
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
+                if (dropdownBtn && languageDropdown) {
+                    dropdownBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        languageDropdown.classList.toggle('open');
+                    });
+                
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function() {
+                        languageDropdown.classList.remove('open');
+                    });
+                }
             
                 // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
+                if (arOption) {
+                    arOption.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const langText = this.getAttribute('data-lang-text');
+                        const returnText = this.getAttribute('data-return-text');
+                        selectLanguage('ar', langText, true, returnText);
+                    });
+                }
             
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
+                if (enOption) {
+                    enOption.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const langText = this.getAttribute('data-lang-text');
+                        const returnText = this.getAttribute('data-return-text');
+                        selectLanguage('en', langText, true, returnText);
+                    });
+                }
             
                 function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
                     // Update button text
-                    currentLanguage.textContent = displayText;
+                    if (currentLanguage) {
+                        currentLanguage.textContent = displayText;
+                    }
                     
                     // Update return button text if provided
                     if (returnText && returnButton) {
@@ -581,19 +644,21 @@
                     
                     // Update active class
                     if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
+                        if (arOption) arOption.classList.add('active');
+                        if (enOption) enOption.classList.remove('active');
                         document.dir = 'rtl'; // Set direction to RTL for Arabic
                         document.documentElement.lang = 'ar'; // Set lang attribute
                     } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
+                        if (enOption) enOption.classList.add('active');
+                        if (arOption) arOption.classList.remove('active');
                         document.dir = 'ltr'; // Set direction to LTR for English
                         document.documentElement.lang = 'en'; // Set lang attribute
                     }
                     
                     // Close the dropdown
-                    languageDropdown.classList.remove('open');
+                    if (languageDropdown) {
+                        languageDropdown.classList.remove('open');
+                    }
                     
                     // Redirect to appropriate language version if shouldRedirect is true
                     if (shouldRedirect) {
@@ -628,7 +693,6 @@
                     window.location.href = newPath;
                 }
             </script>
-            <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>

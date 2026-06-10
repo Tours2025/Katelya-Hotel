@@ -133,6 +133,18 @@
                 </svg>
                 <span>Back</span>
             </button>
+            
+            <div class="language-selector">
+                <button class="dropdown-btn">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-language">English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="language-dropdown">
+                    <a href="#" id="en-option" data-lang-text="English" data-return-text="Back" class="active">English</a>
+                    <a href="#" id="ar-option" data-lang-text="العربية" data-return-text="رجوع">العربية</a>
+                </div>
+            </div>
         </nav>
     </header>
     
@@ -288,12 +300,12 @@
                     <h3 style="color: #9c27b0;">NIGHT BOSPHORUS TOUR</h3>
                     <div class="time-details">
                         <div class="departure">
-                            <span>AVAILABLE:</span>
-                            <strong>APRIL-SEPTEMBER</strong>
+                            <span>DEPARTURE TIME:</span>
+                            <strong>20:00</strong>
                         </div>
                         <div class="return">
-                            <span>DURATION:</span>
-                            <strong>2 HOURS</strong>
+                            <span>RETURN TIME:</span>
+                            <strong>22:00</strong>
                         </div>
                     </div>
                     <div class="includes">
@@ -389,33 +401,16 @@
                     // Scroll to top
                     window.scrollTo(0, 0);
                     
-                    // Special handling for Night Bosphorus Tour
-                    if (tourName === 'Night Bosphorus Tour') {
-                        // Only allow dates between April 1 and September 30, 2025
-                        const dateInput = document.getElementById('date');
-                        const flatpickrInstance = dateInput._flatpickr;
+                    // Since all tours are year-round now, reset date picker to allow any future date
+                    const dateInput = document.getElementById('date');
+                    const flatpickrInstance = dateInput._flatpickr;
+                    
+                    if (flatpickrInstance) {
+                        flatpickrInstance.set('minDate', 'today');
+                        flatpickrInstance.set('maxDate', '');
                         
-                        if (flatpickrInstance) {
-                            // Update the date picker configuration for night tour
-                            flatpickrInstance.set('minDate', '2025-04-01');
-                            flatpickrInstance.set('maxDate', '2025-09-30');
-                            
-                            // Clear any previously selected date
-                            flatpickrInstance.clear();
-                        }
-                    } else {
-                        // For other tours, reset to default date settings
-                        const dateInput = document.getElementById('date');
-                        const flatpickrInstance = dateInput._flatpickr;
-                        
-                        if (flatpickrInstance) {
-                            // Reset date picker to allow any future date
-                            flatpickrInstance.set('minDate', 'today');
-                            flatpickrInstance.set('maxDate', '');
-                            
-                            // Clear any previously selected date
-                            flatpickrInstance.clear();
-                        }
+                        // Clear any previously selected date
+                        flatpickrInstance.clear();
                     }
                 }
                 

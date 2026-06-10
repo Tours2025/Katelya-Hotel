@@ -93,10 +93,10 @@
                 <label for="package">Package:</label>
                 <select id="package" name="package" required>
                     <option value="">-- Select a package --</option>
-                    <option value="7 Days - 5GB - 10€">7 Days - 5GB - 10€</option>
-                    <option value="15 Days - 10GB - 15€">15 Days - 10GB - 15€</option>
-                    <option value="30 Days - 20GB - 20€">30 Days - 20GB - 20€</option>
-                    <option value="Premium 30 Days - 50GB - 40€">Premium 30 Days - 50GB - 40€</option>
+                    <option value="Weekly Package - 5GB - 10€">Weekly Package - 5GB - 10€</option>
+                    <option value="Two-Week Package - 10GB - 15€">Two-Week Package - 10GB - 15€</option>
+                    <option value="Monthly Package - 20GB - 20€">Monthly Package - 20GB - 20€</option>
+                    <option value="Premium Package - 50GB - 40€">Premium Package - 50GB - 40€</option>
                 </select>
                 <div class="error-message" id="package-error">Package selection is required</div>
                 
@@ -162,26 +162,27 @@
                     });
                 });
                                 
+                // DETAILS UPDATED TO REMOVE "DAYS" LANGUAGE
                 function updatePackageDetails(packageValue) {
                     if (!packageValue) return;
                     
                     const packageDetailsDiv = document.getElementById('package-details');
                     let packageInfo = '';
                     
-                    if (packageValue.includes('7 Days')) {
+                    if (packageValue.includes('Weekly')) {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Weekly Package</h3>
-                                <p>You've selected our <strong>7-day package</strong> with <strong>5GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>Weekly package</strong> with <strong>5GB</strong> of high-speed data.</p>
                                 <p>This package is perfect for short visits to Turkey.</p>
                                 <p class="price">Price: <span class="currency">10€</span></p>
                             </div>
                         `;
-                    } else if (packageValue.includes('15 Days')) {
+                    } else if (packageValue.includes('Two-Week')) {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Two-Week Package</h3>
-                                <p>You've selected our <strong>15-day package</strong> with <strong>10GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>Two-Week package</strong> with <strong>10GB</strong> of high-speed data.</p>
                                 <p>This package is ideal for medium-length stays in Turkey.</p>
                                 <p class="price">Price: <span class="currency">15€</span></p>
                             </div>
@@ -189,17 +190,17 @@
                     } else if (packageValue.includes('Premium')) {
                         packageInfo = `
                             <div class="package-info premium">
-                                <h3>Premium Monthly Package</h3>
-                                <p>You've selected our <strong>Premium 30-day package</strong> with <strong>50GB</strong> of high-speed data.</p>
+                                <h3>Premium Package</h3>
+                                <p>You've selected our <strong>Premium package</strong> with <strong>50GB</strong> of high-speed data.</p>
                                 <p>This premium package includes extra services and premium support.</p>
                                 <p class="price">Price: <span class="currency premium-currency">40€</span></p>
                             </div>
                         `;
-                    } else if (packageValue.includes('30 Days')) {
+                    } else if (packageValue.includes('Monthly')) {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Monthly Package</h3>
-                                <p>You've selected our <strong>30-day package</strong> with <strong>20GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>Monthly package</strong> with <strong>20GB</strong> of high-speed data.</p>
                                 <p>This package is perfect for longer stays in Turkey.</p>
                                 <p class="price">Price: <span class="currency">20€</span></p>
                             </div>

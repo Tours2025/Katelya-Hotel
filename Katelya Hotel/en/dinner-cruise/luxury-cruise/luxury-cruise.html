@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Bosphorus Dinner Cruise | Katelya Hotel</title>
     <link rel="stylesheet" href="luxury-cruise.css" />
-    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
@@ -30,18 +28,67 @@
             background-color: #999;
             cursor: not-allowed;
         }
+
+        /* Language Dropdown Core Styles */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .language-dropdown.open {
+            display: block;
+        }
+        .language-dropdown a {
+            color: #333;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+        .language-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        .language-dropdown a.active {
+            font-weight: bold;
+            background-color: #e9e9e9;
+        }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
             <h1>Katelya Hotel</h1>
         </div>
-        <nav>
-            <!-- Return button with icon -->
+        <nav class="nav-container">
             <button class="return-btn" onclick="window.location.href='../dinner-cruise.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -49,13 +96,10 @@
                 </svg>
                 <span>Back</span>
             </button>
-             
         </nav>
     </header>
     
-    <!-- Main Content -->
     <main>
-        <!-- Cruise Image Header -->
         <div class="cruise-image-header">
             <img src="https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/luxury-cruise-header.avif" alt="Luxury Bosphorus Dinner Cruise">
             <div class="cruise-title">
@@ -77,7 +121,7 @@
                 </div>
                 <div class="feature">
                     <i class="fas fa-dollar-sign"></i>
-                    <span>Only 50$</span>
+                    <span>From 50$</span>
                 </div>
                 <div class="feature">
                     <i class="fas fa-shuttle-van"></i>
@@ -126,7 +170,7 @@
                 <strong>Return Time:</strong> 00:00 (Midnight)
             </p>
             <p>
-                <strong>Price:</strong> 55 Euro per person
+                <strong>Price:</strong> 50$ per person (Without Alcohol) / 70$ per person (With Alcohol)
             </p>
             <p>
                 <strong>Included:</strong>
@@ -134,7 +178,7 @@
             <ul>
                 <li>Hotel pickup and drop-off</li>
                 <li>Dinner (open buffet)</li>
-                <li>Unlimited soft drinks</li>
+                <li>Unlimited soft drinks (Alcohol included if the $70 package is selected)</li>
                 <li>Live entertainment and shows</li>
                 <li>Free WiFi</li>
             </ul>
@@ -142,7 +186,7 @@
                 <strong>Not Included:</strong>
             </p>
             <ul>
-                <li>Alcoholic beverages (available for purchase)</li>
+                <li>Alcoholic beverages (unless the $70 package is selected)</li>
                 <li>Personal expenses</li>
                 <li>Gratuities (optional)</li>
             </ul>
@@ -151,7 +195,6 @@
             </p>
         </section>
         
-        <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Book Your Luxury Bosphorus Dinner Cruise</h3>
             <form id="bookingForm" onsubmit="return sendToTelegram(event)">
@@ -163,7 +206,6 @@
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
                 
-                <!-- Date and Time Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="date">Date:</label>
@@ -175,6 +217,18 @@
                         <input type="number" id="participants" name="participants" min="1" value="2" required>
                         <div class="error-message" id="participants-error">Number of participants is required</div>
                     </div>
+                </div>
+
+                <label>Beverage Package:</label>
+                <div style="display: flex; gap: 20px; margin-top: 10px; margin-bottom: 15px;">
+                    <label style="margin-top: 0; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="packageType" value="Non-Alcoholic ($50)" checked style="width: auto; margin: 0;">
+                        Non-Alcoholic (50$)
+                    </label>
+                    <label style="margin-top: 0; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="packageType" value="With Alcohol ($70)" style="width: auto; margin: 0;">
+                        With Alcohol (70$)
+                    </label>
                 </div>
 
                 <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
@@ -189,17 +243,15 @@
             <script>
                 // Initialize Flatpickr for date inputs
                 document.addEventListener("DOMContentLoaded", function() {
-                    // Date picker
                     flatpickr("#date", {
-                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select past dates
-                        locale: "en", // English localization
+                        dateFormat: "Y-m-d", 
+                        minDate: "today", 
+                        locale: "en", 
                         onChange: function() {
                             validateField('date');
                         }
                     });
                     
-                    // Add input validation event listeners
                     document.getElementById('name').addEventListener('input', function() {
                         validateField('name');
                     });
@@ -213,7 +265,6 @@
                     });
                 });
                 
-                // Function to validate a single field
                 function validateField(fieldName) {
                     const field = document.getElementById(fieldName);
                     const errorMessage = document.getElementById(fieldName + '-error');
@@ -229,7 +280,6 @@
                     }
                 }
                 
-                // Function to validate the entire form
                 function validateForm() {
                     const requiredFields = ['name', 'phone', 'date', 'participants'];
                     let isValid = true;
@@ -243,43 +293,43 @@
                     return isValid;
                 }
 
-                // Function to send data to Telegram Bot
+                // Function to send data to the Serverless Cloudflare Worker
                 function sendToTelegram(event) {
                     event.preventDefault();
                     
-                    // Validate the form before submission
                     if (!validateForm()) {
                         return false;
                     }
 
-                    // Get form values
                     const name = document.getElementById('name').value;
                     const phone = document.getElementById('phone').value;
                     const date = document.getElementById('date').value;
                     const participants = document.getElementById('participants').value;
+                    const packageType = document.querySelector('input[name="packageType"]:checked').value;
                     const room = document.getElementById('room').value || 'Not provided';
                     const notes = document.getElementById('notes').value || 'No notes provided';
                     
-                    // Show loading or processing message
                     const submitButton = document.querySelector('button[type="submit"]');
                     submitButton.textContent = "Sending...";
                     submitButton.disabled = true;
 
-                    // Prepare data to send to your Telegram bot API
                     const formData = {
                         name: name,
                         phone: phone,
                         date: date,
                         participants: participants,
+                        packageType: packageType, 
                         room: room,
                         notes: notes,
                         serviceType: "Dinner Cruise"
                     };
 
-                    // Send data to your Telegram bot server
-                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                    
+                    const workerUrl = 'https://katelya-hotel.aladhefealquraan.workers.dev/send-reservation';
+
+                    fetch(workerUrl, {
                         method: 'POST',
-                        mode: 'cors', // Explicitly request CORS
+                        mode: 'cors', 
                         headers: {
                             'Content-Type': 'application/json',
                             'Accept': 'application/json',
@@ -288,26 +338,22 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Reset button
                         submitButton.textContent = "Book Now";
                         submitButton.disabled = false;
 
                         if (data.success) {
-                            // Redirect to thank you page on success
                             window.location.href = "../thank-you.html";
                         } else {
-                            // Show error if the request failed
                             alert('There was an error submitting your request. Please try again.');
                             console.error('Error:', data.error);
                         }
                     })
                     .catch(error => {
-                        // Reset button and show error
                         submitButton.textContent = "Book Now";
                         submitButton.disabled = false;
                         
                         console.error('Error:', error);
-                        alert('There was an error submitting your request. Please try again.');
+                        alert('Submission failed. Check if you updated your Cloudflare Worker URL correctly.');
                     });
                     
                     return false;
@@ -320,106 +366,99 @@
                 const currentLanguage = document.getElementById('current-language');
                 const arOption = document.getElementById('ar-option');
                 const enOption = document.getElementById('en-option');
-                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
+                const returnButton = document.querySelector('.return-btn span');
                 
-                // Set initial language based on current URL
                 function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
+                    if (window.location.pathname.includes('/ar/')) {
+                        selectLanguage('ar', 'العربية', false);
                     } else {
-                        selectLanguage('en', 'English', false); // Default to English
+                        selectLanguage('en', 'English', false);
                     }
                 }
                 
-                // Call this when the page loads
-                setInitialLanguage();
+                if (dropdownBtn && languageDropdown) {
+                    dropdownBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        languageDropdown.classList.toggle('open');
+                    });
                 
-                // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
+                    document.addEventListener('click', function() {
+                        languageDropdown.classList.remove('open');
+                    });
+                }
             
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
+                if (arOption) {
+                    arOption.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const langText = this.getAttribute('data-lang-text');
+                        const returnText = this.getAttribute('data-return-text');
+                        selectLanguage('ar', langText, true, returnText);
+                    });
+                }
             
-                // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
-            
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
+                if (enOption) {
+                    enOption.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const langText = this.getAttribute('data-lang-text');
+                        const returnText = this.getAttribute('data-return-text');
+                        selectLanguage('en', langText, true, returnText);
+                    });
+                }
             
                 function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-                    // Update button text
-                    currentLanguage.textContent = displayText;
+                    if (currentLanguage) {
+                        currentLanguage.textContent = displayText;
+                    }
                     
-                    // Update return button text if provided
                     if (returnText && returnButton) {
                         returnButton.textContent = returnText;
                     }
                     
-                    // Update active class
                     if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
-                        document.dir = 'rtl'; // Set direction to RTL for Arabic
-                        document.documentElement.lang = 'ar'; // Set lang attribute
+                        if (arOption) arOption.classList.add('active');
+                        if (enOption) enOption.classList.remove('active');
+                        document.dir = 'rtl';
+                        document.documentElement.lang = 'ar';
                     } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
-                        document.documentElement.lang = 'en'; // Set lang attribute
+                        if (enOption) enOption.classList.add('active');
+                        if (arOption) arOption.classList.remove('active');
+                        document.dir = 'ltr';
+                        document.documentElement.lang = 'en';
                     }
                     
-                    // Close the dropdown
-                    languageDropdown.classList.remove('open');
+                    if (languageDropdown) {
+                        languageDropdown.classList.remove('open');
+                    }
                     
-                    // Redirect to appropriate language version if shouldRedirect is true
                     if (shouldRedirect) {
                         redirectToLanguageFolder(lang);
                     }
                 }
             
-                // Function to handle language switching
                 function redirectToLanguageFolder(language) {
-                    // Get current URL path
                     const currentPath = window.location.pathname;
                     let newPath;
                     
                     if (language === 'en') {
-                        // If current path has /ar/ replace it with /en/
                         if (currentPath.includes('/ar/')) {
                             newPath = currentPath.replace('/ar/', '/en/');
                         } else {
-                            // If we're at the root level
                             newPath = 'luxury-cruise.html';
                         }
                     } else if (language === 'ar') {
-                        // If current path has /en/ replace it with /ar/
                         if (currentPath.includes('/en/')) {
                             newPath = currentPath.replace('/en/', '/ar/');
                         } else {
-                            // If we're at the root level
                             newPath = 'luxury-cruise.html';
                         }
                     }
                     
                     window.location.href = newPath;
                 }
+
+                // Call initial language check safely
+                document.addEventListener("DOMContentLoaded", setInitialLanguage);
             </script>
-            <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>

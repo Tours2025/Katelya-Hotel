@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIM Card Services</title>
     <link rel="stylesheet" href="sim-card.css" /> 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
             <h1>Katelya Hotel</h1>
         </div>
-        <nav>
-            <!-- Return button with icon -->
+        <nav class="nav-container">
             <button class="return-btn" onclick="window.location.href='../main.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -26,13 +30,10 @@
                 </svg>
                 <span>Back</span>
             </button>
-             
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section for SIM Cards -->
         <section id="sim-hero">
             <div class="hero-content">
                 <div class="hero-badge"><i class="fas fa-mobile-alt"></i> SIM Cards</div>
@@ -44,81 +45,72 @@
         <section id="sim-packages">
             <h2>Choose the Right Package for You</h2>
             <div class="packages-grid">
-                <!-- Package 1 -->
                 <div class="service-item">
-                    <div class="service-bubble" style="background-image: url('../KatelyaIMG/sim-card/sim-card.jpeg');">
+                    <div class="service-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/sim-card/sim-card.jpeg');">
                         <div class="package-overlay">
                             <div class="package-details">
-                                <!--<div class="duration">7 Days</div>-->
                                 <div class="data">5 GB</div>
                                 <div class="price">10 €</div>
                             </div>
                         </div>
                     </div>
                     <div class="service-text">
-                        <h3>Weekly Package</h3>
-                        <p>Perfect for short visits</p>
-                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=7Days'">Order Now</button>
+                        <h3>5GB Monthly Package</h3>
+                        <p>Valid for 30 days</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=5GB'">Order Now</button>
                     </div>
                 </div>
 
-                <!-- Package 2 -->
                 <div class="service-item">
-                    <div class="service-bubble" style="background-image: url('../KatelyaIMG/sim-card/sim-card.jpeg');">
+                    <div class="service-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/sim-card/sim-card.jpeg');">
                         <div class="package-overlay">
                             <div class="package-details">
-                                <!--<div class="duration">15 Days</div>-->
                                 <div class="data">10 GB</div>
                                 <div class="price">15 €</div>
                             </div>
                         </div>
                     </div>
                     <div class="service-text">
-                        <h3>Two-Week Package</h3>
-                        <p>Suitable for medium stays</p>
-                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=15Days'">Order Now</button>
+                        <h3>10GB Monthly Package</h3>
+                        <p>Valid for 30 days</p>
+                        <button class="order-btn" onclick="window.location.href='sim-order.html?package=10GB'">Order Now</button>
                     </div>
                 </div>
 
-                <!-- Package 3 -->
                 <div class="service-item">
-                    <div class="service-bubble" style="background-image: url('../KatelyaIMG/sim-card/sim-card.jpeg');">
+                    <div class="service-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/sim-card/sim-card.jpeg');">
                         <div class="package-overlay">
                             <div class="package-details">
-                                <!--<div class="duration">30 Days</div>-->
                                 <div class="data">20 GB</div>
                                 <div class="price">20 €</div>
                             </div>
                         </div>
                     </div>
                     <div class="service-text">
-                        <h3>Monthly Package</h3>
-                        <p>Ideal for longer stays</p>
+                        <h3>20GB Monthly Package</h3>
+                        <p>Valid for 30 days</p>
                         <button class="order-btn" onclick="window.location.href='sim-order.html?package=30Days'">Order Now</button>
                     </div>
                 </div>
 
-                <!-- Package 4 -->
                 <div class="service-item">
-                    <div class="service-bubble" style="background-image: url('../KatelyaIMG/sim-card/sim-card.jpeg');">
+                    <div class="service-bubble" style="background-image: url('https://www.streamadqfm.store/KatelyaIMG/sim-card/sim-card.jpeg');">
                         <div class="package-overlay premium">
                             <div class="package-details">
-                                <!--<div class="duration">30 Days</div>-->
                                 <div class="data">50 GB</div>
                                 <div class="price">40 €</div>
                             </div>
                         </div>
                     </div>
                     <div class="service-text">
-                        <h3>Premium Package</h3>
-                        <p>Includes extra services and premium support</p>
-                        <button class="order-btn premium" onclick="window.location.href='sim-order.html?package=Premium'">Order Now</button>
+                        <h3>50GB Premium Monthly</h3>
+                        <p>Includes extra services and premium support. Valid for 30 days.</p>
+                        <button class="order-btn premium" onclick="window.location.href='sim-order.html?package=50GB'">Order Now</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works Section -->
         <section id="how-it-works">
             <h2>How to Get Your SIM Card</h2>
             <div class="steps-container">
@@ -140,110 +132,5 @@
             </div>
         </section>
     </main>
-
-    <script>
-        // Language dropdown functionality
-        const dropdownBtn = document.querySelector('.dropdown-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-        const currentLanguage = document.getElementById('current-language');
-        const arOption = document.getElementById('ar-option');
-        const enOption = document.getElementById('en-option');
-        const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
-        
-        // Set initial language based on current URL
-        function setInitialLanguage() {
-            // Check if we're in an English folder path
-            if (window.location.pathname.includes('/en/')) {
-                selectLanguage('en', 'English', false); // false means don't redirect
-            } else {
-                selectLanguage('ar', 'العربية', false); // false means don't redirect
-            }
-        }
-        
-        // Call this when the page loads
-        setInitialLanguage();
-        
-        // Toggle dropdown display when clicking the button
-        dropdownBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            languageDropdown.classList.toggle('open');
-        });
-    
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function() {
-            languageDropdown.classList.remove('open');
-        });
-    
-        // Handle language selection
-        arOption.addEventListener('click', function(e) {
-            e.preventDefault();
-            const langText = this.getAttribute('data-lang-text');
-            const returnText = this.getAttribute('data-return-text');
-            selectLanguage('ar', langText, true, returnText);
-        });
-    
-        enOption.addEventListener('click', function(e) {
-            e.preventDefault();
-            const langText = this.getAttribute('data-lang-text');
-            const returnText = this.getAttribute('data-return-text');
-            selectLanguage('en', langText, true, returnText);
-        });
-    
-        function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-            // Update button text
-            currentLanguage.textContent = displayText;
-            
-            // Update return button text if provided
-            if (returnText && returnButton) {
-                returnButton.textContent = returnText;
-            }
-            
-            // Update active class
-            if (lang === 'ar') {
-                arOption.classList.add('active');
-                enOption.classList.remove('active');
-                document.dir = 'rtl'; // Set direction to RTL for Arabic
-            } else {
-                enOption.classList.add('active');
-                arOption.classList.remove('active');
-                document.dir = 'ltr'; // Set direction to LTR for English
-            }
-            
-            // Close the dropdown
-            languageDropdown.classList.remove('open');
-            
-            // Redirect to appropriate language version if shouldRedirect is true
-            if (shouldRedirect) {
-                redirectToLanguageFolder(lang);
-            }
-        }
-    
-        // Function to handle language switching
-        function redirectToLanguageFolder(language) {
-            // Get current URL path
-            const currentPath = window.location.pathname;
-            let newPath;
-            
-            if (language === 'en') {
-                // If current path has /ar/ replace it with /en/
-                if (currentPath.includes('/ar/')) {
-                    newPath = currentPath.replace('/ar/', '/en/');
-                } else {
-                    // If we're at the root level
-                    newPath = '../en/sim-card.html';
-                }
-            } else if (language === 'ar') {
-                // If current path has /en/ replace it with /ar/
-                if (currentPath.includes('/en/')) {
-                    newPath = currentPath.replace('/en/', '/ar/');
-                } else {
-                    // If we're at the root level
-                    newPath = '../ar/sim-card.html';
-                }
-            }
-            
-            window.location.href = newPath;
-        }
-    </script>
 </body>
 </html>

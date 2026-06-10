@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order SIM Card Package</title>
     <link rel="stylesheet" href="sim-order.css" />
-    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
@@ -30,18 +28,22 @@
             background-color: #999;
             cursor: not-allowed;
         }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="logo">
         </div>
         <div class="hotel-name">
             <h1>Katelya Hotel</h1>
         </div>
-        <nav>
-            <!-- Return button with icon -->
+        <nav class="nav-container">
             <button class="return-btn" onclick="window.location.href='sim-card.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -49,17 +51,13 @@
                 </svg>
                 <span>Back</span>
             </button>
-            
-             
         </nav>
     </header>
-    <!-- Main Content -->
     <main>
         <section id="service-explanation">
             <h2>Order SIM Card Package</h2>
             <div id="package-details">
-                <!-- Package details will be filled dynamically -->
-            </div>
+                </div>
             <p>
                 When ordering a SIM card, please note that you'll need to provide your passport information at the time of delivery as required by Turkish telecommunications regulations.
             </p>
@@ -70,7 +68,6 @@
                 Payment can be made in <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon delivery.
             </p>
         </section>
-        <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Complete Your Order</h3>
             <form id="bookingForm" onsubmit="return sendToTelegram(event)">
@@ -82,7 +79,6 @@
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
                 
-                <!-- Date Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="arrival-date">Starting Date:</label>
@@ -97,10 +93,10 @@
                 <label for="package">Package:</label>
                 <select id="package" name="package" required>
                     <option value="">-- Select a package --</option>
-                    <option value="7 Days - 15GB - 30€">7 Days - 15GB - 30€</option>
-                    <option value="15 Days - 25GB - 35€">15 Days - 25GB - 35€</option>
-                    <option value="30 Days - 30GB - 40€">30 Days - 30GB - 40€</option>
-                    <option value="Premium 30 Days - 30GB - 45€">Premium 30 Days - 30GB - 45€</option>
+                    <option value="7 Days - 5GB - 10€">7 Days - 5GB - 10€</option>
+                    <option value="15 Days - 10GB - 15€">15 Days - 10GB - 15€</option>
+                    <option value="30 Days - 20GB - 20€">30 Days - 20GB - 20€</option>
+                    <option value="Premium 30 Days - 50GB - 40€">Premium 30 Days - 50GB - 40€</option>
                 </select>
                 <div class="error-message" id="package-error">Package selection is required</div>
                 
@@ -111,61 +107,61 @@
             </form>
             <script>
                 // Initialize Flatpickr for date input
-document.addEventListener("DOMContentLoaded", function () {
-    // Date picker
-    flatpickr("#arrival-date", {
-        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-        minDate: "today", // Can't select dates before today
-        locale: "en", // English localization
-        onChange: function() {
-            validateField('arrival-date');
-        }
-    });
-    
-    // Get URL parameters to pre-select package
-    const urlParams = new URLSearchParams(window.location.search);
-    const packageParam = urlParams.get('package');
-    
-    if (packageParam) {
-        const packageSelect = document.getElementById('package');
-        
-        // Map URL parameter to package selection
-        let selectedIndex = 0;
-        
-        if (packageParam === '7Days') {
-            selectedIndex = 1; // Index of "7 Days - 15GB - 30€" option
-        } else if (packageParam === '15Days') {
-            selectedIndex = 2; // Index of "15 Days - 25GB - 35€" option
-        } else if (packageParam === '30Days') {
-            selectedIndex = 3; // Index of "30 Days - 30GB - 40€" option
-        } else if (packageParam === 'Premium') {
-            selectedIndex = 4; // Index of "Premium 30 Days - 30GB - 45€" option
-        }
-        
-        if (selectedIndex > 0) {
-            packageSelect.selectedIndex = selectedIndex;
-            
-            // Update package details section with the selected package
-            updatePackageDetails(packageSelect.value);
-        }
-    }
-    
-    // Add change event to update package details
-    document.getElementById('package').addEventListener('change', function() {
-        updatePackageDetails(this.value);
-        validateField('package');
-    });
-    
-    // Add input validation event listeners
-    document.getElementById('name').addEventListener('input', function() {
-        validateField('name');
-    });
-    
-    document.getElementById('phone').addEventListener('input', function() {
-        validateField('phone');
-    });
-});
-                
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Date picker
+                    flatpickr("#arrival-date", {
+                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+                        minDate: "today", // Can't select dates before today
+                        locale: "en", // English localization
+                        onChange: function() {
+                            validateField('arrival-date');
+                        }
+                    });
+                    
+                    // Get URL parameters to pre-select package
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const packageParam = urlParams.get('package');
+                    
+                    if (packageParam) {
+                        const packageSelect = document.getElementById('package');
+                        
+                        // Map URL parameter to package selection
+                        let selectedIndex = 0;
+                        
+                        if (packageParam === '7Days') {
+                            selectedIndex = 1; 
+                        } else if (packageParam === '15Days') {
+                            selectedIndex = 2; 
+                        } else if (packageParam === '30Days') {
+                            selectedIndex = 3; 
+                        } else if (packageParam === 'Premium') {
+                            selectedIndex = 4; 
+                        }
+                        
+                        if (selectedIndex > 0) {
+                            packageSelect.selectedIndex = selectedIndex;
+                            
+                            // Update package details section with the selected package
+                            updatePackageDetails(packageSelect.value);
+                        }
+                    }
+                    
+                    // Add change event to update package details
+                    document.getElementById('package').addEventListener('change', function() {
+                        updatePackageDetails(this.value);
+                        validateField('package');
+                    });
+                    
+                    // Add input validation event listeners
+                    document.getElementById('name').addEventListener('input', function() {
+                        validateField('name');
+                    });
+                    
+                    document.getElementById('phone').addEventListener('input', function() {
+                        validateField('phone');
+                    });
+                });
+                                
                 function updatePackageDetails(packageValue) {
                     if (!packageValue) return;
                     
@@ -176,36 +172,36 @@ document.addEventListener("DOMContentLoaded", function () {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Weekly Package</h3>
-                                <p>You've selected our <strong>7-day package</strong> with <strong>15GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>7-day package</strong> with <strong>5GB</strong> of high-speed data.</p>
                                 <p>This package is perfect for short visits to Turkey.</p>
-                                <p class="price">Price: <span class="currency">30€</span></p>
+                                <p class="price">Price: <span class="currency">10€</span></p>
                             </div>
                         `;
                     } else if (packageValue.includes('15 Days')) {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Two-Week Package</h3>
-                                <p>You've selected our <strong>15-day package</strong> with <strong>25GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>15-day package</strong> with <strong>10GB</strong> of high-speed data.</p>
                                 <p>This package is ideal for medium-length stays in Turkey.</p>
-                                <p class="price">Price: <span class="currency">35€</span></p>
+                                <p class="price">Price: <span class="currency">15€</span></p>
                             </div>
                         `;
                     } else if (packageValue.includes('Premium')) {
                         packageInfo = `
                             <div class="package-info premium">
                                 <h3>Premium Monthly Package</h3>
-                                <p>You've selected our <strong>Premium 30-day package</strong> with <strong>30GB</strong> of high-speed data.</p>
-                                <p>This premium package includes priority customer support and enhanced service guarantees.</p>
-                                <p class="price">Price: <span class="currency premium-currency">45€</span></p>
+                                <p>You've selected our <strong>Premium 30-day package</strong> with <strong>50GB</strong> of high-speed data.</p>
+                                <p>This premium package includes extra services and premium support.</p>
+                                <p class="price">Price: <span class="currency premium-currency">40€</span></p>
                             </div>
                         `;
                     } else if (packageValue.includes('30 Days')) {
                         packageInfo = `
                             <div class="package-info">
                                 <h3>Monthly Package</h3>
-                                <p>You've selected our <strong>30-day package</strong> with <strong>30GB</strong> of high-speed data.</p>
+                                <p>You've selected our <strong>30-day package</strong> with <strong>20GB</strong> of high-speed data.</p>
                                 <p>This package is perfect for longer stays in Turkey.</p>
-                                <p class="price">Price: <span class="currency">40€</span></p>
+                                <p class="price">Price: <span class="currency">20€</span></p>
                             </div>
                         `;
                     }
@@ -243,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     return isValid;
                 }
 
-                // Function to send data to Telegram Bot
+                // Function to send data to Telegram Bot via Cloudflare Worker
                 function sendToTelegram(event) {
                     event.preventDefault();
                     
@@ -265,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     submitButton.textContent = "Sending...";
                     submitButton.disabled = true;
 
-                    // Prepare data to send to your Telegram bot API
+                    // Prepare data to send to your API
                     const formData = {
                         name: name,
                         phone: phone,
@@ -276,11 +272,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         serviceType: "SIM Card Order"
                     };
 
-                    // Send data to your Telegram bot server
-                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
+                    // !!! CONNECTED TO CLOUDFLARE WORKER !!!
+                    const workerUrl = 'https://katelya-hotel.aladhefealquraan.workers.dev/send-reservation';
+
+                    // Send data to Cloudflare Worker
+                    fetch(workerUrl, {
                         method: 'POST',
+                        mode: 'cors',
                         headers: {
                             'Content-Type': 'application/json',
+                            'Accept': 'application/json'
                         },
                         body: JSON.stringify(formData)
                     })
@@ -311,111 +312,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return false;
                 }
             </script>
-            <script>
-                // Language dropdown functionality
-                const dropdownBtn = document.querySelector('.dropdown-btn');
-                const languageDropdown = document.querySelector('.language-dropdown');
-                const currentLanguage = document.getElementById('current-language');
-                const arOption = document.getElementById('ar-option');
-                const enOption = document.getElementById('en-option');
-                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
-                
-                // Set initial language based on current URL
-                function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
-                    } else {
-                        selectLanguage('ar', 'العربية', false); // false means don't redirect
-                    }
-                }
-                
-                // Call this when the page loads
-                setInitialLanguage();
-                
-                // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
-            
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
-            
-                // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
-            
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
-            
-                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-                    // Update button text
-                    currentLanguage.textContent = displayText;
-                    
-                    // Update return button text if provided
-                    if (returnText && returnButton) {
-                        returnButton.textContent = returnText;
-                    }
-                    
-                    // Update active class
-                    if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
-                        document.dir = 'rtl'; // Set direction to RTL for Arabic
-                    } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
-                    }
-                    
-                    // Close the dropdown
-                    languageDropdown.classList.remove('open');
-                    
-                    // Redirect to appropriate language version if shouldRedirect is true
-                    if (shouldRedirect) {
-                        redirectToLanguageFolder(lang);
-                    }
-                }
-            
-                // Function to handle language switching
-                function redirectToLanguageFolder(language) {
-                    // Get current URL path
-                    const currentPath = window.location.pathname;
-                    let newPath;
-                    
-                    if (language === 'en') {
-                        // If current path has /ar/ replace it with /en/
-                        if (currentPath.includes('/ar/')) {
-                            newPath = currentPath.replace('/ar/', '/en/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'sim-order.html';
-                        }
-                    } else if (language === 'ar') {
-                        // If current path has /en/ replace it with /ar/
-                        if (currentPath.includes('/en/')) {
-                            newPath = currentPath.replace('/en/', '/ar/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'sim-order.html';
-                        }
-                    }
-                    
-                    window.location.href = newPath;
-                }
-            </script>
-            <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>

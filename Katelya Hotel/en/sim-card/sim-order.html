@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order SIM Card Package</title>
     <link rel="stylesheet" href="sim-order.css" />
+    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
@@ -37,6 +39,7 @@
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="logo">
         </div>
@@ -44,6 +47,7 @@
             <h1>Katelya Hotel</h1>
         </div>
         <nav class="nav-container">
+            <!-- Return button with icon -->
             <button class="return-btn" onclick="window.location.href='sim-card.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -53,11 +57,13 @@
             </button>
         </nav>
     </header>
+    <!-- Main Content -->
     <main>
         <section id="service-explanation">
             <h2>Order SIM Card Package</h2>
             <div id="package-details">
-                </div>
+                <!-- Package details will be filled dynamically -->
+            </div>
             <p>
                 When ordering a SIM card, please note that you'll need to provide your passport information at the time of delivery as required by Turkish telecommunications regulations.
             </p>
@@ -68,6 +74,7 @@
                 Payment can be made in <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> upon delivery.
             </p>
         </section>
+        <!-- Booking Form Section -->
         <section id="booking-form">
             <h3>Complete Your Order</h3>
             <form id="bookingForm" onsubmit="return sendToTelegram(event)">
@@ -79,6 +86,7 @@
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
                 
+                <!-- Date Inputs -->
                 <div class="datetime-container">
                     <div>
                         <label for="arrival-date">Starting Date:</label>
@@ -91,12 +99,13 @@
                 <input type="text" id="room" name="room">
                 
                 <label for="package">Package:</label>
+                <!-- NEW PACKAGE NAMES -->
                 <select id="package" name="package" required>
                     <option value="">-- Select a package --</option>
-                    <option value="5GB Monthly Package - 10€">5GB Monthly Package - 10€</option>
-                    <option value="10GB Monthly Package - 15€">10GB Monthly Package - 15€</option>
-                    <option value="20GB Monthly Package - 20€">20GB Monthly Package - 20€</option>
-                    <option value="50GB Premium Monthly Package - 40€">50GB Premium Monthly Package - 40€</option>
+                    <option value="5GB Basic Package - 10€">5GB Basic Package - 10€</option>
+                    <option value="10GB Standard Package - 15€">10GB Standard Package - 15€</option>
+                    <option value="20GB Plus Package - 20€">20GB Plus Package - 20€</option>
+                    <option value="50GB Premium Package - 40€">50GB Premium Package - 40€</option>
                 </select>
                 <div class="error-message" id="package-error">Package selection is required</div>
                 
@@ -128,13 +137,13 @@
                         // Map URL parameter to package selection
                         let selectedIndex = 0;
                         
-                        if (packageParam === '7Days' || packageParam === '5GB') {
+                        if (packageParam === 'Basic') {
                             selectedIndex = 1; 
-                        } else if (packageParam === '15Days' || packageParam === '10GB') {
+                        } else if (packageParam === 'Standard') {
                             selectedIndex = 2; 
-                        } else if (packageParam === '30Days' || packageParam === '20GB') {
+                        } else if (packageParam === 'Plus') {
                             selectedIndex = 3; 
-                        } else if (packageParam === 'Premium' || packageParam === '50GB') {
+                        } else if (packageParam === 'Premium') {
                             selectedIndex = 4; 
                         }
                         
@@ -162,46 +171,43 @@
                     });
                 });
                                 
-                // DETAILS UPDATED TO MONTHLY FORMAT FOR ALL
+                // DETAILS UPDATED TO MATCH NEW NAMES
                 function updatePackageDetails(packageValue) {
                     if (!packageValue) return;
                     
                     const packageDetailsDiv = document.getElementById('package-details');
                     let packageInfo = '';
                     
-                    if (packageValue.includes('5GB')) {
+                    if (packageValue.includes('Basic')) {
                         packageInfo = `
                             <div class="package-info">
-                                <h3>5GB Monthly Package</h3>
-                                <p>You've selected our <strong>5GB package</strong> with high-speed data.</p>
-                                <p>This package is valid for 30 days.</p>
+                                <h3>5GB Basic Package</h3>
+                                <p>You've selected our <strong>5GB Basic package</strong> with high-speed data.</p>
                                 <p class="price">Price: <span class="currency">10€</span></p>
                             </div>
                         `;
-                    } else if (packageValue.includes('10GB')) {
+                    } else if (packageValue.includes('Standard')) {
                         packageInfo = `
                             <div class="package-info">
-                                <h3>10GB Monthly Package</h3>
-                                <p>You've selected our <strong>10GB package</strong> with high-speed data.</p>
-                                <p>This package is valid for 30 days.</p>
+                                <h3>10GB Standard Package</h3>
+                                <p>You've selected our <strong>10GB Standard package</strong> with high-speed data.</p>
                                 <p class="price">Price: <span class="currency">15€</span></p>
                             </div>
                         `;
-                    } else if (packageValue.includes('50GB')) {
+                    } else if (packageValue.includes('Premium')) {
                         packageInfo = `
                             <div class="package-info premium">
-                                <h3>50GB Premium Monthly Package</h3>
+                                <h3>50GB Premium Package</h3>
                                 <p>You've selected our <strong>50GB Premium package</strong> with high-speed data.</p>
-                                <p>This premium package is valid for 30 days and includes extra services and premium support.</p>
+                                <p>This premium package includes extra services and premium support.</p>
                                 <p class="price">Price: <span class="currency premium-currency">40€</span></p>
                             </div>
                         `;
-                    } else if (packageValue.includes('20GB')) {
+                    } else if (packageValue.includes('Plus')) {
                         packageInfo = `
                             <div class="package-info">
-                                <h3>20GB Monthly Package</h3>
-                                <p>You've selected our <strong>20GB package</strong> with high-speed data.</p>
-                                <p>This package is valid for 30 days.</p>
+                                <h3>20GB Plus Package</h3>
+                                <p>You've selected our <strong>20GB Plus package</strong> with high-speed data.</p>
                                 <p class="price">Price: <span class="currency">20€</span></p>
                             </div>
                         `;
@@ -313,6 +319,7 @@
                     return false;
                 }
             </script>
+            <!-- Flatpickr JS -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>

@@ -3,45 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book SPA Service</title>
-    <link rel="stylesheet" href="spa-order.css" />
-    <!-- Flatpickr CSS -->
+    <title>Book SPA Service | Katelya Hotel</title>
+    <link rel="stylesheet" href="spa-order.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        /* Form validation styles */
-        input.error, textarea.error, select.error {
-            border: 2px solid #ff3860 !important;
-            background-color: #ffefef;
-        }
-        
-        .error-message {
-            color: #ff3860;
-            font-size: 14px;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            display: none;
-        }
-        
-        /* Style for the button when disabled */
-        button[type="submit"]:disabled {
-            background-color: #999;
-            cursor: not-allowed;
-        }
-    </style>
+<base target="_blank">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="logo">
-        </div>
-        <div class="hotel-name">
-            <h1>Katelya Hotel</h1>
-        </div>
+        <div class="hotel-name"><h1>Katelya Hotel</h1></div>
         <nav>
-            <!-- Return button with icon -->
             <button class="return-btn" onclick="window.location.href='Turkish-Bath-&-SPA.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -51,46 +22,35 @@
             </button>
         </nav>
     </header>
-    
-    <!-- Main Content -->
+
     <main>
         <section id="service-explanation">
             <h2>Book Your SPA Experience</h2>
-            <div id="package-details">
-                <!-- Package details will be filled dynamically -->
-            </div>
-            <p>
-                Experience authentic Turkish wellness traditions in our luxury spa facility. Our professional therapists use traditional techniques passed down through generations.
-            </p>
-            <p>
-                All spa packages include access to our premium facilities: Turkish bath, sauna, steam room, and relaxation lounge with complimentary refreshments. <strong>Free hotel transfer service is provided for all guests.</strong>
-            </p>
-            <p>
-                Payment can be made in <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> at the spa reception.
-            </p>
+            <div id="package-details"></div>
+            <p>Experience authentic Turkish wellness traditions in our luxury spa facility. Our professional therapists use traditional techniques passed down through generations.</p>
+            <p>All spa packages include access to our premium facilities: Turkish bath, sauna, steam room, and relaxation lounge with complimentary refreshments. <strong>Free hotel transfer service is provided for all guests.</strong></p>
+            <p>Payment can be made in <strong>Turkish Lira (TL), US Dollar (USD), or Euro (EUR)</strong> at the spa reception.</p>
         </section>
-        
-        <!-- Booking Form Section -->
+
         <section id="booking-form">
             <h3>Complete Your Spa Reservation</h3>
-            <form id="bookingForm" onsubmit="return sendToTelegram(event)">
-                <label for="name">Full Name:</label>
+            <form id="bookingForm" onsubmit="return handleSubmit(event)">
+                <label for="name">Full Name *</label>
                 <input type="text" id="name" name="name" required>
                 <div class="error-message" id="name-error">Full name is required</div>
-                
-                <label for="phone">Phone Number:</label>
+
+                <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
-                
-                <!-- Date and Time Inputs -->
+
                 <div class="datetime-container">
                     <div>
-                        <label for="appointment-date">Preferred Date:</label>
+                        <label for="appointment-date">Preferred Date *</label>
                         <input type="text" id="appointment-date" name="appointment-date" placeholder="Select date" required>
                         <div class="error-message" id="appointment-date-error">Appointment date is required</div>
                     </div>
                     <div>
-                        <label for="appointment-time">Preferred Time:</label>
+                        <label for="appointment-time">Preferred Time *</label>
                         <select id="appointment-time" name="appointment-time" required>
                             <option value="">-- Select time --</option>
                             <option value="09:00">09:00 AM</option>
@@ -108,286 +68,193 @@
                     </div>
                 </div>
 
-                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+                <label for="room">Room Number <span class="optional-text">(Optional — only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
-                
-                <label for="service">Service Package:</label>
+
+                <label for="service">Service Package *</label>
                 <select id="service" name="service" required>
                     <option value="">-- Select a service --</option>
                     <optgroup label="Turkish Bath Packages">
-                        <option value="Traditional Turkish Hamam - 60min - 55€">Traditional Turkish Hamam - 60min - 55€</option>
-                        <option value="Sea Salt/Coffee Hamam - 75min - 65€">Sea Salt/Coffee Hamam - 75min - 65€</option>
-                        <option value="Sultan Hamam & Massage - 90min - 75€">Sultan Hamam & Massage - 90min - 75€</option>
-                        <option value="Self Service Turkish Hamam - 3hrs - 45€">Self Service Turkish Hamam - 3hrs - 45€</option>
+                        <option value="Traditional Turkish Hamam - 60min - 55€">Traditional Turkish Hamam — 60min — 55€</option>
+                        <option value="Sea Salt/Coffee Hamam - 75min - 65€">Sea Salt/Coffee Hamam — 75min — 65€</option>
+                        <option value="Sultan Hamam & Massage - 90min - 75€">Sultan Hamam & Massage — 90min — 75€</option>
+                        <option value="Self Service Turkish Hamam - 3hrs - 45€">Self Service Turkish Hamam — 3hrs — 45€</option>
                     </optgroup>
                     <optgroup label="Massage Therapies (30min)">
-                        <option value="Back Massage - 30min - 35€">Back Massage - 30min - 35€</option>
-                        <option value="Foot Massage - 30min - 35€">Foot Massage - 30min - 35€</option>
-                        <option value="Bali Massage - 30min - 35€">Bali Massage - 30min - 35€</option>
-                        <option value="Aromatherapy Massage - 30min - 35€">Aromatherapy Massage - 30min - 35€</option>
-                        <option value="Anti-stress Massage - 30min - 35€">Anti-stress Massage - 30min - 35€</option>
-                        <option value="Deep Tissue Massage - 30min - 35€">Deep Tissue Massage - 30min - 35€</option>
-                        <option value="Swedish Massage - 30min - 35€">Swedish Massage - 30min - 35€</option>
+                        <option value="Back Massage - 30min - 35€">Back Massage — 30min — 35€</option>
+                        <option value="Foot Massage - 30min - 35€">Foot Massage — 30min — 35€</option>
+                        <option value="Bali Massage - 30min - 35€">Bali Massage — 30min — 35€</option>
+                        <option value="Aromatherapy Massage - 30min - 35€">Aromatherapy Massage — 30min — 35€</option>
+                        <option value="Anti-stress Massage - 30min - 35€">Anti-stress Massage — 30min — 35€</option>
+                        <option value="Deep Tissue Massage - 30min - 35€">Deep Tissue Massage — 30min — 35€</option>
+                        <option value="Swedish Massage - 30min - 35€">Swedish Massage — 30min — 35€</option>
                     </optgroup>
                     <optgroup label="Massage Therapies (60min)">
-                        <option value="Back Massage - 60min - 65€">Back Massage - 60min - 65€</option>
-                        <option value="Foot Massage - 60min - 65€">Foot Massage - 60min - 65€</option>
-                        <option value="Bali Massage - 60min - 65€">Bali Massage - 60min - 65€</option>
-                        <option value="Aromatherapy Massage - 60min - 65€">Aromatherapy Massage - 60min - 65€</option>
-                        <option value="Anti-stress Massage - 60min - 65€">Anti-stress Massage - 60min - 65€</option>
-                        <option value="Deep Tissue Massage - 60min - 65€">Deep Tissue Massage - 60min - 65€</option>
-                        <option value="Swedish Massage - 60min - 65€">Swedish Massage - 60min - 65€</option>
-                        <option value="Hot Stone Massage - 30min - 65€">Hot Stone Massage - 30min - 65€</option>
-                        <option value="Hot Stone Massage - 60min - 110€">Hot Stone Massage - 60min - 110€</option>
-                        <option value="Four Hands Massage - 30min - 65€">Four Hands Massage - 30min - 65€</option>
-                        <option value="Four Hands Massage - 60min - 110€">Four Hands Massage - 60min - 110€</option>
-                        <option value="Shiatsu Massage - 30min - 65€">Shiatsu Massage - 30min - 65€</option>
-                        <option value="Shiatsu Massage - 60min - 110€">Shiatsu Massage - 60min - 110€</option>
-                        <option value="Thai Massage - 30min - 65€">Thai Massage - 30min - 65€</option>
-                        <option value="Thai Massage - 60min - 110€">Thai Massage - 60min - 110€</option>
-                        <option value="Sport Massage - 30min - 65€">Sport Massage - 30min - 65€</option>
-                        <option value="Sport Massage - 60min - 110€">Sport Massage - 60min - 110€</option>
+                        <option value="Back Massage - 60min - 65€">Back Massage — 60min — 65€</option>
+                        <option value="Foot Massage - 60min - 65€">Foot Massage — 60min — 65€</option>
+                        <option value="Bali Massage - 60min - 65€">Bali Massage — 60min — 65€</option>
+                        <option value="Aromatherapy Massage - 60min - 65€">Aromatherapy Massage — 60min — 65€</option>
+                        <option value="Anti-stress Massage - 60min - 65€">Anti-stress Massage — 60min — 65€</option>
+                        <option value="Deep Tissue Massage - 60min - 65€">Deep Tissue Massage — 60min — 65€</option>
+                        <option value="Swedish Massage - 60min - 65€">Swedish Massage — 60min — 65€</option>
+                        <option value="Hot Stone Massage - 30min - 65€">Hot Stone Massage — 30min — 65€</option>
+                        <option value="Hot Stone Massage - 60min - 110€">Hot Stone Massage — 60min — 110€</option>
+                        <option value="Four Hands Massage - 30min - 65€">Four Hands Massage — 30min — 65€</option>
+                        <option value="Four Hands Massage - 60min - 110€">Four Hands Massage — 60min — 110€</option>
+                        <option value="Shiatsu Massage - 30min - 65€">Shiatsu Massage — 30min — 65€</option>
+                        <option value="Shiatsu Massage - 60min - 110€">Shiatsu Massage — 60min — 110€</option>
+                        <option value="Thai Massage - 30min - 65€">Thai Massage — 30min — 65€</option>
+                        <option value="Thai Massage - 60min - 110€">Thai Massage — 60min — 110€</option>
+                        <option value="Sport Massage - 30min - 65€">Sport Massage — 30min — 65€</option>
+                        <option value="Sport Massage - 60min - 110€">Sport Massage — 60min — 110€</option>
                     </optgroup>
                 </select>
                 <div class="error-message" id="service-error">Service selection is required</div>
-                
-                <label for="notes">Special Requests or Health Considerations:</label>
+
+                <label for="notes">Special Requests or Health Considerations</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Please let us know about any allergies, health conditions, or special preferences..."></textarea>
-                
+
                 <button type="submit" id="submitBtn">Book Appointment</button>
             </form>
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        // Initialize Flatpickr for date input
-        document.addEventListener("DOMContentLoaded", function () {
-            // Date picker
-            flatpickr("#appointment-date", {
-                dateFormat: "Y-m-d",
-                minDate: "today",
-                locale: "en",
-                onChange: function() {
-                    validateField('appointment-date');
-                }
-            });
-            
-            // Get URL parameters to pre-select service
+        const PACKAGE_MAP = {
+            'Traditional': 'Traditional Turkish Hamam - 60min - 55€',
+            'SeaSalt': 'Sea Salt/Coffee Hamam - 75min - 65€',
+            'Sultan': 'Sultan Hamam & Massage - 90min - 75€',
+            'SelfService': 'Self Service Turkish Hamam - 3hrs - 45€'
+        };
+
+        const PACKAGE_DETAILS = {
+            'Traditional Turkish Hamam': {
+                html: `<div class="package-info"><h3>Traditional Turkish Hamam Package</h3><p>You've selected our <strong>Traditional Turkish Hamam</strong> experience (60 minutes).</p><p>Includes: 30 minutes traditional body scrub with kese mitt, full body foam massage with lavender soap on warm marble stone, natural clay face mask.</p><p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p><p><strong>Free hotel transfer included</strong></p><p class="price">Price: <span class="currency">55€</span></p></div>`,
+                price: '55€'
+            },
+            'Sea Salt/Coffee Hamam': {
+                html: `<div class="package-info"><h3>Sea Salt or Coffee Hamam Package</h3><p>You've selected our <strong>Sea Salt/Coffee Hamam</strong> experience (75 minutes).</p><p>Includes: 15 minutes traditional body scrub with kese mitt, 30 minutes deep peeling using sea salt or coffee, full body foam massage with lavender soap, natural clay face mask.</p><p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p><p><strong>Free hotel transfer included</strong></p><p class="price">Price: <span class="currency">65€</span></p></div>`,
+                price: '65€'
+            },
+            'Sultan Hamam & Massage': {
+                html: `<div class="package-info premium"><h3>Sultan Hamam and Massage Package</h3><p>You've selected our <strong>Premium Sultan Package</strong> (90 minutes).</p><p>Includes: 30 minutes traditional body scrub with kese mitt, full body foam massage, 30 minutes anti-stress massage in private room using organic oils, natural clay face mask.</p><p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p><p><strong>Free hotel transfer included</strong></p><p class="price">Price: <span class="currency premium-currency">75€</span></p></div>`,
+                price: '75€'
+            },
+            'Self Service Turkish Hamam': {
+                html: `<div class="package-info"><h3>Self Service Turkish Hamam</h3><p>You've selected our <strong>Self Service Turkish Hamam</strong> (3 hours access).</p><p>Includes: Self-service access to heated Turkish bath with all amenities, natural clay face mask provided.</p><p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p><p><strong>Free hotel transfer included</strong></p><p class="price">Price: <span class="currency">45€</span></p></div>`,
+                price: '45€'
+            }
+        };
+
+        function updatePackageDetails(value) {
+            if (!value) return;
+            const container = document.getElementById('package-details');
+            let html = '';
+
+            if (value.includes('Traditional Turkish Hamam')) {
+                html = PACKAGE_DETAILS['Traditional Turkish Hamam'].html;
+            } else if (value.includes('Sea Salt/Coffee Hamam')) {
+                html = PACKAGE_DETAILS['Sea Salt/Coffee Hamam'].html;
+            } else if (value.includes('Sultan Hamam & Massage')) {
+                html = PACKAGE_DETAILS['Sultan Hamam & Massage'].html;
+            } else if (value.includes('Self Service Turkish Hamam')) {
+                html = PACKAGE_DETAILS['Self Service Turkish Hamam'].html;
+            } else if (value.includes('Massage')) {
+                const isExpensive = value.includes('110€');
+                html = `<div class="package-info ${isExpensive ? 'premium' : ''}"><h3>Professional Massage Therapy</h3><p>You've selected: <strong>${value.split(' - ')[0]}</strong></p><p>Our professional therapists will provide you with a rejuvenating massage experience using premium oils and techniques. <strong>Free hotel transfer included.</strong></p><p class="price">Price: <span class="currency ${isExpensive ? 'premium-currency' : ''}">${value.split(' - ').pop()}</span></p></div>`;
+            }
+
+            container.innerHTML = html;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr('#appointment-date', { dateFormat: 'Y-m-d', minDate: 'today', locale: 'en' });
+
             const urlParams = new URLSearchParams(window.location.search);
             const packageParam = urlParams.get('package');
-            
-            if (packageParam) {
-                const serviceSelect = document.getElementById('service');
-                let selectedValue = '';
-                
-                // Map URL parameter to service selection
-                if (packageParam === 'Traditional') {
-                    selectedValue = 'Traditional Turkish Hamam - 60min - 55€';
-                } else if (packageParam === 'SeaSalt') {
-                    selectedValue = 'Sea Salt/Coffee Hamam - 75min - 65€';
-                } else if (packageParam === 'Sultan') {
-                    selectedValue = 'Sultan Hamam & Massage - 90min - 75€';
-                } else if (packageParam === 'SelfService') {
-                    selectedValue = 'Self Service Turkish Hamam - 3hrs - 45€';
-                }
-                
-                if (selectedValue) {
-                    serviceSelect.value = selectedValue;
-                    updatePackageDetails(selectedValue);
-                }
+            const serviceSelect = document.getElementById('service');
+
+            if (packageParam && PACKAGE_MAP[packageParam]) {
+                serviceSelect.value = PACKAGE_MAP[packageParam];
+                updatePackageDetails(serviceSelect.value);
             }
-            
-            // Add change event to update package details
-            document.getElementById('service').addEventListener('change', function() {
+
+            serviceSelect.addEventListener('change', function() {
                 updatePackageDetails(this.value);
                 validateField('service');
             });
-            
-            // Add input validation event listeners
-            document.getElementById('name').addEventListener('input', function() {
-                validateField('name');
+
+            ['name', 'phone'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', () => validateField(id));
             });
-            
-            document.getElementById('phone').addEventListener('input', function() {
-                validateField('phone');
-            });
-            
-            document.getElementById('appointment-time').addEventListener('change', function() {
-                validateField('appointment-time');
-            });
+
+            document.getElementById('appointment-time').addEventListener('change', () => validateField('appointment-time'));
         });
-        
-        function updatePackageDetails(serviceValue) {
-            if (!serviceValue) return;
-            
-            const packageDetailsDiv = document.getElementById('package-details');
-            let packageInfo = '';
-            
-            if (serviceValue.includes('Traditional Turkish Hamam')) {
-                packageInfo = `
-                    <div class="package-info">
-                        <h3>Traditional Turkish Hamam Package</h3>
-                        <p>You've selected our <strong>Traditional Turkish Hamam</strong> experience (60 minutes).</p>
-                        <p>Includes: 30 minutes traditional body scrub with kese mitt, full body foam massage with lavender soap on warm marble stone, natural clay face mask.</p>
-                        <p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p>
-                        <p><strong>Free hotel transfer included</strong></p>
-                        <p class="price">Price: <span class="currency">55€</span></p>
-                    </div>
-                `;
-            } else if (serviceValue.includes('Sea Salt/Coffee Hamam')) {
-                packageInfo = `
-                    <div class="package-info">
-                        <h3>Sea Salt or Coffee Hamam Package</h3>
-                        <p>You've selected our <strong>Sea Salt/Coffee Hamam</strong> experience (75 minutes).</p>
-                        <p>Includes: 15 minutes traditional body scrub with kese mitt, 30 minutes deep peeling using sea salt or coffee, full body foam massage with lavender soap, natural clay face mask.</p>
-                        <p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p>
-                        <p><strong>Free hotel transfer included</strong></p>
-                        <p class="price">Price: <span class="currency">65€</span></p>
-                    </div>
-                `;
-            } else if (serviceValue.includes('Sultan Hamam & Massage')) {
-                packageInfo = `
-                    <div class="package-info premium">
-                        <h3>Sultan Hamam and Massage Package</h3>
-                        <p>You've selected our <strong>Premium Sultan Package</strong> (90 minutes).</p>
-                        <p>Includes: 30 minutes traditional body scrub with kese mitt, full body foam massage, 30 minutes anti-stress massage in private room using organic oils, natural clay face mask.</p>
-                        <p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p>
-                        <p><strong>Free hotel transfer included</strong></p>
-                        <p class="price">Price: <span class="currency premium-currency">75€</span></p>
-                    </div>
-                `;
-            } else if (serviceValue.includes('Self Service Turkish Hamam')) {
-                packageInfo = `
-                    <div class="package-info">
-                        <h3>Self Service Turkish Hamam</h3>
-                        <p>You've selected our <strong>Self Service Turkish Hamam</strong> (3 hours access).</p>
-                        <p>Includes: Self-service access to heated Turkish bath with all amenities, natural clay face mask provided.</p>
-                        <p><strong>Complimentary access to:</strong> Sauna, Steam Room, Relaxation Lounge</p>
-                        <p><strong>Free hotel transfer included</strong></p>
-                        <p class="price">Price: <span class="currency">45€</span></p>
-                    </div>
-                `;
-            } else if (serviceValue.includes('Massage')) {
-                const isExpensive = serviceValue.includes('110€');
-                packageInfo = `
-                    <div class="package-info ${isExpensive ? 'premium' : ''}">
-                        <h3>Professional Massage Therapy</h3>
-                        <p>You've selected: <strong>${serviceValue.split(' - ')[0]}</strong></p>
-                        <p>Our professional therapists will provide you with a rejuvenating massage experience using premium oils and techniques. <strong>Free hotel transfer included.</strong></p>
-                        <p class="price">Price: <span class="currency ${isExpensive ? 'premium-currency' : ''}">${serviceValue.split(' - ').pop()}</span></p>
-                    </div>
-                `;
-            }
-            
-            packageDetailsDiv.innerHTML = packageInfo;
-        }
-        
-        // Function to validate a single field
-        function validateField(fieldName) {
-            const field = document.getElementById(fieldName);
-            const errorMessage = document.getElementById(fieldName + '-error');
-            
+
+        function validateField(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById(fieldId + '-error');
+            if (!field || !errorEl) return true;
             if (field.hasAttribute('required') && !field.value.trim()) {
                 field.classList.add('error');
-                errorMessage.style.display = 'block';
+                errorEl.style.display = 'block';
                 return false;
             } else {
                 field.classList.remove('error');
-                errorMessage.style.display = 'none';
+                errorEl.style.display = 'none';
                 return true;
             }
         }
-        
-        // Function to validate the entire form
+
         function validateForm() {
-            const requiredFields = ['name', 'phone', 'appointment-date', 'appointment-time', 'service'];
-            let isValid = true;
-            
-            for (const field of requiredFields) {
-                if (!validateField(field)) {
-                    isValid = false;
-                }
-            }
-            
-            return isValid;
+            return ['name', 'phone', 'appointment-date', 'appointment-time', 'service'].every(validateField);
         }
 
-        // Function to send data to Telegram Bot
-        function sendToTelegram(event) {
+        async function handleSubmit(event) {
             event.preventDefault();
-            
-            // Validate the form before submission
-            if (!validateForm()) {
-                return false;
-            }
+            if (!validateForm()) return false;
 
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const appointmentDate = document.getElementById('appointment-date').value;
-            const appointmentTime = document.getElementById('appointment-time').value;
-            const room = document.getElementById('room').value || 'Not provided';
-            const service = document.getElementById('service').value;
-            const userNotes = document.getElementById('notes').value || '';
-            
-            // Create enhanced notes with service and time info
-            const enhancedNotes = `🕐 Appointment Time: ${appointmentTime}
-📋 Selected Service: ${service}
-${userNotes ? `\n💬 Additional Notes: ${userNotes}` : ''}`;
-            
-            // Show loading or processing message
-            const submitButton = document.querySelector('button[type="submit"]');
-            submitButton.textContent = "Booking...";
-            submitButton.disabled = true;
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Booking...';
+            submitBtn.disabled = true;
 
-            // Prepare data to send to your Telegram bot API
+            const serviceValue = document.getElementById('service').value;
+            const userNotes = document.getElementById('notes').value.trim();
+            const enhancedNotes = `🕐 Appointment Time: ${document.getElementById('appointment-time').value}\n📋 Selected Service: ${serviceValue}${userNotes ? '\n💬 Additional Notes: ' + userNotes : ''}`;
+
             const formData = {
-                name: name,
-                phone: phone,
-                arrivalDate: appointmentDate,
-                room: room,
-                packageType: service,
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                arrivalDate: document.getElementById('appointment-date').value,
+                room: document.getElementById('room').value.trim() || 'Not provided',
+                packageType: serviceValue,
                 notes: enhancedNotes,
-                serviceType: "SPA Booking"
+                serviceType: 'SPA Booking'
             };
 
-            // Send data to your Telegram bot server
-            fetch('https://toursgate.pythonanywhere.com/send-reservation', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Reset button
-                submitButton.textContent = "Book Appointment";
-                submitButton.disabled = false;
-
+            try {
+                const response = await fetch('https://katelya-hotel.aladhefealquraan.workers.dev/send-reservation', {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const data = await response.json();
                 if (data.success) {
-                    // Redirect to thank you page on success
-                    window.location.href = "spa-thank-you.html";
+                    window.location.href = 'spa-thank-you.html';
                 } else {
-                    // Show error if the request failed
-                    alert('There was an error submitting your booking. Please try again.');
-                    console.error('Error:', data.error);
+                    throw new Error(data.message || 'Server error');
                 }
-            })
-            .catch(error => {
-                // Reset button and show error
-                submitButton.textContent = "Book Appointment";
-                submitButton.disabled = false;
-                
-                console.error('Error:', error);
-                alert('There was an error submitting your booking. Please try again.');
-            });
-            
+            } catch (error) {
+                console.error('Submit error:', error);
+                alert('There was an error submitting your booking. Please try again or contact reception.');
+                submitBtn.textContent = 'Book Appointment';
+                submitBtn.disabled = false;
+            }
             return false;
         }
     </script>
-    
-    <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>

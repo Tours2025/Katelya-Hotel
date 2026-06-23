@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Katelya Hotel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hotel-name h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .home-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .home-button:hover {
+            background-color: #333;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 30px 15px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hotel-name">
+            <h1>Katelya Hotel</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="icon">✅</div>
+        <h2>Thank You!</h2>
+        <p>Your request has been successfully submitted.</p>
+        <p>Our team will contact you shortly to confirm your booking.</p>
+        <a href="../main.html" class="home-button">Return to Home</a>
+    </div>
+</body>
+</html>

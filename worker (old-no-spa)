@@ -1,0 +1,205 @@
+export default {
+  async fetch(request, env, ctx) {
+    // 1. Configure CORS (Replaces Flask-CORS)
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, Accept",
+    };
+
+    // Handle preflight requests
+    if (request.method === "OPTIONS") {
+      return new Response(null, { headers: corsHeaders });
+    }
+
+    const url = new URL(request.url);
+
+    // 2. Load Environment Variables (with your exact fallbacks)
+    const BOT_TOKEN = env.BOT_TOKEN || '7965204613:AAHSui33BbEb_xZELg32STQ-spidi609YSQ';
+    const PERSONAL_CHAT_ID = env.PERSONAL_CHAT_ID || '709944787';
+    const CHANNEL_CHAT_ID = env.CHANNEL_CHAT_ID || '-1002501641816';
+    const CHAT_IDS = [PERSONAL_CHAT_ID, CHANNEL_CHAT_ID].filter(id => id.trim() !== '');
+
+    // ==========================================
+    // ROUTE: Home Check ( / )
+    // ==========================================
+    if (url.pathname === "/" || url.pathname === "") {
+      return new Response(JSON.stringify({ message: 'Telegram Bot Server is running on Cloudflare!' }), {
+        status: 200,
+        headers: { "Content-Type": "application/json", ...corsHeaders }
+      });
+    }
+
+    // ==========================================
+    // ROUTE: Test Bot ( /test-bot )
+    // ==========================================
+    if (url.pathname === "/test-bot" && request.method === "GET") {
+      try {
+        let success_count = 0;
+        const results = [];
+
+        for (const chat_id of CHAT_IDS) {
+          const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+          const payload = {
+            chat_id: chat_id.trim(),
+            text: `🧪 *Bot Test Message*\n\nThis is a test message to verify that your Worker is working correctly. Sending to chat ID: ${chat_id}`,
+            parse_mode: 'Markdown'
+          };
+
+          const response = await fetch(telegramUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          
+          const response_data = await response.json();
+          const success = response.ok && response_data.ok;
+          if (success) success_count++;
+          
+          results.push({ chat_id, success, response: response_data });
+        }
+
+        return new Response(JSON.stringify({
+          success: success_count > 0,
+          message: `Test message sent to ${success_count} out of ${CHAT_IDS.length} recipient(s)`,
+          results: results
+        }), { 
+          status: success_count > 0 ? 200 : 500, 
+          headers: { "Content-Type": "application/json", ...corsHeaders } 
+        });
+
+      } catch (error) {
+        return new Response(JSON.stringify({ success: false, message: 'Failed to send test message', error: error.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders }
+        });
+      }
+    }
+
+    // ==========================================
+    // ROUTE: Send Reservation ( /send-reservation )
+    // ==========================================
+    if (url.pathname === "/send-reservation" && request.method === "POST") {
+      try {
+        const data = await request.json();
+
+        // Extract reservation details (flexible mapping)
+        const name = data.name || '';
+        const phone = data.phone || '';
+        const tour_date = data.tourDate || data.date || data.arrivalDate || '';
+        const tour_time = data.tourTime || data.time || '';
+        const service_type = data.serviceType || 'Hotel Service Request';
+        
+        // Additional fields
+        const flight = data.flight || '';
+        const participants = data.participants || '';
+        const dietary_restrictions = data.dietaryRestrictions || data.isVegetarian || 'No';
+        const balloon_ride = data.balloonRide || 'No';
+        const extra_activities = data.extraActivities || 'No';
+        const bicycle_rental = data.bicycleRental || 'No';
+        const package_type = data.packageType || data.package || ''; 
+        const tour_price = data.tourPrice || '';
+        const tour_type = data.tourType || '';
+        const duration = data.duration || '';
+        const guide_language = data.guideLanguage || '';
+        const room = data.room || 'Not staying at hotel';
+        const special_interests = data.specialInterests || '';
+        const notes = data.notes || 'No notes provided';
+
+        let message = "";
+
+        // Format message based on service type
+        if (service_type.includes("Dinner Cruise")) {
+          message = `🚢 *NEW BOSPHORUS DINNER CRUISE BOOKING* 🚢\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🍹 *Package:* ${package_type}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Bosphorus Tour")) {
+          const total_price = (tour_price && participants) ? (parseFloat(tour_price) * parseInt(participants, 10)) : 'Not calculated';
+          message = `🚢 *NEW BOSPHORUS TOUR BOOKING* 🚢\n\n🏨 *Tour Type:* ${tour_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n💰 *Price Per Person:* ${tour_price} €\n💰 *Total Price:* ${total_price} €\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Private Tour Guide")) {
+          message = `🧭 *NEW PRIVATE TOUR GUIDE BOOKING* 🧭\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Tour Date:* ${tour_date}\n⏱️ *Duration:* ${duration}\n👥 *Number of Participants:* ${participants}\n🗣️ *Preferred Guide Language:* ${guide_language}\n🛏️ *Room Number:* ${room}\n🎯 *Special Interests:* ${special_interests}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("SIM Card")) {
+          message = `📱 *NEW SIM CARD ORDER* 📱\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Starting Date:* ${tour_date}\n🏨 *Room Number:* ${room}\n📦 *Package:* ${package_type}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Taxi")) {
+          message = `🚕 *NEW TAXI SERVICE REQUEST* 🚕\n\n🏨 *Service Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n⏱️ *Time:* ${tour_time}\n🛏️ *Room Number:* ${room}\n📝 *Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Airport Transfer")) {
+          message = `🚐 *NEW AIRPORT TRANSFER REQUEST* 🚐\n\n🏨 *Service Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n⏱️ *Time:* ${tour_time}\n✈️ *Flight Number:* ${flight}\n🛏️ *Room Number:* ${room}\n📝 *Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Şile & Ağva")) {
+          message = `🏖️ *NEW ŞILE & AĞVA TOUR BOOKING* 🏖️\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Sapanca")) {
+          message = `🌲 *NEW SAPANCA & MAŞUKIYE TOUR BOOKING* 🌲\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🚵 *Interested in Extra Activities:* ${extra_activities}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Princess Islands")) {
+          message = `🏝️ *NEW PRINCESS ISLANDS TOUR BOOKING* 🏝️\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🚲 *Interested in Bicycle Rental:* ${bicycle_rental}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Bursa")) {
+          message = `🏞️ *NEW BURSA TOUR BOOKING* 🏞️\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Cappadocia")) {
+          message = `🏺 *NEW CAPPADOCIA TOUR BOOKING* 🏺\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Start Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🎈 *Hot Air Balloon Ride:* ${balloon_ride}\n🍽️ *Dietary Restrictions:* ${dietary_restrictions}\n🛏️ *Room Number:* ${room}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else if (service_type.includes("Tour")) {
+          message = `🏛️ *NEW TOUR BOOKING* 🏛️\n\n🏨 *Tour Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n👥 *Number of Participants:* ${participants}\n🛏️ *Room Number:* ${room}\n🍽️ *Dietary Restrictions:* ${dietary_restrictions}\n📝 *Additional Notes:* ${notes}`;
+        
+        } else {
+          message = `🏨 *NEW SERVICE REQUEST* 🏨\n\n🏨 *Service Type:* ${service_type}\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${tour_date}\n🛏️ *Room Number:* ${room}\n📝 *Notes:* ${notes}`;
+        }
+
+        let success_count = 0;
+        let error_messages = [];
+
+        // Broadcast to all channels
+        for (const chat_id of CHAT_IDS) {
+          const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+          const payload = {
+            chat_id: chat_id.trim(),
+            text: message,
+            parse_mode: 'Markdown'
+          };
+
+          const response = await fetch(telegramUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          
+          const response_data = await response.json();
+          
+          if (response.ok && response_data.ok) {
+            success_count++;
+          } else {
+            error_messages.push(`Failed for chat ID ${chat_id}: ${JSON.stringify(response_data)}`);
+          }
+        }
+
+        const response_payload = {
+          success: success_count > 0,
+          message: success_count > 0 ? `Reservation sent to ${success_count} recipient(s) successfully` : 'Failed to send to any recipients',
+          errors: error_messages.length > 0 ? error_messages : null
+        };
+
+        return new Response(JSON.stringify(response_payload), {
+          status: success_count > 0 ? 200 : 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders }
+        });
+
+      } catch (error) {
+        return new Response(JSON.stringify({ success: false, message: 'Failed to process reservation', error: error.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders }
+        });
+      }
+    }
+
+    // Default 404 response
+    return new Response(JSON.stringify({ error: "Endpoint not found" }), { 
+      status: 404, 
+      headers: { "Content-Type": "application/json", ...corsHeaders } 
+    });
+  }
+};

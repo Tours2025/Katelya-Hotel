@@ -3,45 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Tour Guide Booking</title>
-    <link rel="stylesheet" href="Tour-Guide.css" />
-    <!-- Flatpickr CSS -->
+    <title>Private Tour Guide Booking | Katelya Hotel</title>
+    <link rel="stylesheet" href="Tour-Guide.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        /* Form validation styles */
-        input.error, textarea.error, select.error {
-            border: 2px solid #ff3860 !important;
-            background-color: #ffefef;
-        }
-        
-        .error-message {
-            color: #ff3860;
-            font-size: 14px;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            display: none;
-        }
-        
-        /* Style for the button when disabled */
-        button[type="submit"]:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-    </style>
+<base target="_blank">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="logo">
-        </div>
-        <div class="hotel-name">
-            <h1>Katelya Hotel</h1>
-        </div>
+        <div class="hotel-name"><h1>Katelya Hotel</h1></div>
         <nav>
-            <!-- Return button with icon -->
             <button class="return-btn" onclick="window.location.href='../main.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5"></path>
@@ -49,54 +20,39 @@
                 </svg>
                 <span>Back</span>
             </button>
-            
-            
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Private Tour Guide Service</h1>
             <p>Explore Istanbul with a professional, multilingual guide</p>
         </div>
     </section>
-    
-    <!-- Main Content -->
+
     <main>
         <section id="service-explanation">
             <h2>Professional Tour Guide Service</h2>
-            
-            <p>
-                Enhance your Istanbul experience with our professional private tour guide service. Our guides are certified professionals with extensive knowledge of Istanbul's history, culture, and hidden gems.
-            </p>
-            
+            <p>Enhance your Istanbul experience with our professional private tour guide service. Our guides are certified professionals with extensive knowledge of Istanbul's history, culture, and hidden gems.</p>
+
             <div class="features-container">
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-language fa-2x"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-language fa-2x"></i></div>
                     <h3>Multilingual Guides</h3>
                     <p>Our guides are fluent in multiple languages including English, Arabic, German, Spanish, Italian, French, and Turkish.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock fa-2x"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-clock fa-2x"></i></div>
                     <h3>Flexible Duration</h3>
-                    <p>Book your guide for 6-8 hours to explore the city at your own pace.</p>
+                    <p>Book your guide for 6–8 hours to explore the city at your own pace.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt fa-2x"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt fa-2x"></i></div>
                     <h3>Customized Itinerary</h3>
                     <p>Create a personalized itinerary based on your interests or let our guides recommend the best places to visit.</p>
                 </div>
             </div>
-            
+
             <div class="guide-benefits">
                 <h3>Why Book a Private Guide?</h3>
                 <ul>
@@ -108,80 +64,57 @@
                     <li><i class="fas fa-check-circle"></i> Navigate the city confidently with a knowledgeable local</li>
                 </ul>
             </div>
-            
+
             <div class="language-options">
                 <h3>Available Languages</h3>
                 <div class="language-flags">
-                    <div class="language-flag">
-                        <span>🇬🇧</span>
-                        <p>English</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇦🇪</span>
-                        <p>Arabic</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇩🇪</span>
-                        <p>German</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇪🇸</span>
-                        <p>Spanish</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇮🇹</span>
-                        <p>Italian</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇫🇷</span>
-                        <p>French</p>
-                    </div>
-                    <div class="language-flag">
-                        <span>🇹🇷</span>
-                        <p>Turkish</p>
-                    </div>
+                    <div class="language-flag"><span>🇬🇧</span><p>English</p></div>
+                    <div class="language-flag"><span>🇦🇪</span><p>Arabic</p></div>
+                    <div class="language-flag"><span>🇩🇪</span><p>German</p></div>
+                    <div class="language-flag"><span>🇪🇸</span><p>Spanish</p></div>
+                    <div class="language-flag"><span>🇮🇹</span><p>Italian</p></div>
+                    <div class="language-flag"><span>🇫🇷</span><p>French</p></div>
+                    <div class="language-flag"><span>🇹🇷</span><p>Turkish</p></div>
                 </div>
             </div>
         </section>
-        
-        <!-- Booking Form Section -->
+
         <section id="booking-form">
             <h3>Book Your Private Tour Guide</h3>
-            <form id="guideBookingForm" onsubmit="return sendToTelegram(event)">
-                <label for="name">Full Name:</label>
+            <form id="guideBookingForm" onsubmit="return handleSubmit(event)">
+                <label for="name">Full Name *</label>
                 <input type="text" id="name" name="name" required>
                 <div class="error-message" id="name-error">Full name is required</div>
-                
-                <label for="phone">Phone Number:</label>
+
+                <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" name="phone" required>
                 <div class="error-message" id="phone-error">Phone number is required</div>
-                
+
                 <div class="datetime-container">
                     <div>
-                        <label for="tourDate">Tour Date:</label>
+                        <label for="tourDate">Tour Date *</label>
                         <input type="text" id="tourDate" name="tourDate" placeholder="Select date" required>
                         <div class="error-message" id="tourDate-error">Tour date is required</div>
                     </div>
                     <div>
-                        <label for="duration">Duration:</label>
+                        <label for="duration">Duration *</label>
                         <select id="duration" name="duration" required>
                             <option value="6 hours">6 hours</option>
                             <option value="7 hours">7 hours</option>
-                            <option value="8 hours">8 hours</option>
-                            
+                            <option value="8 hours" selected>8 hours</option>
                         </select>
                         <div class="error-message" id="duration-error">Duration is required</div>
                     </div>
                 </div>
-                
+
                 <div class="datetime-container">
                     <div>
-                        <label for="participants">Number of Participants:</label>
+                        <label for="participants">Number of Participants *</label>
                         <input type="number" id="participants" name="participants" min="1" value="2" required>
                         <div class="error-message" id="participants-error">Number of participants is required</div>
                     </div>
                     <div>
-                        <label for="guideLanguage">Preferred Guide Language:</label>
+                        <label for="guideLanguage">Preferred Guide Language *</label>
                         <select id="guideLanguage" name="guideLanguage" required>
                             <option value="English">English</option>
                             <option value="Arabic">Arabic</option>
@@ -194,11 +127,11 @@
                         <div class="error-message" id="guideLanguage-error">Guide language is required</div>
                     </div>
                 </div>
-                
-                <label for="room">Room Number: <span class="optional-text">(Optional - only if you're staying at our hotel)</span></label>
+
+                <label for="room">Room Number <span class="optional-text">(Optional — only if you're staying at our hotel)</span></label>
                 <input type="text" id="room" name="room">
-                
-                <label for="specialInterests">Special Interests: <span class="optional-text">(Optional)</span></label>
+
+                <label for="specialInterests">Special Interests <span class="optional-text">(Optional)</span></label>
                 <select id="specialInterests" name="specialInterests">
                     <option value="">-- Select your main interest --</option>
                     <option value="Historical Sites">Historical Sites</option>
@@ -209,261 +142,91 @@
                     <option value="Photography">Photography</option>
                     <option value="Architecture">Architecture</option>
                 </select>
-                
-                <label for="notes">Additional Notes:</label>
+
+                <label for="notes">Additional Notes</label>
                 <textarea id="notes" name="notes" rows="4" placeholder="Enter any specific places you want to visit, special requirements, or questions..."></textarea>
-                
+
                 <button type="submit" id="submitBtn">Request Tour Guide</button>
             </form>
-            <script>
-                // Initialize Flatpickr for date input
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Date picker
-                    flatpickr("#tourDate", {
-                        dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-                        minDate: "today", // Can't select dates before today
-                        locale: "en", // English localization
-                        onChange: function() {
-                            validateField('tourDate');
-                        }
-                    });
-                    
-                    // Add validation event listeners
-                    document.getElementById('name').addEventListener('input', function() {
-                        validateField('name');
-                    });
-                    
-                    document.getElementById('phone').addEventListener('input', function() {
-                        validateField('phone');
-                    });
-                    
-                    document.getElementById('duration').addEventListener('change', function() {
-                        validateField('duration');
-                    });
-                    
-                    document.getElementById('participants').addEventListener('input', function() {
-                        validateField('participants');
-                    });
-                    
-                    document.getElementById('guideLanguage').addEventListener('change', function() {
-                        validateField('guideLanguage');
-                    });
-                });
-                
-                // Function to validate a single field
-                function validateField(fieldName) {
-                    const field = document.getElementById(fieldName);
-                    const errorMessage = document.getElementById(fieldName + '-error');
-                    
-                    if (field.hasAttribute('required') && !field.value.trim()) {
-                        field.classList.add('error');
-                        errorMessage.style.display = 'block';
-                        return false;
-                    } else {
-                        field.classList.remove('error');
-                        errorMessage.style.display = 'none';
-                        return true;
-                    }
-                }
-                
-                // Function to validate the entire form
-                function validateForm() {
-                    const requiredFields = ['name', 'phone', 'tourDate', 'duration', 'participants', 'guideLanguage'];
-                    let isValid = true;
-                    
-                    for (const field of requiredFields) {
-                        if (!validateField(field)) {
-                            isValid = false;
-                        }
-                    }
-                    
-                    return isValid;
-                }
-
-                function sendToTelegram(event) {
-                    event.preventDefault();
-                    
-                    // Validate the form before submission
-                    if (!validateForm()) {
-                        return false;
-                    }
-            
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const tourDate = document.getElementById('tourDate').value;
-                    const duration = document.getElementById('duration').value;
-                    const participants = document.getElementById('participants').value;
-                    const guideLanguage = document.getElementById('guideLanguage').value;
-                    const room = document.getElementById('room').value || 'Not provided';
-                    const specialInterests = document.getElementById('specialInterests').value || 'None specified';
-                    const notes = document.getElementById('notes').value || 'No notes provided';
-                    
-                    // Show loading state
-                    const submitButton = document.getElementById('submitBtn');
-                    submitButton.textContent = "Sending...";
-                    submitButton.disabled = true;
-
-                    // Prepare data to send to Telegram bot API
-                    const formData = {
-                        name: name,
-                        phone: phone,
-                        tourDate: tourDate,
-                        duration: duration,
-                        participants: participants,
-                        guideLanguage: guideLanguage,
-                        room: room,
-                        specialInterests: specialInterests,
-                        notes: notes,
-                        serviceType: "Private Tour Guide"
-                    };
-
-                    // Send data to Telegram bot server
-                    fetch('https://toursgate.pythonanywhere.com/send-reservation', {
-                        method: 'POST',
-                        mode: 'cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                        },
-                        body: JSON.stringify(formData)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Reset button
-                        submitButton.textContent = "Request Tour Guide";
-                        submitButton.disabled = false;
-
-                        if (data.success) {
-                            // Redirect to thank you page on success
-                            window.location.href = "thank-you.html";
-                        } else {
-                            // Show error if the request failed
-                            alert('There was an error submitting your request. Please try again.');
-                            console.error('Error:', data.error);
-                        }
-                    })
-                    .catch(error => {
-                        // Reset button and show error
-                        submitButton.textContent = "Request Tour Guide";
-                        submitButton.disabled = false;
-                        
-                        console.error('Error:', error);
-                        alert('There was an error submitting your request. Please try again.');
-                    });
-                    
-                    return false;
-                }
-            </script>
-            <script>
-                // Language dropdown functionality
-                const dropdownBtn = document.querySelector('.dropdown-btn');
-                const languageDropdown = document.querySelector('.language-dropdown');
-                const currentLanguage = document.getElementById('current-language');
-                const arOption = document.getElementById('ar-option');
-                const enOption = document.getElementById('en-option');
-                const returnButton = document.querySelector('.return-btn span'); // Get the span inside return button
-                
-                // Set initial language based on current URL
-                function setInitialLanguage() {
-                    // Check if we're in an English folder path
-                    if (window.location.pathname.includes('/en/')) {
-                        selectLanguage('en', 'English', false); // false means don't redirect
-                    } else {
-                        selectLanguage('en', 'English', false); // Default to English
-                    }
-                }
-                
-                // Call this when the page loads
-                setInitialLanguage();
-                
-                // Toggle dropdown display when clicking the button
-                dropdownBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageDropdown.classList.toggle('open');
-                });
-            
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    languageDropdown.classList.remove('open');
-                });
-            
-                // Handle language selection
-                arOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('ar', langText, true, returnText);
-                });
-            
-                enOption.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const langText = this.getAttribute('data-lang-text');
-                    const returnText = this.getAttribute('data-return-text');
-                    selectLanguage('en', langText, true, returnText);
-                });
-            
-                function selectLanguage(lang, displayText, shouldRedirect = true, returnText = null) {
-                    // Update button text
-                    currentLanguage.textContent = displayText;
-                    
-                    // Update return button text if provided
-                    if (returnText && returnButton) {
-                        returnButton.textContent = returnText;
-                    }
-                    
-                    // Update active class
-                    if (lang === 'ar') {
-                        arOption.classList.add('active');
-                        enOption.classList.remove('active');
-                        document.dir = 'rtl'; // Set direction to RTL for Arabic
-                        document.documentElement.lang = 'ar'; // Set lang attribute
-                    } else {
-                        enOption.classList.add('active');
-                        arOption.classList.remove('active');
-                        document.dir = 'ltr'; // Set direction to LTR for English
-                        document.documentElement.lang = 'en'; // Set lang attribute
-                    }
-                    
-                    // Close the dropdown
-                    languageDropdown.classList.remove('open');
-                    
-                    // Redirect to appropriate language version if shouldRedirect is true
-                    if (shouldRedirect) {
-                        redirectToLanguageFolder(lang);
-                    }
-                }
-            
-                // Function to handle language switching
-                function redirectToLanguageFolder(language) {
-                    // Get current URL path
-                    const currentPath = window.location.pathname;
-                    let newPath;
-                    
-                    if (language === 'en') {
-                        // If current path has /ar/ replace it with /en/
-                        if (currentPath.includes('/ar/')) {
-                            newPath = currentPath.replace('/ar/', '/en/');
-                        } else {
-                            // If we're at the root level
-                            newPath = '../en/tour-guide.html';
-                        }
-                    } else if (language === 'ar') {
-                        // If current path has /en/ replace it with /ar/
-                        if (currentPath.includes('/en/')) {
-                            newPath = currentPath.replace('/en/', '/ar/');
-                        } else {
-                            // If we're at the root level
-                            newPath = 'tour-guide.html';
-                        }
-                    }
-                    
-                    window.location.href = newPath;
-                }
-            </script>
-            <!-- Flatpickr JS -->
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr('#tourDate', { dateFormat: 'Y-m-d', minDate: 'today', locale: 'en' });
+
+            ['name', 'phone'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', () => validateField(id));
+            });
+
+            document.getElementById('duration').addEventListener('change', () => validateField('duration'));
+            document.getElementById('participants').addEventListener('input', () => validateField('participants'));
+            document.getElementById('guideLanguage').addEventListener('change', () => validateField('guideLanguage'));
+        });
+
+        function validateField(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById(fieldId + '-error');
+            if (!field || !errorEl) return true;
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                field.classList.add('error');
+                errorEl.style.display = 'block';
+                return false;
+            } else {
+                field.classList.remove('error');
+                errorEl.style.display = 'none';
+                return true;
+            }
+        }
+
+        function validateForm() {
+            return ['name', 'phone', 'tourDate', 'duration', 'participants', 'guideLanguage'].every(validateField);
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            if (!validateForm()) return false;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                tourDate: document.getElementById('tourDate').value,
+                duration: document.getElementById('duration').value,
+                participants: document.getElementById('participants').value,
+                guideLanguage: document.getElementById('guideLanguage').value,
+                room: document.getElementById('room').value.trim() || 'Not provided',
+                specialInterests: document.getElementById('specialInterests').value || 'None specified',
+                notes: document.getElementById('notes').value.trim() || 'No notes provided',
+                serviceType: 'Private Tour Guide'
+            };
+
+            try {
+                const response = await fetch('https://katelya-hotel.aladhefealquraan.workers.dev/send-reservation', {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const data = await response.json();
+                if (data.success) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error(data.message || 'Server error');
+                }
+            } catch (error) {
+                console.error('Submit error:', error);
+                alert('There was an error submitting your request. Please try again or contact reception.');
+                submitBtn.textContent = 'Request Tour Guide';
+                submitBtn.disabled = false;
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>

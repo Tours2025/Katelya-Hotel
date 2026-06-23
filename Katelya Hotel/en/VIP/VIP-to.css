@@ -1,3 +1,9 @@
+/* ============================================
+   VIP-to.css — FINAL CLEAN VERSION
+   Fixes: 1) No red borders on page load
+          2) Back button aligned to the right
+   ============================================ */
+
 /* General Reset */
 * {
     margin: 0;
@@ -14,7 +20,9 @@ body {
     flex-direction: column;
 }
 
-/* Header Styling */
+/* ============================================
+   HEADER
+   ============================================ */
 header {
     display: flex;
     justify-content: space-between;
@@ -52,12 +60,14 @@ header .hotel-name h1:hover {
     border-bottom-color: rgba(255, 255, 255, 0.6);
 }
 
+/* NAV — pushed to the RIGHT */
 nav {
     display: flex;
     align-items: center;
     gap: 15px;
     position: relative;
     z-index: 2;
+    margin-left: auto;  /* ← THIS pushes nav to the right */
 }
 
 /* Return Button */
@@ -90,7 +100,9 @@ nav {
     transform: translateX(-2px);
 }
 
-/* Main Content */
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
 main {
     padding: 20px;
     background-color: #fff;
@@ -103,7 +115,9 @@ main {
     text-align: left;
 }
 
-/* Service Explanation */
+/* ============================================
+   SERVICE EXPLANATION
+   ============================================ */
 #service-explanation {
     margin-bottom: 40px;
     padding: 25px;
@@ -128,7 +142,9 @@ main {
     line-height: 1.6;
 }
 
-/* Booking Form */
+/* ============================================
+   BOOKING FORM
+   ============================================ */
 #booking-form {
     margin-top: 30px;
 }
@@ -149,6 +165,7 @@ main {
 
 #booking-form input[type="text"],
 #booking-form input[type="tel"],
+#booking-form input[type="number"],
 #booking-form textarea {
     width: 100%;
     padding: 10px 12px;
@@ -168,7 +185,10 @@ main {
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
 }
 
-/* Error states — ONLY applied via JS .error class, NOT :invalid */
+/* ============================================
+   VALIDATION — .error class ONLY
+   NO :invalid pseudo-class used anywhere
+   ============================================ */
 #booking-form input.error,
 #booking-form textarea.error {
     border: 2px solid #ff3860 !important;
@@ -183,6 +203,9 @@ main {
     display: none;
 }
 
+/* ============================================
+   FORM LAYOUT HELPERS
+   ============================================ */
 .datetime-container {
     display: flex;
     justify-content: space-between;
@@ -201,6 +224,9 @@ main {
     font-weight: normal;
 }
 
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
 #booking-form button[type="submit"] {
     background-color: #000;
     color: #fff;
@@ -226,7 +252,9 @@ main {
     transform: none;
 }
 
-/* Flatpickr styling */
+/* ============================================
+   FLATPICKR CALENDAR STYLES
+   ============================================ */
 .flatpickr-calendar {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -252,7 +280,9 @@ main {
     border-color: #000;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
     header .hotel-name h1 {
         font-size: 22px;
@@ -313,6 +343,7 @@ main {
         justify-content: space-between;
         order: 2;
         margin-top: 10px;
+        margin-left: 0;  /* Reset for mobile stacking */
     }
 
     .return-btn span {

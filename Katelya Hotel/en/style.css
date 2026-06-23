@@ -370,6 +370,10 @@ main {
     background-image: url('https://www.streamadqfm.store/Turkish-Bath-%26-SPA/Turkish-Bath-%26-SPA.jpeg'); /* Use the tours image */
 }
 
+.service-bubble[data-service="nt-rugs"] {
+    background-image: url('KatelyaIMG/NT-Rugs/NT-Rugs.jpeg');
+}
+
 .service-text {
     margin-top: 10px; /* Space between bubble and text */
     color: #333; /* Dark gray text for readability */

@@ -337,32 +337,32 @@ main {
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Taxi/taxi-service.png'); /* Use the SVG file */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Taxi/taxi-service.png'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */
 .service-bubble[data-service="transfer"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/VIP/vip-service.png'); /* Use the new SVG file */
 }
 
 /* Tours Service Background */
 .service-bubble[data-service="tours"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/tours/tours-service.jpeg'); /* Use the tours image */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/tours/tours-service.jpeg'); /* Use the tours image */
 }
 
 /* Tours Service Background */
 .service-bubble[data-service="sim-card"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/sim-card/sim-card-main.jpeg'); /* Use the tours image */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/sim-card/sim-card-main.jpeg'); /* Use the tours image */
 }
 
 /* Tours Service Background */
 .service-bubble[data-service="cruise"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/dinner-cruise/cruise.jpeg'); /* Use the tours image */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/dinner-cruise/cruise.jpeg'); /* Use the tours image */
 }
 
 /* Tours Service Background */
 .service-bubble[data-service="Tour-Guide"] {
-    background-image: url('https://www.streamadqfm.store/KatelyaIMG/Tour-Guide/Tour-Guide.png'); /* Use the tours image */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Tour-Guide/Tour-Guide.png'); /* Use the tours image */
 }
 
 .service-text {

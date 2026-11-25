@@ -337,7 +337,7 @@ main {
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('KatelyaIMG/Taxi/service-v2.jpeg');
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Taxi/taxi-service.jpg');
 }
 
 /* Transfer Service Background */

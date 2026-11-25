@@ -256,7 +256,7 @@ main {
 
 /* Taxi Service Background */
 .service-bubble[data-service="taxi"] {
-    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Taxi/taxi-service.png'); /* Use the SVG file */
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Taxi/taxi-service.jpg'); /* Use the SVG file */
 }
 
 /* Transfer Service Background */

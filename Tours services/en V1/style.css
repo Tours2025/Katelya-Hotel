@@ -188,7 +188,7 @@ nav button:focus {
 
 /* Service Images */
 .service-bubble[data-service="taxi"] {
-    background-image: url('taxi-service.png');
+    background-image: url('https://katelyaimg.adqfm.net/KatelyaIMG/Taxi/taxi-service.jpg');
 }
 
 .service-bubble[data-service="transfer"] {
